@@ -5,3 +5,7 @@
 /obj/Debug
 /MMSaveEditor.csproj.user
 /MMSaveEditor.csproj.user
+/.vs/MMSaveEditor/v15/.suo
+/bin/Debug
+/packages
+/sampleData.json

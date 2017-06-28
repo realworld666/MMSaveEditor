@@ -2,9 +2,13 @@
 using System.IO;
 using System.Text;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 using LZ4;
+using Microsoft.Practices.ServiceLocation;
 using Microsoft.Win32;
+using MMSaveEditor.ViewModel;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MMSaveEditor
 {
@@ -55,13 +59,14 @@ namespace MMSaveEditor
 					binaryReader.ReadBytes( count );
 					string json = Encoding.UTF8.GetString( LZ4Codec.Decode( binaryReader.ReadBytes( num2 ), 0, num2, outputLength ) );
 
-					SaveData saveData = JsonConvert.DeserializeObject<SaveData>( json );
+					//SaveData saveData = JsonConvert.DeserializeObject<SaveData>( json );
 					//string formattedJSON = JsonConvert.SerializeObject( parsedJson, Formatting.Indented );
-					dynamic parsedJson = JsonConvert.DeserializeObject( json );
+					JObject parsedJson = JsonConvert.DeserializeObject( json ) as JObject;
+					var personVM = SimpleIoc.Default.GetInstance<PersonViewModel>();
+					personVM.SetModel( parsedJson.GetValue( "player" ) as JObject );
+
 					File.WriteAllText( @"saveFileJSON.txt", json );
 
-
-					Console.Write( json );
 					/*if( fsResult1.Failed )
 						Debug.LogErrorFormat( "Error reported whilst parsing serialized Game data string: {0}", (object)fsResult1.FormattedMessages );
 					fsResult fsResult2 = this.serializer.TryDeserialize<Game>( data, ref targetGame );

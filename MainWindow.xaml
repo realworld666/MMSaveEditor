@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MMSaveEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
+        >
+    <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -22,11 +24,15 @@
             </Menu>
         </DockPanel>
         <TabControl Grid.Row="1">
-            <TabItem x:Name="PersonTabItem" Header="Person">
-                <StackPanel>
+            <TabItem x:Name="PersonTabItem" Header="Person" >
+                <StackPanel DataContext="{Binding Person, Mode=Default}">
                     <StackPanel Orientation="Horizontal" >
-                        <TextBlock TextWrapping="Wrap" Text="Name" Width="200"/>
-                        <TextBox Width="200" />
+                        <TextBlock TextWrapping="Wrap" Text="First Name"  Width="200"/>
+                        <TextBox Width="200" Text="{Binding FirstName}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock TextWrapping="Wrap" Text="Last Name" Width="200"/>
+                        <TextBox Width="200"  Text="{Binding LastName}"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>
