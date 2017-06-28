@@ -64,6 +64,8 @@ namespace MMSaveEditor
 					JObject parsedJson = JsonConvert.DeserializeObject( json ) as JObject;
 					var personVM = SimpleIoc.Default.GetInstance<PersonViewModel>();
 					personVM.SetModel( parsedJson.GetValue( "player" ) as JObject );
+                    var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
+                    gameVM.SetModels(parsedJson.GetValue("time") as JObject);
 
 					File.WriteAllText( @"saveFileJSON.txt", json );
 

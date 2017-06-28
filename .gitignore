@@ -9,3 +9,13 @@
 /bin/Debug
 /packages
 /sampleData.json
+/obj/Release
+/obj/Release
+/obj/Release/MMSaveEditor_MarkupCompile.lref
+/obj/Release/MMSaveEditor_MarkupCompile.cache
+/obj/Release/MainWindow.g.cs
+/obj/Release/GeneratedInternalTypeHelper.g.cs
+/obj/Release/CoreCompileInputs.cache
+/obj/Release/App.g.cs
+/saveFileJSON.txt
+/.vs/slnx.sqlite

@@ -80,8 +80,9 @@
     <Compile Include="Data\Nationality.cs" />
     <Compile Include="Data\Person.cs" />
     <Compile Include="Data\SaveData.cs" />
-    <Compile Include="ViewModel\PersonViewModel.cs" />
+    <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

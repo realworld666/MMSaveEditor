@@ -34,10 +34,39 @@
                         <TextBlock TextWrapping="Wrap" Text="Last Name" Width="200"/>
                         <TextBox Width="200"  Text="{Binding LastName}"/>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock TextWrapping="Wrap" Text="Date of Birth" Width="200"/>
+                        <DatePicker Text="{Binding DOB}" DisplayDate="{Binding DOB}" Width="200"/>
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Game">
+                <StackPanel DataContext="{Binding Game, Mode=Default}">
+                    <GroupBox Header="Time">
+                        <StackPanel >
+                            <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Game Date" Width="200"/>
+                            <DatePicker Text="{Binding DateNow}" DisplayDate="{Binding DateNow}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Race Speed (Normal)" Width="200"/>
+                                <Slider Width="200" Value="{Binding RaceSpeed_Normal}" Minimum="1"/>
+                                <TextBlock Text="{Binding RaceSpeed_Normal}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock TextWrapping="Wrap" Text="Race Speed (Fast)" Width="200"/>
+                                <Slider Width="200" Value="{Binding RaceSpeed_Fast}" Minimum="1"/>
+                                <TextBlock Text="{Binding RaceSpeed_Fast}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock TextWrapping="Wrap" Text="Race Speed (Fastest)" Width="200"/>
+                                <Slider Width="200" Value="{Binding RaceSpeed_Fastest}" Minimum="1"/>
+                                <TextBlock Text="{Binding RaceSpeed_Fastest}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>
