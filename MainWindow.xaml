@@ -19,7 +19,6 @@
                     <MenuItem x:Name="open" Header="_Open" Click="open_Click"/>
                     <MenuItem Header="_Close"/>
                     <MenuItem Header="_Save"/>
-                    <ToolBar Height="100" Width="100"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -45,11 +44,11 @@
                     <GroupBox Header="Time">
                         <StackPanel >
                             <StackPanel Orientation="Horizontal" >
-                            <TextBlock TextWrapping="Wrap" Text="Game Date" Width="200"/>
-                            <DatePicker Text="{Binding DateNow}" DisplayDate="{Binding DateNow}" Width="200"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock TextWrapping="Wrap" Text="Race Speed (Normal)" Width="200"/>
+                                <TextBlock TextWrapping="Wrap" Text="Game Date" Width="200"/>
+                                <DatePicker Text="{Binding DateNow}" DisplayDate="{Binding DateNow}" Width="200"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock TextWrapping="Wrap" Text="Race Speed (Normal)" Width="200"/>
                                 <Slider Width="200" Value="{Binding RaceSpeed_Normal}" Minimum="1"/>
                                 <TextBlock Text="{Binding RaceSpeed_Normal}"/>
                             </StackPanel>

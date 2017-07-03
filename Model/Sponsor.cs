@@ -1,0 +1,57 @@
+﻿
+using System;
+using System.Collections.Generic;
+using FullSerializer;
+
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+public class Sponsor : Entity
+{
+    private static int maxOffersPerFind = 6;
+    public Sponsor.Difficulty difficulty = Sponsor.Difficulty.Medium;
+    public Nationality nationality = new Nationality();
+    public Person liaison = new Person();
+    public float homeBonusMultiplier = 1f;
+    public Color sponsorColor;
+    public SponsorSlot.SlotType slotSponsoring = SponsorSlot.SlotType.AirIntake;
+    private Dictionary<Team, DateTime> mTeamsIgnored = new Dictionary<Team, DateTime>();
+    private DateTime mFindContractsDate = new DateTime();
+    public Sponsor.Category category;
+    public int logoIndex;
+    public int prestigeLevel;
+    public int bonusTarget;
+    public int upfrontValue;
+    public int totalBonusAmount;
+    public int perRacePayment;
+    public int offerTimer;
+    public int offerCooldown;
+    public int contractTotalRaces;
+
+
+    public enum Category
+    {
+        AlcoholicDrinks,
+        Appliances,
+        Automotive,
+        Banking,
+        Clothing,
+        Fashion,
+        Food,
+        Games,
+        Media,
+        Oil,
+        Security,
+        Technology,
+        Telecoms,
+        Travel,
+    }
+
+    public enum Difficulty
+    {
+        [LocalisationID("PSG_10011056")] VeryEasy,
+        [LocalisationID("PSG_10010654")] Easy,
+        [LocalisationID("PSG_10010655")] Medium,
+        [LocalisationID("PSG_10010656")] Hard,
+        [LocalisationID("PSG_10011057")] VeryHard,
+        Count,
+    }
+}

@@ -1,0 +1,50 @@
+﻿
+
+public static class EasingUtility
+{
+
+	public enum Easing
+	{
+		Linear,
+		InQuad,
+		OutQuad,
+		InOutQuad,
+		OutInQuad,
+		InCubic,
+		OutCubic,
+		InOutCubic,
+		OutInCubic,
+		InQuart,
+		OutQuart,
+		InOutQuart,
+		OutInQuart,
+		InQuint,
+		OutQuint,
+		InOutQuint,
+		OutInQuint,
+		InSin,
+		OutSin,
+		InOutSin,
+		OutInSin,
+		InExp,
+		OutExp,
+		InOutExp,
+		OutInExp,
+		InCirc,
+		OutCirc,
+		InOutCirc,
+		OutInCirc,
+		InElastic,
+		OutElastic,
+		InOutElastic,
+		OutInElastic,
+		InBounce,
+		OutBounce,
+		InOutBounce,
+		OutInBounce,
+		InBack,
+		OutBack,
+		InOutBack,
+		OutInBack,
+	}
+}
