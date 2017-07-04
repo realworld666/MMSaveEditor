@@ -44,8 +44,9 @@ namespace MMSaveEditor.ViewModel
 
 			SimpleIoc.Default.Register<MainViewModel>();
 			SimpleIoc.Default.Register<PersonViewModel>();
-            SimpleIoc.Default.Register<GameViewModel>();
-        }
+			SimpleIoc.Default.Register<PlayerViewModel>();
+			SimpleIoc.Default.Register<GameViewModel>();
+		}
 
 		public MainViewModel Main
 		{
@@ -63,15 +64,23 @@ namespace MMSaveEditor.ViewModel
 			}
 		}
 
-        public GameViewModel Game
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<GameViewModel>();
-            }
-        }
+		public PlayerViewModel Player
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<PlayerViewModel>();
+			}
+		}
 
-        public static void Cleanup()
+		public GameViewModel Game
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<GameViewModel>();
+			}
+		}
+
+		public static void Cleanup()
 		{
 			// TODO Clear the ViewModels
 		}

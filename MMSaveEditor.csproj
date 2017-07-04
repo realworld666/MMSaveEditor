@@ -296,6 +296,7 @@
     <Compile Include="Model\GameState.cs" />
     <Compile Include="Model\GameStateInfo.cs" />
     <Compile Include="Model\GameTimer.cs" />
+    <Compile Include="Model\GameUtility.cs" />
     <Compile Include="Model\GarageEntryPathState.cs" />
     <Compile Include="Model\GarageExitPathState.cs" />
     <Compile Include="Model\GaragePathState.cs" />
@@ -568,8 +569,9 @@
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
+    <Compile Include="ViewModel\PlayerViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -577,7 +579,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
