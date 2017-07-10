@@ -5,6 +5,9 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class GenericManager<T> : BaseManager where T : Entity
 {
-  private List<T> mEntities = new List<T>();
-    
+    private List<T> mEntities = new List<T>();
+    public List<T> GetEntityList()
+    {
+        return this.mEntities;
+    }
 }

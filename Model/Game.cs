@@ -56,6 +56,13 @@ public class Game
     private bool mQueuedAutosave;
     public SerializedPreferences mSerializedPreferences;
 
+    public static Game Instance;
+
+    public Game()
+    {
+        Instance = this;
+    }
+
     public enum GameType
     {
         Career,

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tabPages="clr-namespace:MMSaveEditor.View.TabPages"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
@@ -101,6 +102,9 @@
                     </GroupBox>
 
                 </StackPanel>
+            </TabItem>
+            <TabItem Header="Team">
+                <tabPages:TeamPage ListBoxUpdated="TeamPage_OnListBoxUpdated"/>
             </TabItem>
         </TabControl>
     </Grid>
