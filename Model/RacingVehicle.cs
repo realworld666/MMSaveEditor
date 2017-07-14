@@ -1,8 +1,16 @@
 ﻿using FullSerializer;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 public class RacingVehicle : Vehicle
 {
+    public Driver driver;
+    public RacingVehicle leader;
+    public RacingVehicle ahead;
+    public RacingVehicle behind;
+    public RaceEventResults.ResultData resultData;
+    public int carID;
+    public Car car;
+
     private SessionTimer mTimer = new SessionTimer();
     private SessionStats mStats = new SessionStats();
     private SessionStrategy mStrategy = new SessionStrategy();
@@ -15,14 +23,6 @@ public class RacingVehicle : Vehicle
     private SessionPenalty mSessionPenalty = new SessionPenalty();
     private ERSController mERSController = new ERSController();
     private TeamRadio mTeamRadio = new TeamRadio();
-    private RaceEventResults.ResultData mSessionData = new RaceEventResults.ResultData();
-    public Driver driver;
-    public RacingVehicle leader;
-    public RacingVehicle ahead;
-    public RacingVehicle behind;
-    public RaceEventResults.ResultData resultData;
-    public int carID;
-    public Car car;
     private int mStandingsPosition;
     private int mPreviousStandingsPosition;
     private int mPreviousStandingsPositionForCommentary;
@@ -33,5 +33,7 @@ public class RacingVehicle : Vehicle
     private float mCommentaryCooldown;
     private bool mWaitingForCooldown;
     private float mSpeedTrapSpeed;
+    private RaceEventResults.ResultData mSessionData = new RaceEventResults.ResultData();
+
 
 }

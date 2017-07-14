@@ -1,10 +1,13 @@
 ﻿
 using FullSerializer;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 public class TyreSet
 {
     public static readonly int sTreadCount = 3;
+    private TyreSetPerformanceRange mLowPerformanceRange = new TyreSetPerformanceRange();
+    private TyreSetPerformanceRange mMediumPerformanceRange = new TyreSetPerformanceRange();
+    private TyreSetPerformanceRange mHighPerformanceRange = new TyreSetPerformanceRange();
     private float mPunctureDuration = 60f;
     private float mCondition;
     private float mTemperature;
@@ -17,13 +20,13 @@ public class TyreSet
 
     public enum Compound
     {
-        [LocalisationID("PSG_10000472")] SuperSoft,
-        [LocalisationID("PSG_10000473")] Soft,
-        [LocalisationID("PSG_10000467")] Medium,
-        [LocalisationID("PSG_10000468")] Hard,
-        [LocalisationID("PSG_10000471")] Intermediate,
-        [LocalisationID("PSG_10000470")] Wet,
-        [LocalisationID("PSG_10007137")] UltraSoft,
+        [LocalisationID( "PSG_10000472" )] SuperSoft,
+        [LocalisationID( "PSG_10000473" )] Soft,
+        [LocalisationID( "PSG_10000467" )] Medium,
+        [LocalisationID( "PSG_10000468" )] Hard,
+        [LocalisationID( "PSG_10000471" )] Intermediate,
+        [LocalisationID( "PSG_10000470" )] Wet,
+        [LocalisationID( "PSG_10007137" )] UltraSoft,
     }
 
     public enum Tread

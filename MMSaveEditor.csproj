@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MMSaveEditor</RootNamespace>
     <AssemblyName>MMSaveEditor</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -199,8 +199,10 @@
     <Compile Include="Model\CalendarEventTypeIconContainer.cs" />
     <Compile Include="Model\CalendarEvent_v1.cs" />
     <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\CarChassisDesignData.cs" />
     <Compile Include="Model\CarChassisManager.cs" />
     <Compile Include="Model\CarChassisStats.cs" />
+    <Compile Include="Model\CarConditionDesignData.cs" />
     <Compile Include="Model\CarConditionPerformance.cs" />
     <Compile Include="Model\CareerHistory.cs" />
     <Compile Include="Model\CareerHistoryEntry.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Model\CarPartUnlockRequirement.cs" />
     <Compile Include="Model\CarPerformanceDesignData.cs" />
     <Compile Include="Model\CarStats.cs" />
+    <Compile Include="Model\CarStatsDesignData.cs" />
     <Compile Include="Model\Celebrity.cs" />
     <Compile Include="Model\CelebrityManager.cs" />
     <Compile Include="Model\Chairman.cs" />
@@ -264,6 +267,7 @@
     <Compile Include="Model\ContractVariablesContainer.cs" />
     <Compile Include="Model\ContractVariablesData.cs" />
     <Compile Include="Model\CrashDirector.cs" />
+    <Compile Include="Model\CriticalCarPartDesignData.cs" />
     <Compile Include="Model\CriticalCarPartPerformance.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\DatabaseEntry.cs" />
@@ -274,8 +278,10 @@
     <Compile Include="Model\DialogRule.cs" />
     <Compile Include="Model\DilemmaSystem.cs" />
     <Compile Include="Model\DisplayEffect.cs" />
+    <Compile Include="Model\Dlc.cs" />
     <Compile Include="Model\Driver.cs" />
     <Compile Include="Model\DriverCareerForm.cs" />
+    <Compile Include="Model\DriverFormDesignData.cs" />
     <Compile Include="Model\DriverManager.cs" />
     <Compile Include="Model\DriverMentalState.cs" />
     <Compile Include="Model\DriverPerformance.cs" />
@@ -286,6 +292,7 @@
     <Compile Include="Model\DriverStatsProgression.cs" />
     <Compile Include="Model\DriverStatsProgressionManager.cs" />
     <Compile Include="Model\DrivingStyle.cs" />
+    <Compile Include="Model\DrivingStyleDesignData.cs" />
     <Compile Include="Model\EasingUtility.cs" />
     <Compile Include="Model\EmployeeSlot.cs" />
     <Compile Include="Model\Engineer.cs" />
@@ -298,6 +305,7 @@
     <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\EntityManager.cs" />
     <Compile Include="Model\ERSController.cs" />
+    <Compile Include="Model\ERSDesignData.cs" />
     <Compile Include="Model\ERSPerformance.cs" />
     <Compile Include="Model\EventEffect.cs" />
     <Compile Include="Model\Finance.cs" />
@@ -310,12 +318,14 @@
     <Compile Include="Model\FrontendCarManager.cs" />
     <Compile Include="Model\FrontWingPart.cs" />
     <Compile Include="Model\Fuel.cs" />
+    <Compile Include="Model\FuelDesignData.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\GameAchievementDataStorage.cs" />
     <Compile Include="Model\GameState.cs" />
     <Compile Include="Model\GameStateInfo.cs" />
     <Compile Include="Model\GameTimer.cs" />
     <Compile Include="Model\GameUtility.cs" />
+    <Compile Include="Model\GameVersionNumber.cs" />
     <Compile Include="Model\GarageEntryPathState.cs" />
     <Compile Include="Model\GarageExitPathState.cs" />
     <Compile Include="Model\GaragePathState.cs" />
@@ -328,6 +338,7 @@
     <Compile Include="Model\GoToSimulateEventEffect.cs" />
     <Compile Include="Model\GridPathState.cs" />
     <Compile Include="Model\GroupSpeedController.cs" />
+    <Compile Include="Model\HardTyreSet.cs" />
     <Compile Include="Model\Headquarters.cs" />
     <Compile Include="Model\History.cs" />
     <Compile Include="Model\HQsBuilding.cs" />
@@ -339,6 +350,7 @@
     <Compile Include="Model\HQsManager.cs" />
     <Compile Include="Model\ImprovePartsCommand.cs" />
     <Compile Include="Model\InOutLapSpeedController.cs" />
+    <Compile Include="Model\IntermediateTyreSet.cs" />
     <Compile Include="Model\Investor.cs" />
     <Compile Include="Model\InvestorManager.cs" />
     <Compile Include="Model\JobApplicationDisplayEffect.cs" />
@@ -358,6 +370,7 @@
     <Compile Include="Model\MediaManager.cs" />
     <Compile Include="Model\MediaOutlet.cs" />
     <Compile Include="Model\MediaStory.cs" />
+    <Compile Include="Model\MediumTyreSet.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\MessageAction.cs" />
     <Compile Include="Model\MessageManager.cs" />
@@ -463,10 +476,29 @@
     <Compile Include="Model\RaceEventDetails.cs" />
     <Compile Include="Model\RaceEventEffect.cs" />
     <Compile Include="Model\RaceEventResults.cs" />
+    <Compile Include="Model\RaceLengthDesignData.cs" />
     <Compile Include="Model\RaceStartSteeringBehaviour.cs" />
     <Compile Include="Model\RacingLineSteeringBehaviour.cs" />
     <Compile Include="Model\RacingVehicle.cs" />
     <Compile Include="Model\RadioMessage.cs" />
+    <Compile Include="Model\RadioMessageCarPart.cs" />
+    <Compile Include="Model\RadioMessageCollision.cs" />
+    <Compile Include="Model\RadioMessageCrash.cs" />
+    <Compile Include="Model\RadioMessageEndSession.cs" />
+    <Compile Include="Model\RadioMessageFuelStrategy.cs" />
+    <Compile Include="Model\RadioMessageLockUp.cs" />
+    <Compile Include="Model\RadioMessageOvertakes.cs" />
+    <Compile Include="Model\RadioMessagePitStop.cs" />
+    <Compile Include="Model\RadioMessageQualifying.cs" />
+    <Compile Include="Model\RadioMessageSafetyCar.cs" />
+    <Compile Include="Model\RadioMessageSetupFeedback.cs" />
+    <Compile Include="Model\RadioMessageSpinOut.cs" />
+    <Compile Include="Model\RadioMessageTeamOrders.cs" />
+    <Compile Include="Model\RadioMessageTyreTemperature.cs" />
+    <Compile Include="Model\RadioMessageTyreWear.cs" />
+    <Compile Include="Model\RadioMessageWantsToGoOut.cs" />
+    <Compile Include="Model\RadioMessageWeatherChanges.cs" />
+    <Compile Include="Model\RadioMessageWrongTyres.cs" />
     <Compile Include="Model\Ray2.cs" />
     <Compile Include="Model\RearWingGTPart.cs" />
     <Compile Include="Model\RearWingPart.cs" />
@@ -477,6 +509,7 @@
     <Compile Include="Model\RetirementDirector.cs" />
     <Compile Include="Model\SafetyCarSpeedController.cs" />
     <Compile Include="Model\SafetyVehicle.cs" />
+    <Compile Include="Model\SaveFileInfo.cs" />
     <Compile Include="Model\Scout.cs" />
     <Compile Include="Model\ScoutingDisplayEffect.cs" />
     <Compile Include="Model\ScoutingManager.cs" />
@@ -512,6 +545,7 @@
     <Compile Include="Model\SimulationUtility.cs" />
     <Compile Include="Model\SlowSpeedSteeringBehaviour.cs" />
     <Compile Include="Model\Smiley.cs" />
+    <Compile Include="Model\SoftTyreSet.cs" />
     <Compile Include="Model\SpeedController.cs" />
     <Compile Include="Model\SpeedManager.cs" />
     <Compile Include="Model\SpiningOutSpeedController.cs" />
@@ -527,6 +561,7 @@
     <Compile Include="Model\SteeringBehaviour.cs" />
     <Compile Include="Model\SteeringContextMap.cs" />
     <Compile Include="Model\SteeringManager.cs" />
+    <Compile Include="Model\SuperSoftTyreSet.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\SupplierManager.cs" />
     <Compile Include="Model\SuspensionGTPart.cs" />
@@ -536,6 +571,7 @@
     <Compile Include="Model\TeamAIController.cs" />
     <Compile Include="Model\TeamAIWeightings.cs" />
     <Compile Include="Model\TeamColor.cs" />
+    <Compile Include="Model\TeamColorManager.cs" />
     <Compile Include="Model\TeamDisplayEffect.cs" />
     <Compile Include="Model\TeamFinanceController.cs" />
     <Compile Include="Model\TeamLogo.cs" />
@@ -551,11 +587,14 @@
     <Compile Include="Model\TeamRumourManager.cs" />
     <Compile Include="Model\TeamStatistics.cs" />
     <Compile Include="Model\TemperatureOptimisation.cs" />
+    <Compile Include="Model\TemperatureOptimisationDesignData.cs" />
     <Compile Include="Model\TextDynamicData.cs" />
     <Compile Include="Model\TopManagerChallenge.cs" />
+    <Compile Include="Model\TrackExpertDesignData.cs" />
     <Compile Include="Model\TrackExpertPerformance.cs" />
     <Compile Include="Model\TrackLayoutSpeedController.cs" />
     <Compile Include="Model\TrackPathState.cs" />
+    <Compile Include="Model\TrackWaterDesignData.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\TransactionHistory.cs" />
     <Compile Include="Model\Trophy.cs" />
@@ -571,9 +610,12 @@
     <Compile Include="Model\TyreLockUpSpeedController.cs" />
     <Compile Include="Model\TyreLockUpSteeringBehaviour.cs" />
     <Compile Include="Model\TyrePerformance.cs" />
+    <Compile Include="Model\TyrePerformanceDesignData.cs" />
     <Compile Include="Model\TyreSet.cs" />
+    <Compile Include="Model\TyreSetPerformanceRange.cs" />
     <Compile Include="Model\TyreStrategyOption.cs" />
     <Compile Include="Model\UITutorialSequence.cs" />
+    <Compile Include="Model\UltraSoftTyreSet.cs" />
     <Compile Include="Model\UnderDogChallenge.cs" />
     <Compile Include="Model\Vector2.cs" />
     <Compile Include="Model\Vector3.cs" />
@@ -583,6 +625,7 @@
     <Compile Include="Model\VoteChoice.cs" />
     <Compile Include="Model\Weather.cs" />
     <Compile Include="Model\WeatherImpact.cs" />
+    <Compile Include="Model\WetTyreSet.cs" />
     <Compile Include="Model\WorkingHours.cs" />
     <Compile Include="Model\YoungDriverProgramme.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
@@ -593,6 +636,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\TabPages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabPages\TeamPage_CarPart.xaml.cs">
+      <DependentUpon>TeamPage_CarPart.xaml</DependentUpon>
     </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -607,6 +653,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\TabPages\TeamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabPages\TeamPage_CarPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

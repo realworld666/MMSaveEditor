@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="MMSaveEditor.View.TabPages.TeamPage_CarPart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <DataGrid CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding stats.stat}" ClipboardContentBinding="{x:Null}" Header="Base Stat"/>
+                <DataGridTextColumn Binding="{Binding stats.performance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
+                <DataGridTextColumn Binding="{Binding stats.MaxPerformance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
+                <DataGridTextColumn Binding="{Binding stats.reliability}" ClipboardContentBinding="{x:Null}" Header="Reliability"/>
+                <DataGridTextColumn Binding="{Binding stats.MaxReliability}" ClipboardContentBinding="{x:Null}" Header="Max Reliability"/>
+                <DataGridTextColumn Binding="{Binding stats.RulesRisk1}" ClipboardContentBinding="{x:Null}" Header="Rules Risk"/>
+                <DataGridCheckBoxColumn Binding="{Binding IsBanned}" ClipboardContentBinding="{x:Null}" Header="Banned"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<ListView ItemTemplate="{DynamicResource InventoryItem}" ItemsSource="{Binding EngineParts, Mode=OneWay}">
+                            </ListView>-->
+    </Grid>
+</UserControl>

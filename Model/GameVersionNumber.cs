@@ -1,13 +1,7 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: MM2.GameVersionNumber
-// Assembly: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 0C496ACE-0409-4428-BF50-DF04E26AD4C0
-// Assembly location: D:\Steam\steamapps\common\Motorsport Manager\MM_Data\Managed\Assembly-CSharp.dll
-
-namespace MM2
+﻿namespace MM2
 {
-  public static class GameVersionNumber
-  {
-    public static readonly VersionNumber version = new VersionNumber() { major = 1, minor = 31, patch = 13291, preReleaseVersion = string.Empty, buildMetadata = "1421.20170308.1521" };
-  }
+    public static class GameVersionNumber
+    {
+        public static readonly VersionNumber version = new VersionNumber() { major = 1, minor = 31, patch = 13291, preReleaseVersion = string.Empty, buildMetadata = "1421.20170308.1521" };
+    }
 }

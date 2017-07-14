@@ -78,6 +78,20 @@ public class Person : Entity
         }
     }
 
+    public bool IsFreeAgent()
+    {
+        return this.contract.job == Contract.Job.Unemployed;
+    }
+
+    public int GetAge()
+    {
+        DateTime now = Game.Instance.time.now;
+        int num = now.Year - this.dateOfBirth.Year;
+        if (now.Month < this.dateOfBirth.Month || now.Month == this.dateOfBirth.Month && now.Day < this.dateOfBirth.Day)
+            --num;
+        return num;
+    }
+
     public void SetName(string inFirstName, string inLastName)
     {
         this.mFirstName = inFirstName;

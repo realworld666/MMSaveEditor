@@ -15,11 +15,11 @@ public class RaceEventResults
 	[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 	public class ResultData
 	{
+		public Driver driver;
+		public Team team;
 		public List<Penalty> penalties = new List<Penalty>();
 		public TyreSet.Compound tyreCompound = TyreSet.Compound.Soft;
 		public int positioWhenOutOfFuel = -1;
-		public Driver driver;
-		public Team team;
 		public float time;
 		public float gapToAhead;
 		public float gapToLeader;
@@ -57,8 +57,10 @@ public class RaceEventResults
 		public enum CarState
 		{
 			None,
-			[LocalisationID( "PSG_10007789" )] Crashed,
-			[LocalisationID( "PSG_10007790" )] Retired,
+			[LocalisationID( "PSG_10007789" )]
+			Crashed,
+			[LocalisationID( "PSG_10007790" )]
+			Retired,
 		}
 	}
 

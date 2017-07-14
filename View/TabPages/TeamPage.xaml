@@ -54,23 +54,8 @@
             <GroupBox Header="Car Inventory">
                 <StackPanel>
                     <Expander Header="Engine" Height="100">
+                        <local:TeamPage_CarPart DataContext="{Binding EngineParts}" ></local:TeamPage_CarPart>
 
-                        <Grid Background="#FFE5E5E5">
-                            <DataGrid ItemsSource="{Binding EngineParts, Mode=OneWay}" CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="False">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding stats.stat}" ClipboardContentBinding="{x:Null}" Header="Base Stat"/>
-                                    <DataGridTextColumn Binding="{Binding stats.performance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
-                                    <DataGridTextColumn Binding="{Binding stats.MaxPerformance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
-                                    <DataGridTextColumn Binding="{Binding stats.reliability}" ClipboardContentBinding="{x:Null}" Header="Reliability"/>
-                                    <DataGridTextColumn Binding="{Binding stats.MaxReliability}" ClipboardContentBinding="{x:Null}" Header="Max Reliability"/>
-                                    <DataGridTextColumn Binding="{Binding stats.RulesRisk1}" ClipboardContentBinding="{x:Null}" Header="Rules Risk"/>
-                                    <DataGridCheckBoxColumn Binding="{Binding IsBanned}" ClipboardContentBinding="{x:Null}" Header="Banned"/>
-
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            <!--<ListView ItemTemplate="{DynamicResource InventoryItem}" ItemsSource="{Binding EngineParts, Mode=OneWay}">
-                            </ListView>-->
-                        </Grid>
                     </Expander>
 
                 </StackPanel>
