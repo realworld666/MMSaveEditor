@@ -96,6 +96,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FullSerializer\Aot\Editor\fsAotConfigurationEditor.cs" />
+    <Compile Include="FullSerializer\Aot\fs2DArrayConverter.cs" />
     <Compile Include="FullSerializer\Aot\fsAotCompilationManager.cs" />
     <Compile Include="FullSerializer\Aot\fsAotConfiguration.cs" />
     <Compile Include="FullSerializer\Aot\fsAotVersionInfo.cs" />

@@ -54,10 +54,11 @@
             <GroupBox Header="Car Inventory">
                 <StackPanel>
                     <Expander Header="Engine" Height="100">
-                        <local:TeamPage_CarPart DataContext="{Binding EngineParts}" ></local:TeamPage_CarPart>
-
+                        <local:TeamPage_CarPart DataContext="{Binding Engine}" ></local:TeamPage_CarPart>
                     </Expander>
-
+                    <Expander Header="Brakes" Height="100">
+                        <local:TeamPage_CarPart DataContext="{Binding Brakes}" ></local:TeamPage_CarPart>
+                    </Expander>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

@@ -10,7 +10,7 @@
         <DataGrid CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding stats.stat}" ClipboardContentBinding="{x:Null}" Header="Base Stat"/>
-                <DataGridTextColumn Binding="{Binding stats.performance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
+                <DataGridTextColumn Binding="{Binding stats.performance}" ClipboardContentBinding="{x:Null}" Header="Performance"/>
                 <DataGridTextColumn Binding="{Binding stats.MaxPerformance}" ClipboardContentBinding="{x:Null}" Header="Max Performance"/>
                 <DataGridTextColumn Binding="{Binding stats.reliability}" ClipboardContentBinding="{x:Null}" Header="Reliability"/>
                 <DataGridTextColumn Binding="{Binding stats.MaxReliability}" ClipboardContentBinding="{x:Null}" Header="Max Reliability"/>
