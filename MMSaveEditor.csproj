@@ -629,11 +629,13 @@
     <Compile Include="Model\WetTyreSet.cs" />
     <Compile Include="Model\WorkingHours.cs" />
     <Compile Include="Model\YoungDriverProgramme.cs" />
+    <Compile Include="Utils\VisibilityConverters.cs" />
+    <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\PlayerViewModel.cs" />
-    <Compile Include="ViewModel\TeamPrincipleViewModel.cs" />
+    <Compile Include="ViewModel\TeamPrincipalViewModel.cs" />
     <Compile Include="ViewModel\TeamViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\TabPages\GamePage.xaml.cs">

@@ -20,19 +20,19 @@ namespace MMSaveEditor.ViewModel
             set
             {
                 _people = value;
-                RaisePropertyChanged( String.Empty );
+                RaisePropertyChanged(String.Empty);
             }
         }
 
-        public void SetList( List<T> list )
+        public void SetList(List<T> list)
         {
-            People = new ObservableCollection<T>( list );
+            People = new ObservableCollection<T>(list);
         }
 
-        public void SetModel( T personData )
+        public void SetModel(T personData)
         {
             _personData = personData;
-            RaisePropertyChanged( String.Empty );
+            RaisePropertyChanged(String.Empty);
         }
 
         public string FirstName
@@ -43,8 +43,8 @@ namespace MMSaveEditor.ViewModel
             }
             set
             {
-                _personData.SetName( value, _personData.lastName );
-                RaisePropertyChanged( String.Empty );
+                _personData.SetName(value, _personData.lastName);
+                RaisePropertyChanged(String.Empty);
             }
         }
         public string LastName
@@ -56,8 +56,8 @@ namespace MMSaveEditor.ViewModel
             }
             set
             {
-                _personData.SetName( _personData.firstName, value );
-                RaisePropertyChanged( String.Empty );
+                _personData.SetName(_personData.firstName, value);
+                RaisePropertyChanged(String.Empty);
             }
         }
 
@@ -82,7 +82,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if( _personData != null )
+                if (_personData != null)
                     return _personData.dateOfBirth;
                 return DateTime.Now;
             }
@@ -108,7 +108,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return Enum.GetValues( typeof( Person.Gender ) ).Cast<Person.Gender>();
+                return Enum.GetValues(typeof(Person.Gender)).Cast<Person.Gender>();
             }
         }
 
@@ -155,7 +155,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if( _personData != null )
+                if (_personData != null)
                     return _personData.peakAge;
                 return DateTime.Now;
             }

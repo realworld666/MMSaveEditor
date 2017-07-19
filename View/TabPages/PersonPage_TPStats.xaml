@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
-             DataContext="{Binding TeamPrinciple, Mode=OneWay, Source={StaticResource Locator}}"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <StackPanel Orientation="Horizontal" >
@@ -24,6 +23,10 @@
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Job Security"  Width="200"/>
             <xctk:SingleUpDown Width="200" FormatString="F3" Value="{Binding JobSecurity}" Increment=".001"  Maximum="20"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Backstory"  Width="200"/>
+            <ComboBox SelectedItem="{Binding BackStory}" ItemsSource="{Binding BackStoryTypes}"></ComboBox>
         </StackPanel>
     </StackPanel>
 </UserControl>
