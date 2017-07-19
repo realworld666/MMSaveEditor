@@ -18,7 +18,7 @@ namespace MMSaveEditor.ViewModel
     /// </summary>
     public class GameViewModel : ViewModelBase
     {
-        private JObject _timeData;
+        private GameTimer _timeData;
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -27,18 +27,18 @@ namespace MMSaveEditor.ViewModel
         {
         }
 
-        public void SetModels(JObject timeData)
+        public void SetModels( GameTimer timeData )
         {
             _timeData = timeData;
-            RaisePropertyChanged(String.Empty);
+            RaisePropertyChanged( String.Empty );
         }
 
         public DateTime DateNow
         {
             get
             {
-                if (_timeData != null)
-                    return DateTime.Parse(_timeData?.GetValue("mNow").ToString());
+                if( _timeData != null )
+                    return _timeData.now;
                 return DateTime.Now;
             }
             set
@@ -51,10 +51,9 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_timeData != null)
+                if( _timeData != null )
                 {
-                    var speed = _timeData.GetValue("speedMultipliers");
-                    return speed == null ? float.NaN : speed.Value<JArray>("a").Value<float>(6);
+                    return _timeData.speedMultipliers[2, 0];
                 }
                 return float.NaN;
             }
@@ -64,10 +63,9 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_timeData != null)
+                if( _timeData != null )
                 {
-                    var speed = _timeData.GetValue("speedMultipliers");
-                    return speed == null ? float.NaN : speed.Value<JArray>("a").Value<float>(7);
+                    return _timeData.speedMultipliers[2, 1];
                 }
                 return float.NaN;
             }
@@ -77,10 +75,9 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_timeData != null)
+                if( _timeData != null )
                 {
-                    var speed = _timeData.GetValue("speedMultipliers");
-                    return speed == null ? float.NaN : speed.Value<JArray>("a").Value<float>(8);
+                    return _timeData.speedMultipliers[2, 2];
                 }
                 return float.NaN;
             }

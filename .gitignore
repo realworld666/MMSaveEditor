@@ -20,3 +20,6 @@
 /saveFileJSON.txt
 /.vs/slnx.sqlite
 /.vs/MMSaveEditor/v14/.suo
+/bin/Release
+/Installer/installer-cache
+/Installer/Setup Files/installer.zip

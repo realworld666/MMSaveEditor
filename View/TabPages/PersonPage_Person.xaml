@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="MMSaveEditor.View.TabPages.PersonPage_Person"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
+             mc:Ignorable="d" 
+             DataContext="{Binding TeamPrinciple, Mode=OneWay, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="First Name"  Width="200"/>
+            <TextBox Width="200" Text="{Binding FirstName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Last Name" Width="200"/>
+            <TextBox Width="200"  Text="{Binding LastName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Short Name" Width="200" IsEnabled="False"/>
+            <TextBox Width="200"  Text="{Binding ShortName, Mode=OneWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="3 Letter Name" Width="200" IsEnabled="False"/>
+            <TextBox Width="60"  Text="{Binding ThreeLetterName, Mode=OneWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Date of Birth" Width="200"/>
+            <DatePicker Text="{Binding DOB}" DisplayDate="{Binding DOB}" Width="200"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Gender" Width="200"/>
+            <ComboBox SelectedItem="{Binding Gender}" ItemsSource="{Binding GenderTypes}"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Weight" Width="200"/>
+            <TextBox Width="60" Text="{Binding Weight}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Retirement Age" Width="200"/>
+            <TextBox Width="60" Text="{Binding RetirementAge}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Obedience" Width="200"/>
+            <TextBox Width="60" Text="{Binding Obedience}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Morale" Width="200"/>
+            <TextBox Width="60" Text="{Binding Morale}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Peak Age" Width="200"/>
+            <DatePicker Text="{Binding PeakAge}" DisplayDate="{Binding PeakAge}" Width="200"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock TextWrapping="Wrap" Text="Team" Width="200"/>
+            <Button Content="{Binding PlayerTeamName}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

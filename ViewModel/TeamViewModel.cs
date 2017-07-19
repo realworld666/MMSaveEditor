@@ -17,6 +17,9 @@ namespace MMSaveEditor.ViewModel
         public ObservableCollection<CarPart> GearboxGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.gearboxGTInventory);
         public ObservableCollection<CarPart> Gearbox => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.gearboxInventory);
         public ObservableCollection<CarPart> RearWingGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.rearWingGTInventory);
+        public ObservableCollection<CarPart> RearWing => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.rearWingInventory);
+        public ObservableCollection<CarPart> SuspensionGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.suspensionGTInventory);
+        public ObservableCollection<CarPart> Suspension => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.suspensionInventory);
 
         public int Reputation
         {

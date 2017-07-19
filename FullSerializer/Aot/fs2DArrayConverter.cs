@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: FullSerializer.Internal.fs2DArrayConverter
-// Assembly: Assembly-CSharp-firstpass, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 124041DF-140C-4BC8-9E08-73B1F0C68F17
-// Assembly location: D:\Programs\Steam\steamapps\common\Motorsport Manager\MM_Data\Managed\Assembly-CSharp-firstpass.dll
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 

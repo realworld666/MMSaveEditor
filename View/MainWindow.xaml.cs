@@ -22,6 +22,17 @@ namespace MMSaveEditor.View
         private static readonly int saveFileVersion = 4;
         private SaveFileInfo _currentSaveInfo;
 
+        public string VersionString
+        {
+            get
+            {
+                return string.Format( "Motorsport Manager Save Editor v{0}", System.Reflection.Assembly.GetExecutingAssembly()
+                                           .GetName()
+                                           .Version
+                                           .ToString() );
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,6 +63,19 @@ namespace MMSaveEditor.View
             if( !string.IsNullOrEmpty( _openFilePath ) )
             {
                 SaveFile( _openFilePath );
+            }
+        }
+
+        private void SaveAs_Click( object sender, RoutedEventArgs e )
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Save games (*.sav)|*.*";
+            saveFileDialog.InitialDirectory = Path.Combine( App.Instance.LocalLowFolderPath, "Playsport Games\\Motorsport Manager\\Cloud\\Saves" );
+            saveFileDialog.DefaultExt = "sav";
+            if( saveFileDialog.ShowDialog() == true )
+            {
+                SaveFile( saveFileDialog.FileName );
+                _openFilePath = saveFileDialog.FileName;
             }
         }
 
@@ -179,14 +203,16 @@ namespace MMSaveEditor.View
                     foreach( object rawMessage in fsResult2.RawMessages )
                         Console.Write( rawMessage );
 
-                    var personVM = SimpleIoc.Default.GetInstance<PlayerViewModel>();
-                    personVM.SetModel( targetGame.player );
+                    var playerVM = SimpleIoc.Default.GetInstance<PlayerViewModel>();
+                    playerVM.SetModel( targetGame.player );
                     var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
                     teamVM.SetModel( null );
-                    //var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
-                    //gameVM.SetModels(parsedJson.GetValue("time") as JObject);
+                    var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
+                    gameVM.SetModels( targetGame.time );
+                    var principleVM = SimpleIoc.Default.GetInstance<TeamPrincipleViewModel>();
+                    principleVM.SetList( targetGame.teamPrincipalManager.GetEntityList() );
 
-                    File.WriteAllText( @"saveFileJSON.txt", json );
+
 
                     /*if( fsResult1.Failed )
                         Debug.LogErrorFormat( "Error reported whilst parsing serialized Game data string: {0}", (object)fsResult1.FormattedMessages );
@@ -203,6 +229,24 @@ namespace MMSaveEditor.View
         {
             var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
             teamVM.SetModel( e );
+        }
+
+        private void TeamPrinciplePage_OnListBoxUpdated( object sender, Person e )
+        {
+            var vm = SimpleIoc.Default.GetInstance<TeamPrincipleViewModel>();
+            vm.SetModel( e as TeamPrincipal );
+        }
+
+        private void Hyperlink_RequestNavigate( object sender,
+                                       System.Windows.Navigation.RequestNavigateEventArgs e )
+        {
+
+            Process.Start( e.Uri.ToString() );
+        }
+
+        private void Exit_Click( object sender, RoutedEventArgs e )
+        {
+            Application.Current.Shutdown();
         }
     }
 }

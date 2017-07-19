@@ -53,11 +53,38 @@
             </GroupBox>
             <GroupBox Header="Car Inventory">
                 <StackPanel>
-                    <Expander Header="Engine" Height="100">
+                    <Expander Header="Brakes">
+                        <local:TeamPage_CarPart DataContext="{Binding Brakes}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Brakes (GT)">
+                        <local:TeamPage_CarPart DataContext="{Binding BrakesGT}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Engine">
                         <local:TeamPage_CarPart DataContext="{Binding Engine}" ></local:TeamPage_CarPart>
                     </Expander>
-                    <Expander Header="Brakes" Height="100">
-                        <local:TeamPage_CarPart DataContext="{Binding Brakes}" ></local:TeamPage_CarPart>
+                    <Expander Header="Engine (GT)">
+                        <local:TeamPage_CarPart DataContext="{Binding EngineGT}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Front Wing">
+                        <local:TeamPage_CarPart DataContext="{Binding FrontWing}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Gearbox">
+                        <local:TeamPage_CarPart DataContext="{Binding Gearbox}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Gearbox (GT)">
+                        <local:TeamPage_CarPart DataContext="{Binding GearboxGT}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Rear Wing">
+                        <local:TeamPage_CarPart DataContext="{Binding RearWing}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Rear Wing (GT)">
+                        <local:TeamPage_CarPart DataContext="{Binding RearWingGT}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Suspension">
+                        <local:TeamPage_CarPart DataContext="{Binding Suspension}" ></local:TeamPage_CarPart>
+                    </Expander>
+                    <Expander Header="Suspension (GT)">
+                        <local:TeamPage_CarPart DataContext="{Binding SuspensionGT}" ></local:TeamPage_CarPart>
                     </Expander>
                 </StackPanel>
             </GroupBox>

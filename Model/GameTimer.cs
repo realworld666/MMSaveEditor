@@ -1,7 +1,7 @@
 ﻿using FullSerializer;
 using System;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 public class GameTimer
 {
     public static float baseSimulationDeltaTime = 0.03333334f;
@@ -12,10 +12,10 @@ public class GameTimer
     public static float debugSkipSpeed = 0.0f;
     public static float minSkipSpeed = 60000f;
     public static float maxSkipSpeed = 120000f;
-    public static DateTime gameStartDate = new DateTime(2016, 3, 1);
+    public static DateTime gameStartDate = new DateTime( 2016, 3, 1 );
     private readonly float mPreSeasonSkipSpeed = 300000f;
     private DateTime mNow = GameTimer.gameStartDate;
-    private float[,] speedMultipliers = new float[3, 3] { { 250f, 2500f, 25000f }, { 1f, 10f, 50f }, { 1.75f, 2.75f, 3.75f } };
+    public float[,] speedMultipliers = new float[3, 3] { { 250f, 2500f, 25000f }, { 1f, 10f, 50f }, { 1.75f, 2.75f, 3.75f } };
     private bool[] mPauseState = new bool[5];
     public Action OnYearEnd;
     public Action OnMonthEnd;

@@ -2,44 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 
 namespace MMSaveEditor.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
-    public class PersonViewModel : ViewModelBase
+    public abstract class PersonViewModel<T> : ViewModelBase where T : Person
     {
-        protected Player _personData;
+        protected T _personData;
 
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public PersonViewModel()
+        private ObservableCollection<T> _people;
+        public ObservableCollection<T> People
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            get
+            {
+                return _people;
+            }
+            set
+            {
+                _people = value;
+                RaisePropertyChanged( String.Empty );
+            }
         }
 
-        public void SetModel(Player personData)
+        public void SetList( List<T> list )
+        {
+            People = new ObservableCollection<T>( list );
+        }
+
+        public void SetModel( T personData )
         {
             _personData = personData;
-            RaisePropertyChanged(String.Empty);
+            RaisePropertyChanged( String.Empty );
         }
 
         public string FirstName
@@ -50,8 +43,8 @@ namespace MMSaveEditor.ViewModel
             }
             set
             {
-                _personData.SetName(value, _personData.lastName);
-                RaisePropertyChanged(String.Empty);
+                _personData.SetName( value, _personData.lastName );
+                RaisePropertyChanged( String.Empty );
             }
         }
         public string LastName
@@ -63,8 +56,8 @@ namespace MMSaveEditor.ViewModel
             }
             set
             {
-                _personData.SetName(_personData.firstName, value);
-                RaisePropertyChanged(String.Empty);
+                _personData.SetName( _personData.firstName, value );
+                RaisePropertyChanged( String.Empty );
             }
         }
 
@@ -89,7 +82,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_personData != null)
+                if( _personData != null )
                     return _personData.dateOfBirth;
                 return DateTime.Now;
             }
@@ -115,7 +108,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return Enum.GetValues(typeof(Person.Gender)).Cast<Person.Gender>();
+                return Enum.GetValues( typeof( Person.Gender ) ).Cast<Person.Gender>();
             }
         }
 
@@ -162,7 +155,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_personData != null)
+                if( _personData != null )
                     return _personData.peakAge;
                 return DateTime.Now;
             }

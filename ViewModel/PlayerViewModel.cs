@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace MMSaveEditor.ViewModel
 {
-	public class PlayerViewModel : PersonViewModel
-	{
-		private Player _player
-		{
-			get
-			{
-				return _personData as Player;
-			}
-		}
-		public string PlayerTeamName
-		{
-			get
-			{
-				return _player?.team.name;
-			}
-		}
-	}
+    public class PlayerViewModel : PersonViewModel<Player>
+    {
+        private Player _player
+        {
+            get
+            {
+                return _personData as Player;
+            }
+        }
+        public string PlayerTeamName
+        {
+            get
+            {
+                return _player?.team.name;
+            }
+        }
+    }
 }

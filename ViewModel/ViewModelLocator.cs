@@ -29,7 +29,7 @@ namespace MMSaveEditor.ViewModel
         /// </summary>
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+            ServiceLocator.SetLocatorProvider( () => SimpleIoc.Default );
 
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
@@ -43,7 +43,7 @@ namespace MMSaveEditor.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<PersonViewModel>();
+            SimpleIoc.Default.Register<TeamPrincipleViewModel>();
             SimpleIoc.Default.Register<PlayerViewModel>();
             SimpleIoc.Default.Register<GameViewModel>();
             SimpleIoc.Default.Register<TeamViewModel>();
@@ -57,11 +57,11 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
-        public PersonViewModel Person
+        public TeamPrincipleViewModel TeamPrinciple
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<PersonViewModel>();
+                return ServiceLocator.Current.GetInstance<TeamPrincipleViewModel>();
             }
         }
 

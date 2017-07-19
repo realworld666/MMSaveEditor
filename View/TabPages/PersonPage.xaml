@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="MMSaveEditor.View.TabPages.PersonPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="PersonItem">
+            <TextBlock Text="{Binding Name}"></TextBlock>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <Binding Mode="OneWay" Path="TeamPrinciple" Source="{StaticResource Locator}"/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1">
+            <GroupBox Name="Person" Header="Person">
+                <local:PersonPage_Person/>
+            </GroupBox>
+            <GroupBox Name="TeamPrincipal" Header="Team Principal">
+                <local:PersonPage_TPStats/>
+            </GroupBox>
+        </StackPanel>
+        <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" />
+    </Grid>
+</UserControl>
