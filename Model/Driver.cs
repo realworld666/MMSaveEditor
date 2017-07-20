@@ -1,7 +1,9 @@
 ﻿using System;
 using FullSerializer;
+using System.Collections.Generic;
+using System.Linq;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 public class Driver : Person
 {
     public DriverCareerForm careerForm = new DriverCareerForm();
@@ -10,8 +12,8 @@ public class Driver : Person
 
     public PersonalityTraitController_v2 personalityTraitController;
 
-    public int desiredChampionships;
-    public long desiredBudget;
+    private int desiredChampionships;
+    private long desiredBudget;
     private int mDesiredWins;
     private long mDesiredEarnings;
     private DriverStats accumulatedStats = new DriverStats();
@@ -52,10 +54,10 @@ public class Driver : Person
     private readonly float negativeImprovementHQScalar = 0.9f;
     private readonly float negativeImprovementHQOverallScalar = 0.03f;
     private readonly float negativeMaxImprovementHQ = 0.75f;
-    public int driverNumber;
-    public int startOfSeasonExpectedChampionshipPosition;
-    public int expectedChampionshipPosition;
-    public int expectedRacePosition;
+    private int driverNumber;
+    private int startOfSeasonExpectedChampionshipPosition;
+    private int expectedChampionshipPosition;
+    private int expectedRacePosition;
 
     public DriverStats statsBeforeEvent;
     public float moraleBeforeEvent;
@@ -70,4 +72,213 @@ public class Driver : Person
     private int mLastRaceExpectedRacePosition;
     private Person mCelebrity;
 
+    public bool hasBeenScouted
+    {
+        get
+        {
+            return this.mHasBeenScouted;
+        }
+        set
+        {
+            mHasBeenScouted = value;
+        }
+    }
+
+    public int daysToScoutShort
+    {
+        get
+        {
+            return this.mDaysToScoutShort;
+        }
+        set
+        {
+            mDaysToScoutShort = value;
+        }
+    }
+
+    public int daysToScoutLong
+    {
+        get
+        {
+            return this.mDaysToScoutLong;
+        }
+        set
+        {
+            mDaysToScoutLong = value;
+        }
+    }
+
+    public Championship.Series preferedSeries
+    {
+        get
+        {
+            return this.mPreferedSeries;
+        }
+        set
+        {
+            mPreferedSeries = value;
+        }
+    }
+    public IEnumerable<Championship.Series> SeriesTypes
+    {
+        get
+        {
+            return Enum.GetValues( typeof( Championship.Series ) ).Cast<Championship.Series>();
+        }
+    }
+
+    public bool joinsAnySeries
+    {
+        get
+        {
+            return this.mJoinsAnySeries;
+        }
+        set
+        {
+            mJoinsAnySeries = value;
+        }
+    }
+
+    public int DesiredChampionships
+    {
+        get
+        {
+            return desiredChampionships;
+        }
+
+        set
+        {
+            desiredChampionships = value;
+        }
+    }
+
+    public long DesiredBudget
+    {
+        get
+        {
+            return desiredBudget;
+        }
+
+        set
+        {
+            desiredBudget = value;
+        }
+    }
+
+    public int MDesiredWins
+    {
+        get
+        {
+            return mDesiredWins;
+        }
+
+        set
+        {
+            mDesiredWins = value;
+        }
+    }
+
+    public long MDesiredEarnings
+    {
+        get
+        {
+            return mDesiredEarnings;
+        }
+
+        set
+        {
+            mDesiredEarnings = value;
+        }
+    }
+
+    public int DriverNumber
+    {
+        get
+        {
+            return driverNumber;
+        }
+
+        set
+        {
+            driverNumber = value;
+        }
+    }
+
+    public int StartOfSeasonExpectedChampionshipPosition
+    {
+        get
+        {
+            return startOfSeasonExpectedChampionshipPosition;
+        }
+
+        set
+        {
+            startOfSeasonExpectedChampionshipPosition = value;
+        }
+    }
+
+    public int ExpectedChampionshipPosition
+    {
+        get
+        {
+            return expectedChampionshipPosition;
+        }
+
+        set
+        {
+            expectedChampionshipPosition = value;
+        }
+    }
+
+    public int ExpectedRacePosition
+    {
+        get
+        {
+            return expectedRacePosition;
+        }
+
+        set
+        {
+            expectedRacePosition = value;
+        }
+    }
+
+    public float MPotential
+    {
+        get
+        {
+            return mPotential;
+        }
+
+        set
+        {
+            mPotential = value;
+        }
+    }
+
+    public float MModifiedPotential
+    {
+        get
+        {
+            return mModifiedPotential;
+        }
+
+        set
+        {
+            mModifiedPotential = value;
+        }
+    }
+
+    public DriverStats MStats
+    {
+        get
+        {
+            return mStats;
+        }
+
+        set
+        {
+            mStats = value;
+        }
+    }
 }

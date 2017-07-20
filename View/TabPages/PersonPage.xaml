@@ -26,15 +26,19 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Column="1">
-            <GroupBox x:Name="Person" Header="Person">
-                <local:PersonPage_Person/>
-            </GroupBox>
-            <GroupBox x:Name="TeamPrincipal" Header="Team Principal" Visibility="{Binding ConverterParameter=TeamPrincipalViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
-                <local:PersonPage_TPStats/>
-            </GroupBox>
-        </StackPanel>
+        <ScrollViewer  Grid.Column="1">
+            <StackPanel>
+                <GroupBox x:Name="Person" Header="Person">
+                    <local:PersonPage_Person/>
+                </GroupBox>
+                <GroupBox x:Name="TeamPrincipal" Header="Team Principal" Visibility="{Binding ConverterParameter=TeamPrincipalViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_TPStats/>
+                </GroupBox>
+                <GroupBox x:Name="Driver" Header="Driver" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_DriverStats/>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
         <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" />
     </Grid>
 </UserControl>

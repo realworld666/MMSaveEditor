@@ -10,32 +10,32 @@ namespace MMSaveEditor.ViewModel
     {
         public float RaceManagement
         {
-            get => _personData?.stats.raceManagement ?? 0f;
-            set => _personData.stats.raceManagement = value;
+            get => PersonData?.stats.raceManagement ?? 0f;
+            set => PersonData.stats.raceManagement = value;
         }
 
         public float Financial
         {
-            get => _personData?.stats.financial ?? 0f;
-            set => _personData.stats.financial = value;
+            get => PersonData?.stats.financial ?? 0f;
+            set => PersonData.stats.financial = value;
         }
 
         public float Loyalty
         {
-            get => _personData?.stats.loyalty ?? 0f;
-            set => _personData.stats.loyalty = value;
+            get => PersonData?.stats.loyalty ?? 0f;
+            set => PersonData.stats.loyalty = value;
         }
 
         public float JobSecurity
         {
-            get => _personData?.stats.jobSecurity ?? 0f;
-            set => _personData.stats.jobSecurity = value;
+            get => PersonData?.stats.jobSecurity ?? 0f;
+            set => PersonData.stats.jobSecurity = value;
         }
 
         public TeamPrincipal.Backstory BackStory
         {
-            get => _personData?.backStory ?? TeamPrincipal.Backstory.None;
-            set => _personData.backStory = value;
+            get => PersonData?.backStory ?? TeamPrincipal.Backstory.None;
+            set => PersonData.backStory = value;
         }
         public IEnumerable<TeamPrincipal.Backstory> BackStoryTypes => Enum.GetValues(typeof(TeamPrincipal.Backstory)).Cast<TeamPrincipal.Backstory>();
     }

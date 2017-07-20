@@ -8,7 +8,7 @@ namespace MMSaveEditor.ViewModel
 {
     public abstract class PersonViewModel<T> : ViewModelBase where T : Person
     {
-        protected T _personData;
+        private T personData;
 
         private ObservableCollection<T> _people;
         public ObservableCollection<T> People
@@ -20,44 +20,44 @@ namespace MMSaveEditor.ViewModel
             set
             {
                 _people = value;
-                RaisePropertyChanged(String.Empty);
+                RaisePropertyChanged( String.Empty );
             }
         }
 
-        public void SetList(List<T> list)
+        public void SetList( List<T> list )
         {
-            People = new ObservableCollection<T>(list);
+            People = new ObservableCollection<T>( list );
         }
 
-        public void SetModel(T personData)
+        public void SetModel( T personData )
         {
-            _personData = personData;
-            RaisePropertyChanged(String.Empty);
+            PersonData = personData;
+            RaisePropertyChanged( String.Empty );
         }
 
         public string FirstName
         {
             get
             {
-                return _personData?.firstName;
+                return PersonData?.firstName;
             }
             set
             {
-                _personData.SetName(value, _personData.lastName);
-                RaisePropertyChanged(String.Empty);
+                PersonData.SetName( value, PersonData.lastName );
+                RaisePropertyChanged( String.Empty );
             }
         }
         public string LastName
         {
             get
             {
-                return _personData?.lastName;
+                return PersonData?.lastName;
 
             }
             set
             {
-                _personData.SetName(_personData.firstName, value);
-                RaisePropertyChanged(String.Empty);
+                PersonData.SetName( PersonData.firstName, value );
+                RaisePropertyChanged( String.Empty );
             }
         }
 
@@ -65,7 +65,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData?.shortName;
+                return PersonData?.shortName;
 
             }
         }
@@ -73,7 +73,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData?.threeLetterLastName;
+                return PersonData?.threeLetterLastName;
 
             }
         }
@@ -82,13 +82,13 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_personData != null)
-                    return _personData.dateOfBirth;
+                if( PersonData != null )
+                    return PersonData.dateOfBirth;
                 return DateTime.Now;
             }
             set
             {
-                _personData.dateOfBirth = value;
+                PersonData.dateOfBirth = value;
             }
         }
 
@@ -97,18 +97,18 @@ namespace MMSaveEditor.ViewModel
             get
             {
 
-                return _personData == null ? Person.Gender.Male : _personData.gender;
+                return PersonData == null ? Person.Gender.Male : PersonData.gender;
             }
             set
             {
-                _personData.gender = value;
+                PersonData.gender = value;
             }
         }
         public IEnumerable<Person.Gender> GenderTypes
         {
             get
             {
-                return Enum.GetValues(typeof(Person.Gender)).Cast<Person.Gender>();
+                return Enum.GetValues( typeof( Person.Gender ) ).Cast<Person.Gender>();
             }
         }
 
@@ -116,12 +116,12 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData == null ? 0 : _personData.weight;
+                return PersonData == null ? 0 : PersonData.weight;
             }
 
             set
             {
-                _personData.weight = value;
+                PersonData.weight = value;
             }
         }
 
@@ -129,12 +129,12 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData == null ? 0 : _personData.retirementAge;
+                return PersonData == null ? 0 : PersonData.retirementAge;
             }
 
             set
             {
-                _personData.retirementAge = value;
+                PersonData.retirementAge = value;
             }
         }
 
@@ -142,12 +142,12 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData == null ? 0 : _personData.obedience;
+                return PersonData == null ? 0 : PersonData.obedience;
             }
 
             set
             {
-                _personData.obedience = value;
+                PersonData.obedience = value;
             }
         }
 
@@ -155,13 +155,13 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (_personData != null)
-                    return _personData.peakAge;
+                if( PersonData != null )
+                    return PersonData.peakAge;
                 return DateTime.Now;
             }
             set
             {
-                _personData.peakAge = value;
+                PersonData.peakAge = value;
             }
         }
 
@@ -169,12 +169,25 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData == null ? 0 : _personData.mMorale;
+                return PersonData == null ? 0 : PersonData.mMorale;
             }
 
             set
             {
-                _personData.mMorale = value;
+                PersonData.mMorale = value;
+            }
+        }
+
+        public T PersonData
+        {
+            get
+            {
+                return personData;
+            }
+
+            set
+            {
+                personData = value;
             }
         }
     }

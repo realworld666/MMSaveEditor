@@ -12,7 +12,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return _personData as Player;
+                return PersonData as Player;
             }
         }
         public string PlayerTeamName

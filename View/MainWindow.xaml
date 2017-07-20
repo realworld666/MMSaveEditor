@@ -47,8 +47,10 @@
             <TabItem x:Name="PrincipleTabItem" Header="Team Principals" >
                 <tabPages:PersonPage ListBoxUpdated="TeamPrinciplePage_OnListBoxUpdated" DataContext="{Binding TeamPrincipal, Mode=OneWay}"/>
             </TabItem>
-            <TabItem x:Name="DriversTabItem" Header="Drivers" >
+            <TabItem x:Name="DriversTabItem" Header="Drivers">
+
                 <tabPages:PersonPage ListBoxUpdated="DriverPage_OnListBoxUpdated" DataContext="{Binding Driver, Mode=OneWay}"/>
+
             </TabItem>
             <TabItem Header="Game">
                 <tabPages:GamePage/>

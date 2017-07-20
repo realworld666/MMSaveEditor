@@ -647,6 +647,9 @@
     <Compile Include="View\TabPages\PersonPage.xaml.cs">
       <DependentUpon>PersonPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TabPages\PersonPage_DriverStats.xaml.cs">
+      <DependentUpon>PersonPage_DriverStats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TabPages\PersonPage_TPStats.xaml.cs">
       <DependentUpon>PersonPage_TPStats.xaml</DependentUpon>
     </Compile>
@@ -677,6 +680,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TabPages\PersonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TabPages\PersonPage_DriverStats.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
