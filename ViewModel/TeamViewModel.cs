@@ -1,34 +1,35 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace MMSaveEditor.ViewModel
 {
     public class TeamViewModel : ViewModelBase
     {
-        protected Team _teamData;
+        private Team teamData;
 
         public ObservableCollection<Team> Teams => Game.Instance == null ? null : new ObservableCollection<Team>(Game.Instance?.teamManager?.GetEntityList());
-        public ObservableCollection<CarPart> BrakesGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.brakesGTInventory);
-        public ObservableCollection<CarPart> Brakes => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.brakesInventory);
-        public ObservableCollection<CarPart> EngineGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.engineGTInventory);
-        public ObservableCollection<CarPart> Engine => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.engineInventory);
-        public ObservableCollection<CarPart> FrontWing => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.frontWingInventory);
-        public ObservableCollection<CarPart> GearboxGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.gearboxGTInventory);
-        public ObservableCollection<CarPart> Gearbox => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.gearboxInventory);
-        public ObservableCollection<CarPart> RearWingGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.rearWingGTInventory);
-        public ObservableCollection<CarPart> RearWing => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.rearWingInventory);
-        public ObservableCollection<CarPart> SuspensionGT => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.suspensionGTInventory);
-        public ObservableCollection<CarPart> Suspension => _teamData == null ? null : new ObservableCollection<CarPart>(_teamData?.carManager?.partInventory?.suspensionInventory);
+        public ObservableCollection<CarPart> BrakesGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.brakesGTInventory);
+        public ObservableCollection<CarPart> Brakes => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.brakesInventory);
+        public ObservableCollection<CarPart> EngineGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.engineGTInventory);
+        public ObservableCollection<CarPart> Engine => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.engineInventory);
+        public ObservableCollection<CarPart> FrontWing => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.frontWingInventory);
+        public ObservableCollection<CarPart> GearboxGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.gearboxGTInventory);
+        public ObservableCollection<CarPart> Gearbox => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.gearboxInventory);
+        public ObservableCollection<CarPart> RearWingGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.rearWingGTInventory);
+        public ObservableCollection<CarPart> RearWing => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.rearWingInventory);
+        public ObservableCollection<CarPart> SuspensionGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.suspensionGTInventory);
+        public ObservableCollection<CarPart> Suspension => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.suspensionInventory);
 
         public int Reputation
         {
-            get { return _teamData?.reputation ?? 0; }
+            get { return TeamData?.reputation ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.reputation = value;
+                    TeamData.reputation = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
@@ -36,68 +37,81 @@ namespace MMSaveEditor.ViewModel
 
         public float Marketability
         {
-            get { return _teamData?.marketability ?? 0; }
+            get { return TeamData?.marketability ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.marketability = value;
+                    TeamData.marketability = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
         }
         public int Pressure
         {
-            get { return _teamData?.pressure ?? 0; }
+            get { return TeamData?.pressure ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.pressure = value;
+                    TeamData.pressure = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
         }
         public float FanBase
         {
-            get { return _teamData?.fanBase ?? 0; }
+            get { return TeamData?.fanBase ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.fanBase = value;
+                    TeamData.fanBase = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
         }
         public float Aggression
         {
-            get { return _teamData?.aggression ?? 0; }
+            get { return TeamData?.aggression ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.aggression = value;
+                    TeamData.aggression = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
         }
         public float InitialTotalFanBase
         {
-            get { return _teamData?.initialTotalFanBase ?? 0; }
+            get { return TeamData?.initialTotalFanBase ?? 0; }
             set
             {
-                if (_teamData != null)
+                if (TeamData != null)
                 {
-                    _teamData.initialTotalFanBase = value;
+                    TeamData.initialTotalFanBase = value;
                     RaisePropertyChanged(String.Empty);
                 }
             }
         }
 
+        public Team TeamData
+        {
+            get
+            {
+                return teamData;
+            }
+
+            set
+            {
+                teamData = value;
+            }
+        }
+
         public void SetModel(Team targetTeam)
         {
-            _teamData = targetTeam;
+            TeamData = targetTeam;
             RaisePropertyChanged(String.Empty);
         }
     }

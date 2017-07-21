@@ -6,7 +6,7 @@
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="300">
     <StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Has Been Scouted"  Width="200"/>
@@ -68,8 +68,9 @@
             <TextBlock TextWrapping="Wrap" Text="Modified Potential"  Width="200"/>
             <xctk:SingleUpDown Width="200" Value="{Binding PersonData.MModifiedPotential}" Increment="0.01"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" >
-            <DataGrid x:Name="stats" CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="True" ItemsSource="{Binding PersonData.MStats}" Initialized="stats_Initialized"/>
-        </StackPanel>
+
+        <GroupBox Header="Stats">
+            <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.MStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"/>
+        </GroupBox>
     </StackPanel>
 </UserControl>

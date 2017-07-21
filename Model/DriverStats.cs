@@ -65,7 +65,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MBrakingImprovementRate
+    public float BrakingImprovementRate
     {
         get
         {
@@ -78,7 +78,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MCorneringImprovementRate
+    public float CorneringImprovementRate
     {
         get
         {
@@ -91,7 +91,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MSmoothnessImprovementRate
+    public float SmoothnessImprovementRate
     {
         get
         {
@@ -104,7 +104,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MOvertakingImprovementRate
+    public float OvertakingImprovementRate
     {
         get
         {
@@ -117,7 +117,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MConsistencyImprovementRate
+    public float ConsistencyImprovementRate
     {
         get
         {
@@ -130,7 +130,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MAdaptabilityImprovementRate
+    public float AdaptabilityImprovementRate
     {
         get
         {
@@ -143,7 +143,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MFitnessImprovementRate
+    public float FitnessImprovementRate
     {
         get
         {
@@ -156,7 +156,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MFeedbackImprovementRate
+    public float FeedbackImprovementRate
     {
         get
         {
@@ -169,7 +169,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public float MFocusImprovementRate
+    public float FocusImprovementRate
     {
         get
         {
@@ -364,7 +364,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeBraking
+    public int LowRangeBraking
     {
         get
         {
@@ -377,7 +377,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeBraking
+    public int HighRangeBraking
     {
         get
         {
@@ -390,7 +390,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeCornering
+    public int LowRangeCornering
     {
         get
         {
@@ -403,7 +403,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeCornering
+    public int HighRangeCornering
     {
         get
         {
@@ -416,7 +416,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeSmoothness
+    public int LowRangeSmoothness
     {
         get
         {
@@ -429,7 +429,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeSmoothness
+    public int HighRangeSmoothness
     {
         get
         {
@@ -442,7 +442,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeOvertaking
+    public int LowRangeOvertaking
     {
         get
         {
@@ -455,7 +455,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeOvertaking
+    public int HighRangeOvertaking
     {
         get
         {
@@ -468,7 +468,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeConsistency
+    public int LowRangeConsistency
     {
         get
         {
@@ -481,7 +481,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeConsistency
+    public int HighRangeConsistency
     {
         get
         {
@@ -494,7 +494,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeAdaptability
+    public int LowRangeAdaptability
     {
         get
         {
@@ -507,7 +507,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeAdaptability
+    public int HighRangeAdaptability
     {
         get
         {
@@ -520,7 +520,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeFitness
+    public int LowRangeFitness
     {
         get
         {
@@ -533,7 +533,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeFitness
+    public int HighRangeFitness
     {
         get
         {
@@ -546,7 +546,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeFeedback
+    public int LowRangeFeedback
     {
         get
         {
@@ -559,7 +559,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeFeedback
+    public int HighRangeFeedback
     {
         get
         {
@@ -572,7 +572,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MLowRangeFocus
+    public int LowRangeFocus
     {
         get
         {
@@ -585,7 +585,7 @@ public class DriverStats : PersonStats
         }
     }
 
-    public int MHighRangeFocus
+    public int HighRangeFocus
     {
         get
         {

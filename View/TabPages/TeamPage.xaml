@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800"
              DataContext="{Binding Team, Mode=OneWay, Source={StaticResource Locator}}"
@@ -13,6 +14,17 @@
     <UserControl.Resources>
         <DataTemplate x:Key="TeamItem">
             <TextBlock Text="{Binding Name}"></TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="DriverButton">
+            <Button Content="{Binding Name}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click" >
+                        <Command:EventToCommand  
+                                     PassEventArgsToCommand="True"    
+                                     CommandParameter="{Binding}" Command="{Binding ViewDriver, Mode=OneWay}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -50,6 +62,9 @@
                         <TextBox Width="200" Text="{Binding InitialTotalFanBase}"/>
                     </StackPanel>
                 </StackPanel>
+            </GroupBox>
+            <GroupBox Name="Drivers" Header="Drivers">
+                <ListView ItemsSource="{Binding TeamData.Drivers}" ItemTemplate="{DynamicResource DriverButton}"  />
             </GroupBox>
             <GroupBox Header="Car Inventory">
                 <StackPanel>

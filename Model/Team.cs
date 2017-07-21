@@ -2,8 +2,9 @@
 using System;
 using System.Collections.Generic;
 using FullSerializer;
+using System.Linq;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
 public class Team : Entity
 {
     public static int mainDriverCount = 2;
@@ -64,4 +65,11 @@ public class Team : Entity
     private ChampionshipEntry_v1 mChampionshipEntry;
     private List<Driver> mDrivers;
 
+    public List<Driver> Drivers
+    {
+        get
+        {
+            return mSelectedDriver.ToList();
+        }
+    }
 }

@@ -2,8 +2,11 @@
 using FullSerializer;
 using System.Collections.Generic;
 using System.Linq;
+using GalaSoft.MvvmLight.Command;
+using MMSaveEditor.ViewModel;
+using GalaSoft.MvvmLight.Ioc;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Driver : Person
 {
     public DriverCareerForm careerForm = new DriverCareerForm();
@@ -123,7 +126,7 @@ public class Driver : Person
     {
         get
         {
-            return Enum.GetValues( typeof( Championship.Series ) ).Cast<Championship.Series>();
+            return Enum.GetValues(typeof(Championship.Series)).Cast<Championship.Series>();
         }
     }
 
@@ -280,5 +283,17 @@ public class Driver : Person
         {
             mStats = value;
         }
+    }
+
+    public RelayCommand<Driver> ViewDriver { get; private set; }
+
+    public Driver()
+    {
+        ViewDriver = new RelayCommand<Driver>((s) => _viewDriver(s));
+    }
+    private void _viewDriver(Driver d)
+    {
+        var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
+        driverVM.SetModel(this);
     }
 }
