@@ -22,6 +22,8 @@ namespace MMSaveEditor.View
         private static readonly int saveFileVersion = 4;
         private SaveFileInfo _currentSaveInfo;
 
+        private MainWindow Instance;
+
         public string VersionString
         {
             get
@@ -36,7 +38,7 @@ namespace MMSaveEditor.View
         public MainWindow()
         {
             InitializeComponent();
-
+            Instance = this;
             this.serializer = CreateAndConfigureSerializer();
         }
 
@@ -170,7 +172,9 @@ namespace MMSaveEditor.View
                     // Load main save data
                     // 
                     string json = Encoding.UTF8.GetString(LZ4Codec.Decode(binaryReader.ReadBytes(gameDataCount), 0, gameDataCount, gameDataOutputLength));
+#if DEBUG
                     File.WriteAllText(@"saveFileJSON.txt", json);
+#endif
                     //SaveData saveData = JsonConvert.DeserializeObject<SaveData>( json );
                     //string formattedJSON = JsonConvert.SerializeObject( parsedJson, Formatting.Indented );
 

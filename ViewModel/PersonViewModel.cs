@@ -8,187 +8,114 @@ namespace MMSaveEditor.ViewModel
 {
     public abstract class PersonViewModel<T> : ViewModelBase where T : Person
     {
-        private T personData;
+        private T _personData;
+        public T PersonData
+        {
+            get => _personData;
+
+            set => _personData = value;
+        }
 
         private ObservableCollection<T> _people;
         public ObservableCollection<T> People
         {
-            get
-            {
-                return _people;
-            }
+            get => _people;
             set
             {
                 _people = value;
-                RaisePropertyChanged( String.Empty );
+                RaisePropertyChanged(string.Empty);
             }
         }
 
-        public void SetList( List<T> list )
+        public void SetList(List<T> list)
         {
-            People = new ObservableCollection<T>( list );
+            People = new ObservableCollection<T>(list);
         }
 
-        public void SetModel( T personData )
+        public void SetModel(T pPersonData)
         {
-            PersonData = personData;
-            RaisePropertyChanged( String.Empty );
+            PersonData = pPersonData;
+            RaisePropertyChanged(string.Empty);
         }
 
         public string FirstName
         {
-            get
-            {
-                return PersonData?.firstName;
-            }
+            get => PersonData?.firstName;
             set
             {
-                PersonData.SetName( value, PersonData.lastName );
-                RaisePropertyChanged( String.Empty );
+                PersonData.SetName(value, PersonData.lastName);
+                RaisePropertyChanged(string.Empty);
             }
         }
         public string LastName
         {
-            get
-            {
-                return PersonData?.lastName;
-
-            }
+            get => PersonData?.lastName;
             set
             {
-                PersonData.SetName( PersonData.firstName, value );
-                RaisePropertyChanged( String.Empty );
+                PersonData.SetName(PersonData.firstName, value);
+                RaisePropertyChanged(string.Empty);
             }
         }
 
-        public string ShortName
-        {
-            get
-            {
-                return PersonData?.shortName;
+        public string ShortName => PersonData?.shortName;
 
-            }
-        }
-        public string ThreeLetterName
-        {
-            get
-            {
-                return PersonData?.threeLetterLastName;
-
-            }
-        }
+        public string ThreeLetterName => PersonData?.threeLetterLastName;
 
         public DateTime DOB
         {
             get
             {
-                if( PersonData != null )
+                if (PersonData != null)
                     return PersonData.dateOfBirth;
                 return DateTime.Now;
             }
-            set
-            {
-                PersonData.dateOfBirth = value;
-            }
+            set => PersonData.dateOfBirth = value;
         }
 
         public Person.Gender Gender
         {
-            get
-            {
-
-                return PersonData == null ? Person.Gender.Male : PersonData.gender;
-            }
-            set
-            {
-                PersonData.gender = value;
-            }
+            get => PersonData == null ? Person.Gender.Male : PersonData.gender;
+            set => PersonData.gender = value;
         }
-        public IEnumerable<Person.Gender> GenderTypes
-        {
-            get
-            {
-                return Enum.GetValues( typeof( Person.Gender ) ).Cast<Person.Gender>();
-            }
-        }
+        public IEnumerable<Person.Gender> GenderTypes => Enum.GetValues(typeof(Person.Gender)).Cast<Person.Gender>();
 
         public int Weight
         {
-            get
-            {
-                return PersonData == null ? 0 : PersonData.weight;
-            }
+            get => PersonData == null ? 0 : PersonData.weight;
 
-            set
-            {
-                PersonData.weight = value;
-            }
+            set => PersonData.weight = value;
         }
 
         public int RetirementAge
         {
-            get
-            {
-                return PersonData == null ? 0 : PersonData.retirementAge;
-            }
+            get => PersonData == null ? 0 : PersonData.retirementAge;
 
-            set
-            {
-                PersonData.retirementAge = value;
-            }
+            set => PersonData.retirementAge = value;
         }
 
         public float Obedience
         {
-            get
-            {
-                return PersonData == null ? 0 : PersonData.obedience;
-            }
+            get => PersonData == null ? 0 : PersonData.obedience;
 
-            set
-            {
-                PersonData.obedience = value;
-            }
+            set => PersonData.obedience = value;
         }
 
         public DateTime PeakAge
         {
             get
             {
-                if( PersonData != null )
+                if (PersonData != null)
                     return PersonData.peakAge;
                 return DateTime.Now;
             }
-            set
-            {
-                PersonData.peakAge = value;
-            }
+            set => PersonData.peakAge = value;
         }
 
         public float Morale
         {
-            get
-            {
-                return PersonData == null ? 0 : PersonData.mMorale;
-            }
+            get => PersonData == null ? 0 : PersonData.mMorale;
 
-            set
-            {
-                PersonData.mMorale = value;
-            }
-        }
-
-        public T PersonData
-        {
-            get
-            {
-                return personData;
-            }
-
-            set
-            {
-                personData = value;
-            }
+            set => PersonData.mMorale = value;
         }
     }
 }

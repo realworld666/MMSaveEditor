@@ -5,8 +5,8 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ChallengeManager
 {
-    private List<Challenge> mChallenges = new List<Challenge>();
     private Challenge mCurrentChallenge;
+    private List<Challenge> mChallenges = new List<Challenge>();
 
     public bool IsAttemptingChallenge()
     {

@@ -2,8 +2,9 @@
 using FullSerializer;
 using System;
 using System.Collections.Generic;
+using MMSaveEditor.Utils;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Mechanic : Person
 {
     public MechanicStats stats = new MechanicStats();
@@ -33,13 +34,17 @@ public class Mechanic : Person
     public float driverRelationshipAmountBeforeEvent;
 
 
-    [fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+    [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class DriverRelationship
     {
         public float relationshipAmountAfterDecay = -1f;
         public float relationshipAmount;
         public int numberOfWeeks;
+    }
 
-
+    public void DriverRenamed(string oldname, string newName)
+    {
+        mDictDriversRelationships.RenameKey(oldname, newName);
+        mDictRelationshipModificationHistory.RenameKey(oldname, newName);
     }
 }

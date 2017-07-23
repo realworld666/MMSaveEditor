@@ -7,6 +7,7 @@
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="icon.exe" Type="8"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="RWSoftware"/>
     <ROW Property="ProductCode" Value="2057:{F1C981F7-8435-42F1-B605-A24EC079EED5} " Type="16"/>
@@ -140,6 +141,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
+    <ROW Name="icon.exe" SourcePath="..\icon.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
@@ -166,8 +168,8 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="MMSaveEditor.exe" Directory_="SHORTCUTDIR" Name="MMSAVE~1.EXE|MMSaveEditor.exe" Component_="MMSaveEditor.exe" Target="[#MMSaveEditor.exe]" Description="MMSaveEditor.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="MMSaveEditor.exe_1" Directory_="DesktopFolder" Name="MMSAVE~1.EXE|MMSaveEditor.exe" Component_="MMSaveEditor.exe" Target="[#MMSaveEditor.exe]" Description="MMSaveEditor.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="MMSaveEditor.exe" Directory_="SHORTCUTDIR" Name="MMSAVE~1|MM Save Editor" Component_="MMSaveEditor.exe" Target="[#MMSaveEditor.exe]" Description="MMSaveEditor.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="MMSaveEditor.exe_1" Directory_="DesktopFolder" Name="MMSAVE~1|MM Save Editor" Component_="MMSaveEditor.exe" Target="[#MMSaveEditor.exe]" Description="MMSaveEditor.exe" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Uninstall" Directory_="APPDIR" Name="UNINST~1|Uninstall" Component_="MMSaveEditor.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">

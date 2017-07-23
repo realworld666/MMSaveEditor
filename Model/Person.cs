@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FullSerializer;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
@@ -30,7 +31,7 @@ public class Person : Entity
     private StatModificationHistory mMoraleStatModificationHistory = new StatModificationHistory();
     private float mImprovementRateDecay;
     private bool mIsShortlisted;
-    public Person.Gender gender;
+    public Gender gender;
     public DateTime dateOfBirth;
     public int weight;
     public int retirementAge;
@@ -42,7 +43,7 @@ public class Person : Entity
     {
         get
         {
-            return this.mFirstName;
+            return mFirstName;
         }
     }
 
@@ -50,7 +51,7 @@ public class Person : Entity
     {
         get
         {
-            return this.mLastName;
+            return mLastName;
         }
     }
 
@@ -58,7 +59,7 @@ public class Person : Entity
     {
         get
         {
-            return this.shortName.Replace(" ", string.Empty);
+            return shortName.Replace(" ", string.Empty);
         }
     }
 
@@ -66,7 +67,7 @@ public class Person : Entity
     {
         get
         {
-            return this.mShortName;
+            return mShortName;
         }
     }
 
@@ -74,38 +75,42 @@ public class Person : Entity
     {
         get
         {
-            return this.mThreeLetterName;
+            return mThreeLetterName;
         }
     }
 
     public bool IsFreeAgent()
     {
-        return this.contract.job == Contract.Job.Unemployed;
+        return contract.job == Contract.Job.Unemployed;
     }
 
     public int GetAge()
     {
         DateTime now = Game.Instance.time.now;
-        int num = now.Year - this.dateOfBirth.Year;
-        if (now.Month < this.dateOfBirth.Month || now.Month == this.dateOfBirth.Month && now.Day < this.dateOfBirth.Day)
+        int num = now.Year - dateOfBirth.Year;
+        if (now.Month < dateOfBirth.Month || now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day)
             --num;
         return num;
     }
 
     public void SetName(string inFirstName, string inLastName)
     {
-        this.mFirstName = inFirstName;
-        if (inLastName.Length > 0)
-            this.mLastName = GameUtility.ChangeFirstCharToUpperCase(inLastName);
-        this.mShortName = this.mFirstName.Length <= 0 ? "." : ((int)this.firstName[0]).ToString() + ". " + this.lastName;
-        this.mThreeLetterName = "";
+        string oldName = name;
 
-        for (int index = 0; index < this.lastName.Length; ++index)
+        mFirstName = inFirstName;
+        if (inLastName.Length > 0)
+            mLastName = GameUtility.ChangeFirstCharToUpperCase(inLastName);
+        mShortName = mFirstName.Length <= 0 ? "." : firstName[0] + ". " + lastName;
+        mThreeLetterName = "";
+
+        for (int index = 0; index < lastName.Length; ++index)
         {
-            if (this.mThreeLetterName.Length < 3 && this.lastName[index].ToString() != " ")
-                this.mThreeLetterName += this.lastName[index];
+            if (mThreeLetterName.Length < 3 && lastName[index].ToString() != " ")
+                mThreeLetterName += lastName[index];
         }
-        this.name = inFirstName + " " + inLastName;
+        name = inFirstName + " " + inLastName;
+
+        Game.Instance.mechanicManager.GetEntityList().ForEach(mechs => mechs.DriverRenamed(oldName, name));
     }
 
     public enum Gender

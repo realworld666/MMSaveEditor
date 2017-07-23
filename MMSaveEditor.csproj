@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NO_UNITY</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NO_UNITY, DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE;NO_UNITY</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
@@ -416,6 +419,9 @@
     <Compile Include="Model\PathTypeSpeedController.cs" />
     <Compile Include="Model\Penalty.cs" />
     <Compile Include="Model\PenaltyDirector.cs" />
+    <Compile Include="Model\PenaltyPartRulesBroken.cs" />
+    <Compile Include="Model\PenaltyPitlaneDriveThru.cs" />
+    <Compile Include="Model\PenaltyTime.cs" />
     <Compile Include="Model\PerformanceDesignData.cs" />
     <Compile Include="Model\PerformanceImpact.cs" />
     <Compile Include="Model\PersistentEventData.cs" />
@@ -629,6 +635,7 @@
     <Compile Include="Model\WetTyreSet.cs" />
     <Compile Include="Model\WorkingHours.cs" />
     <Compile Include="Model\YoungDriverProgramme.cs" />
+    <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
@@ -799,6 +806,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\mark-github-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
