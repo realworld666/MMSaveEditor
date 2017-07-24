@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FullSerializer;
 using System.Linq;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Team : Entity
 {
     public static int mainDriverCount = 2;
@@ -69,7 +69,22 @@ public class Team : Entity
     {
         get
         {
-            return mSelectedDriver.ToList();
+            var result = mSelectedDriver.ToList();
+            result.Add(GetReserveDriver());
+            return result;
         }
+    }
+
+    public Driver GetReserveDriver()
+    {
+        this.mDriversCache.Clear();
+        this.contractManager.GetAllDrivers(ref this.mDriversCache);
+        for (int index = 0; index < this.mDriversCache.Count; ++index)
+        {
+            Driver driver = this.mDriversCache[index];
+            if (driver.contract.currentStatus == ContractPerson.Status.Reserve)
+                return driver;
+        }
+        return (Driver)null;
     }
 }

@@ -13,7 +13,7 @@ public class PersonalityTraitData
     public PersonalityTraitData.TraitType type;
     public int[] possibleLength;
     public List<DialogCriteria> requirements;
-    public float probability;
+    private float probability;
     public int[] evolvesInto;
     public int[] opposites;
     public int[] removesTraits;
@@ -32,6 +32,19 @@ public class PersonalityTraitData
     public bool isRepeatable;
     private string nameID;
     private string descriptionID;
+
+    public float Probability
+    {
+        get
+        {
+            return probability;
+        }
+
+        set
+        {
+            probability = value;
+        }
+    }
 
     public enum TraitType
     {

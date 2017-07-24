@@ -6,8 +6,8 @@ using FullSerializer;
 [fsObject("v2", new System.Type[] { typeof(PersonalityTraitController) }, MemberSerialization = fsMemberSerialization.OptOut)]
 public class PersonalityTraitController_v2
 {
-    public List<PersonalityTrait> permanentPersonalityTraits = new List<PersonalityTrait>();
-    public List<PersonalityTrait> temporaryPersonalityTraits = new List<PersonalityTrait>();
+    private List<PersonalityTrait> permanentPersonalityTraits = new List<PersonalityTrait>();
+    private List<PersonalityTrait> temporaryPersonalityTraits = new List<PersonalityTrait>();
     public List<PersonalityTrait> allTraits = new List<PersonalityTrait>();
     private List<int> mTraitHistory = new List<int>();
     private readonly int mMaxCooldownDaysRange = 180;
@@ -15,6 +15,32 @@ public class PersonalityTraitController_v2
     private DriverStats mDriverStats = new DriverStats();
     private int mLastRandomCooldownDayValue;
     private Driver mDriver;
+
+    public List<PersonalityTrait> PermanentPersonalityTraits
+    {
+        get
+        {
+            return permanentPersonalityTraits;
+        }
+
+        set
+        {
+            permanentPersonalityTraits = value;
+        }
+    }
+
+    public List<PersonalityTrait> TemporaryPersonalityTraits
+    {
+        get
+        {
+            return temporaryPersonalityTraits;
+        }
+
+        set
+        {
+            temporaryPersonalityTraits = value;
+        }
+    }
 
     public PersonalityTraitController_v2(PersonalityTraitController inOldController)
     {

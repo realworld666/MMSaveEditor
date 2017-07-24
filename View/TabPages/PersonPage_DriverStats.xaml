@@ -69,8 +69,8 @@
             <xctk:SingleUpDown Width="200" Value="{Binding PersonData.MModifiedPotential}" Increment="0.01"/>
         </StackPanel>
 
-        <GroupBox Header="Stats">
+        <Expander Header="Stats">
             <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.MStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"/>
-        </GroupBox>
+        </Expander>
     </StackPanel>
 </UserControl>

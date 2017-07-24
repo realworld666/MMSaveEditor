@@ -5,6 +5,7 @@ using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using MMSaveEditor.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
+using MMSaveEditor.View;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Driver : Person
@@ -13,7 +14,7 @@ public class Driver : Person
     public DriverMentalState mentalState = new DriverMentalState();
     public CarOpinion carOpinion = new CarOpinion();
 
-    public PersonalityTraitController_v2 personalityTraitController;
+    private PersonalityTraitController_v2 personalityTraitController;
 
     private int desiredChampionships;
     private long desiredBudget;
@@ -77,223 +78,135 @@ public class Driver : Person
 
     public bool hasBeenScouted
     {
-        get
-        {
-            return this.mHasBeenScouted;
-        }
-        set
-        {
-            mHasBeenScouted = value;
-        }
+        get => this.mHasBeenScouted;
+        set => mHasBeenScouted = value;
     }
 
     public int daysToScoutShort
     {
-        get
-        {
-            return this.mDaysToScoutShort;
-        }
-        set
-        {
-            mDaysToScoutShort = value;
-        }
+        get => this.mDaysToScoutShort;
+        set => mDaysToScoutShort = value;
     }
 
     public int daysToScoutLong
     {
-        get
-        {
-            return this.mDaysToScoutLong;
-        }
-        set
-        {
-            mDaysToScoutLong = value;
-        }
+        get => this.mDaysToScoutLong;
+        set => mDaysToScoutLong = value;
     }
 
     public Championship.Series preferedSeries
     {
-        get
-        {
-            return this.mPreferedSeries;
-        }
-        set
-        {
-            mPreferedSeries = value;
-        }
+        get => this.mPreferedSeries;
+        set => mPreferedSeries = value;
     }
-    public IEnumerable<Championship.Series> SeriesTypes
-    {
-        get
-        {
-            return Enum.GetValues(typeof(Championship.Series)).Cast<Championship.Series>();
-        }
-    }
+    public IEnumerable<Championship.Series> SeriesTypes => Enum.GetValues(typeof(Championship.Series)).Cast<Championship.Series>();
 
     public bool joinsAnySeries
     {
-        get
-        {
-            return this.mJoinsAnySeries;
-        }
-        set
-        {
-            mJoinsAnySeries = value;
-        }
+        get => this.mJoinsAnySeries;
+        set => mJoinsAnySeries = value;
     }
 
     public int DesiredChampionships
     {
-        get
-        {
-            return desiredChampionships;
-        }
+        get => desiredChampionships;
 
-        set
-        {
-            desiredChampionships = value;
-        }
+        set => desiredChampionships = value;
     }
 
     public long DesiredBudget
     {
-        get
-        {
-            return desiredBudget;
-        }
+        get => desiredBudget;
 
-        set
-        {
-            desiredBudget = value;
-        }
+        set => desiredBudget = value;
     }
 
     public int MDesiredWins
     {
-        get
-        {
-            return mDesiredWins;
-        }
+        get => mDesiredWins;
 
-        set
-        {
-            mDesiredWins = value;
-        }
+        set => mDesiredWins = value;
     }
 
     public long MDesiredEarnings
     {
-        get
-        {
-            return mDesiredEarnings;
-        }
+        get => mDesiredEarnings;
 
-        set
-        {
-            mDesiredEarnings = value;
-        }
+        set => mDesiredEarnings = value;
     }
 
     public int DriverNumber
     {
-        get
-        {
-            return driverNumber;
-        }
+        get => driverNumber;
 
-        set
-        {
-            driverNumber = value;
-        }
+        set => driverNumber = value;
     }
 
     public int StartOfSeasonExpectedChampionshipPosition
     {
-        get
-        {
-            return startOfSeasonExpectedChampionshipPosition;
-        }
+        get => startOfSeasonExpectedChampionshipPosition;
 
-        set
-        {
-            startOfSeasonExpectedChampionshipPosition = value;
-        }
+        set => startOfSeasonExpectedChampionshipPosition = value;
     }
 
     public int ExpectedChampionshipPosition
     {
-        get
-        {
-            return expectedChampionshipPosition;
-        }
+        get => expectedChampionshipPosition;
 
-        set
-        {
-            expectedChampionshipPosition = value;
-        }
+        set => expectedChampionshipPosition = value;
     }
 
     public int ExpectedRacePosition
     {
-        get
-        {
-            return expectedRacePosition;
-        }
+        get => expectedRacePosition;
 
-        set
-        {
-            expectedRacePosition = value;
-        }
+        set => expectedRacePosition = value;
     }
 
     public float MPotential
     {
-        get
-        {
-            return mPotential;
-        }
+        get => mPotential;
 
-        set
-        {
-            mPotential = value;
-        }
+        set => mPotential = value;
     }
 
     public float MModifiedPotential
     {
-        get
-        {
-            return mModifiedPotential;
-        }
+        get => mModifiedPotential;
 
-        set
-        {
-            mModifiedPotential = value;
-        }
+        set => mModifiedPotential = value;
     }
 
     public DriverStats MStats
     {
-        get
-        {
-            return mStats;
-        }
+        get => mStats;
 
-        set
-        {
-            mStats = value;
-        }
+        set => mStats = value;
     }
 
     public RelayCommand<Driver> ViewDriver { get; private set; }
 
+    public PersonalityTraitController_v2 PersonalityTraitController
+    {
+        get
+        {
+            return personalityTraitController;
+        }
+
+        set
+        {
+            personalityTraitController = value;
+        }
+    }
+
     public Driver()
     {
-        ViewDriver = new RelayCommand<Driver>((s) => _viewDriver(s));
+        ViewDriver = new RelayCommand<Driver>(_viewDriver);
     }
     private void _viewDriver(Driver d)
     {
         var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
         driverVM.SetModel(this);
+        MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Driver);
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MMSaveEditor.ViewModel
 {
-    public class TeamPrincipalViewModel : PersonViewModel<TeamPrincipal>
+    public class TeamPrincipalViewModel : TeamPrincipalViewModelBase<TeamPrincipal>
+    {
+
+    }
+    public abstract class TeamPrincipalViewModelBase<T> : PersonViewModel<T> where T : TeamPrincipal
     {
         public float RaceManagement
         {

@@ -14,4 +14,17 @@ public class ContractManagerTeam
     private Team mTeam;
     private Driver mLatestFiredActiveDriver;
 
+
+    public void GetAllDrivers(ref List<Driver> drivers)
+    {
+        int count = this.mEmployeeSlots.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.mEmployeeSlots[index].jobType == Contract.Job.Driver && !this.mEmployeeSlots[index].IsAvailable())
+            {
+                Driver personHired = this.mEmployeeSlots[index].personHired as Driver;
+                drivers.Add(personHired);
+            }
+        }
+    }
 }

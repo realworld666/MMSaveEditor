@@ -10,8 +10,7 @@
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:viewModel="clr-namespace:MMSaveEditor.ViewModel"
              x:Class="MMSaveEditor.View.TabPages.PersonPage"
-             mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800">
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1311">
     <UserControl.Resources>
         <Utils:IsTypeVisiblityConverter x:Key="IsTypeVisiblityConverter"/>
         <DataTemplate x:Key="PersonItem">
@@ -26,16 +25,19 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer  Grid.Column="1">
+        <ScrollViewer  Grid.Column="1" Margin="10,31,-10,-31">
             <StackPanel>
                 <GroupBox x:Name="Person" Header="Person">
                     <local:PersonPage_Person/>
                 </GroupBox>
-                <GroupBox x:Name="TeamPrincipal" Header="Team Principal" Visibility="{Binding ConverterParameter=TeamPrincipalViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                <GroupBox x:Name="TeamPrincipal" Header="Team Principal" Visibility="{Binding ConverterParameter=TeamPrincipalViewModel\,PlayerViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_TPStats/>
                 </GroupBox>
                 <GroupBox x:Name="Driver" Header="Driver" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_DriverStats/>
+                </GroupBox>
+                <GroupBox x:Name="Traits" Header="Personality Traits" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_Traits/>
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>

@@ -657,11 +657,17 @@
     <Compile Include="View\TabPages\PersonPage_DriverStats.xaml.cs">
       <DependentUpon>PersonPage_DriverStats.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TabPages\PersonPage_Traits.xaml.cs">
+      <DependentUpon>PersonPage_Traits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TabPages\PersonPage_TPStats.xaml.cs">
       <DependentUpon>PersonPage_TPStats.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabPages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabPages\PersonPage_Trait.xaml.cs">
+      <DependentUpon>PersonPage_Trait.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabPages\TeamPage_CarPart.xaml.cs">
       <DependentUpon>TeamPage_CarPart.xaml</DependentUpon>
@@ -694,6 +700,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\TabPages\PersonPage_Traits.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\TabPages\PersonPage_TPStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -701,6 +711,10 @@
     <Page Include="View\TabPages\TeamPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabPages\PersonPage_Trait.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TabPages\TeamPage_CarPart.xaml">
       <SubType>Designer</SubType>

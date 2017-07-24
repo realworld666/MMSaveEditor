@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tabPages="clr-namespace:MMSaveEditor.View.TabPages"
         mc:Ignorable="d"
-        Title="Motorsport Manager Save Game Editor" Height="600" Width="700"
+        Title="Motorsport Manager Save Game Editor" Height="1083" Width="700"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
         >
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
@@ -40,11 +40,11 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <TabControl Grid.Row="1">
-            <TabItem x:Name="PersonTabItem" Header="Player" Visibility="Collapsed" >
-                <tabPages:PersonPage/>
+        <TabControl x:Name="tabControl" Grid.Row="1">
+            <TabItem x:Name="PlayerTabItem" Header="Player" >
+                <tabPages:PersonPage DataContext="{Binding Player, Mode=OneWay}"/>
             </TabItem>
-            <TabItem x:Name="PrincipleTabItem" Header="Team Principals" >
+            <TabItem x:Name="PrincipalTabItem" Header="Team Principals" >
                 <tabPages:PersonPage ListBoxUpdated="TeamPrinciplePage_OnListBoxUpdated" DataContext="{Binding TeamPrincipal, Mode=OneWay}"/>
             </TabItem>
             <TabItem x:Name="DriversTabItem" Header="Drivers">

@@ -5,12 +5,51 @@ using FullSerializer;
 [fsObject("v1", new System.Type[] { }, MemberSerialization = fsMemberSerialization.OptOut)]
 public class PersonalityTrait
 {
-    public PersonalityTraitData data;
+    private PersonalityTraitData data;
     private DateTime mTraitStartDate = DateTime.MaxValue;
     private DateTime mTraitEndTime = new DateTime();
     private DriverStats mDriverStats = new DriverStats();
     private PersonalityTraitSpecialCaseBehaviour specialCaseBehaviour = new PersonalityTraitSpecialCaseBehaviour();
     private Driver mDriver;
+
+    public DateTime TraitStartDate
+    {
+        get
+        {
+            return mTraitStartDate;
+        }
+
+        set
+        {
+            mTraitStartDate = value;
+        }
+    }
+
+    public DateTime TraitEndTime
+    {
+        get
+        {
+            return mTraitEndTime;
+        }
+
+        set
+        {
+            mTraitEndTime = value;
+        }
+    }
+
+    public PersonalityTraitData Data
+    {
+        get
+        {
+            return data;
+        }
+
+        set
+        {
+            data = value;
+        }
+    }
 
     public enum StatModified
     {

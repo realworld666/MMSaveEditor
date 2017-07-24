@@ -6,21 +6,8 @@ using System.Threading.Tasks;
 
 namespace MMSaveEditor.ViewModel
 {
-    public class PlayerViewModel : PersonViewModel<Player>
+    public class PlayerViewModel : TeamPrincipalViewModelBase<Player>
     {
-        private Player _player
-        {
-            get
-            {
-                return PersonData as Player;
-            }
-        }
-        public string PlayerTeamName
-        {
-            get
-            {
-                return _player?.team.name;
-            }
-        }
+        public string PlayerTeamName => PersonData?.team.name;
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using FullSerializer;
 using GalaSoft.MvvmLight.Ioc;
 using LZ4;
@@ -22,7 +24,7 @@ namespace MMSaveEditor.View
         private static readonly int saveFileVersion = 4;
         private SaveFileInfo _currentSaveInfo;
 
-        private MainWindow Instance;
+        public static MainWindow Instance;
 
         public string VersionString
         {
@@ -33,6 +35,13 @@ namespace MMSaveEditor.View
                                            .Version
                                            .ToString());
             }
+        }
+
+        public enum TabPage
+        {
+            TeamPrincipal,
+            Driver,
+            Team, Game,
         }
 
         public MainWindow()
@@ -259,6 +268,36 @@ namespace MMSaveEditor.View
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        public void SwitchToTab(TabPage driver)
+        {
+            TabItem chosenTab = null;
+            switch (driver)
+            {
+                case TabPage.TeamPrincipal:
+                    break;
+                case TabPage.Driver:
+                    foreach (TabItem tabControlItem in tabControl.Items)
+                    {
+                        if (tabControlItem.Name.Equals("DriversTabItem"))
+                        {
+                            chosenTab = tabControlItem;
+                            break;
+                        }
+                    }
+                    break;
+                case TabPage.Team:
+                    break;
+                case TabPage.Game:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(driver), driver, null);
+            }
+            if (chosenTab != null)
+            {
+                tabControl.SelectedItem = chosenTab;
+            }
         }
     }
 }
