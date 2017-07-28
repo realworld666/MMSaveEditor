@@ -34,6 +34,13 @@ public class ContractPerson : Contract
         }
     }
 
+    public Team GetTeam()
+    {
+        if (this.employeer is Team)
+            return (Team)this.employeer;
+        return (Team)Game.Instance.teamManager.nullTeam;
+    }
+
     public enum Status
     {
         [LocalisationID("PSG_10005057")] Equal,

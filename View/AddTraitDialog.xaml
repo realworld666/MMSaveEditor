@@ -1,0 +1,26 @@
+﻿<Window x:Class="MMSaveEditor.View.AddTraitDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MMSaveEditor.View"
+        mc:Ignorable="d"
+        Title="Add New Personality Trait" Height="300" Width="300" DataContext="{Binding Driver, Mode=OneWay, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <DataTemplate x:Key="TraitRow">
+            <Label Content="{Binding NameID}"></Label>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="213*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Select Trait To Add" />
+        <GroupBox Header="Available Traits" Grid.Row="1">
+            <ListBox ItemsSource="{Binding AllTraits}" ItemTemplate="{DynamicResource TraitRow}"/>
+        </GroupBox>
+        <Button Content="Add" Grid.Row="2"/>
+    </Grid>
+</Window>

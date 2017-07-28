@@ -1,6 +1,7 @@
 ﻿using FullSerializer;
+using System;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class DriverStats : PersonStats
 {
     public int totalStatsMax = 180;
@@ -596,5 +597,37 @@ public class DriverStats : PersonStats
         {
             mHighRangeFocus = value;
         }
+    }
+
+    public void Clear()
+    {
+        this.braking = 0.0f;
+        this.cornering = 0.0f;
+        this.smoothness = 0.0f;
+        this.overtaking = 0.0f;
+        this.consistency = 0.0f;
+        this.adaptability = 0.0f;
+        this.fitness = 0.0f;
+        this.feedback = 0.0f;
+        this.focus = 0.0f;
+        this.balance = 0.0f;
+        this.experience = 0.0f;
+        this.marketability = 0.0f;
+    }
+
+    public float GetTotal()
+    {
+        return this.braking + this.cornering + this.smoothness + this.overtaking + this.consistency + this.adaptability + this.fitness + this.feedback + this.focus;
+    }
+
+    public int GetMaxPotential()
+    {
+        return 180 - (int)this.GetTotal();
+    }
+
+    public void SetMaxFromPotential(int inPotential)
+    {
+        this.totalStatsMax = (int)this.GetTotal() + inPotential;
+        this.totalStatsMax = Math.Min(this.totalStatsMax, 180);
     }
 }

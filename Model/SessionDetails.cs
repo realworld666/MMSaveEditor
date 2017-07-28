@@ -13,6 +13,21 @@ public class SessionDetails
     private int mTVAudience;
     private int mAttendence;
 
+    public DateTime sessionDateTime
+    {
+        get
+        {
+            return this.mSessionDateTime;
+        }
+    }
+
+    public SessionDetails.SessionType sessionType
+    {
+        get
+        {
+            return this.mSessionType;
+        }
+    }
 
     public enum SessionType
     {

@@ -103,6 +103,11 @@ public class Championship : Entity
         }
     }
 
+    public RaceEventDetails GetCurrentEventDetails()
+    {
+        return this.calendar[this.mEventNumber];
+    }
+
     public enum Series
     {
         [LocalisationID("PSG_10011514")] SingleSeaterSeries,

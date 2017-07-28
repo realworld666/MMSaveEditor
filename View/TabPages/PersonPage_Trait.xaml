@@ -6,13 +6,31 @@
              xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <xcdg:DataGridControl ItemsSource="{Binding Mode=OneWay}" AllowDetailToggle="False" AutoCreateColumns="True">
+             d:DesignHeight="500" d:DesignWidth="300">
+    <StackPanel>
+        <!--<DataGrid ItemsSource="{Binding Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TraitStartDate}" ClipboardContentBinding="{x:Null}" Header="Start Date"/>
+                <DataGridTextColumn Binding="{Binding TraitEndTime}" ClipboardContentBinding="{x:Null}" Header="End Date"/>
+                <DataGridTextColumn Binding="{Binding TraitName, Mode=OneWay}" ClipboardContentBinding="{x:Null}" Header="Trait Name"/>
+            </DataGrid.Columns>
 
 
+        </DataGrid>-->
+        <xcdg:DataGridControl x:Name="traitList" AutoCreateColumns="False" ItemsSource="{Binding}" IsDeleteCommandEnabled="True">
+            <xcdg:DataGridControl.Columns>
+                <xcdg:Column FieldName="TraitStartDate" Title="Start Date" IsMainColumn="True"/>
+                <xcdg:Column FieldName="TraitEndTime" Title="End Date" IsMainColumn="True"/>
+                <xcdg:Column FieldName="TraitName" Title="Name" IsMainColumn="True"/>
+            </xcdg:DataGridControl.Columns>
         </xcdg:DataGridControl>
-        <!--<ListView ItemTemplate="{DynamicResource InventoryItem}" ItemsSource="{Binding EngineParts, Mode=OneWay}">
-                            </ListView>-->
-    </Grid>
+        <Grid Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="addTrait" Content="Add New" Click="addTrait_Click"/>
+            <Button x:Name="removeTrait" Content="Remove Selected" Grid.Column="1" Click="removeTrait_Click"/>
+        </Grid>
+    </StackPanel>
 </UserControl>

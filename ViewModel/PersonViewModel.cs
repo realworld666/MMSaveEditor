@@ -69,7 +69,7 @@ namespace MMSaveEditor.ViewModel
                     return PersonData.dateOfBirth;
                 return DateTime.Now;
             }
-            set => PersonData.dateOfBirth = value;
+            set { if (PersonData != null) PersonData.dateOfBirth = value; }
         }
 
         public Person.Gender Gender

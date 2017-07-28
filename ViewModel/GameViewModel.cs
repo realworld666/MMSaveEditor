@@ -25,19 +25,20 @@ namespace MMSaveEditor.ViewModel
         /// </summary>
         public GameViewModel()
         {
+
         }
 
-        public void SetModels( GameTimer timeData )
+        public void SetModels(GameTimer timeData)
         {
             _timeData = timeData;
-            RaisePropertyChanged( String.Empty );
+            RaisePropertyChanged(String.Empty);
         }
 
         public DateTime DateNow
         {
             get
             {
-                if( _timeData != null )
+                if (_timeData != null)
                     return _timeData.now;
                 return DateTime.Now;
             }
@@ -51,7 +52,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if( _timeData != null )
+                if (_timeData != null)
                 {
                     return _timeData.speedMultipliers[2, 0];
                 }
@@ -63,7 +64,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if( _timeData != null )
+                if (_timeData != null)
                 {
                     return _timeData.speedMultipliers[2, 1];
                 }
@@ -75,7 +76,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if( _timeData != null )
+                if (_timeData != null)
                 {
                     return _timeData.speedMultipliers[2, 2];
                 }

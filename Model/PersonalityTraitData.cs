@@ -13,7 +13,7 @@ public class PersonalityTraitData
     public PersonalityTraitData.TraitType type;
     public int[] possibleLength;
     public List<DialogCriteria> requirements;
-    private float probability;
+    public float probability;
     public int[] evolvesInto;
     public int[] opposites;
     public int[] removesTraits;
@@ -33,17 +33,82 @@ public class PersonalityTraitData
     private string nameID;
     private string descriptionID;
 
-    public float Probability
+    public bool canEvolve
     {
         get
         {
-            return probability;
+            return this.evolvesInto.Length > 0;
+        }
+    }
+
+    public string customTraitName
+    {
+        get
+        {
+            return this.mCustomTraitName;
+        }
+        set
+        {
+            this.mCustomTraitName = value;
+        }
+    }
+
+    public string customTraitDescription
+    {
+        get
+        {
+            return this.mCustomTraitDescription;
+        }
+        set
+        {
+            this.mCustomTraitDescription = value;
+        }
+    }
+
+    public string NameID
+    {
+        get
+        {
+            return nameID;
         }
 
         set
         {
-            probability = value;
+            nameID = value;
         }
+    }
+
+    public string DescriptionID
+    {
+        get
+        {
+            return descriptionID;
+        }
+
+        set
+        {
+            descriptionID = value;
+        }
+    }
+
+    public bool IsTraitOpposite(PersonalityTraitData inTraitData)
+    {
+        for (int index = 0; index < this.opposites.Length; ++index)
+        {
+            if (this.opposites[index] == inTraitData.ID)
+                return true;
+        }
+        return false;
+    }
+
+    public void SetDescriptionID(string inID)
+    {
+        this.descriptionID = inID;
+    }
+
+    public void SetNameID(string inID)
+    {
+        this.nameID = inID;
     }
 
     public enum TraitType

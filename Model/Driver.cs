@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using MMSaveEditor.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
 using MMSaveEditor.View;
+using MMSaveEditor.Utils;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Driver : Person
@@ -208,5 +209,13 @@ public class Driver : Person
         var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
         driverVM.SetModel(this);
         MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Driver);
+    }
+
+    public void UpdateModifiedPotentialValue(float inPotentialModifier)
+    {
+        this.mModifiedPotential += inPotentialModifier;
+        this.mModifiedPotential = this.mModifiedPotential.Clamp(0.0f, (float)this.mStats.GetMaxPotential());
+        this.mStats.SetMaxFromPotential((int)this.mModifiedPotential);
+        this.mModifiedStats.totalStatsMax = this.mStats.totalStatsMax;
     }
 }

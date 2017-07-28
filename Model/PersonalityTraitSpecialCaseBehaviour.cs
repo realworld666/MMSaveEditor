@@ -71,4 +71,16 @@ public class PersonalityTraitSpecialCaseBehaviour
         }
     }
 
+    public bool HasSpecialCase(PersonalityTrait.SpecialCaseType inSpecialCaseType)
+    {
+        if (this.hasSpecialCase)
+        {
+            for (int index = 0; index < this.mSpecialCases.Count; ++index)
+            {
+                if (this.mSpecialCases[index] == inSpecialCaseType)
+                    return true;
+            }
+        }
+        return false;
+    }
 }

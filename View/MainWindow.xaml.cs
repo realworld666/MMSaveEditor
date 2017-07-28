@@ -267,6 +267,7 @@ namespace MMSaveEditor.View
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
+            throw new Exception("WTF!");
             Application.Current.Shutdown();
         }
 
