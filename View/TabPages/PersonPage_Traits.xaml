@@ -14,5 +14,6 @@
         <Expander Header="Temporary Personality Traits">
             <local:PersonPage_Trait DataContext="{Binding PersonData.PersonalityTraitController.TemporaryPersonalityTraits}" ></local:PersonPage_Trait>
         </Expander>
+        <Button x:Name="addTrait" Content="Add New" Click="addTrait_Click"/>
     </StackPanel>
 </UserControl>

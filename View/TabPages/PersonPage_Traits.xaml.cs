@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GalaSoft.MvvmLight.Ioc;
+using MMSaveEditor.ViewModel;
 
 namespace MMSaveEditor.View.TabPages
 {
@@ -20,9 +22,27 @@ namespace MMSaveEditor.View.TabPages
     /// </summary>
     public partial class PersonPage_Traits : UserControl
     {
+        public event EventHandler<PersonalityTraitData> TraitAdded;
+
         public PersonPage_Traits()
         {
             InitializeComponent();
+        }
+
+        private void addTrait_Click(object sender, RoutedEventArgs e)
+        {
+            AddTraitDialog dialog = new AddTraitDialog();
+            dialog.ShowDialog();
+            // aggregate data and info
+            var handler = TraitAdded;
+            if (handler != null && dialog.SelectedData != null)
+                handler.Invoke(this, dialog.SelectedData);
+
+            // HACK
+            var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
+            vm.PersonData.addTrait(dialog.SelectedData);
+            // refresh view model
+            vm.SetModel(vm.PersonData);
         }
     }
 }

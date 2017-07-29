@@ -19,8 +19,8 @@
         </Grid.RowDefinitions>
         <Label Content="Select Trait To Add" />
         <GroupBox Header="Available Traits" Grid.Row="1">
-            <ListBox ItemsSource="{Binding AllTraits}" ItemTemplate="{DynamicResource TraitRow}"/>
+            <ListBox x:Name="traitList" ItemsSource="{Binding AllTraits}" ItemTemplate="{DynamicResource TraitRow}"/>
         </GroupBox>
-        <Button Content="Add" Grid.Row="2"/>
+        <Button x:Name="addButton" Content="Add" Grid.Row="2" Click="addButton_Click"/>
     </Grid>
 </Window>

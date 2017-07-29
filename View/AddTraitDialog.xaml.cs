@@ -19,9 +19,17 @@ namespace MMSaveEditor.View
     /// </summary>
     public partial class AddTraitDialog : Window
     {
+        public PersonalityTraitData SelectedData;
+
         public AddTraitDialog()
         {
             InitializeComponent();
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedData = traitList.SelectedItem as PersonalityTraitData;
+            this.Close();
         }
     }
 }

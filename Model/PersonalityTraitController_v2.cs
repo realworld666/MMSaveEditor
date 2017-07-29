@@ -110,7 +110,7 @@ public class PersonalityTraitController_v2
         return inPersonalityTrait;
     }
 
-    private void RemovePersonalityTrait(PersonalityTrait inPersonalityTrait)
+    public void RemovePersonalityTrait(PersonalityTrait inPersonalityTrait)
     {
         if (inPersonalityTrait.Data.type == PersonalityTraitData.TraitType.Permanent)
             this.permanentPersonalityTraits.Remove(inPersonalityTrait);

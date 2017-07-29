@@ -9,6 +9,8 @@
              xmlns:Utils="clr-namespace:MMSaveEditor.Utils" 
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:viewModel="clr-namespace:MMSaveEditor.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
              x:Class="MMSaveEditor.View.TabPages.PersonPage"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1311">
     <UserControl.Resources>
@@ -34,10 +36,18 @@
                     <local:PersonPage_TPStats/>
                 </GroupBox>
                 <GroupBox x:Name="Driver" Header="Driver" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
-                    <local:PersonPage_DriverStats/>
+                    <local:PersonPage_DriverStats>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TraitAdded" >
+                                <command:EventToCommand  
+                                    PassEventArgsToCommand="True"    
+                                    CommandParameter="{Binding}" Command="{Binding AddTrait, Mode=OneWay}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </local:PersonPage_DriverStats>
                 </GroupBox>
                 <GroupBox x:Name="Traits" Header="Personality Traits" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
-                    <local:PersonPage_Traits/>
+                    <local:PersonPage_Traits />
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>

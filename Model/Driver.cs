@@ -186,6 +186,7 @@ public class Driver : Person
     }
 
     public RelayCommand<Driver> ViewDriver { get; private set; }
+    public RelayCommand<PersonalityTraitData> AddTrait { get; private set; }
 
     public PersonalityTraitController_v2 PersonalityTraitController
     {
@@ -203,12 +204,23 @@ public class Driver : Person
     public Driver()
     {
         ViewDriver = new RelayCommand<Driver>(_viewDriver);
+        AddTrait = new RelayCommand<PersonalityTraitData>(addTrait);
     }
     private void _viewDriver(Driver d)
     {
         var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
         driverVM.SetModel(this);
         MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Driver);
+    }
+
+    public void addTrait(PersonalityTraitData data)
+    {
+        personalityTraitController.AddPersonalityTrait(data, true);
+    }
+
+    public void removeTrait(PersonalityTrait data)
+    {
+        personalityTraitController.RemovePersonalityTrait(data);
     }
 
     public void UpdateModifiedPotentialValue(float inPotentialModifier)

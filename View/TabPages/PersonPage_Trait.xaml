@@ -27,10 +27,9 @@
         <Grid Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="addTrait" Content="Add New" Click="addTrait_Click"/>
-            <Button x:Name="removeTrait" Content="Remove Selected" Grid.Column="1" Click="removeTrait_Click"/>
+
+            <Button x:Name="removeTrait" Content="Remove Selected" Grid.Column="0" Click="removeTrait_Click"/>
         </Grid>
     </StackPanel>
 </UserControl>
