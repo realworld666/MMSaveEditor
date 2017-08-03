@@ -1,10 +1,13 @@
 ﻿using FullSerializer;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
-public class Color
+namespace UnityEngine
 {
-	public float r;
-	public float g;
-	public float b;
-	public float a;
+    [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+    public struct Color
+    {
+        public float r;
+        public float g;
+        public float b;
+        public float a;
+    }
 }

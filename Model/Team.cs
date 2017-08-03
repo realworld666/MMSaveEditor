@@ -15,7 +15,7 @@ public class Team : Entity
     public static readonly float mMarketabilityModifierKeptSameCSPosition = 0.1f;
     public static readonly float mMarketabilityMaxPositionChange = 5f;
     public Nationality nationality = new Nationality();
-    public TeamFinanceController financeController = new TeamFinanceController();
+    private TeamFinanceController financeController = new TeamFinanceController();
     public YoungDriverProgramme youngDriverProgramme = new YoungDriverProgramme();
     public History history = new History();
     public CarManager carManager = new CarManager();
@@ -72,6 +72,19 @@ public class Team : Entity
             var result = mSelectedDriver.ToList();
             result.Add(GetReserveDriver());
             return result;
+        }
+    }
+
+    public TeamFinanceController FinanceController
+    {
+        get
+        {
+            return financeController;
+        }
+
+        set
+        {
+            financeController = value;
         }
     }
 

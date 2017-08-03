@@ -7,7 +7,10 @@
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPCONTACT" Value="Real World"/>
+    <ROW Property="ARPHELPLINK" Value="http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488"/>
     <ROW Property="ARPPRODUCTICON" Value="icon.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://www.rwscripts.com"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="RWSoftware"/>
     <ROW Property="ProductCode" Value="2057:{F1C981F7-8435-42F1-B605-A24EC079EED5} " Type="16"/>
@@ -33,6 +36,7 @@
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="CsvHelper.dll" ComponentId="{AE3A247D-9011-4F2C-8BCE-F1F516BDD3B4}" Directory_="APPDIR" Attributes="0" KeyPath="CsvHelper.dll"/>
     <ROW Component="GalaSoft.MvvmLight.Extras.dll" ComponentId="{A9C13A9F-63CB-40CF-B5D2-3DD547C2DAD4}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Extras.dll"/>
     <ROW Component="GalaSoft.MvvmLight.Platform.dll" ComponentId="{AB4B23DF-4D79-45CC-A3F2-46DE59213298}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Platform.dll"/>
     <ROW Component="GalaSoft.MvvmLight.dll" ComponentId="{46F1B727-2C3E-4BB5-9E35-F6D359454AE3}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.dll"/>
@@ -40,6 +44,7 @@
     <ROW Component="MMSaveEditor.exe" ComponentId="{C943D910-010A-4588-9E5A-2B26E81B92AC}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe"/>
     <ROW Component="MMSaveEditor.exe.config" ComponentId="{3C380EFA-6FEC-4602-98F4-E604D0ED70A4}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe.config" Type="0"/>
     <ROW Component="Microsoft.Practices.ServiceLocation.dll" ComponentId="{918B39DF-D22B-490D-BF4F-2947C738EDDC}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Practices.ServiceLocation.dll"/>
+    <ROW Component="NBug.dll" ComponentId="{107B1755-F8F8-4D60-9B61-40D1DE76682D}" Directory_="APPDIR" Attributes="0" KeyPath="NBug.dll"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{BDCB30AD-64E5-4C0D-B777-FD939E9566D0}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
     <ROW Component="ProductInformation" ComponentId="{59B93B2D-69DA-4ED1-8A93-2397144D68A9}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{FAB17561-2754-4241-A2D1-EFDEBD40681B}" Directory_="SHORTCUTDIR" Attributes="0"/>
@@ -52,17 +57,19 @@
     <ROW Component="Xceed.Wpf.Toolkit.dll" ComponentId="{0F75FEBD-3BCA-489D-90D7-9C4C8F0670BA}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.Toolkit.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
-    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="GalaSoft.MvvmLight.Extras.dll GalaSoft.MvvmLight.Platform.dll GalaSoft.MvvmLight.dll LZ4.dll MMSaveEditor.exe MMSaveEditor.exe.config Microsoft.Practices.ServiceLocation.dll Newtonsoft.Json.dll ProductInformation SHORTCUTDIR System.Windows.Interactivity.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll"/>
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="CsvHelper.dll GalaSoft.MvvmLight.Extras.dll GalaSoft.MvvmLight.Platform.dll GalaSoft.MvvmLight.dll LZ4.dll MMSaveEditor.exe MMSaveEditor.exe.config Microsoft.Practices.ServiceLocation.dll NBug.dll Newtonsoft.Json.dll ProductInformation SHORTCUTDIR System.Windows.Interactivity.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="CsvHelper.dll" Component_="CsvHelper.dll" FileName="CSVHEL~1.DLL|CsvHelper.dll" Attributes="0" SourcePath="..\bin\Release\CsvHelper.dll" SelfReg="false" NextFile="NBug.dll"/>
     <ROW File="GalaSoft.MvvmLight.Extras.dll" Component_="GalaSoft.MvvmLight.Extras.dll" FileName="GALASO~2.DLL|GalaSoft.MvvmLight.Extras.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Extras.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.Platform.dll"/>
     <ROW File="GalaSoft.MvvmLight.Platform.dll" Component_="GalaSoft.MvvmLight.Platform.dll" FileName="GALASO~3.DLL|GalaSoft.MvvmLight.Platform.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Platform.dll" SelfReg="false" NextFile="System.Windows.Interactivity.dll"/>
     <ROW File="GalaSoft.MvvmLight.dll" Component_="GalaSoft.MvvmLight.dll" FileName="GALASO~1.DLL|GalaSoft.MvvmLight.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.Extras.dll"/>
     <ROW File="LZ4.dll" Component_="LZ4.dll" FileName="LZ4.dll" Attributes="0" SourcePath="..\bin\Release\LZ4.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.dll"/>
     <ROW File="MMSaveEditor.exe" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.EXE|MMSaveEditor.exe" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe" SelfReg="false" NextFile="MMSaveEditor.exe.config" DigSign="true"/>
     <ROW File="MMSaveEditor.exe.config" Component_="MMSaveEditor.exe.config" FileName="MMSAVE~1.CON|MMSaveEditor.exe.config" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe.config" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
-    <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false" NextFile="CsvHelper.dll"/>
+    <ROW File="NBug.dll" Component_="NBug.dll" FileName="NBug.dll" Attributes="0" SourcePath="..\bin\Release\NBug.dll" SelfReg="false"/>
     <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="LZ4.dll"/>
     <ROW File="System.Windows.Interactivity.dll" Component_="System.Windows.Interactivity.dll" FileName="SYSTEM~1.DLL|System.Windows.Interactivity.dll" Attributes="0" SourcePath="..\bin\Release\System.Windows.Interactivity.dll" SelfReg="false" NextFile="Microsoft.Practices.ServiceLocation.dll"/>
     <ROW File="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Component_="Xceed.Wpf.AvalonDock.Themes.Aero.dll" FileName="XCEEDW~2.DLL|Xceed.Wpf.AvalonDock.Themes.Aero.dll" Attributes="0" SourcePath="..\bin\Release\Xceed.Wpf.AvalonDock.Themes.Aero.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>

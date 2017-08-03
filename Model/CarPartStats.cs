@@ -1,18 +1,19 @@
 ﻿
 using FullSerializer;
 using System;
+using MMSaveEditor.Utils;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarPartStats
 {
     public CarStats.StatType statType = CarStats.StatType.Acceleration;
-    private float maxReliability = 0.8f;
-    private float maxPerformance = 20f;
+    public float maxReliability = 0.8f;
+    public float maxPerformance = 20f;
     public CarPartCondition partCondition = new CarPartCondition();
     public const int maxLevelMultiplier = 3;
     public const int maxPerformanceConstant = 21;
     public int level;
-    private float rulesRisk1;
+    public float rulesRisk;
     private float mPerformance;
     private float mReliability;
     private float mStat;
@@ -89,15 +90,18 @@ public class CarPartStats
 
     public float RulesRisk1
     {
-        get
-        {
-            return rulesRisk1;
-        }
+        get { return rulesRisk; }
+        set { rulesRisk = value; }
+    }
 
-        set
-        {
-            rulesRisk1 = value;
-        }
+    public CarPartStats(CarPart inPart)
+    {
+        this.partCondition.Setup(inPart);
+        this.statType = CarPart.GetStatForPartType(inPart.GetPartType());
+    }
+
+    public CarPartStats()
+    {
     }
 
     public static CarPartStats.RulesRisk GetRisk(float inValue)
@@ -108,6 +112,50 @@ public class CarPartStats
             return CarPartStats.RulesRisk.Low;
         return (double)inValue <= 2.0 ? CarPartStats.RulesRisk.Medium : CarPartStats.RulesRisk.High;
     }
+
+    public void SetStat(CarPartStats.CarPartStat inStat, float inValue)
+    {
+        switch (inStat)
+        {
+            case CarPartStats.CarPartStat.MainStat:
+                this.mStat = inValue;
+                break;
+            case CarPartStats.CarPartStat.Reliability:
+                this.mReliability = inValue;
+                this.mReliability = this.mReliability.Clamp(0.0f, this.maxReliability);
+                this.SetStat(CarPartStats.CarPartStat.Condition, this.mReliability);
+                break;
+            case CarPartStats.CarPartStat.Condition:
+                this.partCondition.SetCondition(inValue);
+                break;
+            case CarPartStats.CarPartStat.Performance:
+                this.mPerformance = inValue;
+                this.mPerformance = Math.Min(this.mPerformance, this.maxPerformance);
+                break;
+        }
+    }
+
+    public float GetStat(CarPartStats.CarPartStat inStat)
+    {
+        float num = 0.0f;
+        switch (inStat)
+        {
+            case CarPartStats.CarPartStat.MainStat:
+                num = this.mStat;
+                break;
+            case CarPartStats.CarPartStat.Reliability:
+                num = this.mReliability;
+                break;
+            case CarPartStats.CarPartStat.Condition:
+                num = this.partCondition.condition;
+                break;
+            case CarPartStats.CarPartStat.Performance:
+                num = this.mPerformance;
+                break;
+        }
+        return num;
+    }
+
 
     public enum CarPartStat
     {

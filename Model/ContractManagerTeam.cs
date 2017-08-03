@@ -27,4 +27,14 @@ public class ContractManagerTeam
             }
         }
     }
+
+    public Person GetPersonOnJob(Contract.Job inJob)
+    {
+        for (int index = 0; index < this.mEmployeeSlots.Count; ++index)
+        {
+            if (this.mEmployeeSlots[index].jobType == inJob && !this.mEmployeeSlots[index].IsAvailable())
+                return this.mEmployeeSlots[index].personHired;
+        }
+        return (Person)null;
+    }
 }

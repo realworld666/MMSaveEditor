@@ -9,6 +9,7 @@ public class Game
 {
     public List<SavedSubscribedModInfo> savedSubscribedModsInfo = new List<SavedSubscribedModInfo>();
     public GameAchievementDataStorage achievementData = new GameAchievementDataStorage();
+    public static Game Instance;
     public LocalisationGroupManager localisationGroupManager;
     public Player player;
     public GameTimer time;
@@ -56,7 +57,6 @@ public class Game
     private bool mQueuedAutosave;
     public SerializedPreferences mSerializedPreferences;
 
-    public static Game Instance;
 
     public Game()
     {

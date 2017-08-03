@@ -49,4 +49,53 @@ public class CarPartComponent : fsISerializationCallbacks
     public void OnAfterDeserialize(Type storageType)
     {
     }
+
+    public void ApplyStats(CarPart inPart)
+    {
+        if (this.HasActivationRequirement())
+            return;
+        inPart.stats.rulesRisk += this.riskLevel;
+        inPart.stats.maxPerformance += this.maxStatBoost;
+        inPart.stats.partCondition.redZone += this.redZone;
+        inPart.stats.maxReliability += this.maxReliabilityBoost;
+        inPart.stats.SetStat(CarPartStats.CarPartStat.MainStat, inPart.stats.stat + this.statBoost);
+        inPart.stats.SetStat(CarPartStats.CarPartStat.Reliability, inPart.stats.reliability + this.reliabilityBoost);
+    }
+
+    private bool HasActivationRequirement()
+    {
+        return this.activationRequirements.Count != 0;
+    }
+
+    public void ApplyBonus(CarPartDesign inDesign, CarPart inPart)
+    {
+        if (this.IsUnlocked(inDesign.team))
+        {
+            this.mBonuses.ForEach(delegate (CarPartComponentBonus bonus)
+            {
+                bonus.ApplyBonus(inDesign, inPart);
+            });
+        }
+    }
+
+    private bool IsUnlocked(Team inTeam)
+    {
+        for (int index = 0; index < this.unlockRequirements.Count; ++index)
+        {
+            if (this.unlockRequirements[index].IsLocked(inTeam))
+                return false;
+        }
+        return true;
+    }
+
+    public void OnPartBuilt(CarPartDesign inDesign, CarPart inPart)
+    {
+        if (this.IsUnlocked(inDesign.team))
+        {
+            this.mBonuses.ForEach(delegate (CarPartComponentBonus bonus)
+            {
+                bonus.OnPartBuilt(inDesign, inPart);
+            });
+        }
+    }
 }

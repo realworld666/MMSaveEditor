@@ -7,6 +7,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800"
              DataContext="{Binding Team, Mode=OneWay, Source={StaticResource Locator}}"
@@ -101,6 +102,12 @@
                     <Expander Header="Suspension (GT)">
                         <local:TeamPage_CarPart DataContext="{Binding SuspensionGT}" ></local:TeamPage_CarPart>
                     </Expander>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Finances">
+                <StackPanel>
+                    <xctk:PropertyGrid Name="finances" SelectedObject="{Binding TeamData.FinanceController}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"/>
+                    <xctk:PropertyGrid Name="finances2" SelectedObject="{Binding TeamData.FinanceController.Finance}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

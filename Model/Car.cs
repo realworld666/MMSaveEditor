@@ -26,4 +26,12 @@ public class Car
             return this.mCarManager.frontendCar.data;
         return this.mCarManager.nextFrontendCar.data;
     }
+
+    public CarManager carManager
+    {
+        get
+        {
+            return this.mCarManager;
+        }
+    }
 }

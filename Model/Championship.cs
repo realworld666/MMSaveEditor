@@ -1,6 +1,7 @@
 ﻿using FullSerializer;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Championship : Entity

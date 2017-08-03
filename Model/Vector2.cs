@@ -1,9 +1,11 @@
 ﻿
 using FullSerializer;
-
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
-public class Vector2
+namespace UnityEngine
 {
-	public float x;
-	public float y;
+    [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+    public struct Vector2
+    {
+        public float x;
+        public float y;
+    }
 }

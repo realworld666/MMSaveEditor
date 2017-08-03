@@ -335,6 +335,7 @@
     <Compile Include="Model\GameAchievementDataStorage.cs" />
     <Compile Include="Model\GameState.cs" />
     <Compile Include="Model\GameStateInfo.cs" />
+    <Compile Include="Model\GameStatsConstants.cs" />
     <Compile Include="Model\GameTimer.cs" />
     <Compile Include="Model\GameUtility.cs" />
     <Compile Include="Model\GameVersionNumber.cs" />

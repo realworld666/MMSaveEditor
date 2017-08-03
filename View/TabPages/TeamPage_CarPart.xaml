@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <DataGrid CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}">
+        <DataGrid CanUserAddRows="False" CanUserReorderColumns="False" RowDetailsVisibilityMode="Visible" SelectionMode="Single" SelectionUnit="Cell" AutoGenerateColumns="False" ItemsSource="{Binding Mode=OneWay}" CellEditEnding="DataGrid_CellEditEnding">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding stats.stat}" ClipboardContentBinding="{x:Null}" Header="Base Stat"/>
                 <DataGridTextColumn Binding="{Binding stats.performance}" ClipboardContentBinding="{x:Null}" Header="Performance"/>

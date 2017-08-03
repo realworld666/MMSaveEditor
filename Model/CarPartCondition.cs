@@ -25,4 +25,36 @@ public class CarPartCondition
         Failure,
         CatastrophicFailure,
     }
+
+    public float condition
+    {
+        get
+        {
+            return this.mCondition;
+        }
+    }
+
+    public float redZone
+    {
+        get
+        {
+            return this.mRedBand;
+        }
+        set
+        {
+            this.mRedBand = value;
+            this.mActiveSessionRedZone = value;
+        }
+    }
+
+    public void SetCondition(float inCondition)
+    {
+        this.mCondition = inCondition;
+        this.mState = CarPartCondition.PartState.Optimal;
+    }
+
+    public void Setup(CarPart inPart)
+    {
+        this.mPart = inPart;
+    }
 }

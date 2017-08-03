@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using FullSerializer;
+using UnityEngine;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Sponsor : Entity
