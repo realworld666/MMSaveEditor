@@ -19,31 +19,23 @@ public class Team : Entity
     public YoungDriverProgramme youngDriverProgramme = new YoungDriverProgramme();
     public History history = new History();
     public CarManager carManager = new CarManager();
+    public Championship championship;
     public TeamPerkManager perksManager = new TeamPerkManager();
     public SponsorController sponsorController = new SponsorController();
     public ContractManagerTeam contractManager = new ContractManagerTeam();
     public TeamStatistics teamStatistics = new TeamStatistics();
     public TeamAIController teamAIController = new TeamAIController();
-    public TeamLogo customLogo = new TeamLogo();
-    public string locationID = string.Empty;
-    public int startOfSeasonExpectedChampionshipResult;
-    public List<PoliticalVote.TeamCharacteristics> votingCharacteristics = new List<PoliticalVote.TeamCharacteristics>();
-    public bool canRequestFunds = true;
-    private string startDescription = string.Empty;
-    private string mCustomStartDescription = string.Empty;
-    private Driver[] mSelectedDriver = new Driver[Team.mainDriverCount];
-    private int mCurrentExpectedChampionshipResult;
-    private List<Mechanic> mMechanics = new List<Mechanic>();
+
     [NonSerialized]
     private List<Driver> mDriversCache = new List<Driver>();
-    private List<EmployeeSlot> mEmployeeSlots = new List<EmployeeSlot>();
     public const int invalidTeamID = -1;
     public static readonly int mMinRacesBeforeStaffChangeAllowed;
-    public Championship championship;
     public Headquarters headquarters;
     public TeamAIWeightings aiWeightings;
+    public TeamLogo customLogo = new TeamLogo();
     public Investor investor;
     public int teamID;
+    public string locationID = string.Empty;
     public int reputation;
     public float marketability;
     public int pressure;
@@ -54,16 +46,25 @@ public class Team : Entity
     public int liveryID;
     public int driversHatStyle;
     public int driversBodyStyle;
+    public int startOfSeasonExpectedChampionshipResult;
     public int rulesBrokenThisSeason;
     public bool isBlockedByChallenge;
     public bool isCreatedByPlayer;
+    public List<PoliticalVote.TeamCharacteristics> votingCharacteristics = new List<PoliticalVote.TeamCharacteristics>();
     public int votingPower;
     public Team rivalTeam;
     public float marketabilityBeforeEvent;
     public int expectedRacePosition;
+    public bool canRequestFunds = true;
     public bool canReceiveFullChairmanPayments;
+    private string startDescription = string.Empty;
+    private string mCustomStartDescription = string.Empty;
     private ChampionshipEntry_v1 mChampionshipEntry;
+    private Driver[] mSelectedDriver = new Driver[Team.mainDriverCount];
+    private int mCurrentExpectedChampionshipResult;
+    private List<Mechanic> mMechanics = new List<Mechanic>();
     private List<Driver> mDrivers;
+    private List<EmployeeSlot> mEmployeeSlots = new List<EmployeeSlot>();
 
     public List<Driver> Drivers
     {
@@ -95,7 +96,7 @@ public class Team : Entity
         for (int index = 0; index < this.mDriversCache.Count; ++index)
         {
             Driver driver = this.mDriversCache[index];
-            if (driver.contract.currentStatus == ContractPerson.Status.Reserve)
+            if (driver.Contract.currentStatus == ContractPerson.Status.Reserve)
                 return driver;
         }
         return (Driver)null;

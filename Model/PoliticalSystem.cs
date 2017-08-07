@@ -6,17 +6,18 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class PoliticalSystem
 {
-    private PoliticalVote mActiveVote;
+    public Person president;
 
     private PoliticalSystem.VoteResult mLatestVoteResult = PoliticalSystem.VoteResult.Tie;
+    private PoliticalVote mActiveVote;
+    private Championship mChampionship;
+
     private List<VoteChoice> mVoteChoices = new List<VoteChoice>();
     private List<PoliticalSystem.VoteResults> mVoteResultsForSeason = new List<PoliticalSystem.VoteResults>();
     private List<PoliticalVote> mVotesForSeason = new List<PoliticalVote>();
     private List<CalendarEvent_v1> mCalendarEvents = new List<CalendarEvent_v1>();
     private const DayOfWeek dayOfTheWeek = DayOfWeek.Wednesday;
     private const int everyXMonths = 2;
-    public Person president;
-    private Championship mChampionship;
     private int mNextVoteIndex;
     private int mNewRuleAproved;
     private bool mEndOfSeasonMessage;

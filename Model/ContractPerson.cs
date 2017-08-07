@@ -1,5 +1,6 @@
 ﻿using FullSerializer;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ContractPerson : Contract
@@ -7,23 +8,23 @@ public class ContractPerson : Contract
     private ContractPerson.Status mCurrentStatus = ContractPerson.Status.Reserve;
     private ContractPerson.Status mProposedStatus = ContractPerson.Status.Reserve;
     public DateTime optionClauseEndDate = new DateTime();
-    public string employeerName = string.Empty;
-    public ContractPerson.BuyoutClauseSplit buyoutSplit = ContractPerson.BuyoutClauseSplit.PersonPaysAll;
-    public int yearlyWages;
-    public int signOnFee;
-    public int qualifyingBonus;
-    public int qualifyingBonusTargetPosition;
-    public int raceBonus;
-    public int raceBonusTargetPosition;
-    public int championBonus;
+    private int yearlyWages;
+    private int signOnFee;
+    private int qualifyingBonus;
+    private int qualifyingBonusTargetPosition;
+    private int raceBonus;
+    private int raceBonusTargetPosition;
+    private int championBonus;
     public int payDriver;
     public int amountForContractorToPay;
     public int amountForTargetToPay;
     public Entity employeer;
+    public string employeerName = string.Empty;
     public bool hasSignOnFee;
     public bool hasRaceBonus;
     public bool hasQualifyingBonus;
-    public ContractPerson.ContractLength length;
+    public ContractLength length;
+    public ContractPerson.BuyoutClauseSplit buyoutSplit = ContractPerson.BuyoutClauseSplit.PersonPaysAll;
     private Person mPerson;
 
     public ContractPerson.Status currentStatus
@@ -31,6 +32,98 @@ public class ContractPerson : Contract
         get
         {
             return this.mCurrentStatus;
+        }
+    }
+
+    [DisplayFormat(DataFormatString = "{0:n0}")]
+    public int YearlyWages
+    {
+        get
+        {
+            return yearlyWages;
+        }
+
+        set
+        {
+            yearlyWages = value;
+        }
+    }
+
+    public int SignOnFee
+    {
+        get
+        {
+            return signOnFee;
+        }
+
+        set
+        {
+            signOnFee = value;
+        }
+    }
+
+    public int QualifyingBonus
+    {
+        get
+        {
+            return qualifyingBonus;
+        }
+
+        set
+        {
+            qualifyingBonus = value;
+        }
+    }
+
+    public int QualifyingBonusTargetPosition
+    {
+        get
+        {
+            return qualifyingBonusTargetPosition;
+        }
+
+        set
+        {
+            qualifyingBonusTargetPosition = value;
+        }
+    }
+
+    public int RaceBonus
+    {
+        get
+        {
+            return raceBonus;
+        }
+
+        set
+        {
+            raceBonus = value;
+        }
+    }
+
+    public int RaceBonusTargetPosition
+    {
+        get
+        {
+            return raceBonusTargetPosition;
+        }
+
+        set
+        {
+            raceBonusTargetPosition = value;
+        }
+    }
+
+    public int ChampionBonus
+    {
+        get
+        {
+            return championBonus;
+        }
+
+        set
+        {
+            championBonus = value;
         }
     }
 

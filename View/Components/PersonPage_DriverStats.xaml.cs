@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
     /// Interaction logic for PersonPage_TPStats.xaml
@@ -31,13 +31,13 @@ namespace MMSaveEditor.View.TabPages
              }*/
         }
 
-        private void stats_Initialized( object sender, EventArgs e )
+        private void stats_Initialized(object sender, EventArgs e)
         {
             var stats = sender as DataGrid;
-            var props = typeof( DriverStats ).GetProperties();
-            foreach( var prop in props )
+            var props = typeof(DriverStats).GetProperties();
+            foreach (var prop in props)
             {
-                stats.Columns.Add( new DataGridTextColumn { Header = prop.Name } );
+                stats.Columns.Add(new DataGridTextColumn { Header = prop.Name });
             }
 
         }

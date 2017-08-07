@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
-    /// Interaction logic for PersonPage_TPStats.xaml
+    /// Interaction logic for Contract.xaml
     /// </summary>
-    public partial class PersonPage_TPStats : UserControl
+    public partial class Contract : UserControl
     {
-        public PersonPage_TPStats()
+        public Contract()
         {
             InitializeComponent();
         }

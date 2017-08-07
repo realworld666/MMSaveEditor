@@ -18,26 +18,28 @@ public class Person : Entity
     private string mLastName = string.Empty;
     private string mShortName = string.Empty;
     private string mThreeLetterName = string.Empty;
+    private bool mIsShortlisted;
     public Nationality nationality = new Nationality();
     public Portrait portrait = new Portrait();
     public Popularity popularity = new Popularity();
     public Relationships relationships = new Relationships();
     public DialogQueryCreator dialogQuery = new DialogQueryCreator();
     public ContractManagerPerson contractManager = new ContractManagerPerson();
-    public ContractPerson contract = new ContractPerson();
+    private ContractPerson contract = new ContractPerson();
     public ContractPerson nextYearContract = new ContractPerson();
-    public int peakDuration;
-    public CareerHistory careerHistory = new CareerHistory();
-    private StatModificationHistory mMoraleStatModificationHistory = new StatModificationHistory();
-    private float mImprovementRateDecay;
-    private bool mIsShortlisted;
+
     public Gender gender;
     public DateTime dateOfBirth;
     public int weight;
     public int retirementAge;
     public float obedience;
     public DateTime peakAge;
+    public int peakDuration;
+    public CareerHistory careerHistory = new CareerHistory();
+
     public float mMorale;
+    private StatModificationHistory mMoraleStatModificationHistory = new StatModificationHistory();
+    private float mImprovementRateDecay;
 
     public string firstName
     {
@@ -79,9 +81,22 @@ public class Person : Entity
         }
     }
 
+    public ContractPerson Contract
+    {
+        get
+        {
+            return contract;
+        }
+
+        set
+        {
+            contract = value;
+        }
+    }
+
     public bool IsFreeAgent()
     {
-        return contract.job == Contract.Job.Unemployed;
+        return Contract.Job1 == global::Contract.Job.Unemployed;
     }
 
     public int GetAge()

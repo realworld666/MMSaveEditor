@@ -44,10 +44,12 @@ namespace MMSaveEditor.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<TeamPrincipalViewModel>();
+            SimpleIoc.Default.Register<EngineerViewModel>();
             SimpleIoc.Default.Register<DriverViewModel>();
             SimpleIoc.Default.Register<PlayerViewModel>();
             SimpleIoc.Default.Register<GameViewModel>();
             SimpleIoc.Default.Register<TeamViewModel>();
+            SimpleIoc.Default.Register<MechanicViewModel>();
         }
 
         public MainViewModel Main
@@ -63,6 +65,22 @@ namespace MMSaveEditor.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<TeamPrincipalViewModel>();
+            }
+        }
+
+        public EngineerViewModel Engineer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EngineerViewModel>();
+            }
+        }
+
+        public MechanicViewModel Mechanic
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MechanicViewModel>();
             }
         }
 

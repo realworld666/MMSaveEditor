@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using GalaSoft.MvvmLight.Ioc;
 using MMSaveEditor.ViewModel;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
     /// Interaction logic for PersonPage_TPStats.xaml

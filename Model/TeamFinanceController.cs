@@ -6,12 +6,6 @@ public class TeamFinanceController
 {
     private Finance finance = new Finance();
     public string financialHealth = string.Empty;
-    public List<Transaction> unnallocatedTransactions = new List<Transaction>();
-    private List<Transaction> mReturnTransactions = new List<Transaction>();
-    private List<Transaction> mReturnBonusTransactions = new List<Transaction>();
-    private List<Transaction> mEventTransactions = new List<Transaction>();
-    private List<Transaction> mEventBonusTransactions = new List<Transaction>();
-    private TeamFinanceController.NextYearCarInvestement mInvestement = TeamFinanceController.NextYearCarInvestement.Medium;
     private long racePayment;
     private long racePaymentOffset;
     private long worth;
@@ -19,6 +13,12 @@ public class TeamFinanceController
     private long fullChairmanFunds;
     private int stockPrice;
     private long moneyForCarDev;
+    public List<Transaction> unnallocatedTransactions = new List<Transaction>();
+    private List<Transaction> mReturnTransactions = new List<Transaction>();
+    private List<Transaction> mReturnBonusTransactions = new List<Transaction>();
+    private List<Transaction> mEventTransactions = new List<Transaction>();
+    private List<Transaction> mEventBonusTransactions = new List<Transaction>();
+    private TeamFinanceController.NextYearCarInvestement mInvestement = TeamFinanceController.NextYearCarInvestement.Medium;
     private Team mTeam;
 
     public TeamFinanceController.NextYearCarInvestement nextYearCarInvestement

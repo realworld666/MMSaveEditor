@@ -15,10 +15,10 @@ public class SaveFileInfo
     public static Regex autosavePathLastBracketsRegex = new Regex(" \\(\\d+\\)$");
     public static Regex filenameToDisplayNameRegex = new Regex("^Save(.+?)\\s*\\((\\d+)\\).sav$|Save(.+?).sav$");
     private static Regex autosavePathLastBracketsAndExtensionRegex = new Regex("( \\(\\d+\\))\\.sav$");
+    public SaveFileInfo.SaveInfo saveInfo;
     public SaveFileInfo.GameInfo_v2 gameInfo = new SaveFileInfo.GameInfo_v2();
     public List<SavedSubscribedModInfo> subscribedModsInfo = new List<SavedSubscribedModInfo>();
     public List<Dlc> ownedDLCInfo = new List<Dlc>();
-    public SaveFileInfo.SaveInfo saveInfo;
     [NonSerialized]
     private FileInfo _fileInfo;
     [NonSerialized]

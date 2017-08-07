@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
-    /// Interaction logic for TeamPage_CarPart.xaml
+    /// Interaction logic for PersonPage_EngineerStats.xaml
     /// </summary>
-    public partial class TeamPage_CarPart : UserControl
+    public partial class PersonPage_EngineerStats : UserControl
     {
-        public TeamPage_CarPart()
+        public PersonPage_EngineerStats()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            DataGrid grid = sender as DataGrid;
-            var data = grid.CurrentItem as CarPart;
-            data.StatsUpdated();
         }
     }
 }

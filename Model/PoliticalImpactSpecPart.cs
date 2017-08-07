@@ -2,8 +2,8 @@
 
 public class PoliticalImpactSpecPart : PoliticalImpact
 {
-    public List<CarPart.PartType> partTypes = new List<CarPart.PartType>();
     public PoliticalImpactSpecPart.ImpactType impactType;
+    public List<CarPart.PartType> partTypes = new List<CarPart.PartType>();
 
     public enum ImpactType
     {

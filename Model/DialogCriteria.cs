@@ -5,9 +5,10 @@ using System;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class DialogCriteria
 {
+    public DialogCriteria.CriteriaOperator criteriaOperator;
     public string mType = string.Empty;
     public string mCriteriaInfo = string.Empty;
-    public DialogCriteria.CriteriaOperator criteriaOperator;
+
     private float mParsedData;
 
     public DialogCriteria()

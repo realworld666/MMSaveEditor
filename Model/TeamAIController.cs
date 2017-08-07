@@ -18,10 +18,11 @@ public class TeamAIController
     private static readonly float carImprovementReliabilityMinAggression = 1f;
     private static readonly float carImprovementReliabilityMaxAggression = 0.5f;
 
-    private DateTime mLastCheckedTime = new DateTime();
-    private DateTime mRequestFundsCooldown = new DateTime();
-
+    private Team mTeam;
     private AIScoutingManager mScoutingManager = new AIScoutingManager();
+
+
+
     private List<TeamAIController.NegotiationEntry> mNegotiations = new List<TeamAIController.NegotiationEntry>();
     private DateTime mLastDriverScoutTime = new DateTime();
     private DateTime mLastEngineerScoutTime = new DateTime();
@@ -30,6 +31,10 @@ public class TeamAIController
     private DateTime mLastCarUpdateTime = new DateTime();
     private DateTime mLastFiringUpdateTime = new DateTime();
     private List<Driver> mDrivers = new List<Driver>();
+    private float mChanceOfFiring;
+    private float mSeasonWeight;
+    private int expectedEndOfSeasonPosition;
+    private int endOfSeasonPosition;
     private List<Driver> mDriversTeamHasAttemptedToRenewContractWith = new List<Driver>();
     private List<Person> mPeopleApproachedAndRejectedBy = new List<Person>();
     private List<int> mImproveCarPartsList = new List<int>();
@@ -37,12 +42,11 @@ public class TeamAIController
     private List<CarPart> mImproveCarPartsMostRecentParts = new List<CarPart>();
     public List<HQsBuildingInfo.Type> mHQTargetsList = new List<HQsBuildingInfo.Type>();
     public List<HQsBuildingInfo.Type> mHQHistoryList = new List<HQsBuildingInfo.Type>();
+    private DateTime mLastCheckedTime = new DateTime();
+    private DateTime mRequestFundsCooldown = new DateTime();
     private const float STARS_FOR_BETTER = 0.75f;
-    private Team mTeam;
-    private float mChanceOfFiring;
-    private float mSeasonWeight;
-    private int expectedEndOfSeasonPosition;
-    private int endOfSeasonPosition;
+
+
     public class HQBuildingValue
     {
         public float mValue;

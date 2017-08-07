@@ -4,8 +4,8 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class SponsorSlot
 {
-    private SponsorSlot.SlotType mSlotType = SponsorSlot.SlotType.AirIntake;
     public SponsorshipDeal sponsorshipDeal;
+    private SponsorSlot.SlotType mSlotType = SponsorSlot.SlotType.AirIntake;
 
     public string slotName
     {

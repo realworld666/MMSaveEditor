@@ -6,11 +6,11 @@ using FullSerializer;
 public class PersonalityTrait
 {
     private PersonalityTraitData data;
+    private Driver mDriver;
     private DateTime mTraitStartDate = DateTime.MaxValue;
     private DateTime mTraitEndTime = new DateTime();
     private DriverStats mDriverStats = new DriverStats();
     private PersonalityTraitSpecialCaseBehaviour specialCaseBehaviour = new PersonalityTraitSpecialCaseBehaviour();
-    private Driver mDriver;
 
     public DateTime TraitStartDate
     {
@@ -66,9 +66,9 @@ public class PersonalityTrait
     public void SetupTraitEndTime()
     {
         if (this.HasSpecialCase(PersonalityTrait.SpecialCaseType.CarPartPromise) && !this.mDriver.IsFreeAgent())
-            this.mTraitEndTime = this.mDriver.contract.GetTeam().championship.GetCurrentEventDetails().raceSessions[0].sessionDateTime;
+            this.mTraitEndTime = this.mDriver.Contract.GetTeam().championship.GetCurrentEventDetails().raceSessions[0].sessionDateTime;
         else if (this.HasSpecialCase(PersonalityTrait.SpecialCaseType.ChampionshipPositionPromise) && !this.mDriver.IsFreeAgent())
-            this.mTraitEndTime = this.mDriver.contract.GetTeam().championship.currentSeasonEndDate.AddDays(-1.0);
+            this.mTraitEndTime = this.mDriver.Contract.GetTeam().championship.currentSeasonEndDate.AddDays(-1.0);
         else if (this.data.possibleLength.Length == 1)
             this.mTraitEndTime = Game.Instance.time.now.AddDays((double)(7 * this.data.possibleLength[0]));
         else if (this.data.possibleLength.Length > 1)

@@ -1,20 +1,22 @@
-using System;
+﻿using System;
+using FullSerializer;
 
-public class Nationality 
+[fsObject("v0", MemberSerialization = fsMemberSerialization.OptOut)]
+public class Nationality
 {
-	private string mCountryKey = string.Empty;
-	private string mCountryID = string.Empty;
-	private string mNationalityID = string.Empty;
-	private Nationality.Continent mContinent;
-    
+    private Nationality.Continent mContinent;
+    private string mCountryKey = string.Empty;
+    private string mCountryID = string.Empty;
+    private string mNationalityID = string.Empty;
 
-	public enum Continent
-	{
-		Africa,
-		Asia,
-		Europe,
-		NorthAmerica,
-		Oceania,
-		SouthAmerica,
-	}
+
+    public enum Continent
+    {
+        Africa,
+        Asia,
+        Europe,
+        NorthAmerica,
+        Oceania,
+        SouthAmerica,
+    }
 }

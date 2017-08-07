@@ -9,12 +9,6 @@ public class CarPartComponent : fsISerializationCallbacks
     public List<CarPartUnlockRequirement> unlockRequirements = new List<CarPartUnlockRequirement>();
     public List<CarPartComponentRequirement> activationRequirements = new List<CarPartComponentRequirement>();
     private List<CarPartComponentBonus> mBonuses = new List<CarPartComponentBonus>();
-    public string iconPath = string.Empty;
-    public int id = -1;
-    public float agressiveTeamWeightings = 1f;
-    public float nonAgressiveTeamWeightings = 1f;
-    private string mNameID = string.Empty;
-    private string mCustomComponentName = string.Empty;
     public CarPartComponent.ComponentType componentType;
     public float riskLevel;
     public float statBoost;
@@ -24,8 +18,14 @@ public class CarPartComponent : fsISerializationCallbacks
     public float productionTime;
     public float cost;
     public float redZone;
+    public string iconPath = string.Empty;
     public int iconID;
     public int level;
+    public int id = -1;
+    public float agressiveTeamWeightings = 1f;
+    public float nonAgressiveTeamWeightings = 1f;
+    private string mNameID = string.Empty;
+    private string mCustomComponentName = string.Empty;
 
     public enum ComponentType
     {

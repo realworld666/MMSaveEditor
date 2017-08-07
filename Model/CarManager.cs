@@ -13,9 +13,9 @@ public class CarManager
     public float factoryStaffAllocation = 0.5f;
     public WorkingHours designStaffWorkingHours = WorkingHours.Average;
     public WorkingHours factoryStaffWorkingHours = WorkingHours.Average;
+    private Team mTeam;
     private Car[] mCar = new Car[CarManager.carCount];
     private Car[] mNextCar = new Car[CarManager.carCount];
-    private Team mTeam;
     private FrontendCar mFrontendCarThisYear;
     private FrontendCar mFrontendCarNextYear;
 

@@ -4,7 +4,6 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class SessionDetails
 {
-    private int mSessionNumber = -1;
     private DateTime mSessionDateTime;
     private SessionWeatherDetails mSessionWeatherDetails;
     private SessionDetails.SessionType mSessionType;
@@ -12,6 +11,7 @@ public class SessionDetails
     private bool mIsSessionSimulated;
     private int mTVAudience;
     private int mAttendence;
+    private int mSessionNumber = -1;
 
     public DateTime sessionDateTime
     {

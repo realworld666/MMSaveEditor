@@ -5,12 +5,12 @@ using FullSerializer;
 public class EmployeeSlot
 {
     public Contract.Job jobType = Contract.Job.Unemployed;
-    public int slotID = -1;
     public Person personHired;
+    public int slotID = -1;
     private Team mTeam;
 
     public bool IsAvailable()
     {
-        return this.personHired == null || this.personHired.contract.contractStatus == Contract.ContractStatus.Terminated;
+        return this.personHired == null || this.personHired.Contract.contractStatus == Contract.ContractStatus.Terminated;
     }
 }

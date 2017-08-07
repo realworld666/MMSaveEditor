@@ -14,19 +14,36 @@ public class Driver : Person
     public DriverCareerForm careerForm = new DriverCareerForm();
     public DriverMentalState mentalState = new DriverMentalState();
     public CarOpinion carOpinion = new CarOpinion();
-
-    private PersonalityTraitController_v2 personalityTraitController;
-
+    private int driverNumber;
     private int desiredChampionships;
     private long desiredBudget;
     private int mDesiredWins;
     private long mDesiredEarnings;
+    private int startOfSeasonExpectedChampionshipPosition;
+    private int expectedChampionshipPosition;
+    private int expectedRacePosition;
+    private PersonalityTraitController_v2 personalityTraitController;
     private DriverStats accumulatedStats = new DriverStats();
     public DriverStats lastAccumulatedStats = new DriverStats();
+    public DriverStats statsBeforeEvent;
+    public float moraleBeforeEvent;
+    public float championshipExpectation;
+    public float raceExpectation;
+
+
     private bool mJoinsAnySeries = true;
+    private Championship.Series mPreferedSeries;
     private DriverStats mStats = new DriverStats();
     private DriverStats mModifiedStats = new DriverStats();
     private float mImprovementRate;
+    private float mPotential;
+    private float mModifiedPotential;
+    private bool mHasBeenScouted;
+    private bool mIsReplacementDriver;
+    private bool mHasCachedReplacementDriverInfo;
+    private int mLastRaceExpectedRacePosition;
+    private Person mCelebrity;
+
     private DriverRivalries mDriverRivalries = new DriverRivalries();
     private int mDaysToScoutShort;
     private int mDaysToScoutLong;
@@ -59,23 +76,11 @@ public class Driver : Person
     private readonly float negativeImprovementHQScalar = 0.9f;
     private readonly float negativeImprovementHQOverallScalar = 0.03f;
     private readonly float negativeMaxImprovementHQ = 0.75f;
-    private int driverNumber;
-    private int startOfSeasonExpectedChampionshipPosition;
-    private int expectedChampionshipPosition;
-    private int expectedRacePosition;
 
-    public DriverStats statsBeforeEvent;
-    public float moraleBeforeEvent;
-    public float championshipExpectation;
-    public float raceExpectation;
-    private Championship.Series mPreferedSeries;
-    private float mPotential;
-    private float mModifiedPotential;
-    private bool mHasBeenScouted;
-    private bool mIsReplacementDriver;
-    private bool mHasCachedReplacementDriverInfo;
-    private int mLastRaceExpectedRacePosition;
-    private Person mCelebrity;
+
+
+
+
 
     public bool hasBeenScouted
     {

@@ -5,11 +5,17 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarPartDesign
 {
+    private CarPartDesign.Stage mStage;
     private CarPart mCarPart;
     private CarPart mLastCarPart;
+    private bool mBuildTwoCopies;
     public List<CarPartComponent> componentSlots = new List<CarPartComponent>();
     public List<CarPartComponent> componentBonusSlots = new List<CarPartComponent>();
     public List<int> componentBonusSlotsLevel = new List<int>();
+    public DateTime startDate;
+    public DateTime endDate;
+    private bool mAllPartsUnlocked;
+    private float mComponentTimeDaysBonus;
     private Notification mNotification;
     private CalendarEvent_v1 mCalendarEvent;
 
@@ -30,14 +36,6 @@ public class CarPartDesign
     private Dictionary<int, List<CarPartComponent>> gearboxGTComponents = new Dictionary<int, List<CarPartComponent>>();
     public Action OnDesignModified;
     public Action OnPartBuilt;
-    private CarPartDesign.Stage mStage;
-
-    private bool mBuildTwoCopies;
-    public DateTime startDate;
-    public DateTime endDate;
-    private bool mAllPartsUnlocked;
-    private float mComponentTimeDaysBonus;
-
 
     private bool mImidiateFinish;
     public Team team

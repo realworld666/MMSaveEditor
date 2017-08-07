@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
     /// Interaction logic for PersonPage.xaml

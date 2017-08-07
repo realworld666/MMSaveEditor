@@ -7,25 +7,25 @@ using UnityEngine;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Sponsor : Entity
 {
+    public Sponsor.Category category;
     private static int maxOffersPerFind = 6;
     public Sponsor.Difficulty difficulty = Sponsor.Difficulty.Medium;
     public Nationality nationality = new Nationality();
     public Person liaison = new Person();
-    public float homeBonusMultiplier = 1f;
-    public Color sponsorColor;
-    public SponsorSlot.SlotType slotSponsoring = SponsorSlot.SlotType.AirIntake;
-    private Dictionary<Team, DateTime> mTeamsIgnored = new Dictionary<Team, DateTime>();
-    private DateTime mFindContractsDate = new DateTime();
-    public Sponsor.Category category;
     public int logoIndex;
     public int prestigeLevel;
+    public float homeBonusMultiplier = 1f;
     public int bonusTarget;
     public int upfrontValue;
     public int totalBonusAmount;
     public int perRacePayment;
+    public Color sponsorColor;
+    public SponsorSlot.SlotType slotSponsoring = SponsorSlot.SlotType.AirIntake;
     public int offerTimer;
     public int offerCooldown;
     public int contractTotalRaces;
+    private Dictionary<Team, DateTime> mTeamsIgnored = new Dictionary<Team, DateTime>();
+    private DateTime mFindContractsDate = new DateTime();
 
 
     public enum Category

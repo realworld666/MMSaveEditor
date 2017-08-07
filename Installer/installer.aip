@@ -11,7 +11,7 @@
     <ROW Property="ARPHELPLINK" Value="http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488"/>
     <ROW Property="ARPPRODUCTICON" Value="icon.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="http://www.rwscripts.com"/>
-    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="CTRLS" Value="3"/>
     <ROW Property="Manufacturer" Value="RWSoftware"/>
     <ROW Property="ProductCode" Value="2057:{F1C981F7-8435-42F1-B605-A24EC079EED5} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
@@ -61,6 +61,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Changelog.txt" Component_="MMSaveEditor.exe.config" FileName="CHANGE~1.TXT|Changelog.txt" Attributes="0" SourcePath="..\Changelog.txt" SelfReg="false"/>
     <ROW File="CsvHelper.dll" Component_="CsvHelper.dll" FileName="CSVHEL~1.DLL|CsvHelper.dll" Attributes="0" SourcePath="..\bin\Release\CsvHelper.dll" SelfReg="false" NextFile="NBug.dll"/>
     <ROW File="GalaSoft.MvvmLight.Extras.dll" Component_="GalaSoft.MvvmLight.Extras.dll" FileName="GALASO~2.DLL|GalaSoft.MvvmLight.Extras.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Extras.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.Platform.dll"/>
     <ROW File="GalaSoft.MvvmLight.Platform.dll" Component_="GalaSoft.MvvmLight.Platform.dll" FileName="GALASO~3.DLL|GalaSoft.MvvmLight.Platform.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Platform.dll" SelfReg="false" NextFile="System.Windows.Interactivity.dll"/>
@@ -69,7 +70,7 @@
     <ROW File="MMSaveEditor.exe" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.EXE|MMSaveEditor.exe" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe" SelfReg="false" NextFile="MMSaveEditor.exe.config" DigSign="true"/>
     <ROW File="MMSaveEditor.exe.config" Component_="MMSaveEditor.exe.config" FileName="MMSAVE~1.CON|MMSaveEditor.exe.config" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe.config" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
     <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false" NextFile="CsvHelper.dll"/>
-    <ROW File="NBug.dll" Component_="NBug.dll" FileName="NBug.dll" Attributes="0" SourcePath="..\bin\Release\NBug.dll" SelfReg="false"/>
+    <ROW File="NBug.dll" Component_="NBug.dll" FileName="NBug.dll" Attributes="0" SourcePath="..\bin\Release\NBug.dll" SelfReg="false" NextFile="Changelog.txt"/>
     <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="LZ4.dll"/>
     <ROW File="System.Windows.Interactivity.dll" Component_="System.Windows.Interactivity.dll" FileName="SYSTEM~1.DLL|System.Windows.Interactivity.dll" Attributes="0" SourcePath="..\bin\Release\System.Windows.Interactivity.dll" SelfReg="false" NextFile="Microsoft.Practices.ServiceLocation.dll"/>
     <ROW File="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Component_="Xceed.Wpf.AvalonDock.Themes.Aero.dll" FileName="XCEEDW~2.DLL|Xceed.Wpf.AvalonDock.Themes.Aero.dll" Attributes="0" SourcePath="..\bin\Release\Xceed.Wpf.AvalonDock.Themes.Aero.dll" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
@@ -142,6 +143,7 @@
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_ViewReadme" Type="1" Source="aicustact.dll" Target="[#Changelog.txt]"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>

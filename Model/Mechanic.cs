@@ -37,8 +37,8 @@ public class Mechanic : Person
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class DriverRelationship
     {
-        public float relationshipAmountAfterDecay = -1f;
         public float relationshipAmount;
+        public float relationshipAmountAfterDecay = -1f;
         public int numberOfWeeks;
     }
 

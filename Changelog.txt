@@ -1,0 +1,13 @@
+﻿v0.4
+- Added tabs for mechanics and engineers. Basic person stats editting only
+- Added basic contract fields
+- Added improved load file error checking 
+- Added support for modifying team finances
+- BUGFIX: Components cost zero and take no time to build
+- BUGFIX: Team colours are lost after saving
+
+v0.3
+- Can add and remove driver personality traits
+- Added NBug crash report tool
+- Added reserve drivers to team view
+- Added player tab

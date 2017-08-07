@@ -10,12 +10,12 @@ public class CarPart : Entity
     private static readonly CarPart.PartType[] gtSeries = new CarPart.PartType[5] { CarPart.PartType.BrakesGT, CarPart.PartType.EngineGT, CarPart.PartType.GearboxGT, CarPart.PartType.RearWingGT, CarPart.PartType.SuspensionGT };
     private static readonly CarPart.PartType[] gtSeriesStatOrdered = new CarPart.PartType[5] { CarPart.PartType.EngineGT, CarPart.PartType.GearboxGT, CarPart.PartType.BrakesGT, CarPart.PartType.SuspensionGT, CarPart.PartType.RearWingGT };
     public static string[] PartNames = new string[12] { "Brakes", "Engine", "FrontWing", "Gearbox", "RearWing", "Suspension", "RearWingGT", "BrakesGT", "EngineGT", "GearboxGT", "SuspensionGT", "Count" };
-    public List<CarPartComponent> components = new List<CarPartComponent>();
     public Action OnStageChange;
     public DateTime buildDate;
     public Car fittedCar;
     public bool isFitted;
     private bool isBanned;
+    public List<CarPartComponent> components = new List<CarPartComponent>();
     private CarPartStats mStats;
     private int mModelId;
 

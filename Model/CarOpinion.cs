@@ -4,8 +4,6 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarOpinion
 {
-    private readonly float mRandomOverallMoraleHitModifier;
-    private readonly float mRandomAgainstOtherCarMoraleHitModifier;
     private CarOpinion.Happiness mDriverOverallHappiness;
     private CarOpinion.Happiness mDriverAgainstOtherCarHappiness;
     private CarOpinion.Happiness mDriverAverageHappiness;
@@ -14,6 +12,8 @@ public class CarOpinion
     private Driver mDriver;
     private float mOverallMoraleHit;
     private float mAgainstOtherCarMoraleHit;
+    private readonly float mRandomOverallMoraleHitModifier;
+    private readonly float mRandomAgainstOtherCarMoraleHitModifier;
 
     public enum Happiness
     {

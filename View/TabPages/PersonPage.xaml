@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
+             xmlns:local="clr-namespace:MMSaveEditor.View.Components"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              xmlns:Utils="clr-namespace:MMSaveEditor.Utils" 
@@ -11,7 +11,7 @@
              xmlns:viewModel="clr-namespace:MMSaveEditor.ViewModel"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:command="http://www.galasoft.ch/mvvmlight"
-             x:Class="MMSaveEditor.View.TabPages.PersonPage"
+    x:Class="MMSaveEditor.View.TabPages.PersonPage"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1311">
     <UserControl.Resources>
         <Utils:IsTypeVisiblityConverter x:Key="IsTypeVisiblityConverter"/>
@@ -46,8 +46,14 @@
                         </i:Interaction.Triggers>
                     </local:PersonPage_DriverStats>
                 </GroupBox>
+                <GroupBox x:Name="Engineer" Header="Engineer Stats" Visibility="{Binding ConverterParameter=EngineerViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_EngineerStats />
+                </GroupBox>
                 <GroupBox x:Name="Traits" Header="Personality Traits" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_Traits />
+                </GroupBox>
+                <GroupBox x:Name="Contract" Header="Contract">
+                    <local:Contract/>
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>

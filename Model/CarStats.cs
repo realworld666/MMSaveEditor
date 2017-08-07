@@ -3,12 +3,90 @@
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarStats
 {
-    public float topSpeed;
-    public float acceleration;
-    public float braking;
-    public float lowSpeedCorners;
-    public float mediumSpeedCorners;
-    public float highSpeedCorners;
+    private float topSpeed;
+    private float acceleration;
+    private float braking;
+    private float lowSpeedCorners;
+    private float mediumSpeedCorners;
+    private float highSpeedCorners;
+
+    public float TopSpeed
+    {
+        get
+        {
+            return topSpeed;
+        }
+
+        set
+        {
+            topSpeed = value;
+        }
+    }
+
+    public float Acceleration
+    {
+        get
+        {
+            return acceleration;
+        }
+
+        set
+        {
+            acceleration = value;
+        }
+    }
+
+    public float Braking
+    {
+        get
+        {
+            return braking;
+        }
+
+        set
+        {
+            braking = value;
+        }
+    }
+
+    public float LowSpeedCorners
+    {
+        get
+        {
+            return lowSpeedCorners;
+        }
+
+        set
+        {
+            lowSpeedCorners = value;
+        }
+    }
+
+    public float MediumSpeedCorners
+    {
+        get
+        {
+            return mediumSpeedCorners;
+        }
+
+        set
+        {
+            mediumSpeedCorners = value;
+        }
+    }
+
+    public float HighSpeedCorners
+    {
+        get
+        {
+            return highSpeedCorners;
+        }
+
+        set
+        {
+            highSpeedCorners = value;
+        }
+    }
 
     public enum RelevantToCircuit
     {

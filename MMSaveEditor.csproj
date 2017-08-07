@@ -64,6 +64,7 @@
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -634,6 +635,7 @@
     <Compile Include="Model\UITutorialSequence.cs" />
     <Compile Include="Model\UltraSoftTyreSet.cs" />
     <Compile Include="Model\UnderDogChallenge.cs" />
+    <Compile Include="Model\UnlockRequirementHQBuildingLevel.cs" />
     <Compile Include="Model\Vector2.cs" />
     <Compile Include="Model\Vector3.cs" />
     <Compile Include="Model\Vehicle.cs" />
@@ -648,8 +650,10 @@
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
+    <Compile Include="ViewModel\EngineerViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MechanicViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\PlayerViewModel.cs" />
     <Compile Include="ViewModel\TeamPrincipalViewModel.cs" />
@@ -658,36 +662,50 @@
     <Compile Include="View\AddTraitDialog.xaml.cs">
       <DependentUpon>AddTraitDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\Contract.xaml.cs">
+      <DependentUpon>Contract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\PersonPage_EngineerStats.xaml.cs">
+      <DependentUpon>PersonPage_EngineerStats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TabPages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\PersonPage_Person.xaml.cs">
+    <Compile Include="View\Components\PersonPage_Person.xaml.cs">
       <DependentUpon>PersonPage_Person.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabPages\PersonPage.xaml.cs">
       <DependentUpon>PersonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\PersonPage_DriverStats.xaml.cs">
+    <Compile Include="View\Components\PersonPage_DriverStats.xaml.cs">
       <DependentUpon>PersonPage_DriverStats.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\PersonPage_Traits.xaml.cs">
+    <Compile Include="View\Components\PersonPage_Traits.xaml.cs">
       <DependentUpon>PersonPage_Traits.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\PersonPage_TPStats.xaml.cs">
+    <Compile Include="View\Components\PersonPage_TPStats.xaml.cs">
       <DependentUpon>PersonPage_TPStats.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabPages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\PersonPage_Trait.xaml.cs">
+    <Compile Include="View\Components\PersonPage_Trait.xaml.cs">
       <DependentUpon>PersonPage_Trait.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TabPages\TeamPage_CarPart.xaml.cs">
+    <Compile Include="View\Components\TeamPage_CarPart.xaml.cs">
       <DependentUpon>TeamPage_CarPart.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddTraitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\Contract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\PersonPage_EngineerStats.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -705,7 +723,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TabPages\PersonPage_Person.xaml">
+    <Page Include="View\Components\PersonPage_Person.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -713,15 +731,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\TabPages\PersonPage_DriverStats.xaml">
+    <Page Include="View\Components\PersonPage_DriverStats.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\TabPages\PersonPage_Traits.xaml">
+    <Page Include="View\Components\PersonPage_Traits.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\TabPages\PersonPage_TPStats.xaml">
+    <Page Include="View\Components\PersonPage_TPStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -729,11 +747,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TabPages\PersonPage_Trait.xaml">
+    <Page Include="View\Components\PersonPage_Trait.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\TabPages\TeamPage_CarPart.xaml">
+    <Page Include="View\Components\TeamPage_CarPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -845,6 +863,9 @@
     <Resource Include="Assets\PersonalityTraits.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Changelog.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

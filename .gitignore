@@ -27,3 +27,5 @@
 /motorsport manager save backup.rar
 /AssetsTools.lib
 /AssetsTools.dll
+*.suo
+/FullSerializer/Internal/DirectConverters

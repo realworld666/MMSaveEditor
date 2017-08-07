@@ -14,9 +14,9 @@ public class PersonalityTraitController_v2
     private List<int> mTraitHistory = new List<int>();
     private readonly int mMaxCooldownDaysRange = 180;
     private DateTime cooldownPeriodEnd = new DateTime();
-    private DriverStats mDriverStats = new DriverStats();
     private int mLastRandomCooldownDayValue;
     private Driver mDriver;
+    private DriverStats mDriverStats = new DriverStats();
 
     public ObservableCollection<PersonalityTrait> PermanentPersonalityTraits
     {

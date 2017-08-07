@@ -5,7 +5,6 @@ using FullSerializer;
 [fsObject("v0", new System.Type[] { }, MemberSerialization = fsMemberSerialization.OptOut)]
 public class HQsBuilding
 {
-    public HQsBuildingCosts costs = new HQsBuildingCosts();
     [NonSerialized]
     public TimeSpan mTimeRemaining = TimeSpan.Zero;
     [NonSerialized]
@@ -18,6 +17,7 @@ public class HQsBuilding
     public float normalizedProgress;
     public HQsBuilding_v1.BuildingState state;
     public HQsBuildingInfo info;
+    public HQsBuildingCosts costs = new HQsBuildingCosts();
     public int mStaffNumber;
     public DateTime mDateProgressStarted;
     public DateTime mDateProgressEnd;

@@ -7,12 +7,12 @@ namespace MM2
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class VersionNumber
     {
-        private string _preReleaseVersion = string.Empty;
-        private string _buildMetadata = string.Empty;
-        private bool _isDirty = true;
         private int _major;
         private int _minor;
         private int _patch;
+        private string _preReleaseVersion = string.Empty;
+        private string _buildMetadata = string.Empty;
+        private bool _isDirty = true;
         private string _versionStringCache;
 
         public int major

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject("v0", MemberSerialization = fsMemberSerialization.OptOut)]
 public class Map<TKey, TValue>
 {
     public List<TKey> mKeys = new List<TKey>();

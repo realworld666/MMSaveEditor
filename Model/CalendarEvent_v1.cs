@@ -14,11 +14,12 @@ public class CalendarEvent_v1
     public EventEffect effect;
     public DisplayEffect displayEffect;
     public CalendarEventCategory category;
+    private TextDynamicData mDynamicDescription = new TextDynamicData();
     private string mCachedDynamicDescriptionTextID;
     public bool mustRespond;
     public bool interruptGameTime;
     public bool showOnCalendar;
-    private TextDynamicData mDynamicDescription = new TextDynamicData();
+
 
     public CalendarEvent_v1()
     {

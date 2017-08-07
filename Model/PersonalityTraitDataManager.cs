@@ -16,16 +16,25 @@ public class PersonalityTraitDataManager
 
     public PersonalityTraitDataManager()
     {
-        var uri = new Uri("pack://application:,,,/Assets/PersonalityTraits.txt");
-        System.Windows.Resources.StreamResourceInfo resourceStream = Application.GetResourceStream(uri);
-
-        using (var reader = new StreamReader(resourceStream.Stream))
+        try
         {
-            string traitsText = reader.ReadToEnd();
-            List<DatabaseEntry> result = DatabaseReader.LoadFromText(traitsText);
+            var uri = new Uri("pack://application:,,,/Assets/PersonalityTraits.txt");
+            System.Windows.Resources.StreamResourceInfo resourceStream = Application.GetResourceStream(uri);
 
-            LoadPersonalityTraitsFromDatabase(result);
+            using (var reader = new StreamReader(resourceStream.Stream))
+            {
+                string traitsText = reader.ReadToEnd();
+                List<DatabaseEntry> result = DatabaseReader.LoadFromText(traitsText);
+
+                LoadPersonalityTraitsFromDatabase(result);
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            //throw;
+        }
+
     }
 
     public void LoadPersonalityTraitsFromDatabase(List<DatabaseEntry> personalityTraitsData)

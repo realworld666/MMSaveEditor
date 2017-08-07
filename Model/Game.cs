@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using ModdingSystem;
 using MM2;
 
-[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
+[fsObject("v0", MemberSerialization = fsMemberSerialization.OptOut)]
 public class Game
 {
-    public List<SavedSubscribedModInfo> savedSubscribedModsInfo = new List<SavedSubscribedModInfo>();
-    public GameAchievementDataStorage achievementData = new GameAchievementDataStorage();
     public static Game Instance;
     public LocalisationGroupManager localisationGroupManager;
     public Player player;
@@ -55,6 +53,8 @@ public class Game
     public GameStateInfo stateInfo;
     public Game.GameType gameType;
     private bool mQueuedAutosave;
+    public List<SavedSubscribedModInfo> savedSubscribedModsInfo = new List<SavedSubscribedModInfo>();
+    public GameAchievementDataStorage achievementData = new GameAchievementDataStorage();
     public SerializedPreferences mSerializedPreferences;
 
 

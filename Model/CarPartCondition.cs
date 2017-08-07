@@ -8,17 +8,18 @@ public class CarPartCondition
     private static readonly Dictionary<CarPart.PartType, float> pitRepairPartConditionMax = new Dictionary<CarPart.PartType, float>() { { CarPart.PartType.Brakes, 0.5f }, { CarPart.PartType.Engine, 0.4f }, { CarPart.PartType.FrontWing, 1f }, { CarPart.PartType.Gearbox, 0.4f }, { CarPart.PartType.RearWing, 1f }, { CarPart.PartType.Suspension, 0.6f }, { CarPart.PartType.RearWingGT, 1f }, { CarPart.PartType.BrakesGT, 0.5f }, { CarPart.PartType.EngineGT, 0.4f }, { CarPart.PartType.GearboxGT, 0.4f }, { CarPart.PartType.SuspensionGT, 0.6f } };
     private static readonly Dictionary<CarPart.PartType, float> pitRepairPartTimeMin = new Dictionary<CarPart.PartType, float>() { { CarPart.PartType.Brakes, 6f }, { CarPart.PartType.Engine, 15f }, { CarPart.PartType.FrontWing, 4f }, { CarPart.PartType.Gearbox, 15f }, { CarPart.PartType.RearWing, 6f }, { CarPart.PartType.Suspension, 8f }, { CarPart.PartType.RearWingGT, 6f }, { CarPart.PartType.BrakesGT, 6f }, { CarPart.PartType.EngineGT, 15f }, { CarPart.PartType.GearboxGT, 15f }, { CarPart.PartType.SuspensionGT, 8f } };
     private static readonly Dictionary<CarPart.PartType, float> pitRepairPartTimeMax = new Dictionary<CarPart.PartType, float>() { { CarPart.PartType.Brakes, 10f }, { CarPart.PartType.Engine, 30f }, { CarPart.PartType.FrontWing, 8f }, { CarPart.PartType.Gearbox, 30f }, { CarPart.PartType.RearWing, 10f }, { CarPart.PartType.Suspension, 12f }, { CarPart.PartType.RearWingGT, 10f }, { CarPart.PartType.BrakesGT, 10f }, { CarPart.PartType.EngineGT, 30f }, { CarPart.PartType.GearboxGT, 30f }, { CarPart.PartType.SuspensionGT, 12f } };
+    private CarPartCondition.PartState mState;
     private float mCondition = 1f;
-    private bool mRefreshPitRepairAmount = true;
-    private List<CarPartComponentBonus> mBonus = new List<CarPartComponentBonus>();
     private const float mechanicRepairOffsetMin = 0.05f;
     private const float mechanicRepairOffsetMax = 0.1f;
-    private CarPartCondition.PartState mState;
     private float mRedBand;
     private float mActiveSessionRedZone;
     private bool mRepairInPit;
+    private bool mRefreshPitRepairAmount = true;
     private float mPitRepairAmount;
     private CarPart mPart;
+    private List<CarPartComponentBonus> mBonus = new List<CarPartComponentBonus>();
+
     public enum PartState
     {
         Optimal,

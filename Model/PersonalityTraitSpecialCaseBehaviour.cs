@@ -7,13 +7,13 @@ using FullSerializer;
 public class PersonalityTraitSpecialCaseBehaviour
 {
     private List<PersonalityTrait.SpecialCaseType> mSpecialCases = new List<PersonalityTrait.SpecialCaseType>();
-    private int[] mTieredPayDriversAmount = new int[5] { 900000, 500000, 250000, 500000, 250000 };
-    private readonly int fightWithTeammateTraitID = 171;
     private Driver mDriver;
     private string mPersonalityTraitName;
     private Circuit mCircuit;
+    private int[] mTieredPayDriversAmount = new int[5] { 900000, 500000, 250000, 500000, 250000 };
     private float mTeamDailyImprovementModifier;
     private Driver mFightTeammateDriver;
+    private readonly int fightWithTeammateTraitID = 171;
 
     public List<PersonalityTrait.SpecialCaseType> specialCases
     {

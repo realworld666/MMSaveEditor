@@ -4,7 +4,7 @@ using GalaSoft.MvvmLight.Ioc;
 using MMSaveEditor.ViewModel;
 using Xceed.Wpf.DataGrid;
 
-namespace MMSaveEditor.View.TabPages
+namespace MMSaveEditor.View.Components
 {
     /// <summary>
     /// Interaction logic for PersonPage_Trait.xaml

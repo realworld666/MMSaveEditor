@@ -5,18 +5,45 @@ using System;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Contract
 {
-    public Contract.Job job = Contract.Job.Unemployed;
-    public DateTime startDate = new DateTime();
+    protected CalendarEvent_v1 mCalendarEvent;
+    private Contract.Job job = Contract.Job.Unemployed;
+    private DateTime startDate = new DateTime();
     private DateTime mEndDate = new DateTime();
     private Contract.ContractStatus mContractStatus = Contract.ContractStatus.OnGoing;
     public Action OnOptionClauseEnd;
-    protected CalendarEvent_v1 mCalendarEvent;
+
 
     public Contract.ContractStatus contractStatus
     {
         get
         {
             return this.mContractStatus;
+        }
+    }
+
+    public Job Job1
+    {
+        get
+        {
+            return job;
+        }
+
+        set
+        {
+            job = value;
+        }
+    }
+
+    public DateTime StartDate
+    {
+        get
+        {
+            return startDate;
+        }
+
+        set
+        {
+            startDate = value;
         }
     }
 

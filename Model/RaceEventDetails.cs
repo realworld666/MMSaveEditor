@@ -6,9 +6,9 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class RaceEventDetails
 {
+    public DateTime eventDate;
     public List<SessionDetails> sessions = new List<SessionDetails>();
     public RaceEventResults results = new RaceEventResults();
-    public DateTime eventDate;
     public Circuit circuit;
     private int mSessionID;
     private int mNextSessionID;

@@ -4,17 +4,6 @@ using System;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class DriverStats : PersonStats
 {
-    public int totalStatsMax = 180;
-    private int fame = -1;
-    private float mBrakingImprovementRate = 1f;
-    private float mCorneringImprovementRate = 1f;
-    private float mSmoothnessImprovementRate = 1f;
-    private float mOvertakingImprovementRate = 1f;
-    private float mConsistencyImprovementRate = 1f;
-    private float mAdaptabilityImprovementRate = 1f;
-    private float mFitnessImprovementRate = 1f;
-    private float mFeedbackImprovementRate = 1f;
-    private float mFocusImprovementRate = 1f;
     public const int driverStatsMax = 20;
     public const int driverStatsNum = 9;
     public const int driverStatsTotalMax = 180;
@@ -29,10 +18,12 @@ public class DriverStats : PersonStats
     private float fitness;
     private float feedback;
     private float focus;
+    public int totalStatsMax = 180;
     private float balance;
     private float experience;
     private float marketability;
     private int favouriteBrakesSupplier;
+    private int fame = -1;
     private int scoutingLevelRequired;
     private int mLowRangeBraking;
     private int mHighRangeBraking;
@@ -52,6 +43,15 @@ public class DriverStats : PersonStats
     private int mHighRangeFeedback;
     private int mLowRangeFocus;
     private int mHighRangeFocus;
+    private float mBrakingImprovementRate = 1f;
+    private float mCorneringImprovementRate = 1f;
+    private float mSmoothnessImprovementRate = 1f;
+    private float mOvertakingImprovementRate = 1f;
+    private float mConsistencyImprovementRate = 1f;
+    private float mAdaptabilityImprovementRate = 1f;
+    private float mFitnessImprovementRate = 1f;
+    private float mFeedbackImprovementRate = 1f;
+    private float mFocusImprovementRate = 1f;
 
     public int Fame
     {

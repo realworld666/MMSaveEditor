@@ -6,13 +6,13 @@ public class HQsBuilding_v1 : Entity
 {
     public static Action<HQsBuilding_v1.NotificationState, HQsBuilding_v1> OnBuildingNotification = (Action<HQsBuilding_v1.NotificationState, HQsBuilding_v1>)null;
     public static float[] designCentrePartDaysPerLevel = new float[4] { -0.1f, -0.3f, -0.6f, -1f };
-    public HQsBuildingCosts costs = new HQsBuildingCosts();
     public Action<HQsBuilding_v1.NotificationState> OnNotification;
     public Team team;
     public int currentLevel;
     public float normalizedProgress;
     public HQsBuilding_v1.BuildingState state;
     public HQsBuildingInfo info;
+    public HQsBuildingCosts costs = new HQsBuildingCosts();
     private int mStaffNumber;
     private DateTime mDateProgressStarted;
     private DateTime mDateProgressEnd;
