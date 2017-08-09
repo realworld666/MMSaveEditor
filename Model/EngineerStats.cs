@@ -10,4 +10,8 @@ public class EngineerStats : PersonStats
     public const int engineerStatsTotalMax = 120;
 
 
+    public CarStats PartContributionStats
+    {
+        get { return partContributionStats; }
+    }
 }

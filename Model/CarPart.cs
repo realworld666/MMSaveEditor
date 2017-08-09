@@ -155,7 +155,7 @@ public class CarPart : Entity
     public void StatsUpdated()
     {
         //fittedCar.carManager.carPartDesign.ApplyComponents(this);
-        OnPartBuilt(fittedCar?.carManager?.carPartDesign);
+        //OnPartBuilt(fittedCar?.carManager?.carPartDesign);
         //fittedCar.carManager.carPartDesign.DesignModified();
     }
 

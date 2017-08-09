@@ -27,9 +27,9 @@ namespace MMSaveEditor.View.Components
 
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            DataGrid grid = sender as DataGrid;
-            var data = grid.CurrentItem as CarPart;
-            data.StatsUpdated();
+            // DataGrid grid = sender as DataGrid;
+            // var data = grid.CurrentItem as CarPart;
+            //data.StatsUpdated();
         }
     }
 }

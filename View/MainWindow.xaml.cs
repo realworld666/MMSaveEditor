@@ -37,6 +37,32 @@ namespace MMSaveEditor.View
             }
         }
 
+        public SaveFileInfo CurrentSaveInfo
+        {
+            get
+            {
+                return _currentSaveInfo;
+            }
+
+            set
+            {
+                _currentSaveInfo = value;
+            }
+        }
+
+        public string OpenFilePath
+        {
+            get
+            {
+                return _openFilePath;
+            }
+
+            set
+            {
+                _openFilePath = value;
+            }
+        }
+
         public enum TabPage
         {
             TeamPrincipal,
@@ -49,6 +75,9 @@ namespace MMSaveEditor.View
             InitializeComponent();
             Instance = this;
             serializer = CreateAndConfigureSerializer();
+
+            tabControl.Visibility = Visibility.Hidden;
+            noSaveLoaded.Visibility = Visibility.Visible;
         }
 
         private static fsSerializer CreateAndConfigureSerializer()
@@ -67,25 +96,83 @@ namespace MMSaveEditor.View
                 LoadFile(openFileDialog.FileName, serializer, out _currentSaveInfo);
                 _openFilePath = openFileDialog.FileName;
                 SetupViewModels();
+                tabControl.Visibility = Visibility.Visible;
+                noSaveLoaded.Visibility = Visibility.Hidden;
             }
         }
 
         private static void SetupViewModels()
         {
-            var playerVM = SimpleIoc.Default.GetInstance<PlayerViewModel>();
-            playerVM.SetModel(Game.Instance.player);
-            var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
-            teamVM.SetModel(null);
-            var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
-            gameVM.SetModels(Game.Instance.time);
-            var principleVM = SimpleIoc.Default.GetInstance<TeamPrincipalViewModel>();
-            principleVM.SetList(Game.Instance.teamPrincipalManager.GetEntityList());
-            var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
-            driverVM.SetList(Game.Instance.driverManager.GetEntityList());
-            var engineerVM = SimpleIoc.Default.GetInstance<EngineerViewModel>();
-            engineerVM.SetList(Game.Instance.engineerManager.GetEntityList());
-            var mechanicVM = SimpleIoc.Default.GetInstance<MechanicViewModel>();
-            mechanicVM.SetList(Game.Instance.mechanicManager.GetEntityList());
+            try
+            {
+                var playerVM = SimpleIoc.Default.GetInstance<PlayerViewModel>();
+                playerVM.SetModel(Game.Instance.player);
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
+                teamVM.SetModel(null);
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
+                gameVM.SetModels(Game.Instance.time);
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the game view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var principleVM = SimpleIoc.Default.GetInstance<TeamPrincipalViewModel>();
+                principleVM.SetList(Game.Instance.teamPrincipalManager.GetEntityList());
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the team principal view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
+                driverVM.SetList(Game.Instance.driverManager.GetEntityList());
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the driver view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var engineerVM = SimpleIoc.Default.GetInstance<EngineerViewModel>();
+                engineerVM.SetList(Game.Instance.engineerManager.GetEntityList());
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the engineer view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                var mechanicVM = SimpleIoc.Default.GetInstance<MechanicViewModel>();
+                mechanicVM.SetList(Game.Instance.mechanicManager.GetEntityList());
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the mechanic view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

@@ -72,6 +72,10 @@
             </TextBlock>
             <Image Source="/MMSaveEditor;component/Assets/mark-github-512.png" Margin="10,0,0,0" />
         </StackPanel>
+        <StackPanel x:Name="noSaveLoaded" Grid.Row="1" d:IsHidden="True">
+            <Label Content="No save file loaded" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button  Width ="200" Height="40" Content="Load File" Click="open_Click"/>
+        </StackPanel>
     </Grid>
 
 

@@ -13,4 +13,8 @@ public class Engineer : Person
     private readonly float negativeMaxImprovementHQ = 0.75f;
     private readonly float learnNewComponentChancePerAbilityStar = 0.8f;
 
+    public EngineerStats Stats
+    {
+        get { return stats; }
+    }
 }

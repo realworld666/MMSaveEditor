@@ -44,7 +44,8 @@ namespace MMSaveEditor.ViewModel
             }
             set
             {
-
+                _timeData.now = value;
+                RaisePropertyChanged(String.Empty);
             }
         }
 
@@ -58,7 +59,7 @@ namespace MMSaveEditor.ViewModel
                 }
                 return float.NaN;
             }
-            set { }
+            set { _timeData.speedMultipliers[2, 0] = value; RaisePropertyChanged(String.Empty); }
         }
         public float RaceSpeed_Fast
         {
@@ -70,7 +71,7 @@ namespace MMSaveEditor.ViewModel
                 }
                 return float.NaN;
             }
-            set { }
+            set { _timeData.speedMultipliers[2, 1] = value; RaisePropertyChanged(String.Empty); }
         }
         public float RaceSpeed_Fastest
         {
@@ -82,7 +83,7 @@ namespace MMSaveEditor.ViewModel
                 }
                 return float.NaN;
             }
-            set { }
+            set { _timeData.speedMultipliers[2, 2] = value; RaisePropertyChanged(String.Empty); }
         }
     }
 }

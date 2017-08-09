@@ -36,6 +36,10 @@ public class GameTimer
         {
             return this.mNow;
         }
+        set
+        {
+            mNow = value;
+        }
     }
     public enum Speed
     {

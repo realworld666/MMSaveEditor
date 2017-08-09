@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <GroupBox Header="Part Contribution">
-            <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.stats.partContributionStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+            <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.Stats.PartContributionStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
         </GroupBox>
     </StackPanel>
 </UserControl>

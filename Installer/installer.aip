@@ -61,7 +61,7 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="Changelog.txt" Component_="MMSaveEditor.exe.config" FileName="CHANGE~1.TXT|Changelog.txt" Attributes="0" SourcePath="..\Changelog.txt" SelfReg="false"/>
+    <ROW File="Changelog.txt" Component_="MMSaveEditor.exe.config" FileName="CHANGE~1.TXT|Changelog.txt" Attributes="0" SourcePath="..\Changelog.txt" SelfReg="false" NextFile="MMSaveEditor.pdb"/>
     <ROW File="CsvHelper.dll" Component_="CsvHelper.dll" FileName="CSVHEL~1.DLL|CsvHelper.dll" Attributes="0" SourcePath="..\bin\Release\CsvHelper.dll" SelfReg="false" NextFile="NBug.dll"/>
     <ROW File="GalaSoft.MvvmLight.Extras.dll" Component_="GalaSoft.MvvmLight.Extras.dll" FileName="GALASO~2.DLL|GalaSoft.MvvmLight.Extras.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Extras.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.Platform.dll"/>
     <ROW File="GalaSoft.MvvmLight.Platform.dll" Component_="GalaSoft.MvvmLight.Platform.dll" FileName="GALASO~3.DLL|GalaSoft.MvvmLight.Platform.dll" Attributes="0" SourcePath="..\bin\Release\GalaSoft.MvvmLight.Platform.dll" SelfReg="false" NextFile="System.Windows.Interactivity.dll"/>
@@ -69,6 +69,7 @@
     <ROW File="LZ4.dll" Component_="LZ4.dll" FileName="LZ4.dll" Attributes="0" SourcePath="..\bin\Release\LZ4.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.dll"/>
     <ROW File="MMSaveEditor.exe" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.EXE|MMSaveEditor.exe" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe" SelfReg="false" NextFile="MMSaveEditor.exe.config" DigSign="true"/>
     <ROW File="MMSaveEditor.exe.config" Component_="MMSaveEditor.exe.config" FileName="MMSAVE~1.CON|MMSaveEditor.exe.config" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe.config" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
+    <ROW File="MMSaveEditor.pdb" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.PDB|MMSaveEditor.pdb" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.pdb" SelfReg="false"/>
     <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false" NextFile="CsvHelper.dll"/>
     <ROW File="NBug.dll" Component_="NBug.dll" FileName="NBug.dll" Attributes="0" SourcePath="..\bin\Release\NBug.dll" SelfReg="false" NextFile="Changelog.txt"/>
     <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="LZ4.dll"/>
