@@ -667,6 +667,7 @@
     <Compile Include="Model\WorkingHours.cs" />
     <Compile Include="Model\YoungDriverProgramme.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
+    <Compile Include="Utils\ScrollIntoView.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\EngineerViewModel.cs" />
@@ -683,6 +684,9 @@
     </Compile>
     <Compile Include="View\Components\Contract.xaml.cs">
       <DependentUpon>Contract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\PersonPage_MechanicStats.xaml.cs">
+      <DependentUpon>PersonPage_MechanicStats.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Components\PersonPage_EngineerStats.xaml.cs">
       <DependentUpon>PersonPage_EngineerStats.xaml</DependentUpon>
@@ -721,6 +725,10 @@
     <Page Include="View\Components\Contract.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\PersonPage_MechanicStats.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Components\PersonPage_EngineerStats.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -897,7 +905,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\DaveConley\Source\Repos\NBug\NBug\NBug.csproj">
+    <ProjectReference Include="..\NBug\NBug\NBug.csproj">
       <Project>{62ced1d5-f603-40de-8bf5-3e49d3a392f4}</Project>
       <Name>NBug</Name>
     </ProjectReference>

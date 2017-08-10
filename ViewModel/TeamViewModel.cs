@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MMSaveEditor.ViewModel
 {
@@ -21,6 +23,14 @@ namespace MMSaveEditor.ViewModel
         public ObservableCollection<CarPart> RearWing => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.rearWingInventory);
         public ObservableCollection<CarPart> SuspensionGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.suspensionGTInventory);
         public ObservableCollection<CarPart> Suspension => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.suspensionInventory);
+
+        public List<Engineer> Engineers
+        {
+            get
+            {
+                return Game.Instance?.engineerManager?.GetEntityList().Where(e => e.Contract.GetTeam() == teamData).ToList();
+            }
+        }
 
         public int Reputation
         {

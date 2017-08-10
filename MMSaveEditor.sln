@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMSaveEditor", "MMSaveEdito
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonCompare", "..\JsonCompare\JsonCompare.csproj", "{DC2FFCEE-03F3-4ED1-B8D6-36C52B16C8FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBug", "C:\Users\DaveConley\Source\Repos\NBug\NBug\NBug.csproj", "{62CED1D5-F603-40DE-8BF5-3E49D3A392F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBug", "..\NBug\NBug\NBug.csproj", "{62CED1D5-F603-40DE-8BF5-3E49D3A392F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

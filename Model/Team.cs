@@ -89,6 +89,19 @@ public class Team : Entity
         }
     }
 
+    public List<Mechanic> Mechanics
+    {
+        get
+        {
+            return mMechanics;
+        }
+
+        set
+        {
+            mMechanics = value;
+        }
+    }
+
     public Driver GetReserveDriver()
     {
         this.mDriversCache.Clear();

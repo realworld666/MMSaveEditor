@@ -64,9 +64,22 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Name="Drivers" Header="Drivers">
-                <ListView ItemsSource="{Binding TeamData.Drivers}" ItemTemplate="{DynamicResource DriverButton}"  />
-            </GroupBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GroupBox x:Name="Drivers" Header="Drivers">
+                    <ListView ItemsSource="{Binding TeamData.Drivers}" ItemTemplate="{DynamicResource DriverButton}"  />
+                </GroupBox>
+                <GroupBox x:Name="Mechanics" Header="Mechanics" Grid.Column="1">
+                    <ListView ItemsSource="{Binding TeamData.Mechanics}" ItemTemplate="{DynamicResource DriverButton}"  />
+                </GroupBox>
+                <GroupBox x:Name="Engineers" Header="Engineers" Grid.Column="2">
+                    <ListView ItemsSource="{Binding Engineers}" ItemTemplate="{DynamicResource DriverButton}"  />
+                </GroupBox>
+            </Grid>
             <GroupBox Header="Car Inventory">
                 <StackPanel>
                     <Expander Header="Brakes">

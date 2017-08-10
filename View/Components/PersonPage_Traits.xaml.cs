@@ -39,10 +39,13 @@ namespace MMSaveEditor.View.Components
                 handler.Invoke(this, dialog.SelectedData);
 
             // HACK
-            var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
-            vm.PersonData.addTrait(dialog.SelectedData);
-            // refresh view model
-            vm.SetModel(vm.PersonData);
+            if (dialog.SelectedData != null)
+            {
+                var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
+                vm.PersonData.addTrait(dialog.SelectedData);
+                // refresh view model
+                vm.SetModel(vm.PersonData);
+            }
         }
     }
 }

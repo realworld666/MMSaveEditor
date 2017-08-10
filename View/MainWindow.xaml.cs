@@ -67,7 +67,9 @@ namespace MMSaveEditor.View
         {
             TeamPrincipal,
             Driver,
-            Team, Game
+            Team, Game,
+            Mechanic,
+            Engineer
         }
 
         public MainWindow()
@@ -425,6 +427,26 @@ namespace MMSaveEditor.View
                     foreach (TabItem tabControlItem in tabControl.Items)
                     {
                         if (tabControlItem.Name.Equals("DriversTabItem"))
+                        {
+                            chosenTab = tabControlItem;
+                            break;
+                        }
+                    }
+                    break;
+                case TabPage.Mechanic:
+                    foreach (TabItem tabControlItem in tabControl.Items)
+                    {
+                        if (tabControlItem.Name.Equals("MechanicTabItem"))
+                        {
+                            chosenTab = tabControlItem;
+                            break;
+                        }
+                    }
+                    break;
+                case TabPage.Engineer:
+                    foreach (TabItem tabControlItem in tabControl.Items)
+                    {
+                        if (tabControlItem.Name.Equals("EngineerTabItem"))
                         {
                             chosenTab = tabControlItem;
                             break;

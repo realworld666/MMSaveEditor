@@ -49,6 +49,9 @@
                 <GroupBox x:Name="Engineer" Header="Engineer Stats" Visibility="{Binding ConverterParameter=EngineerViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_EngineerStats />
                 </GroupBox>
+                <GroupBox x:Name="Mechanic" Header="Mechanic Stats" Visibility="{Binding ConverterParameter=MechanicViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_MechanicStats />
+                </GroupBox>
                 <GroupBox x:Name="Traits" Header="Personality Traits" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_Traits />
                 </GroupBox>
@@ -57,6 +60,6 @@
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>
-        <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" />
+        <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" SelectedItem="{Binding PersonData}" />
     </Grid>
 </UserControl>

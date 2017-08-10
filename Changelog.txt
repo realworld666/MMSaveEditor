@@ -1,4 +1,10 @@
-﻿v0.4
+﻿v0.5
+- Added mechanic stats
+- Added engineer stats
+- Added employed mechanics and engineers to team page
+- BUGFIX: Tool crashes if adding driver trait then cancelling without selecting anything
+
+v0.4
 - Added tabs for mechanics and engineers. Basic person stats editting only
 - Added basic contract fields
 - Added improved load file error checking 

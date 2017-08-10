@@ -3,11 +3,15 @@ using FullSerializer;
 using System;
 using System.Collections.Generic;
 using MMSaveEditor.Utils;
+using GalaSoft.MvvmLight.Command;
+using MMSaveEditor.ViewModel;
+using GalaSoft.MvvmLight.Ioc;
+using MMSaveEditor.View;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Mechanic : Person
 {
-    public MechanicStats stats = new MechanicStats();
+    private MechanicStats stats = new MechanicStats();
     public MechanicStats lastAccumulatedStats = new MechanicStats();
     public int driver;
     public float improvementRate;
@@ -33,6 +37,20 @@ public class Mechanic : Person
     public const float maxPitStopAddedError = 0.1f;
     public float driverRelationshipAmountBeforeEvent;
 
+    public RelayCommand<Mechanic> ViewDriver { get; private set; }
+
+    public MechanicStats Stats
+    {
+        get
+        {
+            return stats;
+        }
+
+        set
+        {
+            stats = value;
+        }
+    }
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class DriverRelationship
@@ -40,6 +58,17 @@ public class Mechanic : Person
         public float relationshipAmount;
         public float relationshipAmountAfterDecay = -1f;
         public int numberOfWeeks;
+    }
+
+    public Mechanic()
+    {
+        ViewDriver = new RelayCommand<Mechanic>(_viewDriver);
+    }
+    private void _viewDriver(Mechanic d)
+    {
+        var driverVM = SimpleIoc.Default.GetInstance<MechanicViewModel>();
+        driverVM.SetModel(this);
+        MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Mechanic);
     }
 
     public void DriverRenamed(string oldname, string newName)

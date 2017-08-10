@@ -1,5 +1,9 @@
 ﻿using System.Collections.Generic;
 using FullSerializer;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
+using MMSaveEditor.ViewModel;
+using MMSaveEditor.View;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Engineer : Person
@@ -16,5 +20,18 @@ public class Engineer : Person
     public EngineerStats Stats
     {
         get { return stats; }
+    }
+
+    public RelayCommand<Engineer> ViewDriver { get; private set; }
+
+    public Engineer()
+    {
+        ViewDriver = new RelayCommand<Engineer>(_viewDriver);
+    }
+    private void _viewDriver(Engineer d)
+    {
+        var driverVM = SimpleIoc.Default.GetInstance<EngineerViewModel>();
+        driverVM.SetModel(this);
+        MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Engineer);
     }
 }
