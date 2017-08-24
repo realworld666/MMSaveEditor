@@ -13,10 +13,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="http://www.rwscripts.com"/>
     <ROW Property="CTRLS" Value="3"/>
     <ROW Property="Manufacturer" Value="RWSoftware"/>
-    <ROW Property="ProductCode" Value="2057:{F1C981F7-8435-42F1-B605-A24EC079EED5} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{EE4EE34B-D5E2-4D99-BB2B-89D18C140601} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Motorsport Manager Save Game Editor"/>
-    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.6.0.0" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{8BDE8362-B429-4ACF-A03F-574CC3DC49CA}"/>
@@ -69,8 +69,9 @@
     <ROW File="LZ4.dll" Component_="LZ4.dll" FileName="LZ4.dll" Attributes="0" SourcePath="..\bin\Release\LZ4.dll" SelfReg="false" NextFile="GalaSoft.MvvmLight.dll"/>
     <ROW File="MMSaveEditor.exe" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.EXE|MMSaveEditor.exe" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe" SelfReg="false" NextFile="MMSaveEditor.exe.config" DigSign="true"/>
     <ROW File="MMSaveEditor.exe.config" Component_="MMSaveEditor.exe.config" FileName="MMSAVE~1.CON|MMSaveEditor.exe.config" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.exe.config" SelfReg="false" NextFile="Xceed.Wpf.AvalonDock.dll"/>
-    <ROW File="MMSaveEditor.pdb" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.PDB|MMSaveEditor.pdb" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.pdb" SelfReg="false"/>
+    <ROW File="MMSaveEditor.pdb" Component_="MMSaveEditor.exe" FileName="MMSAVE~1.PDB|MMSaveEditor.pdb" Attributes="0" SourcePath="..\bin\Release\MMSaveEditor.pdb" SelfReg="false" NextFile="NBug.config"/>
     <ROW File="Microsoft.Practices.ServiceLocation.dll" Component_="Microsoft.Practices.ServiceLocation.dll" FileName="MICROS~1.DLL|Microsoft.Practices.ServiceLocation.dll" Attributes="0" SourcePath="..\bin\Release\Microsoft.Practices.ServiceLocation.dll" SelfReg="false" NextFile="CsvHelper.dll"/>
+    <ROW File="NBug.config" Component_="MMSaveEditor.exe.config" FileName="NBUG~1.CON|NBug.config" Attributes="0" SourcePath="..\bin\Release\NBug.config" SelfReg="false"/>
     <ROW File="NBug.dll" Component_="NBug.dll" FileName="NBug.dll" Attributes="0" SourcePath="..\bin\Release\NBug.dll" SelfReg="false" NextFile="Changelog.txt"/>
     <ROW File="Newtonsoft.Json.dll" Component_="Newtonsoft.Json.dll" FileName="NEWTON~1.DLL|Newtonsoft.Json.dll" Attributes="0" SourcePath="..\bin\Release\Newtonsoft.Json.dll" SelfReg="false" NextFile="LZ4.dll"/>
     <ROW File="System.Windows.Interactivity.dll" Component_="System.Windows.Interactivity.dll" FileName="SYSTEM~1.DLL|System.Windows.Interactivity.dll" Attributes="0" SourcePath="..\bin\Release\System.Windows.Interactivity.dll" SelfReg="false" NextFile="Microsoft.Practices.ServiceLocation.dll"/>

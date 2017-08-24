@@ -8,6 +8,6 @@ namespace MMSaveEditor.ViewModel
 {
     public class PlayerViewModel : TeamPrincipalViewModelBase<Player>
     {
-        public string PlayerTeamName => PersonData?.team.name;
+
     }
 }

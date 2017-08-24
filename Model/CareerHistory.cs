@@ -36,4 +36,28 @@ public class CareerHistory
             return (Team)null;
         }
     }
+
+    public CareerHistoryEntry GetLastEntryTeam(Team inTeam, bool inCheckForFinishedEntryOnly)
+    {
+        for (int index = this.careerCount - 1; index >= 0; --index)
+        {
+            CareerHistoryEntry careerHistoryEntry = this.mCareer[index];
+            if (inCheckForFinishedEntryOnly)
+            {
+                if (careerHistoryEntry.team == inTeam && careerHistoryEntry.isFinished)
+                    return careerHistoryEntry;
+            }
+            else if (careerHistoryEntry.team == inTeam)
+                return careerHistoryEntry;
+        }
+        return (CareerHistoryEntry)null;
+    }
+
+    public void MarkLastEntryTeamAsFinished(Team inTeam)
+    {
+        CareerHistoryEntry lastEntryTeam = this.GetLastEntryTeam(inTeam, false);
+        if (lastEntryTeam == null)
+            return;
+        lastEntryTeam.MarkEntryAsFinished(Game.instance.time.now);
+    }
 }

@@ -12,8 +12,13 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return Game.Instance.personalityTraitManager.personalityTraits.Select(d => d.Value).ToList();
+                return Game.instance.personalityTraitManager.personalityTraits.Select(d => d.Value).ToList();
             }
+        }
+
+        public override List<Person> GetPeopleFromTeam(Team t)
+        {
+            return t.Drivers.OfType<Person>().ToList();
         }
     }
 }

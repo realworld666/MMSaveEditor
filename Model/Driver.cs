@@ -20,9 +20,12 @@ public class Driver : Person
     private int mDesiredWins;
     private long mDesiredEarnings;
     private int startOfSeasonExpectedChampionshipPosition;
+
     private int expectedChampionshipPosition;
     private int expectedRacePosition;
     private PersonalityTraitController_v2 personalityTraitController;
+    [NonSerialized]
+    private ChampionshipEntry_v1 mChampionshipEntry;
     private DriverStats accumulatedStats = new DriverStats();
     public DriverStats lastAccumulatedStats = new DriverStats();
     public DriverStats statsBeforeEvent;
@@ -234,5 +237,36 @@ public class Driver : Person
         this.mModifiedPotential = this.mModifiedPotential.Clamp(0.0f, (float)this.mStats.GetMaxPotential());
         this.mStats.SetMaxFromPotential((int)this.mModifiedPotential);
         this.mModifiedStats.totalStatsMax = this.mStats.totalStatsMax;
+    }
+
+    public override bool IsReplacementPerson()
+    {
+        if (!this.mHasCachedReplacementDriverInfo)
+        {
+            this.mHasCachedReplacementDriverInfo = true;
+            this.mIsReplacementDriver = Game.instance.driverManager.IsReplacementPerson(this);
+        }
+        return this.mIsReplacementDriver;
+    }
+
+    internal bool IsMainDriver()
+    {
+        return this.Contract.currentStatus != ContractPerson.Status.Reserve;
+    }
+
+    public ChampionshipEntry_v1 GetChampionshipEntry()
+    {
+        if (!this.IsFreeAgent())
+        {
+            Championship championship = this.Contract.GetTeam().championship;
+            if (this.mChampionshipEntry == null || this.mChampionshipEntry.championship != championship)
+                this.mChampionshipEntry = championship.standings.GetEntry((Entity)this);
+        }
+        return this.mChampionshipEntry;
+    }
+
+    public void SetBeenScouted()
+    {
+        this.mHasBeenScouted = true;
     }
 }

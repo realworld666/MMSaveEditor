@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
+using MMSaveEditor.View;
 
 namespace MMSaveEditor.ViewModel
 {
@@ -36,6 +39,19 @@ namespace MMSaveEditor.ViewModel
         {
             PersonData = pPersonData;
             RaisePropertyChanged(string.Empty);
+        }
+
+        public string TeamName
+        {
+            get
+            {
+                if (_personData?.Contract?.employeer is Team)
+                {
+                    var team = _personData.Contract.employeer as Team;
+                    return team.Name;
+                }
+                return "";
+            }
         }
 
         public string FirstName
@@ -116,6 +132,27 @@ namespace MMSaveEditor.ViewModel
             get => PersonData == null ? 0 : PersonData.mMorale;
 
             set => PersonData.mMorale = value;
+        }
+
+        public Team CurrentTeam
+        {
+            get
+            {
+                return _personData?.Contract?.employeer as Team;
+            }
+        }
+
+        public void _viewTeam()
+        {
+            var team = _personData.Contract.employeer as Team;
+            var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
+            teamVM.SetModel(team);
+            MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Team);
+        }
+
+        public virtual List<Person> GetPeopleFromTeam(Team t)
+        {
+            return null;
         }
     }
 }

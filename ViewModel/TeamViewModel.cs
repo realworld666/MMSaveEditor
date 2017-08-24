@@ -11,7 +11,7 @@ namespace MMSaveEditor.ViewModel
     {
         private Team teamData;
 
-        public ObservableCollection<Team> Teams => Game.Instance == null ? null : new ObservableCollection<Team>(Game.Instance?.teamManager?.GetEntityList());
+        public ObservableCollection<Team> Teams => Game.instance == null ? null : new ObservableCollection<Team>(Game.instance?.teamManager?.GetEntityList());
         public ObservableCollection<CarPart> BrakesGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.brakesGTInventory);
         public ObservableCollection<CarPart> Brakes => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.brakesInventory);
         public ObservableCollection<CarPart> EngineGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.engineGTInventory);
@@ -28,7 +28,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return Game.Instance?.engineerManager?.GetEntityList().Where(e => e.Contract.GetTeam() == teamData).ToList();
+                return Game.instance?.engineerManager?.GetEntityList().Where(e => e.Contract.GetTeam() == teamData).ToList();
             }
         }
 

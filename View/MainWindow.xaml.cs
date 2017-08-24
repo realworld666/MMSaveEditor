@@ -108,7 +108,7 @@ namespace MMSaveEditor.View
             try
             {
                 var playerVM = SimpleIoc.Default.GetInstance<PlayerViewModel>();
-                playerVM.SetModel(Game.Instance.player);
+                playerVM.SetModel(Game.instance.player);
             }
             catch (Exception ex)
             {
@@ -128,7 +128,7 @@ namespace MMSaveEditor.View
             try
             {
                 var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
-                gameVM.SetModels(Game.Instance.time);
+                gameVM.SetModels(Game.instance.time);
             }
             catch (Exception ex)
             {
@@ -138,7 +138,7 @@ namespace MMSaveEditor.View
             try
             {
                 var principleVM = SimpleIoc.Default.GetInstance<TeamPrincipalViewModel>();
-                principleVM.SetList(Game.Instance.teamPrincipalManager.GetEntityList());
+                principleVM.SetList(Game.instance.teamPrincipalManager.GetEntityList());
             }
             catch (Exception ex)
             {
@@ -148,7 +148,7 @@ namespace MMSaveEditor.View
             try
             {
                 var driverVM = SimpleIoc.Default.GetInstance<DriverViewModel>();
-                driverVM.SetList(Game.Instance.driverManager.GetEntityList());
+                driverVM.SetList(Game.instance.driverManager.GetEntityList());
             }
             catch (Exception ex)
             {
@@ -158,7 +158,7 @@ namespace MMSaveEditor.View
             try
             {
                 var engineerVM = SimpleIoc.Default.GetInstance<EngineerViewModel>();
-                engineerVM.SetList(Game.Instance.engineerManager.GetEntityList());
+                engineerVM.SetList(Game.instance.engineerManager.GetEntityList());
             }
             catch (Exception ex)
             {
@@ -168,7 +168,7 @@ namespace MMSaveEditor.View
             try
             {
                 var mechanicVM = SimpleIoc.Default.GetInstance<MechanicViewModel>();
-                mechanicVM.SetList(Game.Instance.mechanicManager.GetEntityList());
+                mechanicVM.SetList(Game.instance.mechanicManager.GetEntityList());
             }
             catch (Exception ex)
             {
@@ -208,7 +208,7 @@ namespace MMSaveEditor.View
                     throw new Exception(string.Format("Failed to serialise SaveFileInfo: {0}", fsResult1.FormattedMessages));
                 string s1 = fsJsonPrinter.CompressedJson(data1);
                 fsData data2;
-                fsResult fsResult2 = serializer.TrySerialize(Game.Instance, out data2);
+                fsResult fsResult2 = serializer.TrySerialize(Game.instance, out data2);
                 if (fsResult2.Failed)
                     throw new Exception(string.Format("Failed to serialise Game: {0}",
                         fsResult2.FormattedMessages));
@@ -454,6 +454,14 @@ namespace MMSaveEditor.View
                     }
                     break;
                 case TabPage.Team:
+                    foreach (TabItem tabControlItem in tabControl.Items)
+                    {
+                        if (tabControlItem.Name.Equals("TeamTabItem"))
+                        {
+                            chosenTab = tabControlItem;
+                            break;
+                        }
+                    }
                     break;
                 case TabPage.Game:
                     break;

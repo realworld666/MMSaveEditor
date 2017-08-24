@@ -76,4 +76,22 @@ public class Mechanic : Person
         mDictDriversRelationships.RenameKey(oldname, newName);
         mDictRelationshipModificationHistory.RenameKey(oldname, newName);
     }
+
+    public override bool IsReplacementPerson()
+    {
+        return Game.instance.mechanicManager.IsReplacementPerson(this);
+    }
+
+    public void SetDriverRelationship(float inRelationshipAmount, int inWeeksTogether)
+    {
+        Driver driver = this.Contract.GetTeam().GetDriver(this.driver);
+        if (this.mDictDriversRelationships.ContainsKey(driver.name))
+            return;
+        this.mDictDriversRelationships.Add(driver.name, new Mechanic.DriverRelationship()
+        {
+            numberOfWeeks = inWeeksTogether,
+            relationshipAmount = inRelationshipAmount
+        });
+        this.mDictRelationshipModificationHistory.Add(driver.name, new StatModificationHistory());
+    }
 }

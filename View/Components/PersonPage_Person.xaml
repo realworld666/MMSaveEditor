@@ -53,7 +53,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Team" Width="200"/>
-            <Button Content="{Binding PlayerTeamName}"/>
+            <Button x:Name="transferButton" Content="{Binding TeamName}" Click="transferButton_Click"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

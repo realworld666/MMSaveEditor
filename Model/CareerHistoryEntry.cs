@@ -21,4 +21,19 @@ public class CareerHistoryEntry
     private DateTime mEndDate = new DateTime();
     private DateTime mStartDate = new DateTime();
 
+    public bool isFinished
+    {
+        get
+        {
+            return this.mIsFinished;
+        }
+    }
+
+    public void MarkEntryAsFinished(DateTime inEndDate)
+    {
+        if (this.mIsFinished)
+            return;
+        this.mIsFinished = true;
+        this.mEndDate = inEndDate;
+    }
 }

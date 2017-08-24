@@ -93,4 +93,9 @@ public class TeamAIController
         public bool has5ComponentSlots;
         public bool isSpecPart;
     }
+
+    public void EvaluateDriverLineUp()
+    {
+
+    }
 }

@@ -101,7 +101,7 @@ public class Person : Entity
 
     public int GetAge()
     {
-        DateTime now = Game.Instance.time.now;
+        DateTime now = Game.instance.time.now;
         int num = now.Year - dateOfBirth.Year;
         if (now.Month < dateOfBirth.Month || now.Month == dateOfBirth.Month && now.Day < dateOfBirth.Day)
             --num;
@@ -125,7 +125,7 @@ public class Person : Entity
         }
         name = inFirstName + " " + inLastName;
 
-        Game.Instance.mechanicManager.GetEntityList().ForEach(mechs => mechs.DriverRenamed(oldName, name));
+        Game.instance.mechanicManager.GetEntityList().ForEach(mechs => mechs.DriverRenamed(oldName, name));
     }
 
     public enum Gender
@@ -161,5 +161,10 @@ public class Person : Entity
         NotInterestedToTalkGeneric,
         WontDriveForThatSeries,
         OffendedByInterview,
+    }
+
+    public virtual bool IsReplacementPerson()
+    {
+        return false;
     }
 }

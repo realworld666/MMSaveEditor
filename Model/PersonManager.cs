@@ -5,5 +5,10 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public abstract class PersonManager<T> : GenericManager<T> where T : Person
 {
-  protected List<T> mReplacementPeople = new List<T>();
+    protected List<T> mReplacementPeople = new List<T>();
+
+    public bool IsReplacementPerson(T inPerson)
+    {
+        return this.mReplacementPeople.Contains(inPerson);
+    }
 }

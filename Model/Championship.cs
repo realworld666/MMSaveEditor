@@ -105,6 +105,14 @@ public class Championship : Entity
         }
     }
 
+    public int eventNumber
+    {
+        get
+        {
+            return this.mEventNumber;
+        }
+    }
+
     public RaceEventDetails GetCurrentEventDetails()
     {
         return this.calendar[this.mEventNumber];

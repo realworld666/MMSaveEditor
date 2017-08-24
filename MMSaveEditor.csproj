@@ -300,6 +300,7 @@
     <Compile Include="Model\CrashDirector.cs" />
     <Compile Include="Model\CriticalCarPartDesignData.cs" />
     <Compile Include="Model\CriticalCarPartPerformance.cs" />
+    <Compile Include="Model\CustomChallenge.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\DatabaseEntry.cs" />
     <Compile Include="Model\DatabaseReader.cs" />
@@ -718,6 +719,9 @@
     <Compile Include="View\Components\TeamPage_CarPart.xaml.cs">
       <DependentUpon>TeamPage_CarPart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TransferPerson.xaml.cs">
+      <DependentUpon>TransferPerson.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\AddTraitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -779,6 +783,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Components\TeamPage_CarPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TransferPerson.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -916,4 +924,13 @@
     <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+cd $(ProjectDir)Installer
+"C:\Program Files (x86)\Caphyon\Advanced Installer 14.1.1\bin\x86\AdvancedInstaller.com" /edit installer.aip /SetVersion -fromfile $(TargetPath)
+"C:\Program Files (x86)\Caphyon\Advanced Installer 14.1.1\bin\x86\AdvancedInstaller.com" /rebuild installer.aip
+del "Setup Files\installer.zip"
+$(ProjectDir)Installer\zip\zip -r "Setup Files\installer.zip" "Setup Files\installer.msi"
+)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

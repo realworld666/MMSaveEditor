@@ -58,10 +58,10 @@
                 <tabPages:PersonPage ListBoxUpdated="DriverPage_OnListBoxUpdated" DataContext="{Binding Driver, Mode=OneWay}"/>
 
             </TabItem>
-            <TabItem Header="Game">
+            <TabItem x:Name="GameTabItem" Header="Game">
                 <tabPages:GamePage/>
             </TabItem>
-            <TabItem Header="Team">
+            <TabItem x:Name="TeamTabItem" Header="Team">
                 <tabPages:TeamPage ListBoxUpdated="TeamPage_OnListBoxUpdated"/>
             </TabItem>
         </TabControl>

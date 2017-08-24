@@ -42,7 +42,7 @@ public class PersonalityTrait
     {
         get
         {
-            return Game.Instance.personalityTraitManager.personalityTraits[data.ID];
+            return Game.instance.personalityTraitManager.personalityTraits[data.ID];
         }
     }
 
@@ -60,7 +60,7 @@ public class PersonalityTrait
         this.mDriver = inDriver;
         this.specialCaseBehaviour.driver = this.mDriver;
         this.specialCaseBehaviour.specialCases = this.data.specialCases;
-        this.mTraitStartDate = Game.Instance.time.now;
+        this.mTraitStartDate = Game.instance.time.now;
     }
 
     public void SetupTraitEndTime()
@@ -70,14 +70,14 @@ public class PersonalityTrait
         else if (this.HasSpecialCase(PersonalityTrait.SpecialCaseType.ChampionshipPositionPromise) && !this.mDriver.IsFreeAgent())
             this.mTraitEndTime = this.mDriver.Contract.GetTeam().championship.currentSeasonEndDate.AddDays(-1.0);
         else if (this.data.possibleLength.Length == 1)
-            this.mTraitEndTime = Game.Instance.time.now.AddDays((double)(7 * this.data.possibleLength[0]));
+            this.mTraitEndTime = Game.instance.time.now.AddDays((double)(7 * this.data.possibleLength[0]));
         else if (this.data.possibleLength.Length > 1)
         {
             int randomInc = RandomUtility.GetRandomInc(this.data.possibleLength[0], this.data.possibleLength[1]);
-            this.mTraitEndTime = Game.Instance.time.now.AddDays((double)(7 * randomInc));
+            this.mTraitEndTime = Game.instance.time.now.AddDays((double)(7 * randomInc));
         }
         else
-            this.mTraitEndTime = Game.Instance.time.now.AddDays(1.0);
+            this.mTraitEndTime = Game.instance.time.now.AddDays(1.0);
     }
 
     public bool HasSpecialCase(PersonalityTrait.SpecialCaseType inSpecialCaseType)

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using FullSerializer;
 using System.Linq;
+using System.Diagnostics;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Team : Entity
@@ -89,6 +90,14 @@ public class Team : Entity
         }
     }
 
+    public Chairman chairman
+    {
+        get
+        {
+            return this.contractManager.GetPersonOnJob(Contract.Job.Chairman) as Chairman;
+        }
+    }
+
     public List<Mechanic> Mechanics
     {
         get
@@ -102,6 +111,20 @@ public class Team : Entity
         }
     }
 
+    public Driver GetDriver(int inIndex)
+    {
+        if (inIndex < 0)
+        {
+            Debug.Assert(false, "Trying to access and array with a negative index ");
+            return (Driver)null;
+        }
+        this.mDriversCache.Clear();
+        this.contractManager.GetAllDrivers(ref this.mDriversCache);
+        if (inIndex < this.mDriversCache.Count)
+            return this.mDriversCache[inIndex];
+        return (Driver)null;
+    }
+
     public Driver GetReserveDriver()
     {
         this.mDriversCache.Clear();
@@ -113,5 +136,53 @@ public class Team : Entity
                 return driver;
         }
         return (Driver)null;
+    }
+
+    internal bool IsPlayersTeam()
+    {
+        if (this == Game.instance.player.team)
+        {
+            return !(this is NullTeam);
+        }
+
+        return false;
+    }
+
+    public void SelectMainDriversForSession()
+    {
+        List<EmployeeSlot> employeeSlotsForJob = this.contractManager.GetAllEmployeeSlotsForJob(Contract.Job.Driver);
+        for (int index = 0; index < Team.mainDriverCount; ++index)
+            this.mSelectedDriver[index] = employeeSlotsForJob[index].personHired as Driver;
+    }
+
+    public Mechanic GetMechanicOfDriver(Driver inDriver)
+    {
+        int driverIndex = this.GetDriverIndex(inDriver);
+        this.mMechanics.Clear();
+        this.contractManager.GetAllMechanics(ref this.mMechanics);
+        int count = this.mMechanics.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.mMechanics[index].driver == driverIndex)
+                return this.mMechanics[index];
+        }
+        return (Mechanic)null;
+    }
+
+    public int GetDriverIndex(Driver inDriver)
+    {
+        for (int index = 0; index < Team.mainDriverCount; ++index)
+        {
+            if (this.mSelectedDriver[index] != null && this.mSelectedDriver[index] == inDriver)
+                return index;
+        }
+        this.mEmployeeSlots.Clear();
+        this.contractManager.GetAllEmployeeSlotsForJob(Contract.Job.Driver, ref this.mEmployeeSlots);
+        for (int index = 0; index < Team.mainDriverCount; ++index)
+        {
+            if (this.mEmployeeSlots[index].personHired != null && this.mEmployeeSlots[index].personHired == inDriver)
+                return index;
+        }
+        return -1;
     }
 }

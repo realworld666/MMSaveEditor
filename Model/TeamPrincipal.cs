@@ -9,6 +9,10 @@ public class TeamPrincipal : Person
     public TeamPrincipalStats stats = new TeamPrincipalStats();
     public TeamPrincipal.Backstory backStory;
 
+    public override bool IsReplacementPerson()
+    {
+        return Game.instance.teamPrincipalManager.IsReplacementPerson(this);
+    }
 
     public enum Backstory
     {

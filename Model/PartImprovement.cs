@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class PartImprovement
 {
     public static CarPartStats.CarPartStat[] playerAvailableImprovementTypes = new CarPartStats.CarPartStat[2] { CarPartStats.CarPartStat.Reliability, CarPartStats.CarPartStat.Performance };
@@ -30,7 +30,24 @@ public class PartImprovement
     public const int workSeconds = 32400;
     public Action OnItemListsChangedForUI;
 
-
-
-
+    public void AssignChiefMechanics()
+    {
+        List<Person> allPeopleOnJob = this.mTeam.contractManager.GetAllPeopleOnJob(Contract.Job.Mechanic);
+        if (this.mechanicOnPerformance == null || this.mechanicOnPerformance.Contract.Job1 == Contract.Job.Unemployed)
+        {
+            for (int index = 0; index < allPeopleOnJob.Count; ++index)
+            {
+                if (this.mechanicOnReliability == null || allPeopleOnJob[index] != this.mechanicOnReliability)
+                    this.mechanicOnPerformance = allPeopleOnJob[index];
+            }
+        }
+        if (this.mechanicOnReliability == null || this.mechanicOnReliability.Contract.Job1 == Contract.Job.Unemployed)
+        {
+            for (int index = 0; index < allPeopleOnJob.Count; ++index)
+            {
+                if (this.mechanicOnPerformance == null || allPeopleOnJob[index] != this.mechanicOnPerformance)
+                    this.mechanicOnReliability = allPeopleOnJob[index];
+            }
+        }
+    }
 }

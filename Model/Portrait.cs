@@ -27,7 +27,7 @@ public class Portrait
     private int mAccessory;
     private int mGlasses;
     private int mBrows;
-
+    private int mHat;
 
     public enum SkinTone
     {

@@ -11,6 +11,7 @@
              xmlns:viewModel="clr-namespace:MMSaveEditor.ViewModel"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:command="http://www.galasoft.ch/mvvmlight"
+    xml:lang="en-GB"
     x:Class="MMSaveEditor.View.TabPages.PersonPage"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1311">
     <UserControl.Resources>

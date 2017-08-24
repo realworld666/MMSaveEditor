@@ -34,4 +34,9 @@ public class Engineer : Person
         driverVM.SetModel(this);
         MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Engineer);
     }
+
+    public override bool IsReplacementPerson()
+    {
+        return Game.instance.engineerManager.IsReplacementPerson(this);
+    }
 }

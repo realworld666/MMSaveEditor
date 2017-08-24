@@ -47,6 +47,29 @@ public class Contract
         }
     }
 
+    public DateTime EndDate
+    {
+        get
+        {
+            return mEndDate;
+        }
+
+        set
+        {
+            mEndDate = value;
+        }
+    }
+
+    public virtual void SetContractTerminated(Contract.ContractTerminationType inTerminationType = Contract.ContractTerminationType.Generic)
+    {
+        this.SetContractState(Contract.ContractStatus.Terminated);
+    }
+
+    public virtual void SetContractState(Contract.ContractStatus inStatus)
+    {
+        this.mContractStatus = inStatus;
+    }
+
     public enum ContractStatus
     {
         InProposalState,

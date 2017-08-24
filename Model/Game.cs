@@ -7,7 +7,7 @@ using MM2;
 [fsObject("v0", MemberSerialization = fsMemberSerialization.OptOut)]
 public class Game
 {
-    public static Game Instance;
+    public static Game instance;
     public LocalisationGroupManager localisationGroupManager;
     public Player player;
     public GameTimer time;
@@ -60,7 +60,7 @@ public class Game
 
     public Game()
     {
-        Instance = this;
+        instance = this;
     }
 
     public enum GameType

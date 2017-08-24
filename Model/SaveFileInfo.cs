@@ -65,8 +65,8 @@ public class SaveFileInfo
             version = GameVersionNumber.version,
             isAutoSave = isAutoSave
         };
-        Game instance = Game.Instance;
-        saveFileInfo.gameInfo.isChallenge = Game.Instance.challengeManager.IsAttemptingChallenge();
+        Game instance = Game.instance;
+        saveFileInfo.gameInfo.isChallenge = Game.instance.challengeManager.IsAttemptingChallenge();
         saveFileInfo.gameInfo.gameTime = DateTime.Now;
         saveFileInfo.gameInfo.teamName = instance.player.team.name;
         saveFileInfo.gameInfo.teamLogoID = instance.player.team.teamID;
@@ -85,7 +85,7 @@ public class SaveFileInfo
         saveFileInfo.gameInfo.raceNumber = team.championship.eventNumberForUI;
         saveFileInfo.gameInfo.racesInSeason = team.championship.eventCount;
         for (int index = 0; index < CarManager.carCount; ++index)
-            saveFileInfo.gameInfo.playerTeamCarData[index] = instance.player.team != Game.Instance.teamManager.nullTeam ? instance.player.team.carManager.GetCar(index).GetDataForCar(index) : new FrontendCarData();
+            saveFileInfo.gameInfo.playerTeamCarData[index] = instance.player.team != Game.instance.teamManager.nullTeam ? instance.player.team.carManager.GetCar(index).GetDataForCar(index) : new FrontendCarData();
         //if (SteamManager.Initialized)
         //  saveFileInfo.subscribedModsInfo = instance.savedSubscribedModsInfo;
         //for (int index = 0; index < App.instance.dlcManager.allDlc.Count; ++index)

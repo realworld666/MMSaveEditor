@@ -11,5 +11,13 @@ namespace MMSaveEditor.View.Components
         {
             InitializeComponent();
         }
+
+        private void transferButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TransferPerson dialog = new TransferPerson(this.DataContext);
+            dialog.ShowDialog();
+
+
+        }
     }
 }

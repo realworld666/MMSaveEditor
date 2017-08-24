@@ -7,6 +7,8 @@ using System.Text;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Chairman : Person
 {
+    private static readonly float happinessResetValue = 60f;
+
     public ChairmanUltimatum ultimatum = new ChairmanUltimatum();
     public int ultimatumsGeneratedThisSeason;
     public int costFocus;
@@ -31,5 +33,10 @@ public class Chairman : Person
         DeclinedPreSeason,
         DeclinedSeasonStart,
         Declined,
+    }
+
+    public void ResetHappiness()
+    {
+        this.mHappiness = Chairman.happinessResetValue;
     }
 }

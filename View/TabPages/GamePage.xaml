@@ -2,18 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xml:lang="en-GB"
              mc:Ignorable="d" 
              DataContext="{Binding Game, Mode=OneWay, Source={StaticResource Locator}}"
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <GroupBox Header="Time">
             <StackPanel >
-                <StackPanel Orientation="Horizontal" >
+                <!--<StackPanel Orientation="Horizontal" >
                     <TextBlock TextWrapping="Wrap" Text="Game Date" Width="200"/>
-                    <DatePicker Text="{Binding DateNow}" DisplayDate="{Binding DateNow}" Width="200"/>
-                </StackPanel>
+                    <DatePicker Text="{Binding DateNow.Date.Date, Mode=OneWay}" DisplayDate="{Binding DateNow}" Width="200" IsTodayHighlighted="False" SelectedDateFormat="Short"/>
+                </StackPanel>-->
                 <StackPanel Orientation="Horizontal" >
                     <TextBlock TextWrapping="Wrap" Text="Race Speed (Normal)" Width="200"/>
                     <Slider Width="200" Value="{Binding RaceSpeed_Normal}" Minimum="1"/>

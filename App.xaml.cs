@@ -27,6 +27,9 @@ namespace MMSaveEditor
 #if !DEBUG
             // Uncomment the following after testing to see that NBug is working as configured
             NBug.Settings.ReleaseMode = true;
+            NBug.Settings.WriteLogToDisk = false;
+#else
+            NBug.Settings.WriteLogToDisk = false;
 #endif
             NBug.Settings.ProcessingException += Settings_ProcessingException;
             AppDomain.CurrentDomain.UnhandledException += NBug.Handler.UnhandledException;
