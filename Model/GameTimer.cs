@@ -29,6 +29,8 @@ public class GameTimer
     private GameTimer.TimeState mTimeState;
     public float[,] speedMultipliers = new float[3, 3] { { 250f, 2500f, 25000f }, { 1f, 10f, 50f }, { 1.75f, 2.75f, 3.75f } };
     private bool[] mPauseState = new bool[5];
+    private GameTimer.SimSkipSpeed mSkipSessionSpeed;
+    private GameTimer.Speed mSpeed;
 
     public DateTime now
     {

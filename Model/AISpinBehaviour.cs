@@ -17,6 +17,9 @@ public class AISpinBehaviour : AIBehaviour
     private float mAngleRotation;
     private float mInitialBraking;
     private AISpinBehaviour.SpinState mState;
+    private float mTargetSpace;
+    private Vector3 mDirection;
+    private float mAngleRotation;
 
     public enum SpinState
     {

@@ -39,7 +39,8 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock TextWrapping="Wrap" Text="Reputation"  Width="200"/>
-                        <TextBox Width="200" Text="{Binding Reputation}"/>
+                        <Slider Width="100" Value="{Binding Reputation}" Maximum="100" Minimum="0"></Slider>
+                        <TextBlock Width="100" Text="{Binding Reputation}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock TextWrapping="Wrap" Text="Marketability"  Width="200"/>
@@ -47,7 +48,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock TextWrapping="Wrap" Text="Pressure"  Width="200"/>
-                        <Slider Width="100" Value="{Binding Pressure}" Maximum="3"></Slider>
+                        <Slider Width="100" Value="{Binding Pressure}" Maximum="3" Minimum="1"></Slider>
                         <TextBlock Width="100" Text="{Binding Pressure}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >

@@ -14,7 +14,7 @@ public class ContractManagerTeam
     private List<EmployeeSlot> mCachedEmployedSlots = new List<EmployeeSlot>();
     private Team mTeam;
     private Driver mLatestFiredActiveDriver;
-
+    private Driver mHealingDriver;
 
     public void GetAllDrivers(ref List<Driver> drivers)
     {

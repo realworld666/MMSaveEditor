@@ -18,6 +18,10 @@ public class CarPartStats
     private float mReliability;
     private float mStat;
     public CarPartCondition partCondition = new CarPartCondition();
+    private float[] mWeightStrippingReliabilityLost;
+    public float performanceGainedPerReliabilityPointWeightStripped;
+    public float weightStrippedReliabilityMin;
+
 
     public float statWithPerformance
     {

@@ -74,6 +74,7 @@ public class Championship : Entity
     public const float teamPromotionAcceptChance = 0.85f;
     public const float teamChampionMarketabilityReward = 25f;
     public const int invalidChampionshipID = -1;
+    public SeasonDirector seasonDirector;
 
     private ChampionshipPromotionData inPromotedTeamFromLowerTier;
     private ChampionshipPromotionData inRelegatedTeamFromHigherTier;

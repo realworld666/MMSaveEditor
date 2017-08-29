@@ -144,7 +144,12 @@ namespace MMSaveEditor.ViewModel
 
         public void _viewTeam()
         {
-            var team = _personData.Contract.employeer as Team;
+            var team = _personData?.Contract?.employeer as Team;
+            if (team == null)
+            {
+                return;
+            }
+
             var teamVM = SimpleIoc.Default.GetInstance<TeamViewModel>();
             teamVM.SetModel(team);
             MainWindow.Instance.SwitchToTab(MainWindow.TabPage.Team);

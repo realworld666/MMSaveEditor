@@ -26,6 +26,7 @@ public class CarPartComponent : fsISerializationCallbacks
     public float nonAgressiveTeamWeightings = 1f;
     private string mNameID = string.Empty;
     private string mCustomComponentName = string.Empty;
+    public bool isRandomComponent;
 
     public enum ComponentType
     {

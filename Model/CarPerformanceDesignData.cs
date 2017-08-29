@@ -1,29 +1,30 @@
 ﻿using FullSerializer;
 using System.Xml.Serialization;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarPerformanceDesignData : PerformanceDesignData
 {
-    [XmlElement( "Bonuses" )]
+    [XmlElement("Bonuses")]
     public BonusesDesignData bonuses = new BonusesDesignData();
-    [XmlElement( "CarCondition" )]
+    [XmlElement("CarCondition")]
     public CarConditionDesignData carCondition = new CarConditionDesignData();
-    [XmlElement( "CriticalCarPart" )]
+    [XmlElement("CriticalCarPart")]
     public CriticalCarPartDesignData criticalCarPart = new CriticalCarPartDesignData();
-    [XmlElement( "DriverForm" )]
+    [XmlElement("DriverForm")]
     public DriverFormDesignData driverForm = new DriverFormDesignData();
-    [XmlElement( "DriverPerformance" )]
+    [XmlElement("DriverPerformance")]
     public DriverPerformanceDesignData driverPerformance = new DriverPerformanceDesignData();
-    [XmlElement( "DrivingStyle" )]
+    [XmlElement("DrivingStyle")]
     public DrivingStyleDesignData drivingStyle = new DrivingStyleDesignData();
-    [XmlElement( "Fuel" )]
+    [XmlElement("Fuel")]
     public FuelDesignData fuel = new FuelDesignData();
-    [XmlElement( "Setup" )]
+    [XmlElement("Setup")]
     public SetupDesignData setup = new SetupDesignData();
-    [XmlElement( "TemperatureOptimisation" )]
+    [XmlElement("TemperatureOptimisation")]
     public TemperatureOptimisationDesignData temperatureOptimisation = new TemperatureOptimisationDesignData();
-    [XmlElement( "TrackExpert" )]
+    [XmlElement("TrackExpert")]
     public TrackExpertDesignData trackExpert = new TrackExpertDesignData();
-    [XmlElement( "TrackWater" )]
+    [XmlElement("TrackWater")]
     public TrackWaterDesignData trackWater = new TrackWaterDesignData();
+    public BehaviourTypeDesignData behaviourType;
 }

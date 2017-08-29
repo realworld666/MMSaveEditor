@@ -24,7 +24,7 @@ public class ContractPerson : Contract
     public bool hasSignOnFee;
     public bool hasRaceBonus;
     public bool hasQualifyingBonus;
-    public ContractLength length;
+    public ContractPerson.ContractLength length;
     public ContractPerson.BuyoutClauseSplit buyoutSplit = ContractPerson.BuyoutClauseSplit.PersonPaysAll;
     private Person mPerson;
 
@@ -318,13 +318,6 @@ public class ContractPerson : Contract
         [LocalisationID("PSG_10005068")] One,
         [LocalisationID("PSG_10005069")] Two,
         [LocalisationID("PSG_10005070")] Reserve,
-    }
-
-    public enum ContractLength
-    {
-        Short,
-        Medium,
-        Long,
     }
 
     public enum BuyoutClauseSplit

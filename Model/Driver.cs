@@ -46,7 +46,7 @@ public class Driver : Person
     private bool mHasCachedReplacementDriverInfo;
     private int mLastRaceExpectedRacePosition;
     private Person mCelebrity;
-
+    private DriverStats mStatsForAITeamEval;
     private DriverRivalries mDriverRivalries = new DriverRivalries();
     private int mDaysToScoutShort;
     private int mDaysToScoutLong;
@@ -223,12 +223,14 @@ public class Driver : Person
 
     public void addTrait(PersonalityTraitData data)
     {
-        personalityTraitController.AddPersonalityTrait(data, true);
+        if (data != null)
+            personalityTraitController.AddPersonalityTrait(data, true);
     }
 
     public void removeTrait(PersonalityTrait data)
     {
-        personalityTraitController.RemovePersonalityTrait(data);
+        if (data != null)
+            personalityTraitController.RemovePersonalityTrait(data);
     }
 
     public void UpdateModifiedPotentialValue(float inPotentialModifier)

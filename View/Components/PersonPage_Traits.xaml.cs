@@ -42,9 +42,12 @@ namespace MMSaveEditor.View.Components
             if (dialog.SelectedData != null)
             {
                 var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
-                vm.PersonData.addTrait(dialog.SelectedData);
-                // refresh view model
-                vm.SetModel(vm.PersonData);
+                if (vm.PersonData != null)
+                {
+                    vm.PersonData.addTrait(dialog.SelectedData);
+                    // refresh view model
+                    vm.SetModel(vm.PersonData);
+                }
             }
         }
     }

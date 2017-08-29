@@ -24,9 +24,12 @@ namespace MMSaveEditor.View.Components
 
             // HACK
             var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
-            vm.PersonData.removeTrait(grid.SelectedItem as PersonalityTrait);
-            // refresh view model
-            vm.SetModel(vm.PersonData);
+            if (vm.PersonData != null)
+            {
+                vm.PersonData.removeTrait(grid.SelectedItem as PersonalityTrait);
+                // refresh view model
+                vm.SetModel(vm.PersonData);
+            }
         }
     }
 }

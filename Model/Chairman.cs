@@ -18,6 +18,20 @@ public class Chairman : Person
     private float mHappiness;
     public int happinessBeforeEvent;
     private StatModificationHistory mHappinessModificationHistory = new StatModificationHistory();
+    private float happinessPodiumBonus;
+    private float happinessFixedChange;
+    private float happinessMultiplier;
+    private float happinessChampionshipPositionNormalMultiplier;
+    private float happinessKeptExpectedChampionshipPositionMultiplier;
+    private float maxRaceHappinessChangePerEvent;
+    private float happinessUltimatumBoostSameManager;
+    private float happinessUltimatumBoostNewManager;
+    private float happinessFinancesFixedChange;
+    private float happinessMinimumRequestFundsValueNormalized;
+    private float happinessRequestFundsValue;
+    private float[] happinessNegativeMultiplier;
+    private float[] happinessPositiveMultiplier;
+    private int[] ultimatumPositionTable;
 
     public enum EstimatedPosition
     {
