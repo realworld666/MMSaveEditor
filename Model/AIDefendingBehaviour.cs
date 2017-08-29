@@ -1,9 +1,9 @@
 ﻿
 using FullSerializer;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class AIDefendingBehaviour : AIRacingBehaviour
 {
-	private RacingVehicle mTarget;
-
+    private RacingVehicle mTarget;
+    private int test;
 }

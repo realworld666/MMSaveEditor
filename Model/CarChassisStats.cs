@@ -17,6 +17,15 @@ public class CarChassisStats
     public float fuelEfficiency;
     public float startingCharge;
     public float harvestEfficiency = 1f;
+    private float mHarvestEfficiency;
+    public float maxSetupStatContribution;
+    private float mTyreWear;
+    private float mTyreHeating;
+    private float mImprovability;
+    private float mFuelEfficiency;
+    private float mStartingCharge;
+    private float mSetupTyreWear;
+    private float mSetupTyreHeating;
 
     public enum Stats
     {

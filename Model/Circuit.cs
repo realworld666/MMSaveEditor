@@ -32,6 +32,7 @@ public class Circuit
     public Climate climate;
     public DriverStatsProgression driverStats;
     private string mNationalityKey = string.Empty;
+    public float trackRubberModifier;
 
     public enum TrackLayout
     {

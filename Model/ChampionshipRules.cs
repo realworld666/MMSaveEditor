@@ -54,6 +54,8 @@ public class ChampionshipRules : Entity
     public List<CarPart.PartType> specParts = new List<CarPart.PartType>();
     private List<PoliticalVote> mRules = new List<PoliticalVote>();
     private Championship mChampionship;
+    public float maxTyreSpeedBonus;
+    public bool shouldChargeUsingStandingsPosition;
 
     public enum MaxFinancialBudget
     {

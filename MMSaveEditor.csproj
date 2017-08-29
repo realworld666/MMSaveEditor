@@ -292,7 +292,6 @@
     <Compile Include="Model\ContractEvaluationWeightings.cs" />
     <Compile Include="Model\ContractManagerPerson.cs" />
     <Compile Include="Model\ContractManagerTeam.cs" />
-    <Compile Include="Model\ContractNegotiationScreen.cs" />
     <Compile Include="Model\ContractPerson.cs" />
     <Compile Include="Model\ContractSponsor.cs" />
     <Compile Include="Model\ContractVariablesContainer.cs" />

@@ -7,6 +7,7 @@ public class ChallengeManager
 {
     private Challenge mCurrentChallenge;
     private List<Challenge> mChallenges = new List<Challenge>();
+    public ChallengeGameData challengeGameData;
 
     public bool IsAttemptingChallenge()
     {

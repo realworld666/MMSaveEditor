@@ -16,6 +16,17 @@ public class HQsBuilding_v1 : Entity
     private int mStaffNumber;
     private DateTime mDateProgressStarted;
     private DateTime mDateProgressEnd;
+    private TimeSpan mTimeRemaining;
+    private TimeSpan mTimeElapsed;
+    private TimeSpan mTotalTime;
+    public HQsBuilding_v1.SpecialState specialState;
+    private Notification mNotificationProgress;
+    private DriverStatsProgression mDriverStatProgression;
+    private EngineerStatsProgression mEngineerStatProgression;
+    private MechanicStatsProgression mMechanicStatProgression;
+    private bool mHasDriverStatProgression;
+    private bool mHasEngineerStatProgression;
+    private bool mHasMechanicStatProgression;
 
     public HQsBuilding_v1()
     {
