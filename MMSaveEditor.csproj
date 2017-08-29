@@ -928,6 +928,7 @@
     <PostBuildEvent>if $(ConfigurationName) == Release (
 cd $(ProjectDir)Installer
 "C:\Program Files (x86)\Caphyon\Advanced Installer 14.1.1\bin\x86\AdvancedInstaller.com" /edit installer.aip /SetVersion -fromfile $(TargetPath)
+"C:\Program Files (x86)\Caphyon\Advanced Installer 14.1.1\bin\x86\AdvancedInstaller.com" /edit installer.aip /SetProductCode  -langid 2057
 "C:\Program Files (x86)\Caphyon\Advanced Installer 14.1.1\bin\x86\AdvancedInstaller.com" /rebuild installer.aip
 del "Setup Files\installer.zip"
 $(ProjectDir)Installer\zip\zip -r "Setup Files\installer.zip" "Setup Files\installer.msi"

@@ -29,3 +29,4 @@
 /AssetsTools.dll
 *.suo
 /FullSerializer/Internal/DirectConverters
+/.vs/MMSaveEditor/v15/sqlite3/storage.ide

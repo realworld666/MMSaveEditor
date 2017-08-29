@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Reflection;
+using System.Windows.Controls;
 
 namespace MMSaveEditor.View.Components
 {
@@ -14,8 +16,14 @@ namespace MMSaveEditor.View.Components
 
         private void transferButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+#if false
             TransferPerson dialog = new TransferPerson(this.DataContext);
             dialog.ShowDialog();
+#else
+            Type contextType = DataContext.GetType();
+            MethodInfo theMethod = contextType.GetMethod("_viewTeam", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            theMethod.Invoke(DataContext, null);
+#endif
 
 
         }
