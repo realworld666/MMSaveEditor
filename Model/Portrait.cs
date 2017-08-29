@@ -20,6 +20,30 @@ public class Portrait
     public static readonly string[] accessoriesFemale = new string[2] { "No Accessory", "Accessory 1" };
     public static readonly string[] hatStyles = new string[20] { "Hat Style 1", "Hat Style 2", "Hat Style 3", "Hat Style 4", "Hat Style 5", "Hat Style 6", "Hat Style 7", "Hat Style 8", "Hat Style 9", "Hat Style 10", "Hat Style 11", "Hat Style 12", "Hat Style 13", "Hat Style 14", "Hat Style 15", "Hat Style 16", "Hat Style 17", "Hat Style 18", "Hat Style 19", "Hat Style 20" };
     public static readonly string[] shirtStyles = new string[11] { "Shirt Style 1", "Shirt Style 2", "Shirt Style 3", "Shirt Style 4", "Shirt Style 5", "Shirt Style 6", "Shirt Style 7", "Shirt Style 8", "Shirt Style 9", "Shirt Style 10", "Shirt Style 11" };
+    public static readonly string[] hatMale = new string[9]
+    {
+        "PSG_10012504",
+        "PSG_10012505",
+        "PSG_10012506",
+        "PSG_10012507",
+        "PSG_10012508",
+        "PSG_10012509",
+        "PSG_10012510",
+        "PSG_10012511",
+        "PSG_10012512"
+    };
+    public static readonly string[] hatFemale = new string[9]
+    {
+        "PSG_10012504",
+        "PSG_10012505",
+        "PSG_10012506",
+        "PSG_10012507",
+        "PSG_10012508",
+        "PSG_10012509",
+        "PSG_10012510",
+        "PSG_10012511",
+        "PSG_10012512"
+    };
     private int mHead;
     private int mFacialHair;
     private int mHair;

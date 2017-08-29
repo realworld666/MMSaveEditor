@@ -9,13 +9,6 @@ public class TeamColorManager
     private TeamColor[] mTeamColor;
     private TeamColor mStoredTeamColour;
 
-    private static TeamColorManager _instance;
-
-    public TeamColorManager()
-    {
-        Instance = this;
-    }
-
     public TeamColor[] colours
     {
         get
@@ -23,20 +16,6 @@ public class TeamColorManager
             return this.mTeamColor;
         }
     }
-
-    public static TeamColorManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new TeamColorManager();
-            }
-            return _instance;
-        }
-        set { _instance = value; }
-    }
-
 
     public void SetPlayersColourFromSave(TeamColor team_colour)
     {

@@ -7,8 +7,43 @@ using System.Text;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Chairman : Person
 {
+    private static readonly float happinessPodiumBonus = 5f;
+    private static readonly float happinessFixedChange = 5f;
+    private static readonly float happinessMultiplier = 10f;
+    private static readonly float happinessChampionshipPositionNormalMultiplier = 1f;
+    private static readonly float happinessKeptExpectedChampionshipPositionMultiplier = 0.1f;
+    private static readonly float maxRaceHappinessChangePerEvent = 100f;
+    private static readonly float happinessUltimatumBoostSameManager = 35f;
+    private static readonly float happinessUltimatumBoostNewManager = 50f;
+    private static readonly float happinessFinancesFixedChange = 1f;
     private static readonly float happinessResetValue = 60f;
-
+    private static readonly float happinessMinimumRequestFundsValueNormalized = 0.55f;
+    private static readonly float happinessRequestFundsValue = -50f;
+    private static readonly float[] happinessNegativeMultiplier = new float[3]
+    {
+        0.4f,
+        0.5f,
+        0.6f
+    };
+    private static readonly float[] happinessPositiveMultiplier = new float[3]
+    {
+        0.6f,
+        0.5f,
+        0.4f
+    };
+    private static readonly int[] ultimatumPositionTable = new int[10]
+    {
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+    };
     public ChairmanUltimatum ultimatum = new ChairmanUltimatum();
     public int ultimatumsGeneratedThisSeason;
     public int costFocus;
@@ -18,20 +53,6 @@ public class Chairman : Person
     private float mHappiness;
     public int happinessBeforeEvent;
     private StatModificationHistory mHappinessModificationHistory = new StatModificationHistory();
-    private float happinessPodiumBonus;
-    private float happinessFixedChange;
-    private float happinessMultiplier;
-    private float happinessChampionshipPositionNormalMultiplier;
-    private float happinessKeptExpectedChampionshipPositionMultiplier;
-    private float maxRaceHappinessChangePerEvent;
-    private float happinessUltimatumBoostSameManager;
-    private float happinessUltimatumBoostNewManager;
-    private float happinessFinancesFixedChange;
-    private float happinessMinimumRequestFundsValueNormalized;
-    private float happinessRequestFundsValue;
-    private float[] happinessNegativeMultiplier;
-    private float[] happinessPositiveMultiplier;
-    private int[] ultimatumPositionTable;
 
     public enum EstimatedPosition
     {

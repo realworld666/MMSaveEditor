@@ -12,7 +12,7 @@ public class LiveryData
     public int id;
     public int friendlyNameInt;
     private int mDlcId;
-
+    public int rewardID;
 
 
     public enum LiveryShaderBaseProjection

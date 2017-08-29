@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PathSpline
 {
+    //private PathData.Type mType;
+    //private CatmullRomSpline mSpline;
+    //private PathSpline.SplinePosition[] mSplinePositions;
+    //private float mLength;
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public struct SplinePosition

@@ -26,5 +26,6 @@ public class CarPerformanceDesignData : PerformanceDesignData
     public TrackExpertDesignData trackExpert = new TrackExpertDesignData();
     [XmlElement("TrackWater")]
     public TrackWaterDesignData trackWater = new TrackWaterDesignData();
-    public BehaviourTypeDesignData behaviourType;
+    [XmlElement("BehaviourType")]
+    public BehaviourTypeDesignData behaviourType = new BehaviourTypeDesignData();
 }

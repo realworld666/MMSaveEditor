@@ -9,7 +9,7 @@
     private float mLockUpPoints;
     private RacingVehicle mVehicle;
     private int mPreviousGate;
-
+    private DriverStats mDriverStats;
 
     public enum EventType
     {

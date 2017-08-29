@@ -16,4 +16,8 @@ public class Investor : Entity
     public int tyreHeating;
     public float bonusMarketability;
     public HQsBuildingInfo.Type[] startBuilding;
+    public int partRiskBonus;
+    public int driverMinAge;
+    public float driverImprovementRateMultiplier;
+    public int rewardID;
 }

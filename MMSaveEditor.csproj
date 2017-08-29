@@ -188,6 +188,7 @@
     <Compile Include="Model\AICrashedBehaviour.cs" />
     <Compile Include="Model\AICrashingBehaviour.cs" />
     <Compile Include="Model\AICriticalIssueBehaviour.cs" />
+    <Compile Include="Model\AICuttingCornersBehaviour.cs" />
     <Compile Include="Model\AIDefendingBehaviour.cs" />
     <Compile Include="Model\AIInOutLapBehaviour.cs" />
     <Compile Include="Model\AILockUpBehaviour.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Model\AIRaceStartBehaviour.cs" />
     <Compile Include="Model\AIRacingBehaviour.cs" />
     <Compile Include="Model\AIRetiredBehaviour.cs" />
+    <Compile Include="Model\AIRunningWideBehaviour.cs" />
     <Compile Include="Model\AISafetyCarBehaviour.cs" />
     <Compile Include="Model\AISafetyCarIdleBehaviour.cs" />
     <Compile Include="Model\AISafetyFlagBehaviour.cs" />
@@ -203,11 +205,13 @@
     <Compile Include="Model\AISpinBehaviour.cs" />
     <Compile Include="Model\AITeamOrderBehaviour.cs" />
     <Compile Include="Model\AnimatedFloat.cs" />
+    <Compile Include="Model\AssetManager.cs" />
     <Compile Include="Model\Assistant.cs" />
     <Compile Include="Model\AssistantManager.cs" />
     <Compile Include="Model\AvoidanceSpeedController.cs" />
     <Compile Include="Model\AvoidanceSteeringBehaviour.cs" />
     <Compile Include="Model\BaseManager.cs" />
+    <Compile Include="Model\BehaviourTypeDesignData.cs" />
     <Compile Include="Model\BlockingSteeringBehaviour.cs" />
     <Compile Include="Model\BlueFlagSpeedController.cs" />
     <Compile Include="Model\BonusAddRandomLevelComponent.cs" />
@@ -258,8 +262,21 @@
     <Compile Include="Model\ChairmanManager.cs" />
     <Compile Include="Model\ChairmanUltimatum.cs" />
     <Compile Include="Model\Challenge.cs" />
+    <Compile Include="Model\ChallengeDuration.cs" />
+    <Compile Include="Model\ChallengeGameData.cs" />
     <Compile Include="Model\ChallengeManager.cs" />
+    <Compile Include="Model\ChallengeObjective.cs" />
+    <Compile Include="Model\ChallengeObjectiveChampionshipPosition.cs" />
+    <Compile Include="Model\ChallengeObjectiveFinancesBudget.cs" />
+    <Compile Include="Model\ChallengeObjectiveRaceBase.cs" />
+    <Compile Include="Model\ChallengeObjectiveRaceChampionshipPosition.cs" />
+    <Compile Include="Model\ChallengeObjectiveRacePosition.cs" />
+    <Compile Include="Model\ChallengeObjectives.cs" />
+    <Compile Include="Model\ChallengeObjectiveStaffQuality.cs" />
+    <Compile Include="Model\ChallengeObjectiveWinTopTier.cs" />
     <Compile Include="Model\ChallengeRestrictions.cs" />
+    <Compile Include="Model\ChallengeReward.cs" />
+    <Compile Include="Model\ChallengeRewards.cs" />
     <Compile Include="Model\Championship.cs" />
     <Compile Include="Model\ChampionshipDisplayEffect.cs" />
     <Compile Include="Model\ChampionshipEntry.cs" />
@@ -292,6 +309,7 @@
     <Compile Include="Model\ContractEvaluationWeightings.cs" />
     <Compile Include="Model\ContractManagerPerson.cs" />
     <Compile Include="Model\ContractManagerTeam.cs" />
+    <Compile Include="Model\ContractNegotiationScreen.cs" />
     <Compile Include="Model\ContractPerson.cs" />
     <Compile Include="Model\ContractSponsor.cs" />
     <Compile Include="Model\ContractVariablesContainer.cs" />
@@ -300,6 +318,8 @@
     <Compile Include="Model\CriticalCarPartDesignData.cs" />
     <Compile Include="Model\CriticalCarPartPerformance.cs" />
     <Compile Include="Model\CustomChallenge.cs" />
+    <Compile Include="Model\CutCornerSeasonDirector.cs" />
+    <Compile Include="Model\CuttingCornersDirector.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\DatabaseEntry.cs" />
     <Compile Include="Model\DatabaseReader.cs" />
@@ -308,6 +328,7 @@
     <Compile Include="Model\DialogQuery.cs" />
     <Compile Include="Model\DialogQueryCreator.cs" />
     <Compile Include="Model\DialogRule.cs" />
+    <Compile Include="Model\DilemmaChallengeSystem.cs" />
     <Compile Include="Model\DilemmaSystem.cs" />
     <Compile Include="Model\DisplayEffect.cs" />
     <Compile Include="Model\Dlc.cs" />
@@ -383,10 +404,12 @@
     <Compile Include="Model\HQsManager.cs" />
     <Compile Include="Model\ImprovePartsCommand.cs" />
     <Compile Include="Model\InOutLapSpeedController.cs" />
+    <Compile Include="Model\InstanceCounter.cs" />
     <Compile Include="Model\IntermediateTyreSet.cs" />
     <Compile Include="Model\Investor.cs" />
     <Compile Include="Model\InvestorManager.cs" />
     <Compile Include="Model\JobApplicationDisplayEffect.cs" />
+    <Compile Include="Model\LapDetailsData.cs" />
     <Compile Include="Model\LiveryData.cs" />
     <Compile Include="Model\LiveryManager.cs" />
     <Compile Include="Model\LocalisationGroupManager.cs" />
@@ -544,6 +567,7 @@
     <Compile Include="Model\RequirementTyreCompound.cs" />
     <Compile Include="Model\RetireDirector.cs" />
     <Compile Include="Model\RetirementDirector.cs" />
+    <Compile Include="Model\RunningWideDirector.cs" />
     <Compile Include="Model\SafetyCarSpeedController.cs" />
     <Compile Include="Model\SafetyVehicle.cs" />
     <Compile Include="Model\SaveFileInfo.cs" />
@@ -552,6 +576,7 @@
     <Compile Include="Model\ScoutingManager.cs" />
     <Compile Include="Model\ScoutManager.cs" />
     <Compile Include="Model\ScoutStats.cs" />
+    <Compile Include="Model\SeasonDirector.cs" />
     <Compile Include="Model\SendPartDilemmaCommand.cs" />
     <Compile Include="Model\SendWorkDoneMessage.cs" />
     <Compile Include="Model\SerializedPreferences.cs" />

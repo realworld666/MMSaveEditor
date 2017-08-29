@@ -5,5 +5,4 @@ using FullSerializer;
 public class AIDefendingBehaviour : AIRacingBehaviour
 {
     private RacingVehicle mTarget;
-    private int test;
 }

@@ -206,4 +206,6 @@
     86,
     286
     };
+    public static int[] injuryTraits = new int[13] { 174, 175, 176, 177, 178, 179, 180, 239, 240, 241, 242, 243, 308 };
+    public static int daysRecoveredFromSittingOut = 2;
 }

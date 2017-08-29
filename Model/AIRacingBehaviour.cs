@@ -9,7 +9,7 @@ public class AIRacingBehaviour : AIBehaviour
     private int mCornerCount;
     private int mCornersUntilNextOvertakeCheck;
     private float mConfortDistanceToVehicleAhead;
-    private int gatesAheadToRunWide;
-    private int gatesAheadToCutCorner;
+    private const int gatesAheadToRunWide = 20;
+    private const int gatesAheadToCutCorner = 10;
     private bool mIsSetToCrash;
 }

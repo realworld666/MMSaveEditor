@@ -66,6 +66,7 @@ public class Team : Entity
     private List<Mechanic> mMechanics = new List<Mechanic>();
     private List<Driver> mDrivers;
     private List<EmployeeSlot> mEmployeeSlots = new List<EmployeeSlot>();
+    private string mShortName;
 
     public List<Driver> Drivers
     {

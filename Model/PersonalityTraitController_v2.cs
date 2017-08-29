@@ -17,6 +17,7 @@ public class PersonalityTraitController_v2
     private int mLastRandomCooldownDayValue;
     private Driver mDriver;
     private DriverStats mDriverStats = new DriverStats();
+    public List<PersonalityTrait> raceTraitsHistory;
 
     public ObservableCollection<PersonalityTrait> PermanentPersonalityTraits
     {

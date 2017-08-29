@@ -9,6 +9,8 @@ public class CarPartStats
     public CarStats.StatType statType = CarStats.StatType.Acceleration;
     public int level;
 
+    public const float performanceGainedPerReliabilityPointWeightStripped = 3f;
+    public const float weightStrippedReliabilityMin = 0.5f;
     public float maxReliability = 0.8f;
     public float maxPerformance = 20f;
     public const int maxLevelMultiplier = 3;
@@ -19,8 +21,6 @@ public class CarPartStats
     private float mStat;
     public CarPartCondition partCondition = new CarPartCondition();
     private float[] mWeightStrippingReliabilityLost;
-    public float performanceGainedPerReliabilityPointWeightStripped;
-    public float weightStrippedReliabilityMin;
 
 
     public float statWithPerformance

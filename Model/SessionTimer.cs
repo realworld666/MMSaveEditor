@@ -28,6 +28,18 @@ public class SessionTimer
     private float mGapToAhead;
     private float mGapToBehind;
     public GateInfo lastGatePassed;
+    public float[] slowestSector;
+    private List<SessionTimer.LapData> mLapDataCache;
+    private int mNextGateID;
+    private int mLapsOnAttackMode;
+    private int mLapCurrentPointer;
+    public LapDetailsData lapDetailsData;
+    public SessionStrategy.PitStrategy strategy;
+    public List<SessionTimer.PitstopData.SetupChange> setupChanges;
+    public float timeWaitingForOtherDriver;
+    public float strategyTime;
+    public SessionSetupChangeEntry.Target target;
+    public bool hadMistake;
 
     public enum SectorStatus
     {
@@ -37,7 +49,7 @@ public class SessionTimer
         SessionFastest,
     }
 
-    [fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+    [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class LapData
     {
         public float[] sector;
@@ -56,5 +68,12 @@ public class SessionTimer
         public float pitlaneTime;
         public float stopTime;
         public bool isChangingTyres;
+
+        public struct SetupChange
+        {
+            public SessionSetupChangeEntry.Target target;
+            public float time;
+            public bool hadMistake;
+        }
     }
 }

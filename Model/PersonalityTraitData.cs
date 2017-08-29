@@ -33,6 +33,7 @@ public class PersonalityTraitData
     private string descriptionID;
     private string mCustomTraitName = string.Empty;
     private string mCustomTraitDescription = string.Empty;
+    public List<DialogCriteria> triggerEndCriteria;
 
     public bool canEvolve
     {

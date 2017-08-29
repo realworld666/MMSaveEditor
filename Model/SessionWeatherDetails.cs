@@ -13,7 +13,6 @@ public class SessionWeatherDetails
     public float maxTrackTemp = 50f;
     public SessionWeatherDetails previousSessionWeather;
     private float mNormalizedTimeElapsed;
-    private float mPreviousNormalizedTime;
     private float mClearSkyChance;
     private float mCloudyChance;
     private float mOvercastChance;
@@ -37,6 +36,7 @@ public class SessionWeatherDetails
     private SessionWeatherDetails.CopyData mCopyData;
     private int mRandomSeed = -1;
     private System.Random mRandomGenerator;
+    private int mFixedTemperature;
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class SprinklerData

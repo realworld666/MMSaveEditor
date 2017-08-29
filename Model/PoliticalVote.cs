@@ -11,13 +11,14 @@ public class PoliticalVote
     public string effectType = string.Empty;
     public int ID;
     public List<PoliticalImpact> impacts = new List<PoliticalImpact>();
-    public List<TeamCharacteristics> benificialCharacteristics = new List<TeamCharacteristics>();
-    public List<TeamCharacteristics> detrimentalCharacteristics = new List<TeamCharacteristics>();
+    public List<PoliticalVote.TeamCharacteristics> benificialCharacteristics;
+    public List<PoliticalVote.TeamCharacteristics> detrimentalCharacteristics;
     public CarPart.PartType currentPartType = CarPart.PartType.None;
     public DialogQuery messageCriteria = new DialogQuery();
     public DilemmaSystem.BribedOption playerBribe;
     private bool mDisplayRule = true;
     private Championship mChampionship;
+    private bool mLockedToPlayerVote;
 
     public enum TeamImpact
     {

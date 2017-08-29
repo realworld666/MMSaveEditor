@@ -7,6 +7,18 @@ public class TyreDesignData
 {
     [XmlAttribute("isActive")]
     public bool isActive = true;
+    [XmlElement("TyreTemperaturePerformanceModiffier")]
+    public float tyreTemperaturePerformanceModiffier = 0.05f;
+    [XmlElement("TyreTemperatureWearModiffier")]
+    public float tyreTemperatureWearModiffier = 0.05f;
+    [XmlElement("TyreSupplierHighTyreWearModiffier")]
+    public float tyreSupplierHighTyreWearModiffier = 0.05f;
+    [XmlElement("TyreSupplierSpeedBonusMaxTimeCost")]
+    public float tyreSupplierSpeedBonusMaxTimeCost = 0.05f;
+    [XmlElement("BestTyreSupplierWaterRangeOffset")]
+    public float bestTyreSupplierWaterRangeOffset = 0.05f;
+    [XmlElement("MaxAdaptabilityWaterRangeOffset")]
+    public float maxAdaptabilityWaterRangeOffset = 0.05f;
     [XmlElement("MaxSlickTreadSurfaceWaterRange")]
     public float maxSlickTreadSurfaceWaterRange = 0.2f;
     [XmlElement("MinLightTreadSurfaceWaterRange")]

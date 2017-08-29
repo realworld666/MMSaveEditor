@@ -59,8 +59,6 @@ public class Game
     public bool IsSimulatingSeason;
     public Action OnGameDataChanged;
     public Action OnNewGame;
-    public DialogSystem dialogSystem;
-    public HelpSystem helpSystem;
 
     public Game()
     {

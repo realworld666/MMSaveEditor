@@ -320,6 +320,13 @@ public class ContractPerson : Contract
         [LocalisationID("PSG_10005070")] Reserve,
     }
 
+    public enum ContractLength
+    {
+        Short,
+        Medium,
+        Long,
+    }
+
     public enum BuyoutClauseSplit
     {
         [LocalisationID("PSG_10009283")] TeamPaysAll,

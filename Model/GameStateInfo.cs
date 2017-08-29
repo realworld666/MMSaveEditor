@@ -13,6 +13,4 @@ public class GameStateInfo
     private bool mIsReadyToGoToRace;
     private bool mIsReadyToSimulateRace;
     private PreSeasonState.PreSeasonStage mPreSeasonStage;
-    private GameState.Type mQueuedState;
-    private bool mIsLoadingFromSave;
 }

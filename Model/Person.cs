@@ -28,7 +28,8 @@ public class Person : Entity
     private ContractPerson contract = new ContractPerson();
     public ContractPerson nextYearContract = new ContractPerson();
 
-    public Gender gender;
+    public Person.Gender gender;
+    public int rewardID;
     public DateTime dateOfBirth;
     public int weight;
     public int retirementAge;

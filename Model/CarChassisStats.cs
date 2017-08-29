@@ -11,14 +11,8 @@ public class CarChassisStats
     public Supplier supplierMaterials = new Supplier();
     public Supplier supplierBattery = new Supplier();
 
-    public float tyreWear;
-    public float tyreHeating;
-    public float improvability;
-    public float fuelEfficiency;
-    public float startingCharge;
-    public float harvestEfficiency = 1f;
     private float mHarvestEfficiency;
-    public float maxSetupStatContribution;
+    public const float maxSetupStatContribution = 0.5f;
     private float mTyreWear;
     private float mTyreHeating;
     private float mImprovability;
@@ -26,6 +20,43 @@ public class CarChassisStats
     private float mStartingCharge;
     private float mSetupTyreWear;
     private float mSetupTyreHeating;
+
+    public float improvability
+    {
+        get
+        {
+            return this.GetStat(CarChassisStats.Stats.Improvability, true);
+        }
+        set
+        {
+            this.mImprovability = value;
+        }
+    }
+
+    public float GetStat(CarChassisStats.Stats inStat, bool inWithNotBonus = true)
+    {
+        switch (inStat)
+        {
+            case CarChassisStats.Stats.TyreWear:
+                if (inWithNotBonus)
+                    return this.mTyreWear + this.mSetupTyreWear;
+                return this.mTyreWear;
+            case CarChassisStats.Stats.TyreHeating:
+                if (inWithNotBonus)
+                    return this.mTyreHeating + this.mSetupTyreHeating;
+                return this.mTyreHeating;
+            case CarChassisStats.Stats.FuelEfficiency:
+                return this.mFuelEfficiency;
+            case CarChassisStats.Stats.Improvability:
+                return this.mImprovability;
+            case CarChassisStats.Stats.StartingCharge:
+                return this.mStartingCharge;
+            case CarChassisStats.Stats.HarvestEfficiency:
+                return this.mHarvestEfficiency;
+            default:
+                return 0.0f;
+        }
+    }
 
     public enum Stats
     {

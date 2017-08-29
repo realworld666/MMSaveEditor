@@ -27,7 +27,7 @@ public class SessionStrategy
     private SessionStints.ReasonForStint mReasonForPreviousPit = SessionStints.ReasonForStint.None;
     private const float lapDistanceMultiplier = 0.6666667f;
     private bool mUsesAIForStrategy;
-
+    private TargetPointSteeringBehaviour mTargetPointSteeringBehaviour;
 
     public enum Status
     {
@@ -41,9 +41,9 @@ public class SessionStrategy
 
     public enum PitStrategy
     {
-        [LocalisationID( "PSG_10005763" )] Safe,
-        [LocalisationID( "PSG_10005764" )] Balanced,
-        [LocalisationID( "PSG_10005765" )] Fast,
+        [LocalisationID("PSG_10005763")] Safe,
+        [LocalisationID("PSG_10005764")] Balanced,
+        [LocalisationID("PSG_10005765")] Fast,
     }
 
     public enum TyreOption
