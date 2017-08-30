@@ -1,4 +1,8 @@
-﻿v0.6
+﻿v0.7
+- Loads of bug fixes to improve compatability with save games from 1.4
+- Improved internal error reporting
+
+v0.6
 - Support for 1.4 version of Motorsport Manager
 - Tapping the team name on any person entry will take you to that team on the teams tab
 - BUGFIX: A number of reported crashes have been resolved

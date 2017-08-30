@@ -124,7 +124,11 @@ namespace MMSaveEditor.ViewModel
                     return PersonData.peakAge;
                 return DateTime.Now;
             }
-            set => PersonData.peakAge = value;
+            set
+            {
+                if (PersonData != null)
+                    PersonData.peakAge = value;
+            }
         }
 
         public float Morale

@@ -8,5 +8,6 @@ public class SprinklersDirector
     private SessionManager mSessionManager;
     private float mSprinklerChance;
     private bool mSprinklersSetup;
+    private bool mIsSprinklerGoingToActivate;
 
 }

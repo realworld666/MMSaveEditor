@@ -43,7 +43,6 @@ public class PathController
         public PathSpline.SplinePosition centerLinePosition = new PathSpline.SplinePosition();
         public PathController.PathType pathType;
         public Vehicle vehicle;
-        public int crashPathID;
         public float pathSpace;
 
 

@@ -56,9 +56,9 @@ public class Game
     public List<SavedSubscribedModInfo> savedSubscribedModsInfo = new List<SavedSubscribedModInfo>();
     public GameAchievementDataStorage achievementData = new GameAchievementDataStorage();
     public SerializedPreferences mSerializedPreferences;
-    public bool IsSimulatingSeason;
-    public Action OnGameDataChanged;
-    public Action OnNewGame;
+    public static bool IsSimulatingSeason;
+    public static Action OnGameDataChanged;
+    public static Action OnNewGame;
 
     public Game()
     {

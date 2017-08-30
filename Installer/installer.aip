@@ -14,10 +14,10 @@
     <ROW Property="ARPURLINFOABOUT" Value="http://www.rwscripts.com"/>
     <ROW Property="CTRLS" Value="3"/>
     <ROW Property="Manufacturer" Value="RWSoftware"/>
-    <ROW Property="ProductCode" Value="2057:{EC0E9C4C-EE4A-42C5-AD9F-3E3D1EC2C53A} " Type="16"/>
+    <ROW Property="ProductCode" Value="2057:{92270AEB-1E70-48B1-A720-155EF3D54D79} " Type="16"/>
     <ROW Property="ProductLanguage" Value="2057"/>
     <ROW Property="ProductName" Value="Motorsport Manager Save Game Editor"/>
-    <ROW Property="ProductVersion" Value="0.6.6446.23468" Type="32"/>
+    <ROW Property="ProductVersion" Value="0.7.6451.25698" Type="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{8BDE8362-B429-4ACF-A03F-574CC3DC49CA}"/>
@@ -38,25 +38,25 @@
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="CsvHelper.dll" ComponentId="{44E22B5D-F0D8-4736-92EC-CBC0918297C4}" Directory_="APPDIR" Attributes="0" KeyPath="CsvHelper.dll"/>
-    <ROW Component="GalaSoft.MvvmLight.Extras.dll" ComponentId="{3A6AE558-533B-448E-B92F-8ADF571FBB53}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Extras.dll"/>
-    <ROW Component="GalaSoft.MvvmLight.Platform.dll" ComponentId="{0FF49575-EA5D-46CE-B180-DF9497147464}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Platform.dll"/>
-    <ROW Component="GalaSoft.MvvmLight.dll" ComponentId="{FF220F54-6EDE-48FE-98E9-C99599CDA9B9}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.dll"/>
-    <ROW Component="LZ4.dll" ComponentId="{F86D6EB8-CD0A-40D7-BEAF-76106AA34B90}" Directory_="APPDIR" Attributes="0" KeyPath="LZ4.dll"/>
-    <ROW Component="MMSaveEditor.exe" ComponentId="{0E173443-4286-4A0A-9A1C-3DFF6BAFF4CF}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe"/>
-    <ROW Component="MMSaveEditor.exe.config" ComponentId="{41ADF6E7-4704-4406-B97E-B0B11B96F293}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe.config" Type="0"/>
-    <ROW Component="Microsoft.Practices.ServiceLocation.dll" ComponentId="{D71DF902-1FB7-4271-B4AF-53E5C31D387B}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Practices.ServiceLocation.dll"/>
-    <ROW Component="NBug.dll" ComponentId="{C588AF28-8849-442C-A759-A103B6013F91}" Directory_="APPDIR" Attributes="0" KeyPath="NBug.dll"/>
-    <ROW Component="Newtonsoft.Json.dll" ComponentId="{341D4C83-219E-4749-A361-89A0987A64B3}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
-    <ROW Component="ProductInformation" ComponentId="{FFAEA5C6-1177-41F5-85CA-07F53EB6FBC1}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{540DC33D-46AF-4E46-8ACE-6F106DA26DE8}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="System.Windows.Interactivity.dll" ComponentId="{1543F283-9082-4154-A961-1AE495A66ECF}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Aero.dll" ComponentId="{7EE6252E-540F-40AC-8BF0-2279DB01429E}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Metro.dll" ComponentId="{3FCEDCFD-DE03-4930-843B-95F4E10320A2}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" ComponentId="{76F20E70-F322-45DE-A789-55D48DBB626B}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
-    <ROW Component="Xceed.Wpf.AvalonDock.dll" ComponentId="{FA4C61F8-311E-4C6C-8AC5-B1574E4CA9B2}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.dll"/>
-    <ROW Component="Xceed.Wpf.DataGrid.dll" ComponentId="{94FD2E37-E320-4EE9-9CA7-63BC82721387}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.DataGrid.dll"/>
-    <ROW Component="Xceed.Wpf.Toolkit.dll" ComponentId="{1E66447F-F207-49F2-AE09-FD9A04ED7571}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.Toolkit.dll"/>
+    <ROW Component="CsvHelper.dll" ComponentId="{64ED23ED-F26A-4069-81E9-1E3F836D0E97}" Directory_="APPDIR" Attributes="0" KeyPath="CsvHelper.dll"/>
+    <ROW Component="GalaSoft.MvvmLight.Extras.dll" ComponentId="{2B5AB0A7-C613-4AE6-ADC5-729E73D32900}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Extras.dll"/>
+    <ROW Component="GalaSoft.MvvmLight.Platform.dll" ComponentId="{B2E6373E-92EF-43BE-B6AC-38765E1FAF6C}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.Platform.dll"/>
+    <ROW Component="GalaSoft.MvvmLight.dll" ComponentId="{D63D70B8-87D7-4333-8EA4-9ED758626439}" Directory_="APPDIR" Attributes="0" KeyPath="GalaSoft.MvvmLight.dll"/>
+    <ROW Component="LZ4.dll" ComponentId="{A6F2E873-EF76-4731-9835-D2A0571E7AF3}" Directory_="APPDIR" Attributes="0" KeyPath="LZ4.dll"/>
+    <ROW Component="MMSaveEditor.exe" ComponentId="{4CC5CD1A-A23B-4882-8B94-5346305AE35F}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe"/>
+    <ROW Component="MMSaveEditor.exe.config" ComponentId="{9F6D207E-ECAB-4EF3-A2CC-E29494EF3E27}" Directory_="APPDIR" Attributes="0" KeyPath="MMSaveEditor.exe.config" Type="0"/>
+    <ROW Component="Microsoft.Practices.ServiceLocation.dll" ComponentId="{AD4DB842-7723-4EB7-8789-74012F34BB20}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Practices.ServiceLocation.dll"/>
+    <ROW Component="NBug.dll" ComponentId="{D7E825E7-5E94-467F-A8C1-3E2164B10796}" Directory_="APPDIR" Attributes="0" KeyPath="NBug.dll"/>
+    <ROW Component="Newtonsoft.Json.dll" ComponentId="{2A19A03A-EBB9-4B59-82FA-6AD721C56A25}" Directory_="APPDIR" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{1DB3CEF5-C3CD-4911-AEB6-7CCD56765DE9}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{356039FB-1CBF-4AD1-9BE9-73265DE213D1}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="System.Windows.Interactivity.dll" ComponentId="{81F592E4-82F3-4161-A9F9-8F3F2577BF3C}" Directory_="APPDIR" Attributes="0" KeyPath="System.Windows.Interactivity.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Aero.dll" ComponentId="{A337ED5F-D984-4EEA-8571-A4F552F52BB8}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Aero.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.Metro.dll" ComponentId="{68D20CC1-013D-4CFA-9B88-DD626D71EEAC}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.Metro.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" ComponentId="{7ECCBF55-454A-4722-A3FA-EEC0DB608715}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.Themes.VS2010.dll"/>
+    <ROW Component="Xceed.Wpf.AvalonDock.dll" ComponentId="{0E0462CC-1184-4C98-ADEF-C65670B7176E}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.AvalonDock.dll"/>
+    <ROW Component="Xceed.Wpf.DataGrid.dll" ComponentId="{DF70D96A-366A-494C-9F84-3AF8B97C9A77}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.DataGrid.dll"/>
+    <ROW Component="Xceed.Wpf.Toolkit.dll" ComponentId="{437E52F8-0714-4DDD-8C67-75B3F4583FB5}" Directory_="APPDIR" Attributes="0" KeyPath="Xceed.Wpf.Toolkit.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0" Components="CsvHelper.dll GalaSoft.MvvmLight.Extras.dll GalaSoft.MvvmLight.Platform.dll GalaSoft.MvvmLight.dll LZ4.dll MMSaveEditor.exe MMSaveEditor.exe.config Microsoft.Practices.ServiceLocation.dll NBug.dll Newtonsoft.Json.dll ProductInformation SHORTCUTDIR System.Windows.Interactivity.dll Xceed.Wpf.AvalonDock.Themes.Aero.dll Xceed.Wpf.AvalonDock.Themes.Metro.dll Xceed.Wpf.AvalonDock.Themes.VS2010.dll Xceed.Wpf.AvalonDock.dll Xceed.Wpf.DataGrid.dll Xceed.Wpf.Toolkit.dll"/>
