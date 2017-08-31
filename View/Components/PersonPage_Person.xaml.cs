@@ -16,7 +16,7 @@ namespace MMSaveEditor.View.Components
 
         private void transferButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-#if false
+#if true
             TransferPerson dialog = new TransferPerson(this.DataContext);
             dialog.ShowDialog();
 #else

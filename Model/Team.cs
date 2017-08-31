@@ -72,9 +72,9 @@ public class Team : Entity
     {
         get
         {
-            var result = mSelectedDriver.ToList();
-            result.Add(GetReserveDriver());
-            return result;
+            if (mDriversCache.Count == 0)
+                this.contractManager.GetAllDrivers(ref this.mDriversCache);
+            return mDriversCache;
         }
     }
 

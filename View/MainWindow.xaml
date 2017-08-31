@@ -38,6 +38,13 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem x:Name="report" Header="_Report Game Crash" Click="report_Click">
+                        <MenuItem.Icon>
+                            <Image Source="/MMSaveEditor;component/Assets/Open_6529.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
             </Menu>
         </DockPanel>
         <TabControl x:Name="tabControl" Grid.Row="1">

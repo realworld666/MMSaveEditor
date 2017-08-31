@@ -12,7 +12,7 @@ public class SetupInput_v1
 
     public SetupInput_v1(SessionSetup.SetupInput v0)
     {
-        throw new NotImplementedException();
+        this.mSeries = Championship.Series.SingleSeaterSeries;
     }
 
     public SetupInput_v1()

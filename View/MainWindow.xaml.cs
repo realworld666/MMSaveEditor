@@ -12,7 +12,10 @@ using LZ4;
 using Microsoft.Win32;
 using MMSaveEditor.ViewModel;
 using NBug.Core.Reporting;
+using NBug.Core.Reporting.Info;
+using NBug.Core.Submission;
 using NBug.Core.Util;
+using NBug.Enums;
 
 namespace MMSaveEditor.View
 {
@@ -487,6 +490,32 @@ namespace MMSaveEditor.View
             {
                 tabControl.SelectedItem = chosenTab;
             }
+        }
+
+        private string gameCrashLog = null;
+        private void report_Click(object sender, RoutedEventArgs e)
+        {
+            ReportGameCrashDialog dialog = new ReportGameCrashDialog();
+            dialog.ShowDialog();
+            if (dialog.LogPath != null)
+            {
+                gameCrashLog = dialog.LogPath;
+                NBug.Settings.ProcessingException += Settings_ProcessingException;
+                try
+                {
+                    throw new Exception("Game is crashing report");
+                }
+                catch (Exception ex)
+                {
+                    new BugReport().Report(ex, ExceptionThread.Main);
+                }
+            }
+        }
+
+        private void Settings_ProcessingException(Exception arg1, Report arg2)
+        {
+            NBug.Settings.AdditionalReportFiles.Add(gameCrashLog);
+            NBug.Settings.ProcessingException -= Settings_ProcessingException;
         }
     }
 }

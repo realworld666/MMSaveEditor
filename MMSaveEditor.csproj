@@ -727,6 +727,9 @@
     <Compile Include="View\Components\PersonPage_EngineerStats.xaml.cs">
       <DependentUpon>PersonPage_EngineerStats.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ReportGameCrashDialog.xaml.cs">
+      <DependentUpon>ReportGameCrashDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TabPages\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -785,6 +788,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ReportGameCrashDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TabPages\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
