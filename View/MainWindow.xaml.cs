@@ -517,5 +517,11 @@ namespace MMSaveEditor.View
             NBug.Settings.AdditionalReportFiles.Add(gameCrashLog);
             NBug.Settings.ProcessingException -= Settings_ProcessingException;
         }
+
+        private void support_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488/");
+
+        }
     }
 }

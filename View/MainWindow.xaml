@@ -44,6 +44,8 @@
                             <Image Source="/MMSaveEditor;component/Assets/Open_6529.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem x:Name="forum" Header="_Support Forum" Click="support_Click">
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>

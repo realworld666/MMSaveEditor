@@ -1,4 +1,10 @@
-﻿v0.7
+﻿v0.8
+- Support for swapping drivers, engineers and mechanics between teams
+- Added Help menu
+- + Added an option to submit a MM Game crash log to us for analysis if a modified save causes a crash
+- + Added a link to the support thread on racedepartment.com
+
+v0.7
 - Loads of bug fixes to improve compatability with save games from 1.4
 - Improved internal error reporting
 

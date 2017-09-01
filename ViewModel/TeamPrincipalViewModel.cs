@@ -42,5 +42,10 @@ namespace MMSaveEditor.ViewModel
             set => PersonData.backStory = value;
         }
         public IEnumerable<TeamPrincipal.Backstory> BackStoryTypes => Enum.GetValues(typeof(TeamPrincipal.Backstory)).Cast<TeamPrincipal.Backstory>();
+
+        public override List<Person> GetPeopleFromTeam(Team t)
+        {
+            return Game.instance?.teamPrincipalManager?.GetEntityList().OfType<Person>().Where(e => e.Contract.GetTeam() == t).ToList();
+        }
     }
 }
