@@ -95,6 +95,12 @@ namespace MMSaveEditor.View
             Person p = (Person)property.GetValue(DataContext);
 
             p.Contract.Editor_SetTeam(availableTeams.SelectedItem as Team, replaceList.SelectedItem as Person);
+
+            // refresh view model
+            MethodInfo theMethod = contextType.GetMethod("SetModel", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            theMethod.Invoke(DataContext, new object[] { p });
+
+            Close();
         }
 
         private void availableTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)

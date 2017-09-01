@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMSaveEditor.ViewModel;
+using System;
 using System.Reflection;
 using System.Windows.Controls;
 
@@ -16,14 +17,17 @@ namespace MMSaveEditor.View.Components
 
         private void transferButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-#if true
-            TransferPerson dialog = new TransferPerson(this.DataContext);
-            dialog.ShowDialog();
-#else
-            Type contextType = DataContext.GetType();
-            MethodInfo theMethod = contextType.GetMethod("_viewTeam", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            theMethod.Invoke(DataContext, null);
-#endif
+            if (!(this.DataContext is TeamPrincipalViewModel) && !(this.DataContext is PlayerViewModel))
+            {
+                TransferPerson dialog = new TransferPerson(this.DataContext);
+                dialog.ShowDialog();
+            }
+            else
+            {
+                Type contextType = DataContext.GetType();
+                MethodInfo theMethod = contextType.GetMethod("_viewTeam", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                theMethod.Invoke(DataContext, null);
+            }
 
 
         }

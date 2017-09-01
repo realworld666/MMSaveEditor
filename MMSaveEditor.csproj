@@ -793,8 +793,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ReportGameCrashDialog.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TabPages\GamePage.xaml">
       <SubType>Designer</SubType>

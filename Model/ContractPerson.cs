@@ -163,6 +163,11 @@ public class ContractPerson : Contract
         this.employeer = t;
     }
 
+    public void SetPerson(Person inPerson)
+    {
+        this.mPerson = inPerson;
+    }
+
     public override void SetContractTerminated(Contract.ContractTerminationType inContractTerminationType = Contract.ContractTerminationType.Generic)
     {
         if (this.contractStatus == Contract.ContractStatus.Terminated)
@@ -200,12 +205,7 @@ public class ContractPerson : Contract
             //if (!person.IsReplacementPerson())
             //  this.PayOtherTeamTerminationCosts(team, inNewPersonToHire.contract);
             oldTeam.contractManager.FirePerson(inNewPersonToHire, Contract.ContractTerminationType.HiredBySomeoneElse);
-            /*if (inNewPersonToHire is Mechanic)
-                team.contractManager.HireReplacementMechanic();
-            else if (inNewPersonToHire is Engineer)
-                team.contractManager.HireReplacementEngineer();
-            else if (inNewPersonToHire is Driver)
-                team.contractManager.HireReplacementDriver();*/
+
 
         }
         if (!replacing.IsFreeAgent())
@@ -228,9 +228,9 @@ public class ContractPerson : Contract
         {
             newSlot.personHired = inNewPersonToHire;
             inNewPersonToHire.Contract.SetTeam(newTeam);
-            //inNewPersonToHire.Contract.SetPerson(inNewPersonToHire);
+            inNewPersonToHire.Contract.SetPerson(inNewPersonToHire);
             inNewPersonToHire.Contract.SetContractState(Contract.ContractStatus.OnGoing);
-            //this.AddSignedContract(inNewPersonToHire.contract);
+            newTeam.contractManager.AddSignedContract(inNewPersonToHire.Contract);
             if (inNewPersonToHire is Mechanic)
             {
                 (inNewPersonToHire as Mechanic).SetDriverRelationship(0.0f, 0);
@@ -246,9 +246,9 @@ public class ContractPerson : Contract
         {
             oldSlot.personHired = replacing;
             replacing.Contract.SetTeam(oldTeam);
-            //inNewPersonToHire.Contract.SetPerson(inNewPersonToHire);
+            replacing.Contract.SetPerson(replacing);
             replacing.Contract.SetContractState(Contract.ContractStatus.OnGoing);
-            //this.AddSignedContract(inNewPersonToHire.contract);
+            oldTeam.contractManager.AddSignedContract(inNewPersonToHire.Contract);
             if (replacing is Mechanic)
             {
                 (replacing as Mechanic).SetDriverRelationship(0.0f, 0);
@@ -309,6 +309,12 @@ public class ContractPerson : Contract
                 //newTeam.teamAIController.RemoveDriverFromScoutingJobs(inDriver);
                 //newTeam.teamAIController.EvaluateDriverLineUp();
             }
+        }
+
+        if (inNewPersonToHire is Mechanic)
+        {
+            oldTeam.RefreshMechanics();
+            newTeam.RefreshMechanics();
         }
     }
 

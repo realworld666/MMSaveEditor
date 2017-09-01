@@ -75,8 +75,8 @@ public class ContractManagerTeam
             else
                 this.RemoveDraftProposal(inPersonToFire);
         }*/
-        inPersonToFire.Contract.Job1 = Contract.Job.Unemployed;
-        inPersonToFire.Contract.SetContractTerminated(inContractTerminationType);
+        //inPersonToFire.Contract.Job1 = Contract.Job.Unemployed;
+        //inPersonToFire.Contract.SetContractTerminated(inContractTerminationType);
         //this.GetSlotForPerson(inPersonToFire).personHired = (Person)null;
         inPersonToFire.careerHistory.MarkLastEntryTeamAsFinished(this.mTeam);
         /*if (Game.IsActive() && this.mTeam.IsPlayersTeam() && (inPersonToFire != Game.instance.player && !Game.instance.dilemmaSystem.isFiringBecauseOfDilemma))
@@ -117,5 +117,12 @@ public class ContractManagerTeam
                 mechanics.Add(personHired);
             }
         }
+    }
+
+    public void AddSignedContract(ContractPerson inContract)
+    {
+        //inContract.SignContractAndSetContractEndEvents();
+
+        //this.RemoveDraftProposal(inContract.person);
     }
 }

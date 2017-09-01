@@ -156,6 +156,12 @@ public class Team : Entity
             this.mSelectedDriver[index] = employeeSlotsForJob[index].personHired as Driver;
     }
 
+    internal void RefreshMechanics()
+    {
+        this.mMechanics.Clear();
+        this.contractManager.GetAllMechanics(ref this.mMechanics);
+    }
+
     public Mechanic GetMechanicOfDriver(Driver inDriver)
     {
         int driverIndex = this.GetDriverIndex(inDriver);
