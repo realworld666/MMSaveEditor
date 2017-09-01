@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace MMSaveEditor
@@ -35,12 +30,12 @@ namespace MMSaveEditor
             AppDomain.CurrentDomain.UnhandledException += NBug.Handler.UnhandledException;
             Current.DispatcherUnhandledException += NBug.Handler.DispatcherUnhandledException;
 
-
+            Localisation.LoadData();
         }
 
         private void Settings_ProcessingException(Exception exception, NBug.Core.Reporting.Info.Report report)
         {
-            if (View.MainWindow.Instance.OpenFilePath != null)
+            if (View.MainWindow.Instance?.OpenFilePath != null)
             {
                 NBug.Settings.AdditionalReportFiles.Add(View.MainWindow.Instance.OpenFilePath);
             }

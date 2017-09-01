@@ -12,4 +12,9 @@ public class LocalisationGroupManager
     {
         public List<int> usedEntries = new List<int>();
     }
+
+    internal string GetTextFromGroup(LocalisationGroup mGroup)
+    {
+        throw new NotImplementedException();
+    }
 }
