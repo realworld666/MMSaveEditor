@@ -1,0 +1,786 @@
+"Game Area","Source","Criteria","Who","English","ID","Trigger","User Data","Repeatable","Memory","Notes","English Old","French","Italian","German","Spanish","Brasilian","Dutch","Hungarian","Polish","Russian"
+"Days","","","HUDText","Monday","PSG_10000008","","","","","","","Lundi","Lunedì","Montag","Lunes","Segunda-feira","maandag","Hétfő","Poniedziałek","Понедельник"
+"Days","","","HUDText","Tuesday","PSG_10000010","","","","","","","Mardi","Martedì","Dienstag","Martes","Terça-feira","dinsdag","Kedd","Wtorek","Вторник"
+"Days","","","HUDText","Wednesday","PSG_10000011","","","","","","","Mercredi","Mercoledì","Mittwoch","Miércoles","Quarta-feira","woensdag","Szerda","Środa","Среда"
+"Days","","","HUDText","Thursday","PSG_10000697","","","","","","","Jeudi","Giovedì","Donnerstag","Jueves","Quinta-feira","donderdag","Csütörtök","Czwartek","Четверг"
+"Days","","","HUDText","Friday","PSG_10000698","","","","","","","Vendredi","Venerdì","Freitag","Viernes","Sexta-feira","vrijdag","Péntek","Piątek","Пятница"
+"Days","","","HUDText","Saturday","PSG_10000811","","","","","","","Samedi","Sabato","Samstag","Sábado","Sábado","zaterdag","Szombat","Sobota","Суббота"
+"Days","","","HUDText","Sunday","PSG_10000812","","","","","","","Dimanche","Domenica","Sonntag","Domingo","Domingo","zondag","Vasárnap","Niedziela","Воскресенье"
+"Months","","","HUDText","January","PSG_10000813","","","","","","","Janvier","Gennaio","Januar","Enero","Janeiro","januari","Január","Styczeń","Январь"
+"Months","","","HUDText","February","PSG_10000814","","","","","","","Février","Febbraio","Februar","Febrero","Fevereiro","februari","Február","Luty","Февраль"
+"Months","","","HUDText","March","PSG_10000815","","","","","","","Mars","Marzo","März","Marzo","Março","maart","Március","Marzec","Март"
+"Months","","","HUDText","April","PSG_10000816","","","","","","","Avril","Aprile","April","Abril","Abril","april","Április","Kwiecień","Апрель"
+"Months","","","HUDText","May","PSG_10000817","","","","","","","Mai","Maggio","Mai","Mayo","Maio","mei","Május","Maj","Май"
+"Months","","","HUDText","June","PSG_10000818","","","","","","","Juin","Giugno","Juni","Junio","Junho","juni","Június","Czerwiec","Июнь"
+"Months","","","HUDText","July","PSG_10000819","","","","","","","Juillet","Luglio","Juli","Julio","Julho","juli","Július","Lipiec","Июль"
+"Months","","","HUDText","August","PSG_10000820","","","","","","","Août","Agosto","August","Agosto","Agosto","augustus","Augusztus","Sierpień","Август"
+"Months","","","HUDText","September","PSG_10000821","","","","","","","Septembre","Settembre","September","Septiembre","Setembro","september","Szeptember","Wrzesień","Сентябрь"
+"Months","","","HUDText","October","PSG_10000822","","","","","","","Octobre","Ottobre","Oktober","Octubre","Outubro","oktober","Október","Październik","Октябрь"
+"Months","","","HUDText","November","PSG_10000823","","","","","","","Novembre","Novembre","November","Noviembre","Novembro","november","November","Listopad","Ноябрь"
+"Months","","","HUDText","December","PSG_10000824","","","","","","","Décembre","Dicembre","Dezember","Diciembre","Dezembro","december","December","Grudzień","Декабрь"
+"Months - Abbreviated","","","HUDText","Jan","PSG_10000826","","","","","","","Jan","Gen","Jan","Ene","Jan","jan","Jan.","Sty","Янв"
+"Months - Abbreviated","","","HUDText","Feb","PSG_10000825","","","","","","","Fév","Feb","Feb","Feb","Fev","feb","Feb.","Lut","Фев"
+"Months - Abbreviated","","","HUDText","Mar","PSG_10000827","","","","","","","Mars","Mar","Mär","Mar","Mar","mrt","Márc.","Mar","Мар"
+"Months - Abbreviated","","","HUDText","Apr","PSG_10000828","","","","","","","Avr","Apr","Apr","Abr","Abr","apr","Ápr.","Kwi","Апр"
+"Months - Abbreviated","","","HUDText","May","PSG_10000829","","","","","","","Mai","Mag","Mai","May","Mai","mei","Máj.","Maj","Май"
+"Months - Abbreviated","","","HUDText","Jun","PSG_10000830","","","","","","","Juin","Giu","Jun","Jun","Jun","jun","Jún.","Cze","Июн"
+"Months - Abbreviated","","","HUDText","Jul","PSG_10000831","","","","","","","Jul","Lug","Jul","Jul","Jul","jul","Júl.","Lip","Июл"
+"Months - Abbreviated","","","HUDText","Aug","PSG_10003615","","","","","","","Août","Ago","Aug","Ago","Ago","aug","Aug.","Sie","Авг"
+"Months - Abbreviated","","","HUDText","Sep","PSG_10000832","","","","","","","Sep","Set","Sep","Sep","Set","sep","Szep.","Wrz","Сен"
+"Months - Abbreviated","","","HUDText","Oct","PSG_10000834","","","","","","","Oct","Ott","Okt","Oct","Out","okt","Okt.","Paź","Окт"
+"Months - Abbreviated","","","HUDText","Nov","PSG_10000833","","","","","","","Nov","Nov","Nov","Nov","Nov","nov","Nov.","Lis","Ноя"
+"Months - Abbreviated","","","HUDText","Dec","PSG_10000835","","","","","","","Déc","Dic","Dez","Dic","Dez","dec","Dec.","Gru","Дек"
+"Units","","","HUDText","Miles","PSG_10000836","","","","","","","Miles","Miglia","Meilen","Millas","Milhas","mijl","Mérföld","mi","миль"
+"Units","","","HUDText","Kilometres","PSG_10000837","","","","","","","Kilomètres","Chilometri","Kilometer","Kilómetros","Quilômetros","kilometer","Kilométer","km","км"
+"Units","","","HUDText","Centimetres","PSG_10000838","","","","","","","Centimètres","Centimetri","Zentimeter","Centímetros","Centímetros","Centimeter","Centiméter","cm","см"
+"Units","","","HUDText","Hours","PSG_10000839","","","","","","","Heures","Ore","Stunden","Horas","Horas","uur","Óra","godz.","ч"
+"Units","","","HUDText","Minutes","PSG_10000840","","","","","","","Minutes","Minuti","Minuten","Minutos","Minutos","minuten","Perc","min","мин"
+"Units","","","HUDText","Mins","PSG_10002863","","","","","","","Min.","Min","Min.","Min.","min","min","p.","min","мин."
+"Units","","","HUDText","Seconds","PSG_10000841","","","","","","","Secondes","Secondi","Sekunden","Segundos","Segundos","seconden","Másodperc","s","сек"
+"Units","","","HUDText","Secs","PSG_10002864","","","","","","","Sec.","Sec","Sek.","Seg.","s","sec","s","s","сек."
+"Units","","","HUDText","Days","PSG_10000842","","","","","","","Jours","Giorni","Tage","Días","Dias","dagen","Nap","d","дн."
+"Units","","","HUDText","Weeks","PSG_10000843","","","","","","","Semaines","Settimane","Wochen","Semanas","Semanas","weken","Hétfő","tyg.","нед."
+"Units","","","HUDText","Months","PSG_10000844","","","","","","","Mois","Mesi","Monate","Meses","Meses","maanden","Hónap","mies.","мес."
+"Units","","","HUDText","Years","PSG_10000845","","","","","","","Ans","Anni","Jahre","Años","Anos","jaar","Év","lat(a)","лет"
+"Positions","","","HUDText","1st","PSG_10000846","","","","","","","1er","1°","1.","1º","1º","1e","1.","1.","1"
+"Positions","","","HUDText","2nd","PSG_10000847","","","","","","","2e","2°","2.","2º","2º","2e","2.","2.","2"
+"Positions","","","HUDText","3rd","PSG_10000848","","","","","","","3e","3°","3.","3º","3º","3e","3.","3.","3"
+"Positions","","","HUDText","4th","PSG_10000849","","","","","","","4e","4°","4.","4º","4º","4e","4.","4.","4"
+"Positions","","","HUDText","5th","PSG_10000850","","","","","","","5e","5°","5.","5º","5º","5e","5.","5.","5"
+"Positions","","","HUDText","6th","PSG_10000851","","","","","","","6e","6°","6.","6º","6º","6e","6.","6.","6"
+"Positions","","","HUDText","7th","PSG_10000852","","","","","","","7e","7°","7.","7º","7º","7e","7.","7.","7"
+"Positions","","","HUDText","8th","PSG_10000853","","","","","","","8e","8°","8.","8º","8º","8e","8.","8.","8"
+"Positions","","","HUDText","9th","PSG_10000854","","","","","","","9e","9°","9.","9º","9º","9e","9.","9.","9"
+"Positions","","","HUDText","10th","PSG_10000855","","","","","","","10e","10°","10.","10º","10º","10e","10.","10.","10"
+"Positions","","","HUDText","11th","PSG_10000856","","","","","","","11e","11°","11.","11º","11º","11e","11.","11.","11"
+"Positions","","","HUDText","12th","PSG_10000861","","","","","","","12e","12°","12.","12º","12º","12e","12.","12.","12"
+"Positions","","","HUDText","13th","PSG_10000862","","","","","","","13e","13°","13.","13º","13º","13e","13.","13.","13"
+"Positions","","","HUDText","14th","PSG_10000864","","","","","","","14e","14°","14.","14º","14º","14e","14.","14.","14"
+"Positions","","","HUDText","15th","PSG_10000865","","","","","","","15e","15°","15.","15º","15º","15e","15.","15.","15"
+"Positions","","","HUDText","16th","PSG_10000866","","","","","","","16e","16°","16.","16º","16º","16e","16.","16.","16"
+"Positions","","","HUDText","17th","PSG_10000867","","","","","","","17e","17°","17.","17º","17º","17e","17.","17.","17"
+"Positions","","","HUDText","18th","PSG_10000868","","","","","","","18e","18°","18.","18º","18º","18e","18.","18.","18"
+"Positions","","","HUDText","19th","PSG_10000869","","","","","","","19e","19°","19.","19º","19º","19e","19.","19.","19"
+"Positions","","","HUDText","20th","PSG_10000870","","","","","","","20e","20°","20.","20º","20º","20e","20.","20.","20"
+"Positions","","","HUDText","21st","PSG_10000857","","","","","","","21e","21°","21.","21º","21º","21e","21.","21.","21"
+"Positions","","","HUDText","22nd","PSG_10000858","","","","","","","22e","22°","22.","22º","22º","22e","22.","22.","22"
+"Positions","","","HUDText","23rd","PSG_10000859","","","","","","","23e","23°","23.","23º","23º","23e","23.","23.","23"
+"Positions","","","HUDText","24th","PSG_10000860","","","","","","","24e","24°","24.","24º","24º","24e","24.","24.","24"
+"Positions","","","HUDText","25th","PSG_10009397","","","","","","","25e","25°","25.","25º","25º","25e","25.","25.","25"
+"Positions","","","HUDText","26th","PSG_10009398","","","","","","","26e","26°","26.","26º","26º","26e","26.","26.","26"
+"Positions","","","HUDText","27th","PSG_10009399","","","","","","","27e","27°","27.","27º","27º","27e","27.","27.","27"
+"Positions","","","HUDText","28th","PSG_10009400","","","","","","","28e","28°","28.","28º","28º","28e","28.","28.","28"
+"Positions","","","HUDText","29th","PSG_10009401","","","","","","","29e","29°","29.","29º","29º","29e","29.","29.","29"
+"Positions","","","HUDText","30th","PSG_10009402","","","","","","","30e","30°","30.","30º","30º","30e","30.","30.","30"
+"Positions","","","HUDText","31st","PSG_10009403","","","","","","","31e","31°","31.","31º","31º","31e","31.","31.","31"
+"Positions","","","HUDText","32nd","PSG_10011158","","","","","","","32e","32°","32.","32º","32º","32e","32.","32.","32"
+"Positions","","","HUDText","33rd","PSG_10011159","","","","","","","33e","33°","33.","33º","33º","33e","33.","33.","33"
+"Positions","","","HUDText","34th","PSG_10011160","","","","","","","34e","34°","34.","34º","34º","34e","34.","34.","34"
+"Positions","","","HUDText","35th","PSG_10011161","","","","","","","35e","35°","35.","35º","35º","35e","35.","35.","35"
+"Positions","","","HUDText","36th","PSG_10011162","","","","","","","36e","36°","36.","36º","36º","36e","36.","36.","36"
+"Positions","","","HUDText","37th","PSG_10011163","","","","","","","37e","37°","37.","37º","37º","37e","37.","37.","37"
+"Positions","","","HUDText","38th","PSG_10011164","","","","","","","38e","38°","38.","38º","38º","38e","38.","38.","38"
+"Positions","","","HUDText","39th","PSG_10011165","","","","","","","39e","39°","39.","39º","39º","39e","39.","39.","39"
+"Positions","","","HUDText","40th","PSG_10011166","","","","","","","40e","40°","40.","40º","40º","40e","40.","40.","40"
+"Positions","","","HUDText","41st","PSG_10011167","","","","","","","41e","41°","41.","41º","41º","41e","41.","41.","41"
+"Positions","","","HUDText","42nd","PSG_10011168","","","","","","","42e","42°","42.","42º","42º","42e","42.","42.","42"
+"Positions","","","HUDText","43rd","PSG_10011169","","","","","","","43e","43°","43.","43º","43º","43e","43.","43.","43"
+"Positions","","","HUDText","44th","PSG_10011170","","","","","","","44e","44°","44.","44º","44º","44e","44.","44.","44"
+"Positions","","","HUDText","45th","PSG_10011171","","","","","","","45e","45°","45.","45º","45º","45e","45.","45.","45"
+"Positions","","","HUDText","46th","PSG_10011172","","","","","","","46e","46°","46.","46º","46º","46e","46.","46.","46"
+"Positions","","","HUDText","47th","PSG_10011173","","","","","","","47e","47°","47.","47º","47º","47e","47.","47.","47"
+"Positions","","","HUDText","48th","PSG_10011174","","","","","","","48e","48°","48.","48º","48º","48e","48.","48.","48"
+"Positions","","","HUDText","49th","PSG_10011175","","","","","","","49e","49°","49.","49º","49º","49e","49.","49.","49"
+"Positions","","","HUDText","50th","PSG_10011176","","","","","","","50e","50°","50.","50º","50º","50e","50.","50.","50"
+"Positions","","","HUDText","51st","PSG_10011177","","","","","","","51e","51°","51.","51º","51º","51e","51.","51.","51"
+"Positions","","","HUDText","52nd","PSG_10011178","","","","","","","52e","52°","52.","52º","52º","52e","52.","52.","52"
+"Positions","","","HUDText","53rd","PSG_10011179","","","","","","","53e","53°","53.","53º","53º","53e","53.","53.","53"
+"Positions","","","HUDText","54th","PSG_10011180","","","","","","","54e","54°","54.","54º","54º","54e","54.","54.","54"
+"Positions","","","HUDText","55th","PSG_10011181","","","","","","","55e","55°","55.","55º","55º","55e","55.","55.","55"
+"Positions","","","HUDText","56th","PSG_10011182","","","","","","","56e","56°","56.","56º","56º","56e","56.","56.","56"
+"Positions","","","HUDText","57th","PSG_10011183","","","","","","","57e","57°","57.","57º","57º","57e","57.","57.","57"
+"Positions","","","HUDText","58th","PSG_10011184","","","","","","","58e","58°","58.","58º","58º","58e","58.","58.","58"
+"Positions","","","HUDText","59th","PSG_10011185","","","","","","","59e","59°","59.","59º","59º","59e","59.","59.","59"
+"Positions","","","HUDText","60th","PSG_10011186","","","","","","","60e","60°","60.","60º","60º","60e","60.","60.","60"
+"Positions","","","HUDText","61st","PSG_10011187","","","","","","","61e","61°","61.","61º","61º","61e","61.","61.","61"
+"Positions","","","HUDText","62nd","PSG_10011188","","","","","","","62e","62°","62.","62º","62º","62e","62.","62.","62"
+"Positions","","","HUDText","63rd","PSG_10011189","","","","","","","63e","63°","63.","63º","63º","63e","63.","63.","63"
+"Positions","","","HUDText","64th","PSG_10011190","","","","","","","64e","64°","64.","64º","64º","64e","64.","64.","64"
+"Positions","","","HUDText","65th","PSG_10011191","","","","","","","65e","65°","65.","65º","65º","65e","65.","65.","65"
+"Positions","","","HUDText","66th","PSG_10011192","","","","","","","66e","66°","66.","66º","66º","66e","66.","66.","66"
+"Positions","","","HUDText","67th","PSG_10011193","","","","","","","67e","67°","67.","67º","67º","67e","67.","67.","67"
+"Positions","","","HUDText","68th","PSG_10011194","","","","","","","68e","68°","68.","68º","68º","68e","68.","68.","68"
+"Positions","","","HUDText","69th","PSG_10011195","","","","","","","69e","69°","69.","69º","69º","69e","69.","69.","69"
+"Positions","","","HUDText","70th","PSG_10011196","","","","","","","70e","70°","70.","70º","70º","70e","70.","70.","70"
+"Positions","","","HUDText","71st","PSG_10011197","","","","","","","71e","71°","71.","71º","71º","71e","71.","71.","71"
+"Positions","","","HUDText","72nd","PSG_10011198","","","","","","","72e","72°","72.","72º","72º","72e","72.","72.","72"
+"Positions","","","HUDText","73rd","PSG_10011199","","","","","","","73e","73°","73.","73º","73º","73e","73.","73.","73"
+"Positions","","","HUDText","74th","PSG_10011200","","","","","","","74e","74°","74.","74º","74º","74e","74.","74.","74"
+"Positions","","","HUDText","75th","PSG_10011201","","","","","","","75e","75°","75.","75º","75º","75e","75.","75.","75"
+"Positions","","","HUDText","76th","PSG_10011202","","","","","","","76e","76°","76.","76º","76º","76e","76.","76.","76"
+"Positions","","","HUDText","77th","PSG_10011203","","","","","","","77e","77°","77.","77º","77º","77e","77.","77.","77"
+"Positions","","","HUDText","78th","PSG_10011204","","","","","","","78e","78°","78.","78º","78º","78e","78.","78.","78"
+"Positions","","","HUDText","79th","PSG_10011205","","","","","","","79e","79°","79.","79º","79º","79e","79.","79.","79"
+"Positions","","","HUDText","80th","PSG_10011206","","","","","","","80e","80°","80.","80º","80º","80e","80.","80.","80"
+"Positions","","","HUDText","81st","PSG_10011207","","","","","","","81e","81°","81.","81º","81º","81e","81.","81.","81"
+"Positions","","","HUDText","82nd","PSG_10011208","","","","","","","82e","82°","82.","82º","82º","82e","82.","82.","82"
+"Positions","","","HUDText","83rd","PSG_10011209","","","","","","","83e","83°","83.","83º","83º","83e","83.","83.","83"
+"Positions","","","HUDText","84th","PSG_10011210","","","","","","","84e","84°","84.","84º","84º","84e","84.","84.","84"
+"Positions","","","HUDText","85th","PSG_10011211","","","","","","","85e","85°","85.","85º","85º","85e","85.","85.","85"
+"Positions","","","HUDText","86th","PSG_10011212","","","","","","","86e","86°","86.","86º","86º","86e","86.","86.","86"
+"Positions","","","HUDText","87th","PSG_10011213","","","","","","","87e","87°","87.","87º","87º","87e","87.","87.","87"
+"Positions","","","HUDText","88th","PSG_10011214","","","","","","","88e","88°","88.","88º","88º","88e","88.","88.","88"
+"Positions","","","HUDText","89th","PSG_10011215","","","","","","","89e","89°","89.","89º","89º","89e","89.","89.","89"
+"Positions","","","HUDText","90th","PSG_10011216","","","","","","","90e","90°","90.","90º","90º","90e","90.","90.","90"
+"Positions","","","HUDText","91st","PSG_10011217","","","","","","","91e","91°","91.","91º","91º","91e","91.","91.","91"
+"Positions","","","HUDText","92nd","PSG_10011218","","","","","","","92e","92°","92.","92º","92º","92e","92.","92.","92"
+"Positions","","","HUDText","93rd","PSG_10011219","","","","","","","93e","93°","93.","93º","93º","93e","93.","93.","93"
+"Positions","","","HUDText","94th","PSG_10011220","","","","","","","94e","94°","94.","94º","94º","94e","94.","94.","94"
+"Positions","","","HUDText","95th","PSG_10011221","","","","","","","95e","95°","95.","95º","95º","95e","95.","95.","95"
+"Positions","","","HUDText","96th","PSG_10011222","","","","","","","96e","96°","96.","96º","96º","96e","96.","96.","96"
+"Positions","","","HUDText","97th","PSG_10011223","","","","","","","97e","97°","97.","97º","97º","97e","97.","97.","97"
+"Positions","","","HUDText","98th","PSG_10011224","","","","","","","98e","98°","98.","98º","98º","98e","98.","98.","98"
+"Positions","","","HUDText","99th","PSG_10011225","","","","","","","99e","99°","99.","99º","99º","99e","99.","99.","99"
+"Positions","","","HUDText","100th","PSG_10011226","","","","","","","100e","100°","100.","100º","100º","100e","100.","100.","100"
+"Continents","","","HUDText","Europe","PSG_10000871","","","","","","","Europe","Europa","Europa","Europa","Europa","Europa","Európa","Europa","Европа"
+"Continents","","","HUDText","North America","PSG_10000872","","","","","","","Amérique du Nord","America del Nord","Nordamerika","Norteamérica","América do Norte","Noord-Amerika","Észak-Amerika","Ameryka Północna","Северная Америка"
+"Continents","","","HUDText","South America","PSG_10000873","","","","","","","Amérique du Sud","America del Sud","Südamerika","Sudamérica","América do Sul","Zuid-Amerika","Dél-Amerika","Ameryka Południowa","Южная Америка"
+"Continents","","","HUDText","Africa","PSG_10000874","","","","","","","Afrique","Africa","Afrika","África","África","Afrika","Afrika","Afryka","Африка"
+"Continents","","","HUDText","Asia","PSG_10000875","","","","","","","Asie","Asia","Asien","Asia","Ásia","Azië","Ázsia","Azja","Азия"
+"Continents","","","HUDText","Australasia","PSG_10000876","","","","","","","Océanie","Oceania","Ozeanien","Oceanía","Oceania","Australazië","Ausztrálázsia","Oceania","Австралазия"
+"Continents - Adjectives","","","HUDText","European","PSG_10000877","","","","","","","européen","europeo","europäisch","<gender^Subject=F>
+europea
+</gender>
+<gender^Subject=M>
+europeo
+</gender>
+","Europeu","Europese","európai","europejski","<gender^Subject=F>
+европейская
+</gender>
+<gender^Subject=M>
+европейский
+</gender>"
+"Continents - Adjectives","","","HUDText","North American","PSG_10000878","","","","","","","nord-américain","nordamericano","nordamerikanisch","<gender^Subject=F>
+norteamericana
+</gender>
+<gender^Subject=M>
+norteamericano
+</gender>
+","Norte-americano","Noord-Amerikaanse","észak-amerikai","północnoamerykański","<gender^Subject=F>
+североамериканская
+</gender>
+<gender^Subject=M>
+североамериканский
+</gender>"
+"Continents - Adjectives","","","HUDText","South American","PSG_10000879","","","","","","","sud-américain","sudamericano","südamerikanisch","<gender^Subject=F>
+sudamericana
+</gender>
+<gender^Subject=M>
+sudamericano
+</gender>
+","Sul-americano","Zuid-Amerikaanse","dél-amerikai","południowoamerykański","<gender^Subject=F>
+южноамериканская
+</gender>
+<gender^Subject=M>
+южноамериканский
+</gender>"
+"Continents - Adjectives","","","HUDText","African","PSG_10000880","","","","","","","africain","africano","afrikanisch","<gender^Subject=F>
+africana
+</gender>
+<gender^Subject=M>
+africano
+</gender>
+","Africano","Afrikaanse","afrikai","afrykański","<gender^Subject=F>
+африканская
+</gender>
+<gender^Subject=M>
+африканский
+</gender>"
+"Continents - Adjectives","","","HUDText","Asian","PSG_10000881","","","","","","","asiatique","asiatico","asiatisch","<gender^Subject=F>
+asiática
+</gender>
+<gender^Subject=M>
+asiático
+</gender>
+","Asiático","Aziatische","ázsiai","azjatycki","<gender^Subject=F>
+азиатская
+</gender>
+<gender^Subject=M>
+азиатский
+</gender>"
+"Continents - Adjectives","","","HUDText","Australasian","PSG_10000882","","","","","","","océanien","oceaniano","ozeanisch","Oceánico","Oceânico","Australaziatische","ausztrálázsiai","australazjatycki","<gender^Subject=F>
+австралазийская
+</gender>
+<gender^Subject=M>
+австралазийский
+</gender>"
+"Language Names","","","HUDText","Portuguese (Brazilian)","PSG_10008745","","","","","","","Portugais (brésilien)","Portoghese (brasiliano)","Portugiesisch (Brasilien)","Portugués (Brasil)","Português (brasileiro)","Portugese (Braziliaans)","portugál (brazil)","portugalski (brazylijski)","<gender^Subject=F>
+португальская (бразильская)
+</gender>
+<gender^Subject=M>
+португальский (бразильский)
+</gender>"
+"Language Names","","","HUDText","English","PSG_10008746","","","","","","","French","Inglese","Englisch","Spanish","Inglês","Britse","angol","angielski","<gender^Subject=F>
+английская
+</gender>
+<gender^Subject=M>
+английский
+</gender>"
+"Track Locations","","","HUDText","Ardennes","PSG_10003764","","","","","","","Les Ardennes","Ardenne","Ardennen","Ardenas","Ardenas","Ardennen","Ardennek","Ardeny","Арденны"
+"Track Locations","","","HUDText","Beijing","PSG_10003765","","","","","","","Pékin","Pechino","Peking","Pekín","Pequim","Peking","Peking","Pekin","Пекин"
+"Track Locations","","","HUDText","Vancouver","PSG_10003766","","","","","","","Vancouver","Vancouver","Vancouver","Vancouver","Vancouver","Vancouver","Vancouver","Vancouver","Ванкувер"
+"Track Locations","","","HUDText","Guildford","PSG_10003767","","","","","","","Guildford","Guildford","Guildford","Guildford","Guildford","Guildford","Guildford","Guildford","Гилдфорд"
+"Track Locations","","","HUDText","Tondela","PSG_10003768","","","","","","","Tondela","Tondela","Tondela","Tondela","Tondela","Tondela","Tondela","Tondela","Тондела"
+"Track Locations","","","HUDText","Milan","PSG_10003769","","","","","","","Milan","Milano","Mailand","Milán","Milão","Milaan","Milánó","Mediolan","Милан"
+"Track Locations","","","HUDText","Cape Town","PSG_10003770","","","","","","","Le Cap","Città del Capo","Kapstadt","Ciudad del Cabo","Cidade do Cabo","Kaapstad","Fokváros","Kapsztad","Кейптаун"
+"Track Locations","","","HUDText","Munich","PSG_10003771","","","","","","","Munich","Monaco","München","Múnich","Munique","München","München","Monachium","Мюнхен"
+"Track Locations","","","HUDText","Phoenix","PSG_10003772","","","","","","","Phœnix","Phoenix","Phoenix","Phoenix","Phoenix","Phoenix","Phoenix","Phoenix","Финикс"
+"Track Locations","","","HUDText","Doha","PSG_10003773","","","","","","","Doha","Doha","Doha","Doha","Doha","Doha","Doha","Doha","Доха"
+"Track Locations","","","HUDText","Rio de Janeiro","PSG_10003774","","","","","","","Rio de Janeiro","Rio de Janeiro","Rio de Janeiro","Río de Janeiro","Rio de Janeiro","Rio de Janeiro","Rio de Janeiro","Rio de Janeiro","Рио-де-Жанейро"
+"Track Locations","","","HUDText","Black Sea","PSG_10003775","","","","","","","Mer Noire","Mar Nero","Schwarzes Meer","Mar negro","Mar Negro","Zwarte Zee","Fekete-tenger","Morze Czarne","Чёрное море"
+"Track Locations","","","HUDText","Singapore","PSG_10003776","","","","","","","Singapour","Singapore","Singapur","Singapur","Singapura","Singapore","Szingapúr","Singapur","Сингапур"
+"Track Locations","","","HUDText","Sydney","PSG_10003779","","","","","","","Sydney","Sydney","Sydney","Sídney","Sydney","Sydney","Sydney","Sydney","Сидней"
+"Track Locations","","","HUDText","Yokohama","PSG_10003777","","","","","","","Yokohama","Yokohama","Yokohama","Yokohama","Yokohama","Yokohama","Jokohama","Jokohama","Йокогама"
+"Track Locations","","","HUDText","Dubai","PSG_10003778","","","","","","","Dubaï","Dubai","Dubai","Dubái","Dubai","Dubai","Dubai","Dubaj","Дубай"
+"Continue Button","","","HUDText","Up Next","PSG_10002712","","","","","","","À venir","Prossimo","Als Nächstes","A continuación","Avançar","Hierna","Következő","Następne","Далее"
+"Continue Button","","","HUDText","Continue","PSG_10002713","","","","","","","Continuer","Continua","Weiter","Continuar","Continuar","Doorgaan","Folytatás","Kontynuuj","Продолжить"
+"Continue Button","","","HUDText","Back To","PSG_10002714","","","","","","","Retour","Indietro","Zurück zu","Volver a","Voltar","Terug naar","Vissza","Poprzednie","Назад"
+"Continue Button","","","HUDText","Skip","PSG_10002715","","","","","","","Passer","Salta","Überspringen","Omitir","Pular","Overslaan","Kihagy","Pomiń","Пропуск"
+"Continue Button","","","HUDText","Manage Team","PSG_10002716","","","","","","","Gérer l'équipe","Gestisci la squadra","Team verwalten","Gestionar equipo","Gerenciar equipe","Team beheren","Csapat menedzselése","Zarządzaj zespołem","Управление командой"
+"Continue Button","","","HUDText","Confirm Setup","PSG_10002717","","","","","","","Confirmer réglages","Conferma setup","Setup bestätigen","Confirmar ajuste","Confirmar ajustes","Bevestigen","Beállítás megerősítés","Zatw. ustawienia","Подтв. Настройку"
+"Continue Button","","","HUDText","Start Practice","PSG_10002718","","","","","","","Commencer essais","Inizia le prove libere","Training starten","Empezar entrenamiento","Iniciar treino","Oefening starten","Szabadedzés kezdése","Rozpocznij trening","Начать тренировку"
+"Continue Button","","","HUDText","Start Qualifying","PSG_10002719","","","","","","","Commencer qualifs","Inizia le qualifiche","Qualifying starten","Empezar clasificación","Iniciar classificatória","Kwalificatie starten","Időmérő megkezdése","Rozpocznij kwalifikacje","Начать квалификацию"
+"Continue Button","","","HUDText","Start Race","PSG_10002720","","","","","","","Commencer la course","Inizia la gara","Rennen starten","Empezar carrera","Iniciar corrida","Race starten","Verseny megkezdése","Rozpocznij wyścig","Начать гонку"
+"Continue Button","","","HUDText","Confirm Expenses","PSG_10002740","","","","","","","Confirmer les dépenses","Conferma spese","Ausgaben bestätigen","Confirmar gastos","Confirmar gastos","Uitgaven bevestigen","Kiadások megerősítése","Zatwierdź wydatki","Подтвердить расходы"
+"Jobs","","","HUDText","No. 1 Driver","PSG_10003619","","","","","","","Pilote n°1","Pilota 1","<gender^Subject=F>
+Fahrerin Nr. 1
+</gender>
+<gender^Subject=M>
+Fahrer Nr. 1
+</gender>
+","Primer piloto","Piloto nº 1","Coureur nr. 1","1. sz. pilóta","Pierwszy kierowca","1-й пилот"
+"Jobs","","","HUDText","No. 2 Driver","PSG_10003620","","","","","","","Pilote n°2","Pilota 2","<gender^Subject=F>
+Fahrerin Nr. 2
+</gender>
+<gender^Subject=M>
+Fahrer Nr. 2
+</gender>
+","Segundo piloto","Piloto nº 2","Coureur nr. 2","2. sz. pilóta","Drugi kierowca","2-й пилот"
+"Jobs","","","HUDText","Reserve Driver","PSG_10003621","","","","","","","Pilote de réserve","Pilota di riserva","<gender^Subject=F>
+Reservefahrerin
+</gender>
+<gender^Subject=M>
+Reservefahrer
+</gender>
+","Piloto reserva","Piloto reserva","Reservecoureur","Tartalékpilóta","Kierowca rezerwowy","Резервный пилот"
+"Jobs","","","HUDText","Equal Status Driver","PSG_10003622","","","","","","","Pilote de même statut","Pilota alla pari","Fahrer mit gleichem Status","Piloto de estatus similar","Piloto de status igual","Coureur met gelijke status","Egyenlő elbírálású pilóta","Kierowca równorzędny","Пилот равного статуса"
+"Jobs","","","HUDText","Number 1","PSG_10005068","","","","","","","Numéro 1","Numero 1","Nummer 1","Número 1","Número 1","Nummer 1","1. számú","Numer 1","Номер 1"
+"Jobs","","","HUDText","Number 2","PSG_10005069","","","","","","","Numéro 2","Numero 2","Nummer 2","Número 2","Número 2","Nummer 2","2. számú","Numer 2","Номер 2"
+"Jobs","","","HUDText","Equal Status","PSG_10005057","","","","","","","Même statut","Stato alla pari","Gleicher Status","Mismo estatus","Status igual","Gelijke status","Egyenlő elbírálású pilóta","Równorzędny","Равный статус"
+"Jobs","","","HUDText","Reserve","PSG_10005070","","","","","","","Réserve","Riserva","Ersatz","Reserva","Reserva","Reserve","Tartalékpilóta","Rezerwa","Резерв"
+"Jobs","","","HUDText","Driver","PSG_10003547","","","","","","","Pilote","Pilota","Fahrer","Piloto","Piloto","Coureur","Versenyző","Kierowca","Пилот"
+"Jobs","","","HUDText","Staff","PSG_10003548","","","","","","","Personnel","Staff","Mitarbeiter","Personal","Funcionários","Personeel","Stáb","Personel","Персонал"
+"Jobs","","","HUDText","Engineer","PSG_10003549","","","","","","","<gender^Subject=F>
+Ingénieure
+</gender>
+<gender^Subject=M>
+Ingénieur
+</gender>
+","Ingegnere","<gender^Subject=F>
+Ingenieurin
+</gender>
+<gender^Subject=M>
+Ingenieur
+</gender>
+","<gender^Subject=F>
+Ingeniera
+</gender>
+<gender^Subject=M>
+Ingeniero
+</gender>
+","<gender^Subject=F>
+Engenheira
+</gender>
+<gender^Subject=M>
+Engenheiro
+</gender>
+","Technicus","Mérnök","Inżynier","Инженер"
+"Jobs","","","HUDText","Chief Engineer","PSG_10003550","","","","","","","<gender^Subject=F>
+Ingénieure en chef
+</gender>
+<gender^Subject=M>
+Ingénieur en chef
+</gender>
+","Ingegnere capo","<gender^Subject=F>
+Chefingenieurin
+</gender>
+<gender^Subject=M>
+Chefingenieur
+</gender>
+","<gender^Subject=F>
+Ingeniera jefe
+</gender>
+<gender^Subject=M>
+Ingeniero jefe
+</gender>
+","<gender^Subject=F>
+Engenheira chefe
+</gender>
+<gender^Subject=M>
+Engenheiro chefe
+</gender>
+","Hoofdtechnicus","Főmérnök","Główny inżynier","Главный инженер"
+"Jobs","","","HUDText","Team Assistant","PSG_10003551","","","","","","","Directeur général adjoint","Assistente","<gender^Subject=F>
+Teamassistentin
+</gender>
+<gender^Subject=M>
+Teamassistent
+</gender>
+","Asistente del equipo","Assistente de equipe","Teamassistent","Csapatasszisztens","<gender^Subject=F>
+Asystentka zespołu
+</gender>
+<gender^Subject=M>
+Asystent zespołu
+</gender>
+","Помощник директора"
+"Jobs","","","HUDText","Team Principal","PSG_10003552","","","","","","","<gender^Subject=F>
+Directrice générale
+</gender>
+<gender^Subject=M>
+Directeur général
+</gender>
+","Capo squadra","<gender^Subject=F>
+Teamchefin
+</gender>
+<gender^Subject=M>
+Teamchef
+</gender>
+","<gender^Subject=F>
+Directora del equipo
+</gender>
+<gender^Subject=M>
+Director del equipo
+</gender>
+","Líder de equipe","Teamhoofd","Csapatigazgató","<gender^Subject=F>
+Szefowa zespołu
+</gender>
+<gender^Subject=M>
+Szef zespołu
+</gender>
+","Директор команды"
+"Jobs","","","HUDText","Scout","PSG_10003553","","","","","","","Responsable recrutement","Cerca talenti","Scout","<gender^Subject=F>
+Ojeadora
+</gender>
+<gender^Subject=M>
+Ojeador
+</gender>
+","<gender^Subject=F>
+Olheira
+</gender>
+<gender^Subject=M>
+Olheiro
+</gender>
+","Scout","Megfigyelő","Łowca talentów","Скаут"
+"Jobs","","","HUDText","Race Mechanic","PSG_10003554","","","","","","","Mécanicien de course","Meccanico di gara","<gender^Subject=F>
+Rennmechanikerin
+</gender>
+<gender^Subject=M>
+Rennmechaniker
+</gender>
+","Mecánico de carrera","<gender^Subject=F>
+Mecânica de corrida
+</gender>
+<gender^Subject=M>
+Mecânico de corrida
+</gender>","Racemonteur","Versenyszerelő","Mechanik wyścigowy","Гоночный механик"
+"Jobs","","","HUDText","Chairman","PSG_10003555","","","","","","","<gender^Chairman=F>
+Présidente
+</gender>
+<gender^Chairman=M>
+Président
+</gender>
+","Presidente","<gender^Chairman=F>
+Vorsitzende 
+</gender>
+<gender^Chairman=M>
+Vorsitzender
+</gender>","<gender^Chairman=F>
+Presidenta
+</gender>
+<gender^Chairman=M>
+Presidente
+</gender>
+","Presidente","Voorzitter","Elnök","Prezes","Председатель"
+"Jobs","","","HUDText","Private Investigator","PSG_10003556","","","","","","","<gender^Subject=F>
+Détective privée
+</gender>
+<gender^Subject=M>
+Détective privé
+</gender>
+","<gender^Subject=F>
+Investigatrice privata
+</gender>
+<gender^Subject=M>
+Investigatore privato
+</gender>","<gender^Subject=F>
+Detektivin
+</gender>
+<gender^Subject=M>
+Detektiv
+</gender>
+","<gender^Subject=F>
+Investigadora privada
+</gender>
+<gender^Subject=M>
+Investigador privado
+</gender>
+","Detetive particular","Privédetective","Magánnyomozó","Prywatny detektyw","Частный детектив"
+"Jobs","","","HUDText","Photographer","PSG_10003557","","","","","","","Photographe","<gender^Subject=F>
+Fotografa
+</gender>
+<gender^Subject=M>
+Fotografo
+</gender>","<gender^Subject=F>
+Fotografin
+</gender>
+<gender^Subject=M>
+Fotograf
+</gender>
+","<gender^Subject=F>
+Fotógrafa
+</gender>
+<gender^Subject=M>
+Fotógrafo
+</gender>
+","<gender^Subject=F>
+Fotógrafa
+</gender>
+<gender^Subject=M>
+Fotógrafo
+</gender>
+","Fotograaf","Fényképész","Fotograf","Фотограф"
+"Jobs","","","HUDText","Bookkeeper","PSG_10003558","","","","","","","Comptable","Contabile","<gender^Subject=F>
+Buchhalterin
+</gender>
+<gender^Subject=M>
+Buchhalter
+</gender>
+","Contable","<gender^Subject=F>
+Contadora
+</gender>
+<gender^Subject=M>
+Contador
+</gender>
+","Boekhouder","Könyvelő","<gender^Subject=F>
+Księgowa
+</gender>
+<gender^Subject=M>
+Księgowy
+</gender>
+","Бухгалтер"
+"Jobs","","","HUDText","Barrister","PSG_10003559","","","","","","","<gender^Subject=F>
+Avocate
+</gender>
+<gender^Subject=M>
+Avocat
+</gender>
+","Avvocato","<gender^Subject=F>
+Anwältin
+</gender>
+<gender^Subject=M>
+Anwalt
+</gender>
+","<gender^Subject=F>
+Abogada
+</gender>
+<gender^Subject=M>
+Abogado
+</gender>
+","<gender^Subject=F>
+Advogada
+</gender>
+<gender^Subject=M>
+Advogado
+</gender>
+","Jurist","Ügyvéd","<gender^Subject=F>
+Adwokatka
+</gender>
+<gender^Subject=M>
+Adwokat
+</gender>
+","Адвокат"
+"Jobs","","","HUDText","Actor","PSG_10003560","","","","","","","<gender^Subject=F>
+Actrice
+</gender>
+<gender^Subject=M>
+Acteur
+</gender>
+","<gender^Subject=F>
+Attrice
+</gender>
+<gender^Subject=M>
+Attore
+</gender>","<gender^Subject=F>
+Schauspielerin
+</gender>
+<gender^Subject=M>
+Schauspieler
+</gender>
+","<gender^Subject=F>
+Actriz
+</gender>
+<gender^Subject=M>
+Actor
+</gender>
+","<gender^Subject=F>
+Atriz
+</gender>
+<gender^Subject=M>
+Ator
+</gender>
+","Acteur","<gender^Subject=F>
+Színésznő
+</gender>
+<gender^Subject=M>
+Színész
+</gender>
+","<gender^Subject=F>
+Aktorka
+</gender>
+<gender^Subject=M>
+Aktor
+</gender>
+","Актер"
+"Jobs","","","HUDText","Sponsor Liaison","PSG_10003561","","","","","","","Liaison","Contatto sponsor","<gender^Subject=F>
+Sponsorenvertreterin
+</gender>
+<gender^Subject=M>
+Sponsorenvertreter
+</gender>
+","Representante de patrocinador","Representante do patrocinador","Contactpersoon sponsor","Szponzori kapcsolattartó","Koordynator sponsorski","Представитель спонсора"
+"Jobs","","","HUDText","Journalist","PSG_10003562","","","","","","","Journaliste","Giornalista","<gender^Subject=F>
+Journalistin
+</gender>
+<gender^Subject=M>
+Journalist
+</gender>
+","Periodista","Jornalista","Journalist","Újságíró","<gender^Subject=F>
+Dziennikarka
+</gender>
+<gender^Subject=M>
+Dziennikarz
+</gender>
+","Журналист"
+"Jobs","","","HUDText","Unemployed","PSG_10003563","","","","","","","Sans emploi","Senza impiego","Arbeitslos","Sin empleo
+","Sem emprego
+","Werkloos","Munkanélküli","Bezrobotny","Нет работы"
+"Weather","","","HUDText","None","PSG_10006628","","","","","","","Aucun","Nessuna","Keine","Nada","Nenhum","Geen","Semmi","Brak","Ничего"
+"Weather","","","HUDText","Light Rain","PSG_10006629","","","","","","","Pluie légère","Pioggia leggera","Leichter Regen","Lluvia ligera","Chuva leve","Lichte regen","Enyhe eső","Lekki deszcz","Небольшой дождик"
+"Weather","","","HUDText","Medium Rain","PSG_10006630","","","","","","","Pluie moyenne","Pioggia media","Mittlerer Regen","Lluvia normal","Chuva média","Gemiddelde regen","Közepes eső","Średni deszcz","Дождь"
+"Weather","","","HUDText","Heavy Rain","PSG_10006631","","","","","","","Forte pluie","Diluvio","Starkregen","Lluvia intensa","Chuva forte","Zware regen","Zuhogó eső","Mocny deszcz","Ливень"
+"Weather","","","HUDText","Rainstorm","PSG_10006632","","","","","","","Déluge","Temporale","Regensturm","Tormenta","Tempestade","Stortbui","Felhőszakadás","Burza","Ливень с ураганом"
+"Weather","","","HUDText","Clear","PSG_10006633","","","","","","","Retirer","Sereno","Heiter","Despejado","Limpo","Helder","Tiszta","Czyste niebo","Ясно"
+"Weather","","","HUDText","Cloudy","PSG_10006634","","","","","","","Couvert","Nuvoloso","Bewölkt","Nublado","Nublado","Bewolkt","Felhős","Lekkie zachmurzenie","Облачно"
+"Weather","","","HUDText","Overcast","PSG_10006635","","","","","","","Nuageux","Cielo coperto","Bedeckt","Cubierto","Encoberto","Zwaar bewolkt","Borús","Mocne zachmurzenie","Тучи"
+"Weather","","","HUDText","Stormy","PSG_10006636","","","","","","","Orageux","Tempestoso","Stürmisch","Tormentoso","Tempestade","Stormachtig","Viharos","Burzliwie","Ветрено"
+"Weather","","","HUDText","Freezing","PSG_10006637","","","","","","","Glacial","Gelo","Gefrierend","Frío extremo","Congelante","Vorst","Dermesztően hideg","Mroźnie","Холодно"
+"Weather","","","HUDText","Low","PSG_10006638","","","","","","","Faible","Bassa","Niedrig","Baja","Baixa","Laag","Alacsony","Niska","Низкая"
+"Weather","","","HUDText","Average","PSG_10006639","","","","","","","Moyen","Normale","Durchschnittl.","Media","Médio","Gemiddeld","Átlagos","Średnia","Умеренная"
+"Weather","","","HUDText","Warm","PSG_10006640","","","","","","","Chaud","Tiepido","Warm","Agradable","Quente","Warm","Meleg","Ciepła","Тепло"
+"Weather","","","HUDText","Hot","PSG_10006641","","","","","","","Très chaud","Caldo","Heiß","Cálida","Bem quente","Heet","Forró","Gorąca","Жарко"
+"Units","","","HUDText","Kilograms (KG)","PSG_10007562","","","","","","","Kilogrammes (kg)","Chilogrammi (kg)","Kilogramm (kg)","Kilogramos (kg)","Quilogramas (kg)","Kilogram (KG)","Kilogramm (kg)","Kilogramy (kg)","Килограммы (кг)"
+"Units","","","HUDText","Pounds (lbs)","PSG_10007563","","","","","","","Livre (lb)","Libbre (lb)","Pfund (lb)","Libras (lbs)","Libras (lbs)","Pond (lbs)","Font (lbs)","Funty (lbs)","Фунты (фнт.)"
+"Units","","","HUDText","Stones and Pounds","PSG_10007564","","","","","","","Stones et livres","Stone e libbre","Stone und Pfund","Piedras y libras","Stones e libras","Stones en pounds","Kő és font","Kamienie i funty","Стоуны и фунты"
+"Units","","","HUDText","Celsius","PSG_10007565","","","","","","","Celsius","Celsius","Celsius","Celsius","Celsius","Celsius","Celsius","Celsjusza","Цельсий"
+"Units","","","HUDText","Fahrenheit","PSG_10007566","","","","","","","Fahrenheit","Fahrenheit","Fahrenheit","Fahrenheit","Fahrenheit","Fahrenheit","Fahrenheit","Fahrenheita","Фаренгейт"
+"Units","","","HUDText","MPH","PSG_10007567","","","","","","","mph","mph","mph","mi/h","m/h","MPU","m/h","MPH","МИЛЬ/Ч"
+"Units","","","HUDText","KPH","PSG_10007568","","","","","","","km/h","km/h","km/h","km/h","km/h","KM/U","km/h","km/h","КМ/Ч"
+"Units","","","HUDText","Feet and Inches","PSG_10007569","","","","","","","Pieds et pouces","Piedi e pollici","Fuß und Zoll","Pies y pulgadas","Pés e polegadas","Feet en inches","Láb és hüvelyk","Stopy i cale","Футы и дюймы"
+"Units","","","HUDText","Centimetres","PSG_10007570","","","","","","","Centimètres","Centimetri","Zentimeter","Centímetros","Centímetros","Centimeter","Centiméter","Centymetry","Сантиметры"
+"Units","","","HUDText","Metres","PSG_10007571","","","","","","","Mètres","Metri","Meter","Metros","Metros","Meter","Méter","Metry","Метры"
+"Units","","","HUDText","DD/MM/YYYY","PSG_10007572","","","","","","","JJ/MM/AAAA","GG/MM/AAAA","TT/MM/JJJJ","DD/MM/AAAA","DD/MM/AAAA","DD/MM/JJJJ","NN/HH/ÉÉÉÉ","DD/MM/RRRR","ДД/ММ/ГГГГ"
+"Units","","","HUDText","MM/DD/YYYY","PSG_10007573","","","","","","","MM/JJ/AAAA","MM/GG/AAAA","MM/TT/JJJJ","MM/DD/AAAA","MM/DD/AAAA","MM/DD/JJJJ","HH/NN/ÉÉÉÉ","MM/DD/RRRR","ММ/ДД/ГГГГ"
+"Units","","","HUDText","Minus symbol: -£107,000","PSG_10007574","","","","","","","Signe moins : - 107 000 €","Simbolo meno: -107,000€","Minuszeichen: - 107.000€","Símbolo ""-"": -107 000€","Símbolo negativo: -£107.000","Minsymbool: -€107.000","Mínusz jel: -107,000 font","Minus: -107,000 £","Символ ""минус"": -£107,000"
+"Units","","","HUDText","Brackets: (£107,000)","PSG_10007575","","","","","","","Parenthèses : (107 000 €)","Parentesi: (107,000€)","Klammern: (107.000€)","Paréntesis: (107 000€)","Parênteses: (£107.000)","Haakjes: (€107.000)","Zárójelek: (107,000 font)","Nawias: (107,000) £","Скобки: (£107,000)"
+"Units","","","HUDText","British Pounds (GBP)","PSG_10007576","","","","","","","Livres Sterling (GBP)","Sterline (GBP)","Britisches Pfund (GBP)","Libras esterlinas (GBP)","Libras esterlinas (GBP)","Britse ponden (GBP)","Angol font (GBP)","Funty brytyjskie (GBP)","Британские фунты (GBP)"
+"Units","","","HUDText","Euros (EUR)","PSG_10007577","","","","","","","Euros (EUR)","Euro (EUR)","Euro (EUR)","Euros (EUR)","Euros (EUR)","Euro (EUR)","Euró (EUR)","Euro (EUR)","Евро (EUR)"
+"Units","","","HUDText","American Dollars (USD)","PSG_10007578","","","","","","","Dollars américains (USD)","Dollari americani (USD)","US-Dollar (USD)","Dólares americanos (USD)","Dólares americanos (USD)","Amerikaanse dollars (USD)","Amerikai dollár (USD)","Dolary amerykańskie (USD)","Доллары США (USD)"
+"{TheChampionshipUpperCase}","","","HUDText","The World Motorsport Championship","PSG_10008536","","","","","","","Le Championnat Mondial de Sport Automobile","Campionato Mondiale di Automobilismo","Der World Motorsport Championship","Campeonato Mundial de Automovilismo","Campeonato Mundial de Automobilismo","Het World Motorsport Championship","A Motorsport Világbajnokság","Światowe Mistrzostwa Sportu Motorowego","Чемпионат мира по автоспорту"
+"{TheChampionshipUpperCase}","","","HUDText","The Asia-Pacific Supercup","PSG_10008537","","","","","","","La Supercoupe d'Asie Pacifique","Supercoppa Asia-Pacifico","Im Asia-Pacific Supercup","Supercopa de Asia Pacífico","Supercopa Ásia-Pacífico","De Asia-Pacific Supercup","Az Ázsiai-Csendes-óceáni Szuperkupa","Superturniej Azji i Oceanii","Азиатско-Тихоокеанский суперкубок"
+"{TheChampionshipUpperCase}","","","HUDText","The European Racing Series","PSG_10008538","","","","","","","Le Championnat Européen de Courses Automobiles","Campionato Europeo di Automobilismo","Der European Racing Series","Campeonato Europeo de Automovilismo","Série de Corridas Europeia","De European Racing Series","Az Európai Versenysorozat","Europejska Seria Wyścigów","Европейская гоночная лига"
+"{TheChampionshipUpperCase}","","","HUDText","The International GT Championship","PSG_10011811","","","","","","","Le Championnat International GT","Campionato internazionale GT","Der International GT Championship","El Campeonato Internacional de GT","Campeonato Internacional de GT","Het International GT Championship","A Nemzetközi Túraautó Bajnokság","Międzynarodowe Mistrzostwa GT","Международный чемпионат по гран-туризмо"
+"{TheChampionshipUpperCase}","","","HUDText","The GT Challenger Series","PSG_10011812","","","","","","","La Série GT Challenger","Campionato Challenger GT","Der GT Challenger Series","El Campeonato Challenger","Série de Desafiantes de GT","De GT Challenger Series","A Túraautó Challenger Sorozat","Seria Pretendentów GT","Серия претендентов ГТ"
+"{TheChampionship}","","","HUDText","the World Motorsport Championship","PSG_10008539","","","","","","","le Championnat Mondial de Sport Automobile","Campionato Mondiale di Automobilismo","der World Motorsport Championship","Campeonato Mundial de Automovilismo","Campeonato Mundial de Automobilismo","het World Motorsport Championship","a Motorsport Világbajnokság","Światowe Mistrzostwa Sportu Motorowego","Чемпионат мира по автоспорту"
+"{TheChampionship}","","","HUDText","the Asia-Pacific Supercup","PSG_10008540","","","","","","","la Supercoupe d'Asie Pacifique","Supercoppa Asia-Pacifico","im Asia-Pacific Supercup","Supercopa de Asia Pacífico","Supercopa Ásia-Pacífico","de Asia-Pacific Supercup","az Ázsiai-Csendes-óceáni Szuperkupa","Superturniej Azji i Oceanii","Азиатско-Тихоокеанский суперкубок"
+"{TheChampionship}","","","HUDText","the European Racing Series","PSG_10008541","","","","","","","le Championnat Européen de Courses Automobiles","Campionato Europeo di Automobilismo","der European Racing Series","Campeonato Europeo de Automovilismo","Série de Corridas Europeia","de European Racing Series","az Európai Versenysorozat","Europejska Seria Wyścigów","Европейская гоночная лига"
+"{TheChampionship}","","","HUDText","the International GT Championship","PSG_10011809","","","","","","","le Championnat International GT","Campionato internazionale GT","der International GT Championship","el Campeonato Internacional de GT","Campeonato Internacional de GT","het International GT Championship","a Nemzetközi Túraautó Bajnokság","Międzynarodowe Mistrzostwa GT","Международный чемпионат по гран-туризмо"
+"{TheChampionship}","","","HUDText","the GT Challenger Series","PSG_10011810","","","","","","","la Série GT Challenger","Campionato Challenger GT","der GT Challenger Series","el Campeonato Challenger","Série de Desafiantes de GT","de GT Challenger Series","a Túraautó Challenger Sorozat","Seria Pretendentów GT","Серия претендентов ГТ"
+"End of Database","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","",""

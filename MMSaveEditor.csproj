@@ -422,8 +422,12 @@
     <Compile Include="Model\LapDetailsData.cs" />
     <Compile Include="Model\LiveryData.cs" />
     <Compile Include="Model\LiveryManager.cs" />
+    <Compile Include="Model\Localisation.cs" />
+    <Compile Include="Model\LocalisationEntry.cs" />
+    <Compile Include="Model\LocalisationGroup.cs" />
     <Compile Include="Model\LocalisationGroupManager.cs" />
     <Compile Include="Model\LocalisationIDAttribute.cs" />
+    <Compile Include="Model\LocalisationReader.cs" />
     <Compile Include="Model\MailScreenCommand.cs" />
     <Compile Include="Model\Map.cs" />
     <Compile Include="Model\Mechanic.cs" />
@@ -914,6 +918,20 @@
     <None Include="FullSerializer\Reflection\fsMetaType.cs.meta" />
     <None Include="FullSerializer\Reflection\fsReflectionUtility.cs.meta" />
     <None Include="FullSerializer\Reflection\fsTypeCache.cs.meta" />
+    <Resource Include="Assets\Dilemmas.txt" />
+    <Resource Include="Assets\Challenges.txt" />
+    <Resource Include="Assets\Frontend.txt" />
+    <Resource Include="Assets\Interviews.txt" />
+    <Resource Include="Assets\MediaReports.txt" />
+    <Resource Include="Assets\Messages.txt" />
+    <Resource Include="Assets\Nationalities.txt" />
+    <Resource Include="Assets\PreRaceTalk.txt" />
+    <Resource Include="Assets\RaceEvent.txt" />
+    <Resource Include="Assets\Shared.txt" />
+    <Resource Include="Assets\Simulation.txt" />
+    <Resource Include="Assets\TeamRadio.txt" />
+    <Resource Include="Assets\Tutorials.txt" />
+    <Resource Include="Assets\Tweets.txt" />
     <Content Include="NBug.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

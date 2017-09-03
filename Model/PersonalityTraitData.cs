@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using FullSerializer;
+﻿using FullSerializer;
+using System.Collections.Generic;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class PersonalityTraitData
@@ -47,7 +47,7 @@ public class PersonalityTraitData
     {
         get
         {
-            return this.mCustomTraitName;
+            return Localisation.LocaliseID(this.mCustomTraitName);
         }
         set
         {
@@ -59,7 +59,7 @@ public class PersonalityTraitData
     {
         get
         {
-            return this.mCustomTraitDescription;
+            return Localisation.LocaliseID(this.mCustomTraitDescription);
         }
         set
         {
@@ -71,7 +71,7 @@ public class PersonalityTraitData
     {
         get
         {
-            return nameID;
+            return Localisation.LocaliseID(nameID);
         }
 
         set
@@ -84,7 +84,7 @@ public class PersonalityTraitData
     {
         get
         {
-            return descriptionID;
+            return Localisation.LocaliseID(descriptionID);
         }
 
         set
