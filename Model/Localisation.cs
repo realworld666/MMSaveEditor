@@ -53,6 +53,9 @@ public class Localisation
 
     private static string GetText(string inID, string inLanguage)
     {
+        if (inLanguage == null)
+            inLanguage = "English";
+
         using (GameUtility.StringBuilderWrapper builderSafe = GameUtility.GlobalStringBuilderPool.GetBuilderSafe())
         {
             StringBuilder stringBuilder = builderSafe.stringBuilder;

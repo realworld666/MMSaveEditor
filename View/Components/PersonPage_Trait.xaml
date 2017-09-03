@@ -8,15 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="300">
     <StackPanel>
-        <!--<DataGrid ItemsSource="{Binding Mode=OneWay}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding TraitStartDate}" ClipboardContentBinding="{x:Null}" Header="Start Date"/>
-                <DataGridTextColumn Binding="{Binding TraitEndTime}" ClipboardContentBinding="{x:Null}" Header="End Date"/>
-                <DataGridTextColumn Binding="{Binding TraitName, Mode=OneWay}" ClipboardContentBinding="{x:Null}" Header="Trait Name"/>
-            </DataGrid.Columns>
-
-
-        </DataGrid>-->
         <xcdg:DataGridControl x:Name="traitList" AutoCreateColumns="False" ItemsSource="{Binding}" IsDeleteCommandEnabled="True">
             <xcdg:DataGridControl.Columns>
                 <xcdg:Column FieldName="TraitStartDate" Title="Start Date" IsMainColumn="True"/>

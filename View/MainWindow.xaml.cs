@@ -109,6 +109,8 @@ namespace MMSaveEditor.View
                     SetupViewModels();
                     tabControl.Visibility = Visibility.Visible;
                     noSaveLoaded.Visibility = Visibility.Hidden;
+
+                    NationalityManager.Instance.GetNationalitiesForContinent(Nationality.Continent.Europe);
                 }
             }
         }

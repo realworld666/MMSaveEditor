@@ -15,6 +15,7 @@
     x:Class="MMSaveEditor.View.TabPages.PersonPage"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1311">
     <UserControl.Resources>
+        <Utils:IsNullVisibilityConverter x:Key="IsNullVisibilityConverter"/>
         <Utils:IsTypeVisiblityConverter x:Key="IsTypeVisiblityConverter"/>
         <DataTemplate x:Key="PersonItem">
             <TextBlock Text="{Binding Name}"/>
@@ -32,7 +33,7 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer  Grid.Column="1" Grid.RowSpan="2">
+        <ScrollViewer x:Name="scrollViewer"  Grid.Column="1" Grid.RowSpan="2" Visibility="{Binding SelectedItem, Converter={StaticResource IsNullVisibilityConverter}, ElementName=personList}">
             <StackPanel>
                 <GroupBox x:Name="Person" Header="Person">
                     <local:PersonPage_Person/>

@@ -35,9 +35,11 @@ namespace MMSaveEditor.ViewModel
             People = new ObservableCollection<T>(list);
         }
 
-        public void SetModel(T pPersonData)
+        public virtual void SetModel(T pPersonData)
         {
             PersonData = pPersonData;
+            _continent = PersonData.nationality.continent;
+
             RaisePropertyChanged(string.Empty);
         }
 
@@ -162,6 +164,45 @@ namespace MMSaveEditor.ViewModel
         public virtual List<Person> GetPeopleFromTeam(Team t)
         {
             return null;
+        }
+
+        private Nationality.Continent _continent;
+        public Nationality.Continent Continent
+        {
+            get
+            {
+                return _continent;
+            }
+            set
+            {
+                _continent = value;
+                RaisePropertyChanged("Nationality");
+                RaisePropertyChanged("PossibleNationalities");
+            }
+        }
+
+        public IEnumerable<Nationality.Continent> ContinentTypes => Enum.GetValues(typeof(Nationality.Continent)).Cast<Nationality.Continent>();
+
+        public Nationality Nationality
+        {
+            get
+            {
+                return PersonData != null ? PossibleNationalities.FirstOrDefault(n => n.countryKey.Equals(PersonData.nationality.countryKey)) : null;
+            }
+            set
+            {
+                PersonData.nationality = value;
+                //RaisePropertyChanged(string.Empty);
+                _continent = value.continent;
+            }
+        }
+
+        public List<Nationality> PossibleNationalities
+        {
+            get
+            {
+                return NationalityManager.Instance.GetNationalitiesForContinent(_continent);
+            }
         }
     }
 }

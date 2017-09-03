@@ -49,4 +49,22 @@ namespace MMSaveEditor.Utils
             throw new NotImplementedException();
         }
     }
+
+    public class IsNullVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (ViewModelBase.IsInDesignModeStatic)
+                return Visibility.Visible;
+
+            return value != null ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
 }
