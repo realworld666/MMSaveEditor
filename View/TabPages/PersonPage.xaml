@@ -24,11 +24,15 @@
         <Binding Mode="OneWay" Path="TeamPrinciple" Source="{StaticResource Locator}"/>
     </UserControl.DataContext>-->
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer  Grid.Column="1">
+        <ScrollViewer  Grid.Column="1" Grid.RowSpan="2">
             <StackPanel>
                 <GroupBox x:Name="Person" Header="Person">
                     <local:PersonPage_Person/>
@@ -61,6 +65,10 @@
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>
-        <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" SelectedItem="{Binding PersonData}" />
+        <ListBox Grid.Column="0" x:Name="personList" ItemsSource="{Binding People}" ItemTemplate="{DynamicResource PersonItem}" SelectionChanged="OnChildListBoxSelectionChanged" SelectedItem="{Binding PersonData}"
+                 Grid.Row="1" Grid.RowSpan="1" />
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Button x:Name="sortNames" Content="Sort" Click="sortNames_Click" Height="30"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>

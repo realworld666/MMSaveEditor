@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Controls;
 
 namespace MMSaveEditor.View.TabPages
@@ -27,5 +29,12 @@ namespace MMSaveEditor.View.TabPages
             }
         }
 
+        bool sortAsc = false;
+        private void sortNames_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            personList.Items.SortDescriptions.Clear();
+            personList.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("lastName", sortAsc ? ListSortDirection.Descending : ListSortDirection.Ascending));
+            sortAsc = !sortAsc;
+        }
     }
 }

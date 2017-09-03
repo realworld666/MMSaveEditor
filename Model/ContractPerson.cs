@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Windows;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ContractPerson : Contract
@@ -199,6 +200,12 @@ public class ContractPerson : Contract
         EmployeeSlot oldSlot = oldTeam.contractManager.GetSlotForPerson(inNewPersonToHire);
         EmployeeSlot newSlot = replacingTeam.contractManager.GetSlotForPerson(replacing);
 
+        if (oldSlot == null || newSlot == null)
+        {
+            MessageBoxResult result = MessageBox.Show("Currently you can only swap drivers that both have a team.", "Work in Progress", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
         if (!inNewPersonToHire.IsFreeAgent())
         {
             flag = oldTeam.IsPlayersTeam();
@@ -249,15 +256,15 @@ public class ContractPerson : Contract
             replacing.Contract.SetPerson(replacing);
             replacing.Contract.SetContractState(Contract.ContractStatus.OnGoing);
             oldTeam.contractManager.AddSignedContract(inNewPersonToHire.Contract);
-            if (replacing is Mechanic)
+            Mechanic mechanic = replacing as Mechanic;
+            if (mechanic != null)
             {
-                (replacing as Mechanic).SetDriverRelationship(0.0f, 0);
+                mechanic.SetDriverRelationship(0.0f, 0);
                 newTeam.carManager.partImprovement.AssignChiefMechanics();
             }
             if (replacing is TeamPrincipal)
                 replacing.Contract.GetTeam().chairman.ResetHappiness();
-            if (replacing is Chairman)
-                (replacing as Chairman).ResetHappiness();
+            (replacing as Chairman)?.ResetHappiness();
         }
 
         if (inNewPersonToHire is Driver)
@@ -274,7 +281,9 @@ public class ContractPerson : Contract
                 driverManager.AddDriverToChampionship(newDriver);
                 newTeam.SelectMainDriversForSession();
                 newTeam.championship.standings.UpdateStandings();
-                newTeam.GetMechanicOfDriver(newDriver).SetDriverRelationship(0.0f, 0);
+
+                Mechanic mechanicOfDriver = newTeam.GetMechanicOfDriver(newDriver);
+                mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
             }
             if (newTeam.IsPlayersTeam())
             {
@@ -298,7 +307,8 @@ public class ContractPerson : Contract
                 driverManager.AddDriverToChampionship(oldDriver);
                 oldTeam.SelectMainDriversForSession();
                 oldTeam.championship.standings.UpdateStandings();
-                oldTeam.GetMechanicOfDriver(oldDriver).SetDriverRelationship(0.0f, 0);
+                Mechanic mechanicOfDriver = oldTeam.GetMechanicOfDriver(oldDriver);
+                mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
             }
             if (oldTeam.IsPlayersTeam())
             {

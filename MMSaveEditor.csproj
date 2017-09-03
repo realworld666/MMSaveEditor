@@ -262,6 +262,7 @@
     <Compile Include="Model\ChairmanManager.cs" />
     <Compile Include="Model\ChairmanUltimatum.cs" />
     <Compile Include="Model\Challenge.cs" />
+    <Compile Include="Model\ChallengeDilemmaEventEffect.cs" />
     <Compile Include="Model\ChallengeDuration.cs" />
     <Compile Include="Model\ChallengeDurationEndRace.cs" />
     <Compile Include="Model\ChallengeDurationEndSeason.cs" />

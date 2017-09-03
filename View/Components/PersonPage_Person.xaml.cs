@@ -17,6 +17,11 @@ namespace MMSaveEditor.View.Components
 
         private void transferButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            Type contextType = DataContext.GetType();
+            PropertyInfo teamName = contextType.GetProperty("TeamName", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            if (teamName != null && (teamName.GetValue(DataContext) == null || (string)teamName.GetValue(DataContext) == ""))
+                return;
+
             if (!(this.DataContext is TeamPrincipalViewModel) && !(this.DataContext is PlayerViewModel))
             {
                 TransferPerson dialog = new TransferPerson(this.DataContext);
@@ -24,7 +29,6 @@ namespace MMSaveEditor.View.Components
             }
             else
             {
-                Type contextType = DataContext.GetType();
                 MethodInfo theMethod = contextType.GetMethod("_viewTeam", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
                 theMethod.Invoke(DataContext, null);
             }
