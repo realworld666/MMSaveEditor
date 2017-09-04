@@ -187,6 +187,16 @@ namespace MMSaveEditor.View
                 MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the mechanic view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            try
+            {
+                var chairmanVM = SimpleIoc.Default.GetInstance<ChairmanViewModel>();
+                chairmanVM.SetList(Game.instance.chairmanManager.GetEntityList());
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the chairman view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -422,6 +432,12 @@ namespace MMSaveEditor.View
         {
             var vm = SimpleIoc.Default.GetInstance<MechanicViewModel>();
             vm.SetModel(e as Mechanic);
+        }
+
+        private void ChairmanPage_OnListBoxUpdated(object sender, Person e)
+        {
+            var vm = SimpleIoc.Default.GetInstance<ChairmanViewModel>();
+            vm.SetModel(e as Chairman);
         }
 
         private void Hyperlink_RequestNavigate(object sender,

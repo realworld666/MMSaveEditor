@@ -56,6 +56,9 @@
             <TabItem x:Name="PrincipalTabItem" Header="Team Principals" >
                 <tabPages:PersonPage ListBoxUpdated="TeamPrinciplePage_OnListBoxUpdated" DataContext="{Binding TeamPrincipal, Mode=OneWay}"/>
             </TabItem>
+            <TabItem x:Name="ChairmanTabItem" Header="Chairmen" >
+                <tabPages:PersonPage ListBoxUpdated="ChairmanPage_OnListBoxUpdated" DataContext="{Binding Chairman, Mode=OneWay}"/>
+            </TabItem>
             <TabItem x:Name="EngineerTabItem" Header="Engineers" >
                 <tabPages:PersonPage ListBoxUpdated="EngineerPage_OnListBoxUpdated" DataContext="{Binding Engineer, Mode=OneWay}"/>
             </TabItem>

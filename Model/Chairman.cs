@@ -70,6 +70,36 @@ public class Chairman : Person
         Declined,
     }
 
+    public int UltimatumsGeneratedThisSeason
+    {
+        get { return ultimatumsGeneratedThisSeason; }
+        set { ultimatumsGeneratedThisSeason = value; }
+    }
+
+    public int CostFocus
+    {
+        get { return costFocus; }
+        set { costFocus = value; }
+    }
+
+    public int Patience
+    {
+        get { return patience; }
+        set { patience = value; }
+    }
+
+    public int PlayerChosenExpectedTeamChampionshipPosition
+    {
+        get { return playerChosenExpectedTeamChampionshipPosition; }
+        set { playerChosenExpectedTeamChampionshipPosition = value; }
+    }
+
+    public float Happiness
+    {
+        get { return mHappiness; }
+        set { mHappiness = value; }
+    }
+
     public void ResetHappiness()
     {
         this.mHappiness = Chairman.happinessResetValue;

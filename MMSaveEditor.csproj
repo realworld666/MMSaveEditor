@@ -711,6 +711,7 @@
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\ScrollIntoView.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
+    <Compile Include="ViewModel\ChairmanViewModel.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\EngineerViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
@@ -732,6 +733,9 @@
     </Compile>
     <Compile Include="View\Components\PersonPage_EngineerStats.xaml.cs">
       <DependentUpon>PersonPage_EngineerStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\PersonPage_ChairmanStats.xaml.cs">
+      <DependentUpon>PersonPage_ChairmanStats.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ReportGameCrashDialog.xaml.cs">
       <DependentUpon>ReportGameCrashDialog.xaml</DependentUpon>
@@ -779,6 +783,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Components\PersonPage_EngineerStats.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Components\PersonPage_ChairmanStats.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -942,7 +950,7 @@
     <Resource Include="Assets\Flags\Angola.png" />
     <Resource Include="Assets\Flags\Anguilla.png" />
     <Resource Include="Assets\Flags\Antarctica.png" />
-    <Resource Include="Assets\Flags\Antigua and Barbuda.png" />
+    <Resource Include="Assets\Flags\Antigua &amp; Barbuda.png" />
     <Resource Include="Assets\Flags\Arab League.png" />
     <Resource Include="Assets\Flags\Argentina.png" />
     <Resource Include="Assets\Flags\Armenia.png" />
@@ -962,14 +970,14 @@
     <Resource Include="Assets\Flags\Bermuda.png" />
     <Resource Include="Assets\Flags\Bhutan.png" />
     <Resource Include="Assets\Flags\Bolivia.png" />
-    <Resource Include="Assets\Flags\Bosnia and Herzegovina.png" />
+    <Resource Include="Assets\Flags\Bosnia &amp; Herzegovina.png" />
     <Resource Include="Assets\Flags\Botswana.png" />
     <Resource Include="Assets\Flags\Brazil.png" />
     <Resource Include="Assets\Flags\Brunei.png" />
     <Resource Include="Assets\Flags\Bulgaria.png" />
-    <Resource Include="Assets\Flags\Burkina.png" />
+    <Resource Include="Assets\Flags\Burkina Faso.png" />
     <Resource Include="Assets\Flags\Burundi.png" />
-    <Resource Include="Assets\Flags\Cambodia.png" />
+    <Resource Include="Assets\Flags\Cambodja.png" />
     <Resource Include="Assets\Flags\Cameroon.png" />
     <Resource Include="Assets\Flags\Canada.png" />
     <Resource Include="Assets\Flags\Cape Verde.png" />
@@ -983,11 +991,11 @@
     <Resource Include="Assets\Flags\Colombia.png" />
     <Resource Include="Assets\Flags\Commonwealth.png" />
     <Resource Include="Assets\Flags\Comoros.png" />
-    <Resource Include="Assets\Flags\Congo.png" />
-    <Resource Include="Assets\Flags\Congo, Democratic Republic of.png" />
+    <Resource Include="Assets\Flags\Congo-Brazzaville.png" />
+    <Resource Include="Assets\Flags\Congo-Kinshasa%28Zaire%29.png" />
     <Resource Include="Assets\Flags\Cook Islands.png" />
     <Resource Include="Assets\Flags\Costa Rica.png" />
-    <Resource Include="Assets\Flags\Ivory Coast.png" />
+    <Resource Include="Assets\Flags\Cote d%27Ivoire.png" />
     <Resource Include="Assets\Flags\Croatia.png" />
     <Resource Include="Assets\Flags\Cuba.png" />
     <Resource Include="Assets\Flags\Cyprus.png" />
@@ -1031,7 +1039,7 @@
     <Resource Include="Assets\Flags\Hungary.png" />
     <Resource Include="Assets\Flags\Iceland.png" />
     <Resource Include="Assets\Flags\India.png" />
-    <Resource Include="Assets\Flags\Indonesia.png" />
+    <Resource Include="Assets\Flags\Indonezia.png" />
     <Resource Include="Assets\Flags\Iran.png" />
     <Resource Include="Assets\Flags\Iraq.png" />
     <Resource Include="Assets\Flags\Ireland.png" />
@@ -1079,7 +1087,7 @@
     <Resource Include="Assets\Flags\Montserrat.png" />
     <Resource Include="Assets\Flags\Morocco.png" />
     <Resource Include="Assets\Flags\Mozambique.png" />
-    <Resource Include="Assets\Flags\Burma.png" />
+    <Resource Include="Assets\Flags\Myanmar.png" />
     <Resource Include="Assets\Flags\Namibia.png" />
     <Resource Include="Assets\Flags\NATO.png" />
     <Resource Include="Assets\Flags\Nauru.png" />
@@ -1118,7 +1126,7 @@
     <Resource Include="Assets\Flags\Saint Lucia.png" />
     <Resource Include="Assets\Flags\Samoa.png" />
     <Resource Include="Assets\Flags\San Marino.png" />
-    <Resource Include="Assets\Flags\Sao Tome and Principe.png" />
+    <Resource Include="Assets\Flags\Sao Tome &amp; Principe.png" />
     <Resource Include="Assets\Flags\Saudi Arabia.png" />
     <Resource Include="Assets\Flags\Scotland.png" />
     <Resource Include="Assets\Flags\Senegal.png" />
@@ -1135,9 +1143,9 @@
     <Resource Include="Assets\Flags\South Korea.png" />
     <Resource Include="Assets\Flags\Spain.png" />
     <Resource Include="Assets\Flags\Sri Lanka.png" />
-    <Resource Include="Assets\Flags\Saint Kitts and Nevis.png" />
-    <Resource Include="Assets\Flags\Saint Vincent and the Grenadines.png" />
-    <Resource Include="Assets\Flags\South Sudan.png" />
+    <Resource Include="Assets\Flags\St Kitts &amp; Nevis.png" />
+    <Resource Include="Assets\Flags\St Vincent &amp; the Grenadines.png" />
+    <Resource Include="Assets\Flags\Sudan.png" />
     <Resource Include="Assets\Flags\Suriname.png" />
     <Resource Include="Assets\Flags\Swaziland.png" />
     <Resource Include="Assets\Flags\Sweden.png" />
@@ -1148,10 +1156,10 @@
     <Resource Include="Assets\Flags\Tajikistan.png" />
     <Resource Include="Assets\Flags\Tanzania.png" />
     <Resource Include="Assets\Flags\Thailand.png" />
-    <Resource Include="Assets\Flags\East Timor.png" />
+    <Resource Include="Assets\Flags\Timor-Leste.png" />
     <Resource Include="Assets\Flags\Togo.png" />
     <Resource Include="Assets\Flags\Tonga.png" />
-    <Resource Include="Assets\Flags\Trinidad and Tobago.png" />
+    <Resource Include="Assets\Flags\Trinidad &amp; Tobago.png" />
     <Resource Include="Assets\Flags\Tunisia.png" />
     <Resource Include="Assets\Flags\Turkey.png" />
     <Resource Include="Assets\Flags\Turkmenistan.png" />
@@ -1162,13 +1170,13 @@
     <Resource Include="Assets\Flags\United Arab Emirates.png" />
     <Resource Include="Assets\Flags\United Kingdom.png" />
     <Resource Include="Assets\Flags\United Nations.png" />
-    <Resource Include="Assets\Flags\United States.png" />
+    <Resource Include="Assets\Flags\United States of America.png" />
     <Resource Include="Assets\Flags\Uruguay.png" />
     <Resource Include="Assets\Flags\Uzbekistan.png" />
-    <Resource Include="Assets\Flags\Vanuatu.png" />
+    <Resource Include="Assets\Flags\Vanutau.png" />
     <Resource Include="Assets\Flags\Vatican City.png" />
     <Resource Include="Assets\Flags\Venezuela.png" />
-    <Resource Include="Assets\Flags\Vietnam.png" />
+    <Resource Include="Assets\Flags\Viet Nam.png" />
     <Resource Include="Assets\Flags\Virgin Islands British.png" />
     <Resource Include="Assets\Flags\Virgin Islands US.png" />
     <Resource Include="Assets\Flags\Wales.png" />
@@ -1176,10 +1184,6 @@
     <Resource Include="Assets\Flags\Yemen.png" />
     <Resource Include="Assets\Flags\Zambia.png" />
     <Resource Include="Assets\Flags\Zimbabwe.png" />
-    <Resource Include="Assets\Flags\French Guiana.png" />
-    <Resource Include="Assets\Flags\Northern Mariana.png" />
-    <Resource Include="Assets\Flags\Sudan.png" />
-    <Resource Include="Assets\Flags\Wallis and Futuna.png" />
     <Content Include="NBug.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

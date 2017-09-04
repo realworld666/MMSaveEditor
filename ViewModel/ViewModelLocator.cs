@@ -116,6 +116,14 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
+        public ChairmanViewModel Chairman
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ChairmanViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

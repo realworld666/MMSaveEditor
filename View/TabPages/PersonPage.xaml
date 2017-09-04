@@ -41,6 +41,9 @@
                 <GroupBox x:Name="TeamPrincipal" Header="Team Principal" Visibility="{Binding ConverterParameter=TeamPrincipalViewModel\,PlayerViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_TPStats/>
                 </GroupBox>
+                <GroupBox x:Name="Chairman" Header="Chairman" Visibility="{Binding ConverterParameter=ChairmanViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
+                    <local:PersonPage_ChairmanStats/>
+                </GroupBox>
                 <GroupBox x:Name="Driver" Header="Driver" Visibility="{Binding ConverterParameter=DriverViewModel, Converter={StaticResource IsTypeVisiblityConverter}, Mode=OneWay}" >
                     <local:PersonPage_DriverStats>
                         <i:Interaction.Triggers>
