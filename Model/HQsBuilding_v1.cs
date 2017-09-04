@@ -68,4 +68,22 @@ public class HQsBuilding_v1 : Entity
         BurnedDown,
         Count,
     }
+
+    public HQsBuildingInfo Info
+    {
+        get { return info; }
+        set { info = value; }
+    }
+
+    public int CurrentLevel
+    {
+        get { return currentLevel; }
+        set { currentLevel = value; }
+    }
+
+    public int StaffNumber
+    {
+        get { return mStaffNumber; }
+        set { mStaffNumber = value; }
+    }
 }

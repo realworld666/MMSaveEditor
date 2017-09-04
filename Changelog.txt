@@ -1,4 +1,9 @@
-﻿v0.8
+﻿v0.9
+- Added person nationalities
+- Added Chairman tab
+- More bug fixes
+
+v0.8
 - Support for swapping drivers, engineers and mechanics between teams
 - Added Help menu
 - + Added an option to submit a MM Game crash log to us for analysis if a modified save causes a crash

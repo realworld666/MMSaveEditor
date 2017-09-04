@@ -119,6 +119,19 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
+        public List<HQsBuilding_v1> HQBuildings
+        {
+            get
+            {
+                if (Game.instance != null && teamData != null)
+                {
+                    var hq = Game.instance.headquartersManager.headquarters.FirstOrDefault(h => h.Value.team.teamID == teamData.teamID);
+                    return hq.Value.hqBuildings;
+                }
+                return null;
+            }
+        }
+
         public void SetModel(Team targetTeam)
         {
             TeamData = targetTeam;

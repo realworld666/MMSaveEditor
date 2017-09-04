@@ -81,6 +81,9 @@
                     <ListView ItemsSource="{Binding Engineers}" ItemTemplate="{DynamicResource DriverButton}"  />
                 </GroupBox>
             </Grid>
+            <GroupBox Header="HQ">
+                <ListView ItemsSource="{Binding HQBuildings}" ItemTemplate="{DynamicResource HQGroup}"></ListView>
+            </GroupBox>
             <GroupBox Header="Car Inventory">
                 <StackPanel>
                     <Expander Header="Brakes">

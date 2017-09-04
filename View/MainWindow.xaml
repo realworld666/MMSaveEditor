@@ -46,6 +46,9 @@
                     </MenuItem>
                     <MenuItem x:Name="forum" Header="_Support Forum" Click="support_Click">
                     </MenuItem>
+					<MenuItem x:Name="donate" Header="_Donate" Click="donate_Click">
+                    </MenuItem>
+					
                 </MenuItem>
             </Menu>
         </DockPanel>

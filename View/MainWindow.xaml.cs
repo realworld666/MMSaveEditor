@@ -541,5 +541,12 @@ namespace MMSaveEditor.View
             System.Diagnostics.Process.Start("http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488/");
 
         }
+		
+		private void donate_Click(object sender, RoutedEventArgs e)
+        {
+            //System.Diagnostics.Process.Start("http://paypal.me/realworld666/5");
+
+        }
+		
     }
 }

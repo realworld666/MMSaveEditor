@@ -5,10 +5,17 @@
              StartupUri="View/MainWindow.xaml" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" 
-             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MMSaveEditor.ViewModel" />
+            <DataTemplate x:Key="HQGroup">
+                <Expander Header="{Binding Info.LocalisedName, Mode=OneWay}">
+                    <xctk:PropertyGrid SelectedObject="{Binding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+                </Expander>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

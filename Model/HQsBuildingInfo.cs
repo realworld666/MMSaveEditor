@@ -29,6 +29,13 @@ public class HQsBuildingInfo
     private string mCustomName = string.Empty;
     private string mCustomDescription = string.Empty;
 
+    public string LocalisedName
+    {
+        get
+        {
+            return name;
+        }
+    }
 
     public enum Type
     {

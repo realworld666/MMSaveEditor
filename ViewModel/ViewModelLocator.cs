@@ -50,6 +50,7 @@ namespace MMSaveEditor.ViewModel
             SimpleIoc.Default.Register<GameViewModel>();
             SimpleIoc.Default.Register<TeamViewModel>();
             SimpleIoc.Default.Register<MechanicViewModel>();
+            SimpleIoc.Default.Register<ChairmanViewModel>();
         }
 
         public MainViewModel Main

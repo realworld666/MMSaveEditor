@@ -10,23 +10,23 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Ultimatums Generated This Season"  Width="200"/>
-            <xctk:IntegerUpDown Width="200" Value="{Binding UltimatumsGeneratedThisSeason}" Increment="1" Minimum="0" Maximum="16"/>
+            <xctk:IntegerUpDown Width="200" Value="{Binding PersonData.UltimatumsGeneratedThisSeason}" Increment="1" Minimum="0" Maximum="16" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Cost Focus"  Width="200"/>
-            <xctk:IntegerUpDown Width="200"  Value="{Binding CostFocus}" Increment="1" Minimum="0" Maximum="20"/>
+            <xctk:IntegerUpDown Width="200"  Value="{Binding PersonData.CostFocus}" Increment="1" Minimum="0" Maximum="20"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Patience"  Width="200"/>
-            <xctk:IntegerUpDown Width="200" Value="{Binding Patience}" Increment="1" Minimum="0" Maximum="20"/>
+            <xctk:IntegerUpDown Width="200" Value="{Binding PersonData.Patience}" Increment="1" Minimum="0" Maximum="20"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Player Chosen Expected Champ. Pos."  Width="200"/>
-            <xctk:IntegerUpDown Width="200" Value="{Binding PlayerChosenExpectedTeamChampionshipPosition}" Increment="1" Minimum="1" Maximum="20"/>
+            <xctk:IntegerUpDown Width="200" Value="{Binding PersonData.PlayerChosenExpectedTeamChampionshipPosition}" Increment="1" Minimum="1" Maximum="20"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Happiness"  Width="200"/>
-            <xctk:SingleUpDown Width="200" FormatString="F3" Value="{Binding Happiness}" Increment="1" Minimum="0" Maximum="100"/>
+            <xctk:SingleUpDown Width="200" FormatString="F3" Value="{Binding PersonData.Happiness}" Increment="1" Minimum="0" Maximum="100"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
