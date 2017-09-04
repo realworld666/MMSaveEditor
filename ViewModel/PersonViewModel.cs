@@ -38,9 +38,10 @@ namespace MMSaveEditor.ViewModel
         public virtual void SetModel(T pPersonData)
         {
             PersonData = pPersonData;
-            _continent = PersonData.nationality.continent;
+            Continent = PersonData.nationality.continent;
 
             RaisePropertyChanged(string.Empty);
+            RaisePropertyChanged("Nationality");
         }
 
         public string TeamName
@@ -167,6 +168,8 @@ namespace MMSaveEditor.ViewModel
         }
 
         private Nationality.Continent _continent;
+        private ObservableCollection<Nationality> _availableNationalities = new ObservableCollection<Nationality>();
+
         public Nationality.Continent Continent
         {
             get
@@ -176,8 +179,14 @@ namespace MMSaveEditor.ViewModel
             set
             {
                 _continent = value;
+                _availableNationalities.Clear();
+                List<Nationality> validNationalities = NationalityManager.Instance.GetNationalitiesForContinent(_continent);
+                foreach (Nationality n in validNationalities)
+                {
+                    _availableNationalities.Add(n);
+                }
+
                 RaisePropertyChanged("Nationality");
-                RaisePropertyChanged("PossibleNationalities");
             }
         }
 
@@ -187,21 +196,24 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return PersonData != null ? PossibleNationalities.FirstOrDefault(n => n.countryKey.Equals(PersonData.nationality.countryKey)) : null;
+                return PersonData != null ? _availableNationalities?.FirstOrDefault(n => n.countryKey.Equals(PersonData.nationality.countryKey)) : null;
             }
             set
             {
-                PersonData.nationality = value;
-                //RaisePropertyChanged(string.Empty);
-                _continent = value.continent;
+                if (value != null)
+                {
+                    PersonData.nationality = value;
+                    //RaisePropertyChanged(string.Empty);
+                    _continent = value.continent;
+                }
             }
         }
 
-        public List<Nationality> PossibleNationalities
+        public ObservableCollection<Nationality> PossibleNationalities
         {
             get
             {
-                return NationalityManager.Instance.GetNationalitiesForContinent(_continent);
+                return _availableNationalities;
             }
         }
     }

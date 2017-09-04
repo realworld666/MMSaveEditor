@@ -65,6 +65,16 @@ public class NationalityManager
             {
                 this.mNationalitiesDict[stringValue1].SetNationality(stringValue2);
             }
+
+            try
+            {
+                var uri = new Uri(string.Format("pack://application:,,,/Assets/Flags/{0}.png", this.mNationalitiesDict[stringValue1].localisedCountry));
+                System.Windows.Resources.StreamResourceInfo resourceStream = Application.GetResourceStream(uri);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Could not find flag " + this.mNationalitiesDict[stringValue1].localisedCountry + ".png");
+            }
         }
     }
 

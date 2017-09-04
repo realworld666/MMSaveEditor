@@ -71,7 +71,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Nationality" Width="200"/>
-            <ComboBox SelectedItem="{Binding Nationality}" ItemsSource="{Binding PossibleNationalities}" ItemTemplate="{DynamicResource NationalityEntry}"/>
+            <ComboBox x:Name="nationalityCombo" SelectedItem="{Binding Nationality}" ItemsSource="{Binding PossibleNationalities}" ItemTemplate="{DynamicResource NationalityEntry}"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
