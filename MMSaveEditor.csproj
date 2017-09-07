@@ -268,6 +268,7 @@
     <Compile Include="Model\ChallengeDurationEndSeason.cs" />
     <Compile Include="Model\ChallengeDurationInfinite.cs" />
     <Compile Include="Model\ChallengeGameData.cs" />
+    <Compile Include="Model\ChallengeMailEventEffect.cs" />
     <Compile Include="Model\ChallengeManager.cs" />
     <Compile Include="Model\ChallengeObjective.cs" />
     <Compile Include="Model\ChallengeObjectiveChampionshipPosition.cs" />
@@ -703,6 +704,7 @@
     <Compile Include="Model\VehicleManager.cs" />
     <Compile Include="Model\VersionNumber.cs" />
     <Compile Include="Model\VoteChoice.cs" />
+    <Compile Include="Model\VotesManager.cs" />
     <Compile Include="Model\Weather.cs" />
     <Compile Include="Model\WeatherImpact.cs" />
     <Compile Include="Model\WetTyreSet.cs" />
@@ -712,6 +714,7 @@
     <Compile Include="Utils\ScrollIntoView.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
     <Compile Include="ViewModel\ChairmanViewModel.cs" />
+    <Compile Include="ViewModel\ChampionshipViewModel.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\EngineerViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
@@ -740,6 +743,9 @@
     <Compile Include="View\Components\TeamPage_HQ.xaml.cs">
       <DependentUpon>TeamPage_HQ.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Donate.xaml.cs">
+      <DependentUpon>Donate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ReportGameCrashDialog.xaml.cs">
       <DependentUpon>ReportGameCrashDialog.xaml</DependentUpon>
     </Compile>
@@ -760,6 +766,9 @@
     </Compile>
     <Compile Include="View\Components\PersonPage_TPStats.xaml.cs">
       <DependentUpon>PersonPage_TPStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabPages\ChampionshipPage.xaml.cs">
+      <DependentUpon>ChampionshipPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabPages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
@@ -796,6 +805,10 @@
     <Page Include="View\Components\TeamPage_HQ.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Donate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -836,6 +849,10 @@
     <Page Include="View\Components\PersonPage_TPStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabPages\ChampionshipPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\TabPages\TeamPage.xaml">
       <SubType>Designer</SubType>
@@ -1195,6 +1212,7 @@
     <Resource Include="Assets\Flags\Vanuatu.png" />
     <Resource Include="Assets\Flags\Vietnam.png" />
     <Resource Include="Assets\Flags\Wallis and Futuna.png" />
+    <Resource Include="Assets\RuleChanges.txt" />
     <Content Include="NBug.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

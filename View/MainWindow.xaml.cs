@@ -197,6 +197,16 @@ namespace MMSaveEditor.View
                 MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the chairman view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            try
+            {
+                var championshipVM = SimpleIoc.Default.GetInstance<ChampionshipViewModel>();
+                championshipVM.SetModel(null);
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the championship view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -440,6 +450,12 @@ namespace MMSaveEditor.View
             vm.SetModel(e as Chairman);
         }
 
+        private void ChampionshipPage_OnListBoxUpdated(object sender, Championship e)
+        {
+            var vm = SimpleIoc.Default.GetInstance<ChampionshipViewModel>();
+            vm.SetModel(e as Championship);
+        }
+
         private void Hyperlink_RequestNavigate(object sender,
                                        RequestNavigateEventArgs e)
         {
@@ -541,12 +557,16 @@ namespace MMSaveEditor.View
             System.Diagnostics.Process.Start("http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488/");
 
         }
-		
-		private void donate_Click(object sender, RoutedEventArgs e)
-        {
-            //System.Diagnostics.Process.Start("http://paypal.me/realworld666/5");
 
+        private void donate_Click(object sender, RoutedEventArgs e)
+        {
+            Donate donateMenu = new Donate();
+            donateMenu.ShowDialog();
         }
-		
+
+        private void request_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://rwscripts.com/tracker/bug_report_page.php");
+        }
     }
 }

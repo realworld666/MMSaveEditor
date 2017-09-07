@@ -13,7 +13,20 @@
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MMSaveEditor.ViewModel" />
             <DataTemplate x:Key="HQGroup">
                 <Expander Header="{Binding Info.LocalisedName, Mode=OneWay}">
-                    <xctk:PropertyGrid SelectedObject="{Binding}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Current Level"  Width="200"/>
+                            <xctk:IntegerUpDown Width="200" Value="{Binding CurrentLevel}" Increment="1" Minimum="0" Maximum="{Binding MaxLevel}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Building State" Width="200"/>
+                            <ComboBox SelectedItem="{Binding BuildingState1}" ItemsSource="{Binding BuildingStateTypes}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Special State" Width="200"/>
+                            <ComboBox SelectedItem="{Binding SpecialState1}" ItemsSource="{Binding SpecialStateTypes}"/>
+                        </StackPanel>
+                    </StackPanel>
                 </Expander>
             </DataTemplate>
         </ResourceDictionary>

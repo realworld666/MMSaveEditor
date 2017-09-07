@@ -56,6 +56,24 @@ public class DatabaseEntry
         return (int)obj;
     }
 
+    public bool GetBoolValue(string inKey)
+    {
+        object obj;
+        if (!this.mData.TryGetValue(inKey, out obj))
+        {
+            Console.WriteLine("DatabaseEntry.GetBoolValue: Couldn't find value with key {0}. Defaulting to false.", (object)inKey);
+            return false;
+        }
+        bool result = false;
+        if (!bool.TryParse(obj as string, out result))
+            Console.WriteLine("DatabaseEntry.GetBoolValue: Couldn't parse value with key {0} and value {1}. Defaulting to false.", new object[2]
+            {
+        (object) inKey,
+        obj
+            });
+        return result;
+    }
+
     public float GetFloatValue(string inKey)
     {
         object obj;

@@ -1,5 +1,7 @@
 ﻿using System;
 using FullSerializer;
+using System.Collections.Generic;
+using System.Linq;
 
 [fsObject("v1", new System.Type[] { typeof(HQsBuilding) }, MemberSerialization = fsMemberSerialization.OptOut)]
 public class HQsBuilding_v1 : Entity
@@ -16,7 +18,7 @@ public class HQsBuilding_v1 : Entity
     private int mStaffNumber;
     private DateTime mDateProgressStarted;
     private DateTime mDateProgressEnd;
-    public HQsBuilding_v1.SpecialState specialState;
+    private HQsBuilding_v1.SpecialState specialState1;
 
     public HQsBuilding_v1()
     {
@@ -81,9 +83,51 @@ public class HQsBuilding_v1 : Entity
         set { currentLevel = value; }
     }
 
-    public int StaffNumber
+    public SpecialState SpecialState1
     {
-        get { return mStaffNumber; }
-        set { mStaffNumber = value; }
+        get
+        {
+            return specialState1;
+        }
+
+        set
+        {
+            specialState1 = value;
+        }
+    }
+    public List<SpecialState> SpecialStateTypes
+    {
+        get
+        {
+            return new List<SpecialState>(new[] { SpecialState.None, SpecialState.BurnedDown });
+        }
+    }
+
+    public HQsBuilding_v1.BuildingState BuildingState1
+    {
+        get
+        {
+            return state;
+        }
+
+        set
+        {
+            state = value;
+        }
+    }
+    public IEnumerable<HQsBuilding_v1.BuildingState> BuildingStateTypes
+    {
+        get
+        {
+            return Enum.GetValues(typeof(HQsBuilding_v1.BuildingState)).Cast<HQsBuilding_v1.BuildingState>();
+        }
+    }
+
+    public int MaxLevel
+    {
+        get
+        {
+            return info.maxLevel;
+        }
     }
 }

@@ -34,8 +34,8 @@ public class Championship : Entity
     public ChampionshipStandingsHistory standingsHistory = new ChampionshipStandingsHistory();
     public PreSeasonTesting preSeasonTesting;
     public PoliticalSystem politicalSystem = new PoliticalSystem();
-    public ChampionshipRules rules = new ChampionshipRules();
-    public ChampionshipRules nextYearsRules = new ChampionshipRules();
+    private ChampionshipRules rules = new ChampionshipRules();
+    private ChampionshipRules nextYearsRules = new ChampionshipRules();
     public int prizeFund;
     public int tvAudience;
     public int historySeed;
@@ -111,6 +111,45 @@ public class Championship : Entity
         get
         {
             return this.mEventNumber;
+        }
+    }
+
+    public ChampionshipRules Rules
+    {
+        get
+        {
+            return rules;
+        }
+
+        set
+        {
+            rules = value;
+        }
+    }
+
+    public ChampionshipRules NextYearsRules
+    {
+        get
+        {
+            return nextYearsRules;
+        }
+
+        set
+        {
+            nextYearsRules = value;
+        }
+    }
+
+    public string ChampionshipName
+    {
+        get
+        {
+            return mName;
+        }
+
+        set
+        {
+            mName = value;
         }
     }
 

@@ -51,6 +51,7 @@ namespace MMSaveEditor.ViewModel
             SimpleIoc.Default.Register<TeamViewModel>();
             SimpleIoc.Default.Register<MechanicViewModel>();
             SimpleIoc.Default.Register<ChairmanViewModel>();
+            SimpleIoc.Default.Register<ChampionshipViewModel>();
         }
 
         public MainViewModel Main
@@ -122,6 +123,14 @@ namespace MMSaveEditor.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<ChairmanViewModel>();
+            }
+        }
+
+        public ChampionshipViewModel Championship
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ChampionshipViewModel>();
             }
         }
 

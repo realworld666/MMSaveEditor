@@ -1,4 +1,13 @@
-﻿v0.9
+﻿v1.0
+- Added donation link to Help menu
+- Added request feature link
+- Added Championship rules editting
+
+v0.10
+- Added support for modifying the HQ
+- Fix for save game incompatability
+
+v0.9
 - Added person nationalities
 - Added Chairman tab
 - More bug fixes

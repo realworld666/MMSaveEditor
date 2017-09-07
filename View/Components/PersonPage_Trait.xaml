@@ -15,12 +15,6 @@
                 <xcdg:Column FieldName="TraitName" Title="Name" IsMainColumn="True"/>
             </xcdg:DataGridControl.Columns>
         </xcdg:DataGridControl>
-        <Grid Height="30">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="removeTrait" Content="Remove Selected" Grid.Column="0" Click="removeTrait_Click"/>
-        </Grid>
+        <Button x:Name="removeTrait" Content="Remove Selected" Grid.Column="0" Click="removeTrait_Click" Height="30"/>
     </StackPanel>
 </UserControl>

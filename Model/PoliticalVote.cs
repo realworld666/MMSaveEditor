@@ -1,6 +1,7 @@
 ﻿
 using FullSerializer;
 using System.Collections.Generic;
+using System;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class PoliticalVote
@@ -11,14 +12,86 @@ public class PoliticalVote
     public string effectType = string.Empty;
     public int ID;
     public List<PoliticalImpact> impacts = new List<PoliticalImpact>();
-    public List<PoliticalVote.TeamCharacteristics> benificialCharacteristics;
-    public List<PoliticalVote.TeamCharacteristics> detrimentalCharacteristics;
+    public List<PoliticalVote.TeamCharacteristics> benificialCharacteristics = new List<PoliticalVote.TeamCharacteristics>();
+    public List<PoliticalVote.TeamCharacteristics> detrimentalCharacteristics = new List<PoliticalVote.TeamCharacteristics>();
     public CarPart.PartType currentPartType = CarPart.PartType.None;
     public DialogQuery messageCriteria = new DialogQuery();
     public DilemmaSystem.BribedOption playerBribe;
     private bool mDisplayRule = true;
     private Championship mChampionship;
     private bool mLockedToPlayerVote;
+
+    public string nameID
+    {
+        get
+        {
+            return this.mName;
+        }
+        set
+        {
+            this.mName = value;
+        }
+    }
+
+    public string LocalisedName
+    {
+        get
+        {
+            return Localisation.LocaliseID(mName);
+        }
+    }
+
+    public string LocalisedDescription
+    {
+        get
+        {
+            return Localisation.LocaliseID(mDescription);
+        }
+    }
+
+    public string descriptionID
+    {
+        get
+        {
+            return this.mDescription;
+        }
+        set
+        {
+            this.mDescription = value;
+        }
+    }
+
+    public bool displayRule
+    {
+        get
+        {
+            return this.mDisplayRule;
+        }
+        set
+        {
+            this.mDisplayRule = value;
+        }
+    }
+
+    public Championship championship
+    {
+        get
+        {
+            return this.mChampionship;
+        }
+    }
+
+    public bool lockedToPlayerVote
+    {
+        get
+        {
+            return this.mLockedToPlayerVote;
+        }
+        set
+        {
+            this.mLockedToPlayerVote = value;
+        }
+    }
 
     public enum TeamImpact
     {
@@ -61,5 +134,12 @@ public class PoliticalVote
         [LocalisationID("PSG_10008490")] FuelBurnRateGood,
         [LocalisationID("PSG_10008492")] TeamDriverQualityLow,
         [LocalisationID("PSG_10008491")] TeamDriverQualityHigh,
+    }
+
+    public void Initialize(Championship inChampionship)
+    {
+        this.mChampionship = inChampionship;
+        //for (int index = 0; index < this.impacts.Count; ++index)
+        //  this.impacts[index].Initialize(inChampionship);
     }
 }

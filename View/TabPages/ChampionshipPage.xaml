@@ -1,0 +1,62 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMSaveEditor.View.Components"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+             xmlns:Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:Utils="clr-namespace:MMSaveEditor.Utils" x:Class="MMSaveEditor.View.TabPages.ChampionshipPage"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800"
+             >
+    <UserControl.Resources>
+        <Utils:IsNullVisibilityConverter x:Key="IsNullVisibilityConverter"/>
+        <DataTemplate x:Key="TeamItem">
+            <TextBlock Text="{Binding ChampionshipName}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <Binding Mode="OneWay" Path="Championship" Source="{StaticResource Locator}"/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer x:Name="scrollViewer" Grid.Column="1" Visibility="{Binding SelectedItem, Converter={StaticResource IsNullVisibilityConverter}, ElementName=teamList}">
+            <StackPanel>
+                <GroupBox x:Name="Rules" Header="Rules">
+                    <StackPanel>
+                        <Label Content="Active Rules"></Label>
+                        <xcdg:DataGridControl x:Name="rulesList" AutoCreateColumns="False" ItemsSource="{Binding ActiveRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
+                            <xcdg:DataGridControl.Columns>
+                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True"/>
+                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True"/>
+                            </xcdg:DataGridControl.Columns>
+                        </xcdg:DataGridControl>
+                        <Button x:Name="removeRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30"/>
+                        <Label Content="Next Years Rules"></Label>
+                        <xcdg:DataGridControl x:Name="rulesListNextYear" AutoCreateColumns="False" ItemsSource="{Binding NextYearRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
+                            <xcdg:DataGridControl.Columns>
+                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True"/>
+                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True"/>
+                            </xcdg:DataGridControl.Columns>
+                        </xcdg:DataGridControl>
+                        <Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30"/>
+                        <!--<Label Content="Rules"></Label>
+                        <xctk:PropertyGrid SelectedObject="{Binding Rules}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+                        <Label Content="Next Years Rules"></Label>
+                        <xctk:PropertyGrid SelectedObject="{Binding NextYearsRules}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>-->
+                    </StackPanel>
+                </GroupBox>
+                <!--<GroupBox Header="HQ">
+                    <ListView ItemsSource="{Binding HQBuildings}" ItemTemplate="{DynamicResource HQGroup}"/>
+                </GroupBox>-->
+            </StackPanel>
+        </ScrollViewer>
+        <ListBox Grid.Column="0" x:Name="championshipList" ItemsSource="{Binding Championships}" ItemTemplate="{DynamicResource TeamItem}" SelectionChanged="OnChildListBoxSelectionChanged" />
+    </Grid>
+</UserControl>

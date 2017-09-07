@@ -40,15 +40,14 @@
                 </MenuItem>
                 <MenuItem Header="_Help">
                     <MenuItem x:Name="report" Header="_Report Game Crash" Click="report_Click">
-                        <MenuItem.Icon>
-                            <Image Source="/MMSaveEditor;component/Assets/Open_6529.png"/>
-                        </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem x:Name="forum" Header="_Support Forum" Click="support_Click">
                     </MenuItem>
-					<MenuItem x:Name="donate" Header="_Donate" Click="donate_Click">
+                    <MenuItem x:Name="request" Header="_Request Feature" Click="request_Click">
                     </MenuItem>
-					
+                    <MenuItem x:Name="donate" Header="_Donate" Click="donate_Click">
+                    </MenuItem>
+
                 </MenuItem>
             </Menu>
         </DockPanel>
@@ -78,6 +77,9 @@
             </TabItem>
             <TabItem x:Name="TeamTabItem" Header="Team">
                 <tabPages:TeamPage ListBoxUpdated="TeamPage_OnListBoxUpdated"/>
+            </TabItem>
+            <TabItem x:Name="ChampionshipTabItem" Header="Championship">
+                <tabPages:ChampionshipPage ListBoxUpdated="ChampionshipPage_OnListBoxUpdated"/>
             </TabItem>
         </TabControl>
         <TextBlock Grid.Row="2" Text="{Binding VersionString, ElementName=window, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
