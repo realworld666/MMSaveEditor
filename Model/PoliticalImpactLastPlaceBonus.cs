@@ -19,4 +19,9 @@
                 break;
         }
     }
+
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        inRules.LastPlaceBonus = this.active;
+    }
 }

@@ -72,6 +72,20 @@ public class CarPart : Entity
         return CarPart.PartType.Brakes;
     }
 
+    public static CarPart.PartType[] GetPartType(Championship.Series inSeries, bool statOrdered = false)
+    {
+        if (inSeries == Championship.Series.GTSeries)
+        {
+            if (statOrdered)
+                return CarPart.gtSeriesStatOrdered;
+            return CarPart.gtSeries;
+        }
+        if (statOrdered)
+            return CarPart.singleSeaterSeriesStatOrdered;
+        return CarPart.singleSeaterSeries;
+    }
+
+
     public enum PartType
     {
         None = -1,
@@ -168,5 +182,89 @@ public class CarPart : Entity
                 component.OnPartBuilt(inDesign, this);
             }
         });
+    }
+
+    public static CarPart CreatePartEntity(CarPart.PartType inType, Championship inChampionship)
+    {
+        CarPart carPart = (CarPart)null;
+        switch (inType)
+        {
+            case CarPart.PartType.Brakes:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<BrakesPart>();
+                break;
+            case CarPart.PartType.Engine:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<EnginePart>();
+                break;
+            case CarPart.PartType.FrontWing:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<FrontWingPart>();
+                break;
+            case CarPart.PartType.Gearbox:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<GearboxPart>();
+                break;
+            case CarPart.PartType.RearWing:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<RearWingPart>();
+                break;
+            case CarPart.PartType.Suspension:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<SuspensionPart>();
+                break;
+            case CarPart.PartType.RearWingGT:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<RearWingGTPart>();
+                break;
+            case CarPart.PartType.BrakesGT:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<BrakesGTPart>();
+                break;
+            case CarPart.PartType.EngineGT:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<EngineGTPart>();
+                break;
+            case CarPart.PartType.GearboxGT:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<GearBoxGTPart>();
+                break;
+            case CarPart.PartType.SuspensionGT:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<SuspensionGTPart>();
+                break;
+        }
+        carPart.Setup(inChampionship);
+        return carPart;
+    }
+
+    public void Setup(Championship inChampionship)
+    {
+        this.stats = new CarPartStats(this);
+        this.name = ((int)this.GetPartName()[0]).ToString() + "-" + CarPart.GenerateName();
+    }
+
+    private static string GenerateName()
+    {
+        string str = string.Empty + (object)(char)(65 + RandomUtility.GetRandom(0, 26));
+        int num = 3;
+        while (num > 0)
+        {
+            --num;
+            str += ((char)(65 + RandomUtility.GetRandom(0, 26))).ToString();
+        }
+        return str;
+    }
+
+    public virtual string GetPartName()
+    {
+        return string.Empty;
+    }
+
+    public void PostStatsSetup(Championship inChampionship)
+    {
+        this.PickModel(inChampionship);
+    }
+
+    private void PickModel(Championship inChampionship)
+    {
+        //throw new NotImplementedException();
+    }
+
+    public void DestroyCarPart()
+    {
+        // Notification notification = Game.instance.notificationManager.GetNotification(this.name);
+        // if (notification != null)
+        //     notification.ResetCount();
+        Game.instance.entityManager.DestroyEntity((Entity)this);
     }
 }

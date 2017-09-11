@@ -7,4 +7,9 @@ public class EnginePart : CarPart
     {
         return CarPart.PartType.Engine;
     }
+
+    public override string GetPartName()
+    {
+        return Localisation.LocaliseID("PSG_10001653");
+    }
 }

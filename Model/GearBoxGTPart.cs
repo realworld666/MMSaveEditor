@@ -7,4 +7,9 @@ public class GearBoxGTPart : CarPart
     {
         return CarPart.PartType.GearboxGT;
     }
+
+    public override string GetPartName()
+    {
+        return Localisation.LocaliseID("PSG_10001654");
+    }
 }

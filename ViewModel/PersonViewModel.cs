@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using GalaSoft.MvvmLight;
-using System.Collections.ObjectModel;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using MMSaveEditor.View;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace MMSaveEditor.ViewModel
 {
@@ -38,7 +37,8 @@ namespace MMSaveEditor.ViewModel
         public virtual void SetModel(T pPersonData)
         {
             PersonData = pPersonData;
-            Continent = PersonData.nationality.continent;
+            if (PersonData?.nationality != null)
+                Continent = PersonData.nationality.continent;
 
             RaisePropertyChanged(string.Empty);
             RaisePropertyChanged("Nationality");

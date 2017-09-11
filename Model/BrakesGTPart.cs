@@ -8,4 +8,9 @@ public class BrakesGTPart : CarPart
     {
         return CarPart.PartType.BrakesGT;
     }
+
+    public override string GetPartName()
+    {
+        return Localisation.LocaliseID("PSG_10001657");
+    }
 }

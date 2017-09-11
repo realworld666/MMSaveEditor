@@ -7,4 +7,9 @@ public class SuspensionPart : CarPart
     {
         return CarPart.PartType.Suspension;
     }
+
+    public override string GetPartName()
+    {
+        return Localisation.LocaliseID("PSG_10001655");
+    }
 }

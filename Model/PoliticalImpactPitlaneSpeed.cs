@@ -9,4 +9,9 @@ public class PoliticalImpactPitlaneSpeed : PoliticalImpact
     {
         this.pitlaneSpeed = GameUtility.MilesPerHourToMetersPerSecond(float.Parse(inEffect));
     }
+
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        inRules.PitlaneSpeed = this.pitlaneSpeed;
+    }
 }

@@ -55,6 +55,42 @@ public class PoliticalImpactPoints : PoliticalImpact
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactPoints.ImpactType.Points:
+                inRules.Points.Clear();
+                inRules.Points = new List<int>((IEnumerable<int>)this.points);
+                break;
+            case PoliticalImpactPoints.ImpactType.FinalRacePoints:
+                if (this.remove)
+                {
+                    inRules.FinalRacePointsDouble = false;
+                    break;
+                }
+                inRules.FinalRacePointsDouble = true;
+                break;
+            case PoliticalImpactPoints.ImpactType.FastestLap:
+                if (this.remove)
+                {
+                    inRules.FastestLapPointBonus = 0;
+                    break;
+                }
+                inRules.FastestLapPointBonus = 2;
+                break;
+            case PoliticalImpactPoints.ImpactType.PoleBonus:
+                if (this.remove)
+                {
+                    inRules.PolePositionPointBonus = 0;
+                    break;
+                }
+                inRules.PolePositionPointBonus = 2;
+                break;
+        }
+    }
+
+
     public enum ImpactType
     {
         Points,

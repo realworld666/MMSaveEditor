@@ -19,4 +19,14 @@
                 break;
         }
     }
+
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        inRules.PromotionBonus = this.active;
+    }
+
+    public override bool VoteCanBeUsed(Championship inChampionship)
+    {
+        return inChampionship.championshipBelowID != -1;
+    }
 }

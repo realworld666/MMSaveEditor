@@ -1,9 +1,9 @@
 ﻿using FullSerializer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Collections;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ChampionshipRules : Entity
@@ -51,11 +51,11 @@ public class ChampionshipRules : Entity
     private int maxTravelBudget;
     private bool promotionBonus;
     private bool lastPlaceBonus;
-    private SimulationSettings practiceSettings;
-    private SimulationSettings qualifyingSettings;
-    private SimulationSettings raceSettings;
+    public SimulationSettings practiceSettings;
+    public SimulationSettings qualifyingSettings;
+    public SimulationSettings raceSettings;
     private List<CarPart.PartType> specParts = new List<CarPart.PartType>();
-    private List<PoliticalVote> mRules = new List<PoliticalVote>();
+    private ObservableCollection<PoliticalVote> mRules = new ObservableCollection<PoliticalVote>();
     private Championship mChampionship;
     public const float maxTyreSpeedBonus = 45f;
     private bool shouldChargeUsingStandingsPosition;
@@ -555,7 +555,7 @@ public class ChampionshipRules : Entity
         }
     }
 
-    public List<PoliticalVote> ActiveRules
+    public ObservableCollection<PoliticalVote> ActiveRules
     {
         get
         {
@@ -565,6 +565,19 @@ public class ChampionshipRules : Entity
         set
         {
             mRules = value;
+        }
+    }
+
+    [Browsable(false)]
+    public Championship championship
+    {
+        get
+        {
+            return this.mChampionship;
+        }
+        set
+        {
+            this.mChampionship = value;
         }
     }
 
@@ -580,6 +593,25 @@ public class ChampionshipRules : Entity
             }
         }
         this.mRules.Add(inRule);
+    }
+
+    public void RemoveRule(PoliticalVote inRule)
+    {
+        for (int index = 0; index < this.mRules.Count; ++index)
+        {
+            PoliticalVote mRule = this.mRules[index];
+            if (mRule.ID == inRule.ID)
+            {
+                this.mRules.Remove(mRule);
+                --index;
+            }
+        }
+    }
+
+    public void ActivateRules()
+    {
+        for (int index = 0; index < this.mRules.Count; ++index)
+            this.mRules[index].ApplyImpacts(this);
     }
 
     public PoliticalVote GetVoteForGroup(string inGroup)
@@ -625,6 +657,16 @@ public class ChampionshipRules : Entity
                     this.AddRule(inRule);
                 }
             }
+        }
+    }
+
+    public bool qualifyingBasedActive
+    {
+        get
+        {
+            if (this.gridSetup != ChampionshipRules.GridSetup.QualifyingBased)
+                return this.gridSetup == ChampionshipRules.GridSetup.QualifyingBased3Sessions;
+            return true;
         }
     }
 
@@ -691,4 +733,93 @@ public class ChampionshipRules : Entity
         Large,
     }
 
+    public int GetQualifyingSessionCount()
+    {
+        return this.qualifyingBasedActive && this.gridSetup != ChampionshipRules.GridSetup.QualifyingBased ? 3 : 1;
+    }
+
+    public void ApplySimulationSettings()
+    {
+        if (this.practiceSettings != null)
+            this.practiceSettings.Apply(this);
+        if (this.qualifyingSettings != null)
+            this.qualifyingSettings.Apply(this);
+        if (this.raceSettings == null)
+            return;
+        this.raceSettings.Apply(this);
+    }
+
+    public void ApplySpecParts()
+    {
+        int teamEntryCount = this.championship.standings.teamEntryCount;
+        this.championship.ResetPartTypeStatsProgression(this.specParts.ToArray());
+        for (int inIndex = 0; inIndex < teamEntryCount; ++inIndex)
+            this.ApplySpecPart(this.championship.standings.GetTeamEntry(inIndex).GetEntity<Team>());
+    }
+
+    public void ApplySpecPart(Team inTeam)
+    {
+        CarManager carManager = inTeam.carManager;
+        carManager.UnfitAllParts(carManager.GetCar(0));
+        carManager.UnfitAllParts(carManager.GetCar(1));
+        CarPartInventory partInventory = inTeam.carManager.partInventory;
+        for (int index = 0; index < this.specParts.Count; ++index)
+        {
+            partInventory.DestroyParts(this.specParts[index]);
+            partInventory.AddPart(this.GetSpecPart(this.specParts[index], inTeam));
+            partInventory.AddPart(this.GetSpecPart(this.specParts[index], inTeam));
+        }
+        carManager.AutoFit(carManager.GetCar(0), CarManager.AutofitOptions.Performance, CarManager.AutofitAvailabilityOption.UnfitedParts);
+        carManager.AutoFit(carManager.GetCar(1), CarManager.AutofitOptions.Performance, CarManager.AutofitAvailabilityOption.UnfitedParts);
+    }
+
+    private CarPart GetSpecPart(CarPart.PartType inType, Team inTeam)
+    {
+        CarPart partEntity = CarPart.CreatePartEntity(inType, this.championship);
+        partEntity.stats.SetStat(CarPartStats.CarPartStat.MainStat, (float)GameStatsConstants.specPartValues[this.championship.championshipID]);
+        partEntity.stats.SetStat(CarPartStats.CarPartStat.Reliability, 0.8f);
+        partEntity.stats.partCondition.SetCondition(0.8f);
+        partEntity.stats.partCondition.redZone = GameStatsConstants.initialRedZone;
+        partEntity.stats.maxReliability = 1f;
+        partEntity.stats.maxPerformance = 0.0f;
+        partEntity.buildDate = Game.instance.time.now;
+        partEntity.stats.level = -1;
+        partEntity.PostStatsSetup(this.championship);
+        return partEntity;
+    }
+
+    public void GenerateDefaultParts(CarPart.PartType inPartType)
+    {
+        int teamEntryCount = this.championship.standings.teamEntryCount;
+        for (int inIndex = 0; inIndex < teamEntryCount; ++inIndex)
+            this.ApplyDefaultPart(this.championship.standings.GetTeamEntry(inIndex).GetEntity<Team>(), inPartType);
+    }
+
+    public void ApplyDefaultPart(Team inTeam, CarPart.PartType inPartType)
+    {
+        CarManager carManager = inTeam.carManager;
+        carManager.UnfitAllParts(carManager.GetCar(0));
+        carManager.UnfitAllParts(carManager.GetCar(1));
+        CarPartInventory partInventory = inTeam.carManager.partInventory;
+        partInventory.DestroyParts(inPartType);
+        partInventory.AddPart(this.GetDefaultPart(inPartType, inTeam));
+        partInventory.AddPart(this.GetDefaultPart(inPartType, inTeam));
+        carManager.AutoFit(carManager.GetCar(0), CarManager.AutofitOptions.Performance, CarManager.AutofitAvailabilityOption.UnfitedParts);
+        carManager.AutoFit(carManager.GetCar(1), CarManager.AutofitOptions.Performance, CarManager.AutofitAvailabilityOption.UnfitedParts);
+    }
+
+    private CarPart GetDefaultPart(CarPart.PartType inType, Team inTeam)
+    {
+        CarPart partEntity = CarPart.CreatePartEntity(inType, this.championship);
+        partEntity.stats.SetStat(CarPartStats.CarPartStat.MainStat, (float)(GameStatsConstants.specPartValues[this.championship.championshipID] + RandomUtility.GetRandom(0, 10)));
+        partEntity.stats.SetStat(CarPartStats.CarPartStat.Reliability, 0.8f);
+        partEntity.stats.partCondition.SetCondition(0.8f);
+        partEntity.stats.partCondition.redZone = GameStatsConstants.initialRedZone;
+        partEntity.stats.maxReliability = 1f;
+        partEntity.stats.maxPerformance = 0.0f;
+        partEntity.buildDate = Game.instance.time.now;
+        partEntity.stats.level = 0;
+        partEntity.PostStatsSetup(this.championship);
+        return partEntity;
+    }
 }

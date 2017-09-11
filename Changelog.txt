@@ -2,6 +2,8 @@
 - Added donation link to Help menu
 - Added request feature link
 - Added Championship rules editting
+- BUGFIX: Crash when selecting a new driver after changing nationality
+
 
 v0.10
 - Added support for modifying the HQ

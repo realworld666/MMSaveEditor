@@ -24,6 +24,19 @@
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactFuelSettings.ImpactType.Limit:
+                inRules.FuelLimitForRaceDistanceNormalized = this.fuelLimit / 100f;
+                break;
+            case PoliticalImpactFuelSettings.ImpactType.Refueling:
+                inRules.IsRefuelingOn = this.refuelling;
+                break;
+        }
+    }
+
     private enum ImpactType
     {
         Limit,

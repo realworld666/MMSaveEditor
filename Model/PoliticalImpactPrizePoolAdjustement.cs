@@ -21,4 +21,10 @@ public class PoliticalImpactPrizePoolAdjustement : PoliticalImpact
             this.prizePoolPercentage.Add(item);
         }
     }
+
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        inRules.PrizePoolPercentage.Clear();
+        inRules.PrizePoolPercentage = new List<float>((IEnumerable<float>)this.prizePoolPercentage);
+    }
 }

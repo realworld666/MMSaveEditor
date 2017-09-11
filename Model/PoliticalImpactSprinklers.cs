@@ -20,6 +20,11 @@
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        inRules.IsSprinklingSystemOn = this.active;
+    }
+
     public enum ImpactType
     {
         Small,

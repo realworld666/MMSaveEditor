@@ -12,4 +12,12 @@ public class Entity
         get { return name; }
         set { name = value; }
     }
+
+    internal void OnStart()
+    {
+    }
+
+    public void OnDestory()
+    {
+    }
 }

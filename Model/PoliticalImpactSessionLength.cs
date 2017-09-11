@@ -24,6 +24,28 @@ public class PoliticalImpactSessionLength : PoliticalImpact
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactSessionLength.ImpactType.PracticeSession:
+                inRules.practiceSettings = Game.instance.simulationSettingsManager.practiceSettings[this.sessionLength];
+                break;
+            case PoliticalImpactSessionLength.ImpactType.QualifyingSession:
+                inRules.qualifyingSettings = Game.instance.simulationSettingsManager.qualifyingSettings[this.sessionLength];
+                break;
+            case PoliticalImpactSessionLength.ImpactType.RaceSession:
+                inRules.raceSettings = Game.instance.simulationSettingsManager.raceSettings[this.sessionLength];
+                break;
+        }
+        inRules.ApplySimulationSettings();
+    }
+
+    public override bool VoteCanBeUsed(Championship inChampionship)
+    {
+        return this.impactType != PoliticalImpactSessionLength.ImpactType.QualifyingSession || (inChampionship.Rules.GridSetup1 == ChampionshipRules.GridSetup.QualifyingBased || inChampionship.Rules.GridSetup1 == ChampionshipRules.GridSetup.QualifyingBased3Sessions);
+    }
+
     public enum ImpactType
     {
         PracticeSession,

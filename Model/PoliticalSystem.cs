@@ -22,6 +22,14 @@ public class PoliticalSystem
     private int mNewRuleAproved;
     private bool mEndOfSeasonMessage;
 
+    public List<PoliticalVote> votesForSeason
+    {
+        get
+        {
+            return this.mVotesForSeason;
+        }
+    }
+
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class VoteResults
     {
@@ -39,5 +47,31 @@ public class PoliticalSystem
         [LocalisationID("PSG_10008527")] Accepted,
         [LocalisationID("PSG_10008528")] Rejected,
         [LocalisationID("PSG_10008529")] Tie,
+    }
+
+    public bool HasVote(PoliticalVote inVote)
+    {
+        int count = this.mChampionship.Rules.ActiveRules.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.mChampionship.Rules.ActiveRules[index].ID == inVote.ID)
+                return true;
+        }
+        return false;
+    }
+
+    public bool CanVoteBeUsed(PoliticalVote inVote, List<PoliticalVote> inList)
+    {
+        for (int index = 0; index < inList.Count; ++index)
+        {
+            if (inList[index].group == inVote.group)
+                return false;
+        }
+        return true;
+    }
+
+    public void OnStart(Championship inChampionship)
+    {
+        this.mChampionship = inChampionship;
     }
 }

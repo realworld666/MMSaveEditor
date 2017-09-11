@@ -60,6 +60,55 @@ public class PoliticalImpactTyreSettings : PoliticalImpact
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactTyreSettings.ImpactType.TyreType:
+                inRules.tyreType = this.tyreType;
+                //this.ChangeWheelGFX();
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.WearRate:
+                inRules.TyreWearRate1 = this.wearRate;
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.Speed:
+                inRules.TyreSpeedBonus = this.speedModifier;
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.SpeedBonus:
+                inRules.TyreSupplierBonus = this.speedBonusModifier;
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.Supplier:
+                inRules.tyreSupplier = this.tyreSupplier;
+                inRules.tyreSupplierID = !(this.tyreSupplier == "Ristrelli") ? 1 : 0;
+                //this.ChangeWheelGFX();
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.CompoundChoice:
+                inRules.CompoundChoice1 = this.compoundChoice;
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.CompoundAvailable:
+                inRules.CompoundsAvailable = this.tyreCompoundsAvailable;
+                break;
+            case PoliticalImpactTyreSettings.ImpactType.TyresAvailable:
+                inRules.MaxSlickTyresPerEvent = this.tyresAvailable;
+                break;
+        }
+    }
+
+    public override bool VoteCanBeUsed(Championship inChampionship)
+    {
+        if (this.impactType != PoliticalImpactTyreSettings.ImpactType.TyreType || inChampionship.series != Championship.Series.GTSeries)
+            return true;
+        switch (this.tyreType)
+        {
+            case ChampionshipRules.TyreType.Normal:
+            case ChampionshipRules.TyreType.Road:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+
     public enum ImpactType
     {
         TyreType,

@@ -152,6 +152,10 @@ public class Championship : Entity
             mName = value;
         }
     }
+    public Championship()
+    {
+        this.politicalSystem.OnStart(this);
+    }
 
     public RaceEventDetails GetCurrentEventDetails()
     {
@@ -163,5 +167,18 @@ public class Championship : Entity
         [LocalisationID("PSG_10011514")] SingleSeaterSeries,
         [LocalisationID("PSG_10011515")] GTSeries,
         Count,
+    }
+
+    public void ResetPartTypeStatsProgression(params CarPart.PartType[] inType)
+    {
+        for (int index1 = 0; index1 < inType.Length; ++index1)
+        {
+            CarPart.PartType index2 = inType[index1];
+            PartTypeSlotSettings typeSlotSettings = Game.instance.partSettingsManager.championshipPartSettings[this.championshipID][index2];
+            this.rules.PartStatSeasonMinValue[index2] = typeSlotSettings.baseMinStat;
+            this.rules.PartStatSeasonMaxValue[index2] = typeSlotSettings.baseMaxStat;
+            this.nextYearsRules.PartStatSeasonMinValue[index2] = typeSlotSettings.baseMinStat;
+            this.nextYearsRules.PartStatSeasonMaxValue[index2] = typeSlotSettings.baseMaxStat;
+        }
     }
 }

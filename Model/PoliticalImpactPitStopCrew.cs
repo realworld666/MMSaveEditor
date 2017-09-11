@@ -10,6 +10,19 @@
         this.inEffect = inEffect;
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactPitStopCrew.ImpactType.Small:
+                inRules.PitCrewSize = ChampionshipRules.PitStopCrewSize.Small;
+                break;
+            case PoliticalImpactPitStopCrew.ImpactType.Large:
+                inRules.PitCrewSize = ChampionshipRules.PitStopCrewSize.Large;
+                break;
+        }
+    }
+
     public enum ImpactType
     {
         Small,

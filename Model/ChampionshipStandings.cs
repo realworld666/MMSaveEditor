@@ -9,6 +9,13 @@ public class ChampionshipStandings : Entity
     private List<ChampionshipEntry_v1> mTeams = new List<ChampionshipEntry_v1>();
     private List<ChampionshipEntry_v1> mInactiveDrivers = new List<ChampionshipEntry_v1>();
     private Championship mChampionship;
+    public int teamEntryCount
+    {
+        get
+        {
+            return this.mTeams.Count;
+        }
+    }
 
     public ChampionshipEntry_v1 GetEntry(Entity inEntity)
     {
@@ -120,5 +127,10 @@ public class ChampionshipStandings : Entity
     private void SortEntries(List<ChampionshipEntry_v1> inEntryList)
     {
         inEntryList.Sort();
+    }
+
+    public ChampionshipEntry_v1 GetTeamEntry(int inIndex)
+    {
+        return this.mTeams[inIndex];
     }
 }

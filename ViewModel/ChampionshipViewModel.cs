@@ -58,7 +58,7 @@ namespace MMSaveEditor.ViewModel
             RaisePropertyChanged(String.Empty);
         }
 
-        public List<PoliticalVote> ActiveRules
+        public ObservableCollection<PoliticalVote> ActiveRules
         {
             get
             {
@@ -66,11 +66,38 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
-        public List<PoliticalVote> NextYearRules
+        public ObservableCollection<PoliticalVote> NextYearRules
         {
             get
             {
                 return championshipData?.NextYearsRules.ActiveRules;
+            }
+        }
+
+        public List<PoliticalVote> AllRules
+        {
+            get
+            {
+                List<PoliticalVote> mVotes = new List<PoliticalVote>();
+                mVotes.Clear();
+                List<int> intList = new List<int>((IEnumerable<int>)VotesManager.Instance.voteIDs);
+                int count = intList.Count;
+                for (int index = 0; index < count; ++index)
+                {
+                    PoliticalVote inVote = VotesManager.Instance.votes[intList[index]];//.Clone();
+                    inVote.Initialize(ChampionshipData);
+                    if (inVote.HasImpactOfType<PoliticalImpactChangeTrack>())
+                    {
+                        /*PoliticalImpactChangeTrack impactOfType = inVote.GetImpactOfType<PoliticalImpactChangeTrack>();
+                        if (impactOfType.CanTrackImpactBeApplied(this.widget.championship) && this.CanAddTrackImpact(impactOfType, this.widget.championship))
+                            this.mVotes.Add(inVote);*/
+                        continue;
+                    }
+                    else if (!championshipData.politicalSystem.HasVote(inVote) && championshipData.politicalSystem.CanVoteBeUsed(inVote, championshipData.politicalSystem.votesForSeason) && inVote.CanBeUsed())
+                        mVotes.Add(inVote);
+                }
+
+                return mVotes;
             }
         }
     }

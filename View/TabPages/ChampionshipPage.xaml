@@ -26,26 +26,28 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer x:Name="scrollViewer" Grid.Column="1" Visibility="{Binding SelectedItem, Converter={StaticResource IsNullVisibilityConverter}, ElementName=teamList}">
+        <ScrollViewer x:Name="scrollViewer" Grid.Column="1" Visibility="{Binding SelectedItem, Converter={StaticResource IsNullVisibilityConverter}, ElementName=championshipList}">
             <StackPanel>
                 <GroupBox x:Name="Rules" Header="Rules">
                     <StackPanel>
                         <Label Content="Active Rules"></Label>
                         <xcdg:DataGridControl x:Name="rulesList" AutoCreateColumns="False" ItemsSource="{Binding ActiveRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
                             <xcdg:DataGridControl.Columns>
-                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True"/>
-                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True"/>
+                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True" Width="200"/>
+                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>
                             </xcdg:DataGridControl.Columns>
                         </xcdg:DataGridControl>
-                        <Button x:Name="removeRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30"/>
+                        <Button x:Name="removeRule" Content="Remove Selected" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>
+                        <Button x:Name="addRule" Content="Add New Rule" Click="addRule_Click" Height="30"/>
                         <Label Content="Next Years Rules"></Label>
                         <xcdg:DataGridControl x:Name="rulesListNextYear" AutoCreateColumns="False" ItemsSource="{Binding NextYearRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
                             <xcdg:DataGridControl.Columns>
-                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True"/>
-                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True"/>
+                                <xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True" Width="200"/>
+                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>
                             </xcdg:DataGridControl.Columns>
                         </xcdg:DataGridControl>
-                        <Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30"/>
+                        <Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>
+                        <Button x:Name="addNextYearRule" Content="Add New Rule" Grid.Column="0" Click="addRuleNextYear_Click" Height="30"/>
                         <!--<Label Content="Rules"></Label>
                         <xctk:PropertyGrid SelectedObject="{Binding Rules}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
                         <Label Content="Next Years Rules"></Label>

@@ -32,6 +32,59 @@
         }
     }
 
+    public override void SetImpact(ChampionshipRules inRules)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.Banned:
+                inRules.IsEnergySystemActive = false;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.LargeBatteries:
+                inRules.IsEnergySystemActive = true;
+                inRules.BatterySize = ChampionshipRules.EnergySystemBattery.Large;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.SmallBatteries:
+                inRules.IsEnergySystemActive = true;
+                inRules.BatterySize = ChampionshipRules.EnergySystemBattery.Small;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.ActiveHybrid:
+                inRules.IsHybridModeActive = true;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.InactiveHybrid:
+                inRules.IsHybridModeActive = false;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.ActiveChargeFromStandings:
+                inRules.ShouldChargeUsingStandingsPosition = true;
+                break;
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.InactiveChargeFromStandings:
+                inRules.ShouldChargeUsingStandingsPosition = false;
+                break;
+        }
+    }
+
+    public override bool VoteCanBeUsed(Championship inChampionship)
+    {
+        switch (this.impactType)
+        {
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.ActiveChargeFromStandings:
+            case PoliticalImpactEnergyRecoverySystem.ImpactType.InactiveChargeFromStandings:
+                //if (App.instance.dlcManager.IsDlcWithIdInstalled(4))
+                return inChampionship.Rules.IsEnergySystemActive;
+                return false;
+            default:
+                //if (!App.instance.dlcManager.IsSeriesAvailable(Championship.Series.GTSeries))
+                //  return false;
+                switch (this.impactType)
+                {
+                    case PoliticalImpactEnergyRecoverySystem.ImpactType.ActiveHybrid:
+                    case PoliticalImpactEnergyRecoverySystem.ImpactType.InactiveHybrid:
+                        return inChampionship.Rules.IsEnergySystemActive;
+                    default:
+                        return true;
+                }
+        }
+    }
+
     private enum ImpactType
     {
         Banned,

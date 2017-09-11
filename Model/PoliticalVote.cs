@@ -142,4 +142,36 @@ public class PoliticalVote
         //for (int index = 0; index < this.impacts.Count; ++index)
         //  this.impacts[index].Initialize(inChampionship);
     }
+
+    public bool HasImpactOfType<T>()
+    {
+        int count = this.impacts.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.impacts[index] is T)
+                return true;
+        }
+        return false;
+    }
+
+    public bool CanBeUsed()
+    {
+        if (this.mChampionship == null)
+        {
+            Console.WriteLine("Championship reference is null, using Player Championship");
+            this.mChampionship = Game.instance.player.team.championship;
+        }
+        for (int index = 0; index < this.impacts.Count; ++index)
+        {
+            if (!this.impacts[index].VoteCanBeUsed(this.mChampionship))
+                return false;
+        }
+        return true;
+    }
+
+    public void ApplyImpacts(ChampionshipRules inRules)
+    {
+        for (int index = 0; index < this.impacts.Count; ++index)
+            this.impacts[index].SetImpact(inRules);
+    }
 }

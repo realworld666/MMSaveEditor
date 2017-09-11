@@ -7,4 +7,9 @@ public class RearWingGTPart : CarPart
     {
         return CarPart.PartType.RearWingGT;
     }
+
+    public override string GetPartName()
+    {
+        return Localisation.LocaliseID("PSG_10001652");
+    }
 }
