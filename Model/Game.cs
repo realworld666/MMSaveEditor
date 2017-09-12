@@ -63,6 +63,8 @@ public class Game
     public Game()
     {
         instance = this;
+
+        driverStatsProgressionManager = new DriverStatsProgressionManager();
     }
 
     public enum GameType

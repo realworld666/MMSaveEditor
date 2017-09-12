@@ -48,10 +48,14 @@
                         </xcdg:DataGridControl>
                         <Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>
                         <Button x:Name="addNextYearRule" Content="Add New Rule" Grid.Column="0" Click="addRuleNextYear_Click" Height="30"/>
-                        <!--<Label Content="Rules"></Label>
-                        <xctk:PropertyGrid SelectedObject="{Binding Rules}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
-                        <Label Content="Next Years Rules"></Label>
-                        <xctk:PropertyGrid SelectedObject="{Binding NextYearsRules}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>-->
+                        <Label Content="Next Years Tracks"></Label>
+                        <xcdg:DataGridControl x:Name="nextYearEvents" AutoCreateColumns="True" ItemsSource="{Binding RaceEvents}" IsDeleteCommandEnabled="True" MaxHeight="150">
+
+                        </xcdg:DataGridControl>
+                        <Button x:Name="removeTrack" Content="Remove Selected" Click="removeTrack_Click" Height="30" />
+                        <Button x:Name="addTrack" Content="Add New Track" Click="addTrack_Click" Height="30"/>
+
+
                     </StackPanel>
                 </GroupBox>
                 <!--<GroupBox Header="HQ">

@@ -208,6 +208,19 @@ public class Driver : Person
         }
     }
 
+    public float ImprovementRate
+    {
+        get
+        {
+            return mImprovementRate;
+        }
+
+        set
+        {
+            mImprovementRate = value;
+        }
+    }
+
     public Driver()
     {
         ViewDriver = new RelayCommand<Driver>(_viewDriver);

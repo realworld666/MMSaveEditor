@@ -1,0 +1,36 @@
+﻿<Window x:Class="MMSaveEditor.View.AddTrackDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MMSaveEditor.View" 
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Add Track" Height="500" Width="500" DataContext="{Binding Championship, Mode=OneWay, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <DataTemplate x:Key="TrackRow">
+            <StackPanel>
+                <Label Content="{Binding CircuitName}"></Label>
+                <Label Content="{Binding CircuitCountry}"></Label>
+                <Label Content="{Binding CircuitLayout}"></Label>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Content="Select Track To Add" />
+        <GroupBox Header="Available Tracks" Grid.Row="1">
+            <ListBox x:Name="trackList" ItemsSource="{Binding AllCircuits}" ItemTemplate="{DynamicResource TrackRow}"/>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Label Content="Week Number" />
+            <xctk:IntegerUpDown x:Name="weekNum" Minimum="11" Maximum="46" Value="11"></xctk:IntegerUpDown>
+        </StackPanel>
+        <Button x:Name="addButton" Content="Add" Grid.Row="3" Click="addButton_Click" Margin="5"/>
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tabPages="clr-namespace:MMSaveEditor.View.TabPages"
         mc:Ignorable="d"
-        Title="Motorsport Manager Save Game Editor" Height="495" Width="700"
+        Title="{Binding WindowTitle, ElementName=window}" Height="495" Width="700"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
         >
     <Grid DataContext="{Binding Source={StaticResource Locator}}">

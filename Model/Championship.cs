@@ -1,6 +1,7 @@
 ﻿using FullSerializer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
@@ -24,7 +25,7 @@ public class Championship : Entity
     public DateTime seasonEndDate = DateTime.Today;
     public DateTime preSeasonEndDate = DateTime.Today;
     public DateTime preSeasonStartDate = DateTime.Today;
-    public List<RaceEventCalendarData> calendarData = new List<RaceEventCalendarData>();
+    public ObservableCollection<RaceEventCalendarData> calendarData = new ObservableCollection<RaceEventCalendarData>();
     public List<RaceEventDetails> calendar = new List<RaceEventDetails>();
     public List<RaceEventDetails> nextYearsCalendar = new List<RaceEventDetails>();
     public int seasonStart;

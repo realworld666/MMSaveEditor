@@ -1,4 +1,5 @@
-﻿using FullSerializer;
+﻿using System;
+using FullSerializer;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarStats
@@ -142,5 +143,29 @@ public class CarStats
                 break;
         }
         return num;
+    }
+    public void SetStat(CarStats.StatType inStat, float inValue)
+    {
+        switch (inStat)
+        {
+            case CarStats.StatType.TopSpeed:
+                this.topSpeed = inValue;
+                break;
+            case CarStats.StatType.Acceleration:
+                this.acceleration = inValue;
+                break;
+            case CarStats.StatType.Braking:
+                this.braking = inValue;
+                break;
+            case CarStats.StatType.LowSpeedCorners:
+                this.lowSpeedCorners = inValue;
+                break;
+            case CarStats.StatType.MediumSpeedCorners:
+                this.mediumSpeedCorners = inValue;
+                break;
+            case CarStats.StatType.HighSpeedCorners:
+                this.highSpeedCorners = inValue;
+                break;
+        }
     }
 }

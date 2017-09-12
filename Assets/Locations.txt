@@ -1,0 +1,301 @@
+Location,Circuit ID,Location ID,Country,Country ID,Sprite Name,Scene,Track Layout,Track Length,Travel Cost,Hemisphere,Type,Latitude,Longitude,Climate,2015 Winner,2014 Winner,2013 Winner,Lap Record,Lap Record By,TS,ACC,DEC,LSC,MSC,HSC,First Tyre Option,Second Tyre Option,Third Tyre Option,Tyre Wear Rate,Fuel Burn Rate,Minimap Rotation,Minimap Axis,Safety Car Flag Chance,Virtual Safety Car Chance,Fastest Lap Time (Minutes),Track Rubber Modifier,Fastest Lap Driver ID
+Ardennes,0,PSG_10003764,Belgium,PSG_10000899,Ardennes,Ardennes,A,3.61,0.05,North,Race Event,25,51,Moderate,"D Sharp
+Iris Racing","L Holtz
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.1,"L Holtz
+Steinmann Motorsport
+2014",3,1,1,3,1,2,SuperSoft,Soft,Medium,Low,High,0,x,0.3,0.5,1.883478261,1,1
+Beijing,1,PSG_10003765,China,PSG_10000920,Beijing,Beijing,A,2.73,0.12,North,Race Event,40,116,Moderate,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","J Vasquez
+Scuderia Leone",01:34.2,"D Sharp
+Iris Racing
+2013",3,2,3,3,1,1,SuperSoft,Soft,Medium,Medium,Low,0,x,0.25,0.35,1.424347826,1,2
+Beijing,2,PSG_10003765,China,PSG_10000920,Beijing,Beijing,B,2.33,0.12,North,Race Event,-34,18,Moderate,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","J Vasquez
+Scuderia Leone",01:34.2,"H Chapman
+Steinmann Motorsport
+2014",3,3,3,2,1,1,Soft,Medium,Hard,Medium,Low,0,x,0.25,0.35,1.215652174,1,3
+Beijing,3,PSG_10003765,China,PSG_10000920,Beijing,Beijing,C,2.73,0.12,North,Race Event,19,72,Moderate,"Y Churchill
+Iris Racing","L Holtz
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.2,"D Sharp
+Iris Racing
+2013",3,2,1,3,1,1,SuperSoft,Soft,Medium,Medium,Low,0,x,0.25,0.35,1.424347826,1,4
+Beijing,4,PSG_10003765,China,PSG_10000920,Beijing,Beijing,D,2.53,0.12,North,Race Event,41,28,Moderate,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","L Holtz
+Steinmann Motorsport",01:34.2,"A Lipponen
+Mansion
+2013",3,3,2,3,1,1,SuperSoft,Soft,Medium,Medium,Low,0,x,0.25,0.35,1.32,1,5
+Beijing,5,PSG_10003765,China,PSG_10000920,Beijing,Beijing,E,2.06,0.12,North,Race Event,41,28,Moderate,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","L Holtz
+Steinmann Motorsport",01:34.2,"A Lipponen
+Mansion
+2013",3,3,1,2,1,3,Soft,Medium,Hard,Medium,Low,0,x,0.25,0.35,1.074782609,1,6
+Vancouver,6,PSG_10003766,Canada,PSG_10000914,Vancouver,Vancouver,A,3.39,0.075,North,Race Event,50,-123,Moderate,"A Lipponen
+Mansion","J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport",01:34.1,"Y Churchill
+Iris Racing
+2013",2,1,1,1,3,3,UltraSoft,SuperSoft,Soft,High,High,0,x,0.35,0.25,1.768695652,1,7
+Vancouver,7,PSG_10003766,Canada,PSG_10000914,Vancouver,Vancouver,B,2.75,0.075,North,Race Event,24,54,Moderate,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","D Sharp
+Iris Racing",01:34.1,"L Holtz
+Steinmann Motorsport
+2014",2,2,1,1,3,3,UltraSoft,SuperSoft,Soft,High,Medium,0,x,0.35,0.25,1.434782609,1,8
+Vancouver,8,PSG_10003766,Canada,PSG_10000914,Vancouver,Vancouver,C,2.75,0.075,North,Race Event,30,-98,Moderate,"D Sharp
+Iris Racing","L Holtz
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.2,"H Chapman
+Steinmann Motorsport
+2014",2,3,1,3,3,2,UltraSoft,SuperSoft,Soft,High,Medium,0,x,0.35,0.25,1.434782609,1,9
+Vancouver,47,PSG_10003766,Canada,PSG_10000914,Vancouver,Vancouver,D,2.75,0.075,North,Race Event,30,-98,Moderate,"D Sharp
+Iris Racing","L Holtz
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.2,"H Chapman
+Steinmann Motorsport
+2014",2,3,1,3,3,2,UltraSoft,SuperSoft,Soft,High,Medium,0,x,0.35,0.25,1.434782609,1,10
+Guildford,9,PSG_10003767,UK,PSG_10001069,Guildford,Guildford,A,3.47,0.05,North,Race Event,41,2,Cool,"J Vasquez
+Scuderia Leone","L Holtz
+Steinmann Motorsport","N Surikov
+Iris Racing",01:34.1,"D Sharp
+Iris Racing
+2013",3,1,1,1,3,3,SuperSoft,Soft,Medium,VeryHigh,Low,0,x,0.25,0.4,1.810434783,1,11
+Guildford,10,PSG_10003767,UK,PSG_10001069,Guildford,Guildford,B,3.33,0.05,North,Race Event,41,2,Cool,"J Vasquez
+Scuderia Leone","L Holtz
+Steinmann Motorsport","N Surikov
+Iris Racing",01:34.1,"D Sharp
+Iris Racing
+2013",3,1,1,1,2,3,Soft,Medium,Hard,VeryHigh,VeryLow,0,x,0.25,0.4,1.737391304,1,12
+Tondela,11,PSG_10003768,Portugal,PSG_10001023,Madrid,Madrid,A,3.08,0.05,North,Race Event,-34,18,Warm,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","L Holtz
+Steinmann Motorsport",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",1,3,1,3,2,1,Soft,Medium,Hard,High,Medium,0,x,0.3,0.2,1.606956522,1,13
+Tondela,12,PSG_10003768,Portugal,PSG_10001023,Madrid,Madrid,B,2.4,0.05,North,Race Event,19,72,Warm,"N Surikov
+Iris Racing","H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion",01:34.1,"N Surikov
+Iris Racing
+2014",1,3,1,3,2,1,SuperSoft,Soft,Medium,High,Medium,0,x,0.3,0.2,1.252173913,1,14
+Tondela,13,PSG_10003768,Portugal,PSG_10001023,Madrid,Madrid,C,3.08,0.05,North,Race Event,41,28,Warm,"D Sharp
+Iris Racing","H Chapman
+Steinmann Motorsport","J Vasquez
+Scuderia Leone",01:34.2,"Y Churchill
+Iris Racing
+2013",1,3,1,3,2,1,Soft,Medium,Hard,High,Medium,0,x,0.3,0.2,1.606956522,1,15
+Tondela,14,PSG_10003768,Portugal,PSG_10001023,Madrid,Madrid,D,3.09,0.05,North,Race Event,41,28,Warm,"D Sharp
+Iris Racing","H Chapman
+Steinmann Motorsport","J Vasquez
+Scuderia Leone",01:34.2,"Y Churchill
+Iris Racing
+2013",1,3,1,3,2,1,Soft,Medium,Hard,High,High,0,x,0.3,0.2,1.612173913,1,16
+Milan,15,PSG_10003769,Italy,PSG_10000966,Milan,Milan,A,3.72,0.05,North,Race Event,3,101,Moderate,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","L Holtz
+Steinmann Motorsport",01:34.1,"L Holtz
+Steinmann Motorsport
+2014",3,1,3,1,1,3,Soft,Medium,Hard,Low,Medium,0,x,0.15,0.35,1.940869565,1,17
+Milan,16,PSG_10003769,Italy,PSG_10000966,Milan,Milan,B,3.73,0.05,North,Race Event,35,135,Moderate,"L Holtz
+Steinmann Motorsport","J Vasquez
+Scuderia Leone","J Vasquez
+Scuderia Leone",01:34.1,"A Lipponen
+Mansion
+2013",3,1,3,2,1,3,Soft,Medium,Hard,Low,VeryLow,0,x,0.15,0.35,1.946086957,1,18
+Milan,17,PSG_10003769,Italy,PSG_10000966,Milan,Milan,C,2.4,0.05,North,Race Event,-38,144,Moderate,"H Chapman
+Steinmann Motorsport","N Surikov
+Iris Racing","J Vasquez
+Scuderia Leone",01:34.1,"A Lipponen
+Mansion
+2013",3,1,3,3,1,2,Soft,Medium,Hard,Low,VeryHigh,0,x,0.15,0.35,1.252173913,1,19
+Cape Town,18,PSG_10003770,SouthAfrica,PSG_10001045,Cape Town,Cape Town,A,2.3,0.065,South,Race Event,19,-99,Warm,"A Lipponen
+Mansion","L Holtz
+Steinmann Motorsport","Y Churchill
+Iris Racing",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",1,3,3,3,1,1,UltraSoft,SuperSoft,Soft,Medium,Low,0,x,0.4,0.15,1.2,0.6,20
+Munich,19,PSG_10003771,Germany,PSG_10000948,Munich,Munich,A,3.08,0.05,North,Race Event,44,7,Moderate,"L Holtz
+Steinmann Motorsport","D Sharp
+Iris Racing","N Surikov
+Iris Racing",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",1,3,3,2,3,1,Soft,Medium,Hard,VeryLow,Low,270,y,0.2,0.5,1.606956522,1,21
+Munich,20,PSG_10003771,Germany,PSG_10000948,Munich,Munich,B,2.72,0.05,North,Race Event,56,38,Moderate,"J Vasquez
+Scuderia Leone","N Surikov
+Iris Racing","L Holtz
+Steinmann Motorsport",01:34.1,"A Lipponen
+Mansion
+2013",2,3,2,3,3,1,Soft,Medium,Hard,VeryLow,VeryLow,270,y,0.25,0.4,1.419130435,1,22
+Munich,21,PSG_10003771,Germany,PSG_10000948,Munich,Munich,C,3.1,0.05,North,Race Event,48,12,Moderate,"D Sharp
+Iris Racing","J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport",01:34.2,"A Lipponen
+Mansion
+2013",2,2,3,3,3,1,SuperSoft,Soft,Medium,VeryLow,High,270,y,0.2,0.5,1.617391304,1,23
+Munich,22,PSG_10003771,Germany,PSG_10000948,Munich,Munich,D,3.09,0.05,North,Race Event,48,12,Moderate,"D Sharp
+Iris Racing","J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport",01:34.2,"A Lipponen
+Mansion
+2013",2,3,2,3,3,1,Soft,Medium,Hard,VeryLow,VeryHigh,270,y,0.2,0.5,1.612173913,1,24
+Phoenix,23,PSG_10003772,UnitedStates,PSG_10001070,Phoenix,Phoenix,A,1.98,0.075,North,Race Event,52,1,Dry,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.1,"Y Churchill
+Iris Racing
+2013",3,2,1,1,1,3,Soft,Medium,Hard,Low,Medium,0,x,0.5,0,1.033043478,1,25
+Phoenix,24,PSG_10003772,UnitedStates,PSG_10001070,Phoenix,Phoenix,B,3.5,0.075,North,Race Event,24,54,Dry,"J Vasquez
+Scuderia Leone","A Lipponen
+Mansion","Y Churchill
+Iris Racing",01:34.1,"J Vasquez
+Scuderia Leone
+2014",3,1,2,3,1,3,Soft,Medium,Hard,VeryHigh,Low,0,x,0.4,0.45,1.826086957,1,26
+Phoenix,25,PSG_10003772,UnitedStates,PSG_10001070,Phoenix,Phoenix,C,2.7,0.075,North,Race Event,24,54,Dry,"J Vasquez
+Scuderia Leone","A Lipponen
+Mansion","Y Churchill
+Iris Racing",01:34.1,"J Vasquez
+Scuderia Leone
+2014",3,1,2,2,3,3,SuperSoft,Soft,Medium,VeryHigh,Low,0,x,0.4,0.45,1.408695652,1,27
+Phoenix,26,PSG_10003772,UnitedStates,PSG_10001070,Phoenix,Phoenix,D,2.74,0.075,North,Race Event,24,54,Dry,"J Vasquez
+Scuderia Leone","A Lipponen
+Mansion","Y Churchill
+Iris Racing",01:34.1,"J Vasquez
+Scuderia Leone
+2014",3,1,2,2,1,3,Soft,Medium,Hard,VeryHigh,VeryLow,0,x,0.4,0.45,1.429565217,1,28
+Phoenix,27,PSG_10003772,UnitedStates,PSG_10001070,Phoenix,Phoenix,E,2.64,0.075,North,Race Event,24,54,Dry,"J Vasquez
+Scuderia Leone","A Lipponen
+Mansion","Y Churchill
+Iris Racing",01:34.1,"J Vasquez
+Scuderia Leone
+2014",3,1,2,3,1,3,Soft,Medium,Hard,VeryHigh,High,0,x,0.4,0.45,1.377391304,1,29
+Doha,28,PSG_10003773,Qatar,PSG_10001024,Doha,Qatar,A,3.52,0.07,North,Race Event,30,-98,Dry,"H Chapman
+Steinmann Motorsport","N Surikov
+Iris Racing","A Lipponen
+Mansion",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",1,3,2,3,1,1,Soft,Medium,Hard,Medium,High,0,x,0.45,0.1,1.836521739,1,30
+Doha,29,PSG_10003773,Qatar,PSG_10001024,Doha,Qatar,B,2.69,0.07,North,Race Event,41,2,Dry,"J Vasquez
+Scuderia Leone","L Holtz
+Steinmann Motorsport","N Surikov
+Iris Racing",01:34.1,"D Sharp
+Iris Racing
+2013",1,3,3,3,2,1,Soft,Medium,Hard,Medium,Low,0,x,0.45,0.1,1.403478261,1,31
+Doha,30,PSG_10003773,Qatar,PSG_10001024,Doha,Qatar,C,2.85,0.07,North,Race Event,-34,18,Dry,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","L Holtz
+Steinmann Motorsport",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",1,3,2,3,2,1,Soft,Medium,Hard,Medium,Low,0,x,0.45,0.1,1.486956522,1,32
+Rio de Janeiro,31,PSG_10003774,Brazil,PSG_10000906,Rio de Janeiro,Rio de Janeiro,A,3.5,0.08,South,Race Event,19,72,Tropical,"N Surikov
+Iris Racing","H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion",01:34.1,"N Surikov
+Iris Racing
+2014",3,1,1,1,3,3,UltraSoft,SuperSoft,Soft,Medium,High,0,x,0.3,0.5,1.826086957,1,33
+Rio de Janeiro,32,PSG_10003774,Brazil,PSG_10000906,Rio de Janeiro,Rio de Janeiro,B,3.97,0.08,South,Race Event,41,28,Tropical,"D Sharp
+Iris Racing","H Chapman
+Steinmann Motorsport","J Vasquez
+Scuderia Leone",01:34.2,"Y Churchill
+Iris Racing
+2013",3,1,1,2,2,3,UltraSoft,SuperSoft,Soft,Medium,VeryHigh,0,x,0.3,0.5,2.071304348,1,34
+Rio de Janeiro,33,PSG_10003774,Brazil,PSG_10000906,Rio de Janeiro,Rio de Janeiro,C,3.91,0.08,South,Race Event,3,101,Tropical,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","L Holtz
+Steinmann Motorsport",01:34.1,"L Holtz
+Steinmann Motorsport
+2014",3,1,1,2,3,3,UltraSoft,SuperSoft,Soft,Medium,Low,0,x,0.3,0.5,2.04,1,35
+Black Sea,34,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,A,2.96,0.05,North,Race Event,35,135,Moderate,"L Holtz
+Steinmann Motorsport","J Vasquez
+Scuderia Leone","J Vasquez
+Scuderia Leone",01:34.1,"A Lipponen
+Mansion
+2013",1,3,1,2,2,3,Soft,Medium,Hard,VeryHigh,VeryLow,0,x,0.4,0.25,1.544347826,0.8,36
+Black Sea,35,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,B,2.41,0.05,North,Race Event,-38,144,Moderate,"H Chapman
+Steinmann Motorsport","N Surikov
+Iris Racing","J Vasquez
+Scuderia Leone",01:34.1,"A Lipponen
+Mansion
+2013",3,2,1,1,3,3,Soft,Medium,Hard,VeryHigh,VeryHigh,0,x,0.4,0.25,1.257391304,0.8,37
+Black Sea,36,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,C,2.08,0.05,North,Race Event,19,-99,Moderate,"A Lipponen
+Mansion","L Holtz
+Steinmann Motorsport","Y Churchill
+Iris Racing",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",2,2,1,3,3,2,Soft,Medium,Hard,VeryHigh,Medium,0,x,0.4,0.25,1.085217391,0.8,38
+Black Sea,37,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,D,2.98,0.05,North,Race Event,44,7,Moderate,"L Holtz
+Steinmann Motorsport","D Sharp
+Iris Racing","N Surikov
+Iris Racing",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",2,2,1,3,2,3,SuperSoft,Soft,Medium,VeryHigh,Low,0,x,0.4,0.25,1.554782609,0.8,39
+Black Sea,48,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,E,2.5,0.05,North,Race Event,44,7,Moderate,"L Holtz
+Steinmann Motorsport","D Sharp
+Iris Racing","N Surikov
+Iris Racing",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",3,2,1,3,2,3,SuperSoft,Soft,Medium,VeryHigh,Low,0,x,0.4,0.25,1.304347826,0.8,39
+Black Sea,49,PSG_10003775,RussianFederation,PSG_10001026,Black Sea,Sochi,F,2.6,0.05,North,Race Event,44,7,Moderate,"L Holtz
+Steinmann Motorsport","D Sharp
+Iris Racing","N Surikov
+Iris Racing",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",3,3,1,2,2,3,SuperSoft,Soft,Medium,VeryHigh,Low,0,x,0.4,0.25,1.356521739,0.8,39
+Singapore,38,PSG_10003776,Singapore,PSG_10001039,Singapore,Singapore,A,2.63,0.13,South,Race Event,56,38,Tropical,"J Vasquez
+Scuderia Leone","N Surikov
+Iris Racing","L Holtz
+Steinmann Motorsport",01:34.1,"A Lipponen
+Mansion
+2013",1,3,3,3,1,1,SuperSoft,Soft,Medium,High,VeryHigh,0,x,0.45,0.05,1.372173913,0.8,40
+Sydney,39,PSG_10003779,Australia,PSG_10000891,Sydney,Sydney,A,3.62,0.15,South,Race Event,48,12,Moderate,"H Chapman
+Steinmann Motorsport","A Lipponen
+Mansion","D Sharp
+Iris Racing",01:34.1,"L Holtz
+Steinmann Motorsport
+2014",1,3,2,3,1,1,SuperSoft,Soft,Medium,High,Medium,0,x,0.4,0.25,1.888695652,0.6,41
+Yokohama,40,PSG_10003777,Japan,PSG_10000969,Yokohama,Yokohama,A,3.14,0.13,North,Race Event,52,1,Tropical,"D Sharp
+Iris Racing","L Holtz
+Steinmann Motorsport","H Chapman
+Steinmann Motorsport",01:34.2,"H Chapman
+Steinmann Motorsport
+2014",1,1,3,1,3,2,SuperSoft,Soft,Medium,Medium,Low,0,x,0.15,0.4,1.63826087,1,42
+Yokohama,41,PSG_10003777,Japan,PSG_10000969,Yokohama,Yokohama,B,2.65,0.13,North,Race Event,-23,-43,Tropical,"J Vasquez
+Scuderia Leone","L Holtz
+Steinmann Motorsport","N Surikov
+Iris Racing",01:34.1,"D Sharp
+Iris Racing
+2013",2,1,3,3,3,2,Soft,Medium,Hard,Medium,VeryLow,0,x,0.15,0.4,1.382608696,1,43
+Yokohama,42,PSG_10003777,Japan,PSG_10000969,Yokohama,Yokohama,C,3.11,0.13,North,Race Event,31,121,Tropical,"J Vasquez
+Scuderia Leone","H Chapman
+Steinmann Motorsport","L Holtz
+Steinmann Motorsport",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",3,3,2,1,2,3,SuperSoft,Soft,Medium,Medium,High,0,x,0.15,0.4,1.622608696,1,44
+Dubai,43,PSG_10003778,UnitedArabEmirates,PSG_10001068,Dubai,Dubai,A,4.08,0.07,North,Race Event,1,103,Dry,"H Chapman
+Steinmann Motorsport","N Surikov
+Iris Racing","J Vasquez
+Scuderia Leone",01:34.1,"A Lipponen
+Mansion
+2013",3,1,3,1,2,3,SuperSoft,Soft,Medium,VeryLow,Low,0,x,0.3,0.2,2.128695652,1,45
+Dubai,44,PSG_10003778,UnitedArabEmirates,PSG_10001068,Dubai,Dubai,B,3.18,0.07,North,Race Event,50,6,Dry,"A Lipponen
+Mansion","L Holtz
+Steinmann Motorsport","Y Churchill
+Iris Racing",01:34.2,"L Holtz
+Steinmann Motorsport
+2014",3,2,1,1,3,3,SuperSoft,Soft,Medium,VeryLow,Low,0,x,0.3,0.2,1.659130435,1,46
+Dubai,45,PSG_10003778,UnitedArabEmirates,PSG_10001068,Dubai,Dubai,C,2.82,0.07,North,Race Event,59,18,Dry,"L Holtz
+Steinmann Motorsport","D Sharp
+Iris Racing","N Surikov
+Iris Racing",01:34.1,"H Chapman
+Steinmann Motorsport
+2014",3,2,3,1,2,3,SuperSoft,Soft,Medium,VeryLow,Medium,0,x,0.3,0.2,1.471304348,1,47
+Dubai,46,PSG_10003778,UnitedArabEmirates,PSG_10001068,Dubai,Dubai,D,3.94,0.07,North,Race Event,45,8,Dry,"J Vasquez
+Scuderia Leone","N Surikov
+Iris Racing","L Holtz
+Steinmann Motorsport",01:34.1,"A Lipponen
+Mansion
+2013",3,2,1,3,3,2,Soft,Medium,Hard,VeryLow,Low,0,x,0.3,0.2,2.055652174,1,48

@@ -710,6 +710,7 @@
     <Compile Include="Model\WetTyreSet.cs" />
     <Compile Include="Model\WorkingHours.cs" />
     <Compile Include="Model\YoungDriverProgramme.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Utils\ScrollIntoView.cs" />
     <Compile Include="Utils\VisibilityConverters.cs" />
@@ -725,6 +726,9 @@
     <Compile Include="ViewModel\TeamPrincipalViewModel.cs" />
     <Compile Include="ViewModel\TeamViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AddTrackDialog.xaml.cs">
+      <DependentUpon>AddTrackDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddTraitDialog.xaml.cs">
       <DependentUpon>AddTraitDialog.xaml</DependentUpon>
     </Compile>
@@ -785,6 +789,10 @@
     <Compile Include="View\TransferPerson.xaml.cs">
       <DependentUpon>TransferPerson.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AddTrackDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddTraitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -896,6 +904,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Locations.txt" />
+    <Resource Include="Assets\Climate.txt" />
+    <Resource Include="Assets\Driver Stat Progression.txt" />
     <None Include="FullSerializer\Aot.meta" />
     <None Include="FullSerializer\Aot\Editor.meta" />
     <None Include="FullSerializer\Aot\Editor\fsAotConfigurationEditor.cs.meta" />

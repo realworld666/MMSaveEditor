@@ -71,5 +71,40 @@ namespace MMSaveEditor.View.TabPages
                 }
             }
         }
+
+        private void removeTrack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (nextYearEvents.SelectedItems.Count == 1)
+            {
+                var vm = SimpleIoc.Default.GetInstance<ChampionshipViewModel>();
+                if (vm.ChampionshipData != null)
+                {
+                    vm.ChampionshipData.calendarData.Remove(nextYearEvents.SelectedItem as RaceEventCalendarData);
+                    // refresh view model
+                    vm.SetModel(vm.ChampionshipData);
+                }
+            }
+        }
+
+        private void addTrack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddTrackDialog window = new AddTrackDialog();
+            window.ShowDialog();
+
+            if (window.ChosenCircuit != null)
+            {
+                var vm = SimpleIoc.Default.GetInstance<ChampionshipViewModel>();
+                if (vm.ChampionshipData != null)
+                {
+                    vm.ChampionshipData.calendarData.Add(new RaceEventCalendarData()
+                    {
+                        circuit = window.ChosenCircuit,
+                        week = window.ChosenWeek,
+                    });
+                    // refresh view model
+                    vm.SetModel(vm.ChampionshipData);
+                }
+            }
+        }
     }
 }

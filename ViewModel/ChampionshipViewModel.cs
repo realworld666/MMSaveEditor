@@ -100,5 +100,26 @@ namespace MMSaveEditor.ViewModel
                 return mVotes;
             }
         }
+
+        public ObservableCollection<RaceEventCalendarData> RaceEvents
+        {
+            get
+            {
+                if (championshipData != null)
+                {
+                    return championshipData.calendarData;
+                }
+                return null;
+            }
+        }
+
+        public List<Circuit> AllCircuits
+        {
+            get
+            {
+                return CircuitManager.Instance.circuits.Where(c => RaceEvents.All(e => e.circuit.circuitID != c.circuitID)).ToList();
+            }
+        }
+
     }
 }

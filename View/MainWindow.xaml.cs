@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +13,7 @@ using FullSerializer;
 using GalaSoft.MvvmLight.Ioc;
 using LZ4;
 using Microsoft.Win32;
+using MMSaveEditor.Annotations;
 using MMSaveEditor.ViewModel;
 using NBug.Core.Reporting;
 using NBug.Core.Reporting.Info;
@@ -22,7 +26,7 @@ namespace MMSaveEditor.View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private fsSerializer serializer;
 
@@ -39,6 +43,21 @@ namespace MMSaveEditor.View
                 return string.Format("Motorsport Manager Save Editor v{0}", Assembly.GetExecutingAssembly()
                     .GetName()
                     .Version);
+            }
+        }
+
+        public string WindowTitle
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(OpenFilePath))
+                {
+                    return String.Format("Motorsport Manager Save Game Editor");
+                }
+                else
+                {
+                    return String.Format("Motorsport Manager Save Game Editor - {0}", Path.GetFileNameWithoutExtension(OpenFilePath));
+                }
             }
         }
 
@@ -65,6 +84,7 @@ namespace MMSaveEditor.View
             set
             {
                 _openFilePath = value;
+                NotifyPropertyChanged("WindowTitle");
             }
         }
 
@@ -100,7 +120,7 @@ namespace MMSaveEditor.View
 
             if (openFileDialog.ShowDialog() == true)
             {
-                _openFilePath = openFileDialog.FileName;
+                OpenFilePath = openFileDialog.FileName;
 
                 bool success = LoadFile(openFileDialog.FileName, serializer, out _currentSaveInfo);
 
@@ -226,7 +246,7 @@ namespace MMSaveEditor.View
             if (saveFileDialog.ShowDialog() == true)
             {
                 SaveFile(saveFileDialog.FileName, serializer, _currentSaveInfo);
-                _openFilePath = saveFileDialog.FileName;
+                OpenFilePath = saveFileDialog.FileName;
             }
         }
 
@@ -567,6 +587,20 @@ namespace MMSaveEditor.View
         private void request_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://rwscripts.com/tracker/bug_report_page.php");
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        // This method is called by the Set accessor of each property.
+        // The CallerMemberName attribute that is applied to the optional propertyName
+        // parameter causes the property name of the caller to be substituted as an argument.
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

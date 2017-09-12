@@ -34,6 +34,42 @@ public class Circuit
     private string mNationalityKey = string.Empty;
     public float trackRubberModifier;
 
+    public string CircuitName
+    {
+        get
+        {
+            return Localisation.LocaliseID(locationNameID);
+        }
+    }
+
+    public string CircuitCountry
+    {
+        get
+        {
+            return Localisation.LocaliseID(countryNameID);
+        }
+    }
+
+    public string CircuitLayout
+    {
+        get
+        {
+            return Localisation.LocaliseID(Localisation.GetEnumLocalisationID(trackLayout));
+        }
+    }
+
+    public string nationalityKey
+    {
+        get
+        {
+            return this.mNationalityKey;
+        }
+        set
+        {
+            this.mNationalityKey = value;
+        }
+    }
+
     public enum TrackLayout
     {
         [LocalisationID("PSG_10008515")] TrackA,
