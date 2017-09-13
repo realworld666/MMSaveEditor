@@ -248,6 +248,7 @@
     <Compile Include="Model\CarPartComponent.cs" />
     <Compile Include="Model\CarPartComponentBonus.cs" />
     <Compile Include="Model\CarPartComponentRequirement.cs" />
+    <Compile Include="Model\CarPartComponentsManager.cs" />
     <Compile Include="Model\CarPartCondition.cs" />
     <Compile Include="Model\CarPartDesign.cs" />
     <Compile Include="Model\CarPartInventory.cs" />
@@ -907,6 +908,7 @@
     <Resource Include="Assets\Locations.txt" />
     <Resource Include="Assets\Climate.txt" />
     <Resource Include="Assets\Driver Stat Progression.txt" />
+    <Resource Include="Assets\Part Components.txt" />
     <None Include="FullSerializer\Aot.meta" />
     <None Include="FullSerializer\Aot\Editor.meta" />
     <None Include="FullSerializer\Aot\Editor\fsAotConfigurationEditor.cs.meta" />

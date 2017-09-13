@@ -28,6 +28,42 @@ public class CarPartComponent : fsISerializationCallbacks
     private string mCustomComponentName = string.Empty;
     public bool isRandomComponent;
 
+    public List<CarPartComponentBonus> bonuses
+    {
+        get
+        {
+            return this.mBonuses;
+        }
+    }
+
+    public string nameID
+    {
+        get
+        {
+            return this.mNameID;
+        }
+        set
+        {
+            this.mNameID = value;
+        }
+    }
+
+    public string LocalisedName
+    {
+        get
+        {
+            return Localisation.LocaliseID(nameID);
+        }
+    }
+
+    public string customComponentName
+    {
+        set
+        {
+            this.mCustomComponentName = value;
+        }
+    }
+
     public enum ComponentType
     {
         Stock,
@@ -98,5 +134,11 @@ public class CarPartComponent : fsISerializationCallbacks
                 bonus.OnPartBuilt(inDesign, inPart);
             });
         }
+    }
+
+    public void AddBonuses(CarPartComponentBonus inBonus)
+    {
+        inBonus.component = this;
+        this.mBonuses.Add(inBonus);
     }
 }

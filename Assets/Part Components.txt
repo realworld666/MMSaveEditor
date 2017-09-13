@@ -1,0 +1,151 @@
+ID,Trait Name,Name ID,Custom Trait Name,Text ID,Icon Path,Icon,Part,Level,Type,Activation Requirement,Risk Level,Stat Boost,Max Stat Boost,Reliability Boost,Max Reliability Boost,Production Time,Cost,Red Zone,Bonus,Bonus Type,AggressiveTeamWeightings,PassiveTeamWeightings
+2,{Stat}: +20,PSG_10004941,,,PartIconID2,2,All,1,Stock,,,20,,,,,,,,,0.5,0.3
+3,Reliability: +15%,PSG_10004942,,,PartIconID3,4,All,1,Stock,,,,,15,,,,,,,0.4,0.5
+4,{Stat}: +25 to Max,PSG_10004943,,,PartIconID4,2,All,1,Stock,,,,25,,,,,,,,0.7,0.2
+5,"{Stat}: +25 to Max
+{Stat}: +15
+Risk Level: + 1",PSG_10004944,,,PartIconID5,6,All,1,Risky,,1,15,25,,,,,,,,0.2,0
+6,Red Zone: -10%,PSG_10004945,,,PartIconID6,0,All,1,Stock,,,,,,,,,-10,,,0.2,0.4
+7,"{Stat}: +10
+Reliability: +10%",PSG_10004946,,,PartIconID7,2,All,1,Stock,,,10,,10,,,,,,,0.3,0.6
+8,"{Stat}: +25
+Red Zone: -5%
+Risk Level: +1",PSG_10004947,,,PartIconID8,7,All,1,Risky,,1,25,,,,,,-5,,,0.1,0
+9,"Build Time: + 2 Days
+{Stat}: +50
+Risk Level: + 1",PSG_10004948,,,PartIconID9,4,All,2,Risky,,1,50,,,,4,,,,,0.3,0
+11,"{Stat}: +40
+ During: Qualifying",PSG_10004949,,,PartIconID2,7,All,2,Stock,Qualifying,,40,,,,,,,,,0.1,0.1
+12,"Reliability: +30%
+{Stat}: -10",PSG_10004950,,,PartIconID12,1,All,2,Stock,,,-10,,30,,,,,,,0.5,0.6
+13,{Stat}: +30,PSG_10004951,,,PartIconID2,5,All,2,Stock,,,30,,,,,,,,,0.9,0.9
+14,"Build Time: +2 Days
+{Stat}: +25
+Reliability: +5%",PSG_10004952,,,PartIconID14,1,All,2,Stock,,,25,,5,,4,,,,,0.4,0.8
+15,"{Stat}: +50
+ On: Soft, Supers & Ultras",PSG_10008437,,,PartIconID15,6,All,3,Stock,TyreCompoundSoft,,50,,,,,,,,,0.1,0
+16,"Reliability: +60%
+Risk Level: + 1",PSG_10004954,,,PartIconID16,7,All,3,Risky,,1,,,60,,,,,,,0.3,0
+17,"{Stat}: +40 to Max
+ -15% Reliability",PSG_10004955,,,PartIconID17,2,All,3,Stock,,,,40,-15,,,,,,,0.3,0.4
+18,"{Stat}: -20 to Max
+{Stat}: +40",PSG_10004956,,,PartIconID18,2,All,3,Stock,,,40,-20,,,,,,,,0.5,0.5
+19,"No Condition Loss 
+On: First Race",PSG_10004957,,,PartIconID19,2,"Gearbox,Brakes,FrontWing,Suspension,RearWing",4,Stock,,,,,,,,,,,NoConditionLossFirstRace,0.6,0.6
+20,"{Stat}: +50 
+On: Wet Tyres and Inters",PSG_10008438,,,PartIconID20,2,All,3,Stock,TyreCompoundWet,,50,,,,,,,,,0.4,0.1
+68,"Build Time: +5 Days
+Reliability: +20%
+Red Zone: -20%",PSG_10008439,,,PartIconID68,2,All,4,Stock,,,,,20,,9,,-20,,,0.5,1
+69,"{Stat}: +60
+Red Zone: 15%",PSG_10008440,,,PartIconID69,2,All,4,Stock,,,40,,,,,,15,,,0.7,0.6
+70,"{Stat}: +50
+Reliability: +30%
+Risk Level: + 1",PSG_10008441,,,PartIconID70,,All,4,Risky,,1,50,,30,,,,,,,0.5,0
+71,"Produce an Additional Part 
+for No Extra Cost or Time",PSG_10004962,,,EngineerIconBuildTime29,5,All,4,Engineer,,,,,,,,,,,SecondPartFree,0,0
+72,Red Zone: -25%,PSG_10004963,,,PartIconID6,5,All,4,Stock,,,,,,,,,-25,,,0.5,0.8
+21,"Build Time: +3 Days
+Red Zone: -15%
+{Stat}: +55",PSG_10004964,,,PartIconID21,2,All,4,Stock,,,55,,,,7,,-15,,,0.6,0.9
+22,"Build Time: +3 Days
+{Stat}: +115
+Red Zone: +50%",PSG_10004965,,,PartIconID69,2,All,5,Stock,,,115,,,,8,,50,,,0.6,0.2
+23,No Condition Loss Ever,PSG_10004966,,,PartIconID19,4,"Gearbox,Brakes,FrontWing,Suspension,RearWing",5,Stock,,,,,,,,,,,NoConditionLossEver,0.4,0.9
+25,"{Stat}: +65
+Red Zone: -20%
+Cost: {Cost}",PSG_10004967,,,PartIconID25,5,All,5,Stock,,,65,,,,,"1,750,000.00",-20,,,0.7,0.7
+26,"{Stat}: +40 to Max
+ Red Zone: -15%",PSG_10004968,,,PartIconID26,5,All,5,Stock,,,,40,,,,,-15,,,0.4,0.5
+27,"{Stat}: +100
+During: Race",PSG_10004969,,,PartIconID27,0,All,5,Stock,Race,,100,,,,,,,,,0.9,0.6
+28,+60% Reliability,PSG_10004970,,,PartIconID3,1,All,5,Stock,,,,,60,,,,,,,0,0
+29,Build Time: -1 Day,PSG_10004971,,,EngineerIconBuildTime29,2,All,1,Engineer,,,,,,,-1,,,,,0,0
+30,"Build Time: -2 Days
+For: Each Million Spent",PSG_10004972,,,EngineerIconTimeMoney30,2,All,1,Engineer,,,,,,,,,,-2,TimeReductionPerMillionSpent,0,0
+32,"Build Time: Take No Time
+Components: Good",PSG_10004973,,,EngineerIconNoTime32,6,All,3,Engineer,,,,,,,,,,2,ComponentLevelAddNoDays,0,0
+33,"Build Time: -2 Days
+Cost: {Cost}",PSG_10004974,,,EngineerIconTimeMoney30,6,All,2,Engineer,,,,,,,-2,"500,000.00",,,,0,0
+34,"{Stat}: +20 to Max
+ Reliability: -10%",PSG_10004975,,,EngineerIconBuildStatUpRelDown34,2,All,2,Engineer,,,,20,-10,,,,,,,0,0
+35,Adds a Random ""Great"" Component,PSG_10004976,,,EngineerIconRandom35,3,All,2,Engineer,,,,,,,,,,3,AddRandomLevelComponent,0,0
+36,"Reliability: +2%
+For: Each day in Production",PSG_10004977,,,EngineerIconEachDayReli,5,All,3,Engineer,,,,,,,,,,2,ReliabilityPerDayInProduction,0,0
+37,"{Stat}: +40
+Reliability: -10% 
+During: Race",PSG_10004978,,,EngineerIconStatReliInRace37,4,All,3,Engineer,Race,,40,,-10,,,,,,,0,0
+38,Risk Level: -1,PSG_10004979,,,EngineerIconRiskLevelDown38,4,All,4,Engineer,,-1,,,,,,,,,,0,0
+40,"Reliability: +5%
+For: Each day in Production",PSG_10004980,,,EngineerIconNoTime32,4,All,5,Engineer,,,,,,,,,,5,ReliabilityPerDayInProduction,0,0
+41,Adds a Random ""Legendary"" Component,PSG_10004981,,,EngineerIconExtraSlot41,4,All,4,Engineer,,,,,,,,,,5,AddRandomLevelComponent,0,0
+42,Max Performance: Instant,PSG_10004982,,,EngineerIconMaxPerformance42,4,All,5,Engineer,,,,,,,,,,,PerformanceAutoImproved,0,0
+43,Risk Level: None,PSG_10004983,,,EngineerIconNoRisk43,4,All,5,Engineer,,-3,,,,,,,,,,0,0
+44,"Reliability: +20% 
+For: Each ""Good"" Component",PSG_10004984,,,EngineerIconID45,4,All,5,Engineer,,,,,20,,,,,2,ReliabilityBonusPerComponentOfLevel,0,0
+45,Reliability: +40%,PSG_10004985,,,EngineerIconID45,4,All,4,Engineer,,,,,40,,,,,,,0,0
+46,"{Stat}: +60
+Reliability: +20% 
+During: Qualifying",PSG_10004986,,,EngineerIconID46,4,All,3,Engineer,Qualifying,,60,,20,,,,,,,0,0
+47,"{Stat}: +50
+ Reliability: -25%
+ On: Soft, Supers & Ultras",PSG_10008442,,,EngineerIconID47,4,All,3,Engineer,TyreCompoundSoft,,50,,-25,,,,,,,0,0
+48,"{Stat}: +25
+ Reliability: -10%
+ On: Wet Tyres and Inters",PSG_10008443,,,EngineerIconID48,4,All,2,Engineer,TyreCompoundWet,,25,,-10,,,,,,,0,0
+57,"{Stat}: +60
+{Stat}: +50 to Max",PSG_10007582,,,PartIconID57,3,All,5,Stock,,,60,50,,,,,,,,1,0.8
+58,"{Stat}: +40
+Reliability: -20%",PSG_10008444,,,PartIconID58,5,All,2,Stock,,,40,,-20,,,,,,,0.3,0.3
+59,"Reliability: +50%
+Red Zone: +35%",PSG_10008445,,,PartIconID59,5,All,2,Stock,,,,,50,,,,35,,,0.3,0.1
+60,"{Stat}: +35
+Red Zone: -10%
+Risk Level: + 1",PSG_10008446,,,PartIconID8,,All,2,Risky,,1,35,,,,,,-10,,,0.1,0.2
+61,"Build Time: -3 Days
+{Stat}: +30
+Risk Level: + 1",PSG_10008447,,,PartIconID61,1,All,2,Risky,,1,30,,,,-3,,,,,0,0
+62,"{Stat}: +60
+Risk Level: + 1",PSG_10008448,,,PartIconID62,7,All,3,Risky,,1,60,,,,,,,,,0,0
+63,"Risk Level - 1
+Cost: {Cost}",PSG_10007583,,,PartIconID63,4,All,3,Stock,,-1,,,,,,"1,000,000.00",,,,0.3,0.3
+64,"{Stat}: +70 to Max
+Risk Level: + 1",PSG_10008449,,,PartIconID64,2,All,3,Risky,,1,,70,,,,,,,,0.2,0.1
+65,"{Stat}: +15
+ Reliability: -10%
+ On: Soft, Supers & Ultras",PSG_10008450,,,EngineerIconID47,4,All,2,Engineer,TyreCompoundSoft,,15,,-10,,,,,,,0,0
+66,"No Condition Loss
+On: First Race",PSG_10008451,,,EngineerIconID66,2,All,3,Engineer,,,,,,,,,,,NoConditionLossFirstRace,0,0
+67,"Build Time: -4 Days
+Cost: {Cost}",PSG_10007584,,,EngineerIconTimeMoney30,2,All,4,Engineer,,,,,,,-4,"1,000,000.00",,,,0,0
+73,"Reliability: +35%
+Risk Level: + 1",PSG_10008452,,,PartIconID16,,All,4,Risky,,1,35,,35,,,,,,,0.5,0
+74,"Reliability: +15%
+For: Each 'Average' Component
+Risk Level: + 1",PSG_10008453,,,PartIconID16,,All,4,Risky,,1,15,,,,,,,1,ReliabilityBonusPerComponentOfLevel,0,0
+75,{Stat}: +50,PSG_10008454,,,PartIconID2,2,All,4,Stock,,,50,,,,,,,,,0.8,0.8
+76,"Production Time: +4 Days
+{Stat}: +40
+Reliability: +25%",PSG_10008455,,,PartIconID14,2,All,4,Stock,,,40,,25,,8,,,,,0.4,1
+77,"Build Time: +5 Days
+{Stat}: +40 to Max",PSG_10008456,,,PartIconID77,1,All,2,Stock,,,,40,,,7,,,,,0.8,0.5
+78,"Build Time: +2 Days
+{Stat}: +15 to Max
+{Stat}: +20",PSG_10008457,,,PartIconID78,1,All,2,Stock,,,20,15,,,4,,,,,0.7,0.4
+79,"{Stat}: +90
+",PSG_10008458,,,PartIconID2,1,All,5,Stock,,,90,,,,,,,,,0.9,0.8
+83,"{Stat}: +50
+Reliability: +50%",PSG_10008459,,,PartIconID3,1,All,5,Stock,,,50,,50,,,,,,,0.8,0.7
+80,Adds a Random ""Good"" Component,PSG_10008460,,,EngineerIconRandom35,4,All,1,Engineer,,,,,,,,,,2,AddRandomLevelComponent,0,0
+81,"{Stat}: +20 to Max
+Red Zone: -10%
+Risk Level: +1",PSG_10008461,,,EngineerIconMaxPerformance42,4,All,2,Engineer,,1,,20,,,,,-10,,,0,0
+82,"Reliability: +15% 
+For: Each ""Good"" Component
+Risk Level: +1",PSG_10008462,,,EngineerIconID45,4,All,3,Engineer,,1,,,15,,,,,2,ReliabilityBonusPerComponentOfLevel,0,0
+84,"Build Time: +5 Days
+Unlocks an Additional ""Good"" Component Slot",PSG_10010294,,,EngineerIconExtraSlot41,4,All,1,Engineer,,,,,,,5,,,2,UnlockExtraSlotOfLevel,0,0
+85,"Build Time: +10 Days
+Unlocks an Additional ""Great"" Component Slot",PSG_10010295,,,EngineerIconExtraSlot41,4,All,2,Engineer,,,,,,,10,,,3,UnlockExtraSlotOfLevel,0,0
+86,"Reliability: +25%
+{Stat}: -5",PSG_10010771,,,EngineerIconID45,2,All,1,Engineer,,,-5,,25,,,,,,,0,0

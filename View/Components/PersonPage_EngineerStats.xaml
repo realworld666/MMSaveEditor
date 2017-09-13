@@ -7,9 +7,38 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ComponentEntry">
+            <Label Content="{Binding LocalisedName}"></Label>
+        </DataTemplate>
+    </UserControl.Resources>
     <StackPanel>
         <GroupBox Header="Part Contribution">
             <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.Stats.PartContributionStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+        </GroupBox>
+        <GroupBox Header="Engineer Components">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Level 1"></Label>
+                    <ComboBox SelectedItem="{Binding ComponentLevel1}" ItemsSource="{Binding AllComponentsLevel1}" ItemTemplate="{DynamicResource ComponentEntry}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Level 2"></Label>
+                    <ComboBox SelectedItem="{Binding ComponentLevel2}" ItemsSource="{Binding AllComponentsLevel2}" ItemTemplate="{DynamicResource ComponentEntry}"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Level 3"></Label>
+                    <ComboBox SelectedItem="{Binding ComponentLevel3}" ItemsSource="{Binding AllComponentsLevel3}" ItemTemplate="{DynamicResource ComponentEntry}"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Level 4"></Label>
+                    <ComboBox SelectedItem="{Binding ComponentLevel4}" ItemsSource="{Binding AllComponentsLevel4}" ItemTemplate="{DynamicResource ComponentEntry}"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Level 5"></Label>
+                    <ComboBox SelectedItem="{Binding ComponentLevel5}" ItemsSource="{Binding AllComponentsLevel5}" ItemTemplate="{DynamicResource ComponentEntry}"  />
+                </StackPanel>
+            </StackPanel>
         </GroupBox>
     </StackPanel>
 </UserControl>
