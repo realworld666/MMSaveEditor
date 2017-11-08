@@ -1,8 +1,7 @@
 ﻿public class PoliticalImpactEnergyRecoverySystem : PoliticalImpact
 {
+    [LocalisationID("PSG_asjhdashjdas")]
     private PoliticalImpactEnergyRecoverySystem.ImpactType impactType;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactEnergyRecoverySystem(string inName, string inEffect)
     {

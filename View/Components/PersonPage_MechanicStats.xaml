@@ -5,11 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="BonusItem">
+            <StackPanel>
+                <TextBlock Text="{Binding LocalisedName}"/>
+                <TextBlock Text="{Binding LocalisedDesc}" Foreground="#FF6C6C6C" FontStyle="Italic" Margin="20,0,0,0"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <StackPanel>
         <GroupBox Header="Stats">
             <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.Stats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+        </GroupBox>
+        <GroupBox Header="Relationships">
+            <xcdg:DataGridControl x:Name="Relationships" AutoCreateColumns="False" ItemsSource="{Binding Relationships}" IsDeleteCommandEnabled="True">
+                <xcdg:DataGridControl.Columns>
+                    <xcdg:Column FieldName="Key" Title="Driver" IsMainColumn="True" AllowGroup="False" ReadOnly="True"/>
+                    <xcdg:Column FieldName="Value.RelationshipAmount" Title="Relationship Amount" AllowGroup="False"/>
+                    <xcdg:Column FieldName="Value.RelationshipAmountAfterDecay" Title="Relationship Amount After Decay" IsMainColumn="True" AllowGroup="False"/>
+                    <xcdg:Column FieldName="Value.NumberOfWeeks" Title="Number Of Weeks" AllowGroup="False"/>
+                </xcdg:DataGridControl.Columns>
+            </xcdg:DataGridControl>
+        </GroupBox>
+        <GroupBox Header="Bonuses">
+            <StackPanel>
+                <ComboBox SelectedItem="{Binding Bonus1}" ItemsSource="{Binding AllBonuses}" ItemTemplate="{DynamicResource BonusItem}"></ComboBox>
+                <ComboBox SelectedItem="{Binding Bonus2}" ItemsSource="{Binding AllBonuses}" ItemTemplate="{DynamicResource BonusItem}"></ComboBox>
+            </StackPanel>
         </GroupBox>
     </StackPanel>
 </UserControl>

@@ -1,8 +1,6 @@
 ﻿public class PoliticalImpactSafetyCar : PoliticalImpact
 {
     public PoliticalImpactSafetyCar.ImpactType impactType = PoliticalImpactSafetyCar.ImpactType.Both;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactSafetyCar(string inName, string inEffects)
     {

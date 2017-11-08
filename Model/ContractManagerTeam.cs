@@ -125,4 +125,23 @@ public class ContractManagerTeam
 
         //this.RemoveDraftProposal(inContract.person);
     }
+
+    public bool IsSittingOutEvent(Driver inDriver)
+    {
+        return inDriver == this.mHealingDriver;
+    }
+
+    public void GetAllDriversForCar(ref List<Driver> drivers, int inCarIndex)
+    {
+        int count = this.mEmployeeSlots.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.mEmployeeSlots[index].jobType == Contract.Job.Driver && !this.mEmployeeSlots[index].IsAvailable())
+            {
+                Driver personHired = this.mEmployeeSlots[index].personHired as Driver;
+                if (personHired.carID == inCarIndex)
+                    drivers.Add(personHired);
+            }
+        }
+    }
 }

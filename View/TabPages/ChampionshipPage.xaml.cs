@@ -25,18 +25,6 @@ namespace MMSaveEditor.View.TabPages
                 handler.Invoke(this, e.AddedItems[0] as Championship);
         }
 
-        private void removeRule_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (rulesList.SelectedItems.Count == 1)
-            {
-                var vm = SimpleIoc.Default.GetInstance<ChampionshipViewModel>();
-                if (vm.ChampionshipData != null)
-                {
-                    vm.ChampionshipData.Rules.RemoveRule(rulesList.SelectedItem as PoliticalVote);
-                }
-            }
-        }
-
         private void addRule_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NewRuleWindow window = new NewRuleWindow();

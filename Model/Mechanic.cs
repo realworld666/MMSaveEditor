@@ -31,11 +31,10 @@ public class Mechanic : Person
     private readonly float negativeMaxImprovementHQ = 0.75f;
     private readonly float maxMechanicRelationshipDecayPercent = 0.5f;
     private readonly float mechanicRelationshipInvalidDecay = -1f;
-    public const float minPitStopAddedTime = 0.0f;
-    public const float maxPitStopAddedTime = 2f;
     public const float minPitStopAddedError = 0.0f;
     public const float maxPitStopAddedError = 0.1f;
     public float driverRelationshipAmountBeforeEvent;
+    private List<Driver> mRelationshipDriversCache;
 
     public RelayCommand<Mechanic> ViewDriver { get; private set; }
 
@@ -58,6 +57,53 @@ public class Mechanic : Person
         public float relationshipAmount;
         public float relationshipAmountAfterDecay = -1f;
         public int numberOfWeeks;
+
+        public float RelationshipAmount
+        {
+            get
+            {
+                return relationshipAmount;
+            }
+
+            set
+            {
+                relationshipAmount = value;
+            }
+        }
+
+        public float RelationshipAmountAfterDecay
+        {
+            get
+            {
+                return relationshipAmountAfterDecay;
+            }
+
+            set
+            {
+                relationshipAmountAfterDecay = value;
+            }
+        }
+
+        public int NumberOfWeeks
+        {
+            get
+            {
+                return numberOfWeeks;
+            }
+
+            set
+            {
+                numberOfWeeks = value;
+            }
+        }
+    }
+
+    public Dictionary<string, Mechanic.DriverRelationship> allDriverRelationships
+    {
+        get
+        {
+            return this.mDictDriversRelationships;
+        }
     }
 
     public Mechanic()
@@ -93,5 +139,36 @@ public class Mechanic : Person
             relationshipAmount = inRelationshipAmount
         });
         this.mDictRelationshipModificationHistory.Add(driver.name, new StatModificationHistory());
+    }
+
+    public void SetDriverRelationship(float inRelationshipAmount, int inWeeksTogether, string inDriverName = null)
+    {
+        string str = !string.IsNullOrEmpty(inDriverName) ? inDriverName : this.Contract.GetTeam().GetDriver(this.driver).name;
+        if (!this.mDictDriversRelationships.ContainsKey(str))
+        {
+            this.mDictDriversRelationships.Add(str, new Mechanic.DriverRelationship()
+            {
+                numberOfWeeks = inWeeksTogether,
+                relationshipAmount = inRelationshipAmount
+            });
+            if (this.mDictRelationshipModificationHistory.ContainsKey(str))
+                return;
+            this.mDictRelationshipModificationHistory.Add(str, new StatModificationHistory());
+        }
+        else
+        {
+            if (this.mDriversRelationships == null)
+                return;
+            Mechanic.DriverRelationship map = this.mDriversRelationships.GetMap(str);
+            map.numberOfWeeks = inWeeksTogether;
+            map.relationshipAmount = inRelationshipAmount;
+        }
+    }
+
+    public Mechanic.DriverRelationship GetRelationshipWithDriver(Driver inDriver)
+    {
+        if (!this.mDictDriversRelationships.ContainsKey(inDriver.name))
+            return (Mechanic.DriverRelationship)null;
+        return this.mDictDriversRelationships[inDriver.name];
     }
 }

@@ -18,7 +18,7 @@ public class HQsBuilding_v1 : Entity
     private int mStaffNumber;
     private DateTime mDateProgressStarted;
     private DateTime mDateProgressEnd;
-    private HQsBuilding_v1.SpecialState specialState1;
+    private HQsBuilding_v1.SpecialState specialState;
 
     public HQsBuilding_v1()
     {
@@ -87,12 +87,12 @@ public class HQsBuilding_v1 : Entity
     {
         get
         {
-            return specialState1;
+            return specialState;
         }
 
         set
         {
-            specialState1 = value;
+            specialState = value;
         }
     }
     public List<SpecialState> SpecialStateTypes
@@ -128,6 +128,32 @@ public class HQsBuilding_v1 : Entity
         get
         {
             return info.maxLevel;
+        }
+    }
+
+    public DateTime DateProgressStarted
+    {
+        get
+        {
+            return mDateProgressStarted;
+        }
+
+        set
+        {
+            mDateProgressStarted = value;
+        }
+    }
+
+    public DateTime DateProgressEnd
+    {
+        get
+        {
+            return mDateProgressEnd;
+        }
+
+        set
+        {
+            mDateProgressEnd = value;
         }
     }
 }

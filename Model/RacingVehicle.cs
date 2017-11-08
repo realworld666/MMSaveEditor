@@ -1,6 +1,7 @@
 ﻿using FullSerializer;
+using System;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class RacingVehicle : Vehicle
 {
     public Driver driver;
@@ -34,6 +35,13 @@ public class RacingVehicle : Vehicle
     private bool mWaitingForCooldown;
     private float mSpeedTrapSpeed;
     private RaceEventResults.ResultData mSessionData = new RaceEventResults.ResultData();
+    private Driver[] mDriversForCar;
+    private string mDriverNameCache;
+    public Action OnDriverChange;
+    private int mConcurrentStandingsPosition;
+    private int mOvertakes;
+    private bool mIsPlayerDriver;
 
+    private bool mRefreshTyrePerformance;
 
 }

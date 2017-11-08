@@ -2,22 +2,28 @@
 
 public class RaceLengthDesignData
 {
-    [XmlElement( "ShortRaceLengthInMiles" )]
+    [XmlElement("ShortRaceLengthInMiles")]
     public float shortRaceLength = 50f;
-    [XmlElement( "MediumRaceLengthInMiles" )]
+    [XmlElement("MediumRaceLengthInMiles")]
     public float mediumRaceLength = 80f;
-    [XmlElement( "LongRaceLengthInMiles" )]
+    [XmlElement("LongRaceLengthInMiles")]
     public float longRaceLength = 140f;
-    [XmlElement( "ShortRaceLengthShortSessionRulesLapDelta" )]
+    [XmlElement("ShortRaceLengthInMinutes")]
+    public float shortRaceLengthInMinutes = 50f;
+    [XmlElement("MediumRaceLengthInMinutes")]
+    public float mediumRaceLengthInMinutes = 80f;
+    [XmlElement("LongRaceLengthInMinutes")]
+    public float longRaceLengthInMinutes = 140f;
+    [XmlElement("ShortRaceLengthShortSessionRulesLapDelta")]
     public int shortRaceLengthShortSessionRulesLapDelta = -2;
-    [XmlElement( "ShortRaceLengthLongSessionRulesLapDelta" )]
+    [XmlElement("ShortRaceLengthLongSessionRulesLapDelta")]
     public int shortRaceLengthLongSessionRulesLapDelta = 2;
-    [XmlElement( "MediumRaceLengthShortSessionRulesLapDelta" )]
+    [XmlElement("MediumRaceLengthShortSessionRulesLapDelta")]
     public int mediumRaceLengthShortSessionRulesLapDelta = -5;
-    [XmlElement( "MediumRaceLengthLongSessionRulesLapDelta" )]
+    [XmlElement("MediumRaceLengthLongSessionRulesLapDelta")]
     public int mediumRaceLengthLongSessionRulesLapDelta = 5;
-    [XmlElement( "LongRaceLengthShortSessionRulesLapDelta" )]
+    [XmlElement("LongRaceLengthShortSessionRulesLapDelta")]
     public int longRaceLengthShortSessionRulesLapDelta = -5;
-    [XmlElement( "LongRaceLengthLongSessionRulesLapDelta" )]
+    [XmlElement("LongRaceLengthLongSessionRulesLapDelta")]
     public int longRaceLengthLongSessionRulesLapDelta = 5;
 }

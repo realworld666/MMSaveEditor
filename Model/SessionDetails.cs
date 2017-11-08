@@ -13,6 +13,7 @@ public class SessionDetails
     private int mTVAudience;
     private int mAttendence;
     private int mSessionNumber = -1;
+    private bool mWillHaveCatastrophicPitstopMistake;
 
     public DateTime sessionDateTime
     {
@@ -27,6 +28,14 @@ public class SessionDetails
         get
         {
             return this.mSessionType;
+        }
+    }
+
+    public bool hasEnded
+    {
+        get
+        {
+            return this.mHasEnded;
         }
     }
 

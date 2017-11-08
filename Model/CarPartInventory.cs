@@ -16,6 +16,12 @@ public class CarPartInventory
     public List<CarPart> engineGTInventory = new List<CarPart>();
     public List<CarPart> gearboxGTInventory = new List<CarPart>();
     public List<CarPart> suspensionGTInventory = new List<CarPart>();
+    private List<CarPart> brakesGETInventory = new List<CarPart>();
+    private List<CarPart> engineGETInventory = new List<CarPart>();
+    private List<CarPart> frontWingGETInventory = new List<CarPart>();
+    private List<CarPart> gearboxGETInventory = new List<CarPart>();
+    private List<CarPart> rearWingGETInventory = new List<CarPart>();
+    private List<CarPart> suspensionGETInventory = new List<CarPart>();
     public List<List<CarPart>> inventories = new List<List<CarPart>>();
 
     public List<CarPart> GetPartInventory(CarPart.PartType inPartType)

@@ -8,6 +8,7 @@ public class GameTimer
     private static float maxDeltaTimeRecip = 0.06666667f;
     public static float totalSimulationDeltaTimeCurrentFrame = 0.0f;
     public static float debugSimSpeed = 0.0f;
+    public static float[] skipSimEventSpeeds = new float[4] { 0.0f, 1.75f, 2.75f, 3.75f };
     public static float[] skipSimSpeed = new float[4] { 0.0f, 20f, 30f, 40f };
     public static float debugSkipSpeed = 0.0f;
     public static float minSkipSpeed = 60000f;
@@ -27,7 +28,6 @@ public class GameTimer
     public Action<GameTimer.TimeState> OnChangeTimeState;
     private float mDeltaTime;
     private GameTimer.TimeState mTimeState;
-    public float[,] speedMultipliers = new float[3, 3] { { 250f, 2500f, 25000f }, { 1f, 10f, 50f }, { 1.75f, 2.75f, 3.75f } };
     private bool[] mPauseState = new bool[5];
 
     public DateTime now

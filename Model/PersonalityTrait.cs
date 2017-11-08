@@ -42,7 +42,7 @@ public class PersonalityTrait
     {
         get
         {
-            return Game.instance.personalityTraitManager.personalityTraits[data.ID];
+            return Game.instance.personalityTraitManager?.personalityTraits[data.ID];
         }
     }
 
@@ -52,6 +52,11 @@ public class PersonalityTrait
         {
             return Data.NameID;
         }
+    }
+
+    public PersonalityTrait()
+    {
+
     }
 
     public PersonalityTrait(PersonalityTraitData inPersonalityTraitData, Driver inDriver)
@@ -248,5 +253,10 @@ public class PersonalityTrait
         Sydney,
         Vancouver,
         Count,
+    }
+
+    public bool CanApplyTrait()
+    {
+        return this.specialCaseBehaviour.CanBeApplied();
     }
 }

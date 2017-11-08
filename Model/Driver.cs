@@ -14,6 +14,8 @@ public class Driver : Person
     public DriverCareerForm careerForm = new DriverCareerForm();
     public DriverMentalState mentalState = new DriverMentalState();
     public CarOpinion carOpinion = new CarOpinion();
+    public DriverStamina driverStamina;
+    public DriverForm driverForm;
     private int driverNumber;
     private int desiredChampionships;
     private long desiredBudget;
@@ -32,12 +34,13 @@ public class Driver : Person
     public float moraleBeforeEvent;
     public float championshipExpectation;
     public float raceExpectation;
-
-
     private bool mJoinsAnySeries = true;
     private Championship.Series mPreferedSeries;
+
+    private List<Championship.Series> mDriverPreferedSeries;
     private DriverStats mStats = new DriverStats();
     private DriverStats mModifiedStats = new DriverStats();
+
     private float mImprovementRate;
     private float mPotential;
     private float mModifiedPotential;
@@ -51,7 +54,11 @@ public class Driver : Person
     private int mDaysToScoutLong;
     private DateTime lowMoraleStartTime = new DateTime();
     private DateTime mLastMoraleBonusDate = new DateTime();
+    private int mCarID;
     private readonly int moraleBonusCooldownDays = 30;
+
+
+
     private readonly float moralePromotionBonus = 0.4f;
     private readonly float moraleDemotionBonus = -0.4f;
     private readonly float moraleBetterContractBonus = 0.4f;
@@ -221,6 +228,28 @@ public class Driver : Person
         }
     }
 
+    public int carID
+    {
+        get
+        {
+            if (this.mCarID >= 0)
+                return this.mCarID;
+            return this.GetCarID();
+        }
+    }
+
+    private int GetCarID()
+    {
+        if (this.IsReserveDriver())
+            return -1;
+        return this.contract.GetTeam().GetDriver(0) == this ? 0 : 1;
+    }
+
+    public bool IsReserveDriver()
+    {
+        return this.contract.currentStatus == ContractPerson.Status.Reserve;
+    }
+
     public Driver()
     {
         ViewDriver = new RelayCommand<Driver>(_viewDriver);
@@ -282,5 +311,36 @@ public class Driver : Person
     public void SetBeenScouted()
     {
         this.mHasBeenScouted = true;
+    }
+
+    public DriverStats GetDriverStats()
+    {
+        return (DriverStats)this.GetStats();
+    }
+
+    public override PersonStats GetStats()
+    {
+        DriverStats inAdd = (DriverStats)null;
+        if (this.personalityTraitController != null)
+            inAdd = this.personalityTraitController.GetDriverStatsModifier();
+        else
+            Console.WriteLine("{0} does not have  personality trait controller", this.name);
+        this.mModifiedStats.Clear();
+        if (inAdd != null)
+            this.mModifiedStats.Add(inAdd);
+        this.mModifiedStats.Add(this.mStats);
+        this.mModifiedStats.marketability += inAdd.marketability;
+        this.mModifiedStats.marketability += this.mStats.marketability;
+        if (this.IsPlayersDriver())
+            this.mModifiedStats.feedback += Game.instance.player.driverFeedBackStatModifier;
+        this.mModifiedStats.ClampStats();
+        return (PersonStats)this.mModifiedStats;
+    }
+
+    public bool IsPlayersDriver()
+    {
+        if (this.contract != null)
+            return this.contract.GetTeam().IsPlayersTeam();
+        return false;
     }
 }

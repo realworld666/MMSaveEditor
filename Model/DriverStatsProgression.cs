@@ -15,9 +15,7 @@ public class DriverStatsProgression
     public float fitness;
     public float feedback;
     public float focus;
-    private DatabaseEntry inEntry;
-    private int inIndex;
-    private string inType;
+
 
     public DriverStatsProgression()
     {

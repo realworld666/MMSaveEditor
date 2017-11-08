@@ -6,6 +6,8 @@ using System;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class PoliticalVote
 {
+    public static List<string> groupsNotAvailableForNonMainConcurrentChampionships;
+
     private string mName = string.Empty;
     private string mDescription = string.Empty;
     public string group = string.Empty;

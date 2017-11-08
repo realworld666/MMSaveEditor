@@ -46,6 +46,7 @@ public class Game
     public DriverStatsProgressionManager driverStatsProgressionManager;
     public EngineerStatsProgressionManager engineerStatsProgressionManager;
     public MechanicStatsProgressionManager mechanicStatsProgressionManager;
+    public PitCrewManager pitCrewManager;
     public VehicleManager vehicleManager;
     public SessionManager sessionManager;
     public TutorialInfo tutorialInfo;

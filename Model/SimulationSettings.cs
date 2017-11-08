@@ -9,6 +9,7 @@ public class SimulationSettings
     public float tyreWearRate;
     public int duration;
     public int weatherScale;
+    public int enduranceDuration;
 
     public void Apply(ChampionshipRules inRules)
     {

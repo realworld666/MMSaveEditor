@@ -12,10 +12,15 @@ public class RaceEventResults
     private List<RaceEventResults.SessonResultData> qualifyingSessions = new List<RaceEventResults.SessonResultData>();
     private List<RaceEventResults.SessonResultData> raceSessions = new List<RaceEventResults.SessonResultData>();
     private List<Team> mTeamList = new List<Team>();
+
+
+
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class ResultData
     {
+        public int carID;
         public Driver driver;
+        public Driver[] drivers;
         public Team team;
         public List<Penalty> penalties = new List<Penalty>();
         public TyreSet.Compound tyreCompound = TyreSet.Compound.Soft;
@@ -39,6 +44,7 @@ public class RaceEventResults
         public bool gotExtraPointsForPolePosition;
         public bool sessionWasSimulated;
         public RaceEventResults.ResultData.CarState carState;
+        public Driver accidentDriver;
         public bool usedTeamOrders;
         public bool crashedWhenInFirstPlace;
         public bool riskyPitStopFailed;
@@ -52,7 +58,15 @@ public class RaceEventResults
         public bool lowReliabilityPartFixed;
         public bool lowReliabilityPartBroke;
         public bool racedWithWorstCar;
+        public float[] normalizedTimeDriven;
+        public bool[] hasStaminaRechedZero;
 
+        public int concurrentPosition;
+        public float totalDistanceMiles;
+
+        public bool retiredWhenInFirstPlace;
+        public bool had2MinutesGap;
+        public bool pitMistakeCostWin;
 
         public enum CarState
         {

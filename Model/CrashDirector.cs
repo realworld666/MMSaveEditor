@@ -12,9 +12,7 @@ public class CrashDirector
     private List<RacingVehicle> mVehiclesCantCrash;
     private CrashDirector.CrashRaceChunk[] mCrashChunks;
     private CrashDirector.CrashRaceChunk mActiveChunk;
-    public float normalizedChunkSize;
-    public float normalizedChunkStart;
-    public int crashCount;
+
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     private class CrashRaceChunk

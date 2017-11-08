@@ -83,4 +83,9 @@ public class PersonalityTraitSpecialCaseBehaviour
         }
         return false;
     }
+
+    public bool CanBeApplied()
+    {
+        return false;
+    }
 }

@@ -10,6 +10,7 @@ public class CarChassisStats
     public Supplier supplierFuel = new Supplier();
     public Supplier supplierMaterials = new Supplier();
     public Supplier supplierBattery = new Supplier();
+    public Supplier supplierERSAdvanced = new Supplier();
 
     private float mHarvestEfficiency;
     public const float maxSetupStatContribution = 0.5f;

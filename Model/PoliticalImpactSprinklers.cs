@@ -1,8 +1,6 @@
 ﻿public class PoliticalImpactSprinklers : PoliticalImpact
 {
     public bool active;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactSprinklers(string inName, string inEffect)
     {

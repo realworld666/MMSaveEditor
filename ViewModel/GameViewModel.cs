@@ -49,41 +49,6 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
-        public float RaceSpeed_Normal
-        {
-            get
-            {
-                if (_timeData != null)
-                {
-                    return _timeData.speedMultipliers[2, 0];
-                }
-                return float.NaN;
-            }
-            set { _timeData.speedMultipliers[2, 0] = value; RaisePropertyChanged(String.Empty); }
-        }
-        public float RaceSpeed_Fast
-        {
-            get
-            {
-                if (_timeData != null)
-                {
-                    return _timeData.speedMultipliers[2, 1];
-                }
-                return float.NaN;
-            }
-            set { _timeData.speedMultipliers[2, 1] = value; RaisePropertyChanged(String.Empty); }
-        }
-        public float RaceSpeed_Fastest
-        {
-            get
-            {
-                if (_timeData != null)
-                {
-                    return _timeData.speedMultipliers[2, 2];
-                }
-                return float.NaN;
-            }
-            set { _timeData.speedMultipliers[2, 2] = value; RaisePropertyChanged(String.Empty); }
-        }
+
     }
 }

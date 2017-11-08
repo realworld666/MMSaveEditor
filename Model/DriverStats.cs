@@ -1,5 +1,6 @@
 ﻿using FullSerializer;
 using System;
+using MMSaveEditor.Utils;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class DriverStats : PersonStats
@@ -16,12 +17,12 @@ public class DriverStats : PersonStats
     private float consistency;
     private float adaptability;
     private float fitness;
-    private float feedback;
+    public float feedback;
     private float focus;
     public int totalStatsMax = 180;
     private float balance;
     private float experience;
-    private float marketability;
+    public float marketability;
     private int favouriteBrakesSupplier;
     private int fame = -1;
     private int scoutingLevelRequired;
@@ -629,5 +630,34 @@ public class DriverStats : PersonStats
     {
         this.totalStatsMax = (int)this.GetTotal() + inPotential;
         this.totalStatsMax = Math.Min(this.totalStatsMax, 180);
+    }
+
+    public void Add(DriverStats inAdd)
+    {
+        this.braking += inAdd.braking;
+        this.cornering += inAdd.cornering;
+        this.smoothness += inAdd.smoothness;
+        this.overtaking += inAdd.overtaking;
+        this.consistency += inAdd.consistency;
+        this.adaptability += inAdd.adaptability;
+        this.fitness += inAdd.fitness;
+        this.feedback += inAdd.feedback;
+        this.focus += inAdd.focus;
+        this.balance += inAdd.balance;
+    }
+
+    public void ClampStats()
+    {
+        this.braking = this.braking.Clamp(0.0f, 20f);
+        this.cornering = this.cornering.Clamp(0.0f, 20f);
+        this.smoothness = this.smoothness.Clamp(0.0f, 20f);
+        this.overtaking = this.overtaking.Clamp(0.0f, 20f);
+        this.consistency = this.consistency.Clamp(0.0f, 20f);
+        this.adaptability = this.adaptability.Clamp(0.0f, 20f);
+        this.fitness = this.fitness.Clamp(0.0f, 20f);
+        this.feedback = this.feedback.Clamp(0.0f, 20f);
+        this.focus = this.focus.Clamp(0.0f, 20f);
+        this.marketability = this.marketability.Clamp(0f, 1f);
+        this.balance = this.balance.Clamp(0f, 1f);
     }
 }

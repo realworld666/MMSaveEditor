@@ -11,13 +11,16 @@ public class PersonalityTraitController_v2
     private List<PersonalityTrait> permanentPersonalityTraits = new List<PersonalityTrait>();
     private List<PersonalityTrait> temporaryPersonalityTraits = new List<PersonalityTrait>();
     public List<PersonalityTrait> allTraits = new List<PersonalityTrait>();
+    public List<PersonalityTrait> raceTraitsHistory;
     private List<int> mTraitHistory = new List<int>();
     private readonly int mMaxCooldownDaysRange = 180;
+    private int mMaxCooldownDaysRangeEndurance;
     private DateTime cooldownPeriodEnd = new DateTime();
     private int mLastRandomCooldownDayValue;
     private Driver mDriver;
     private DriverStats mDriverStats = new DriverStats();
-    public List<PersonalityTrait> raceTraitsHistory;
+
+
 
     public ObservableCollection<PersonalityTrait> PermanentPersonalityTraits
     {
@@ -136,4 +139,19 @@ public class PersonalityTraitController_v2
         //Game.Instance.dialogSystem.OnNewPersonalityTrait(this.mDriver, inPersonalityTrait);
     }
 
+    public DriverStats GetDriverStatsModifier()
+    {
+        this.mDriverStats.Clear();
+        int count = this.allTraits.Count;
+        for (int index = 0; index < count; ++index)
+        {
+            if (this.allTraits[index].CanApplyTrait())
+            {
+                DriverStats driverStatsModifier = this.allTraits[index].GetDriverStatsModifier();
+                this.mDriverStats.Add(driverStatsModifier);
+                this.mDriverStats.marketability += driverStatsModifier.marketability;
+            }
+        }
+        return this.mDriverStats;
+    }
 }

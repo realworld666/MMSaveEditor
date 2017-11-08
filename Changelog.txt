@@ -1,7 +1,15 @@
-﻿v1.1
+﻿v1.2.1
+- Fixed crash when transferring drivers
+
+v1.2
+- Updated to support 1.5 version of MM
+- Can now modify the bonuses assigned to each mechanic
+
+v1.1
 - Added ability to add and remove tracks from next years calender
 - Added current save file to window title
 - Added improvement rate stat to driver tab
+- Added ability to modify existing mechanic relationships
 
 v1.0
 - Added donation link to Help menu

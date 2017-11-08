@@ -1,8 +1,6 @@
 ﻿public class PoliticalImpactPromotionBonus : PoliticalImpact
 {
     public bool active;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactPromotionBonus(string inName, string inEffect)
     {

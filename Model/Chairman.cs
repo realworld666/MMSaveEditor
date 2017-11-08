@@ -19,6 +19,7 @@ public class Chairman : Person
     private static readonly float happinessResetValue = 60f;
     private static readonly float happinessMinimumRequestFundsValueNormalized = 0.55f;
     private static readonly float happinessRequestFundsValue = -50f;
+    private static readonly float ultimatumMaxPositionPercentage = 0.7f;
     private static readonly float[] happinessNegativeMultiplier = new float[3]
     {
         0.4f,
@@ -31,19 +32,7 @@ public class Chairman : Person
         0.5f,
         0.4f
     };
-    private static readonly int[] ultimatumPositionTable = new int[10]
-    {
-        2,
-        3,
-        4,
-        5,
-        7,
-        8,
-        9,
-        11,
-        13,
-        14
-    };
+
     public ChairmanUltimatum ultimatum = new ChairmanUltimatum();
     public int ultimatumsGeneratedThisSeason;
     public int costFocus;
@@ -52,6 +41,7 @@ public class Chairman : Person
     public int playerChosenExpectedTeamChampionshipPosition;
     private float mHappiness;
     public int happinessBeforeEvent;
+
     private StatModificationHistory mHappinessModificationHistory = new StatModificationHistory();
 
     public enum EstimatedPosition

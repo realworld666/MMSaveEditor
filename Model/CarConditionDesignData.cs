@@ -16,4 +16,6 @@ public class CarConditionDesignData : PerformanceDesignData
     public float rearWingFailureTimeCost;
     [XmlElement("SuspensionFailureTimeCost")]
     public float suspensionFailureTimeCost;
+    [XmlElement("CarConditionTicksPerSession")]
+    public float carConditionTicksPerSession;
 }

@@ -9,6 +9,7 @@ public class SessionTimer
     public float[] fastestSector = new float[SessionTimer.sectorCount];
     public List<SessionTimer.PitstopData> pitstopData = new List<SessionTimer.PitstopData>();
     public SessionTimer.PitstopData currentPitstop = new SessionTimer.PitstopData();
+    private Dictionary<Driver, float> mDriversTimeDriven;
     private RacingVehicle mVehicle;
     public SessionTimer.LapData lastLap;
     public int currentSector;
@@ -57,6 +58,8 @@ public class SessionTimer
         public bool isOutLap;
         public bool isInLap;
         public bool isFormationLap;
+        public LapDetailsData lapDetailsData;
+        public Driver driver;
     }
 
     public class PitstopData
@@ -68,6 +71,12 @@ public class SessionTimer
         public float pitlaneTime;
         public float stopTime;
         public bool isChangingTyres;
+        public SessionStrategy.PitStrategy strategy;
+        public List<SessionTimer.PitstopData.SetupChange> setupChanges;
+        public float timeWaitingForOtherDriver;
+        public float mistakeTime;
+        public float strategyTime;
+        public Driver driver;
 
         public struct SetupChange
         {

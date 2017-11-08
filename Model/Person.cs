@@ -25,15 +25,15 @@ public class Person : Entity
     public Relationships relationships = new Relationships();
     public DialogQueryCreator dialogQuery = new DialogQueryCreator();
     public ContractManagerPerson contractManager = new ContractManagerPerson();
-    private ContractPerson contract = new ContractPerson();
+    public ContractPerson contract = new ContractPerson();
     public ContractPerson nextYearContract = new ContractPerson();
 
     public Person.Gender gender;
-    public int rewardID;
     public DateTime dateOfBirth;
     public int weight;
     public int retirementAge;
     public float obedience;
+    public int rewardID;
     public DateTime peakAge;
     public int peakDuration;
     public CareerHistory careerHistory = new CareerHistory();
@@ -127,6 +127,11 @@ public class Person : Entity
         name = inFirstName + " " + inLastName;
 
         Game.instance.mechanicManager.GetEntityList().ForEach(mechs => mechs.DriverRenamed(oldName, name));
+    }
+
+    public virtual PersonStats GetStats()
+    {
+        return (PersonStats)null;
     }
 
     public enum Gender

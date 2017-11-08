@@ -134,6 +134,9 @@
     0.4f,
     0.4f
     };
+    public static float[] costPerRaceDataGET = new float[12] { 2.6f, 2.6f, 2.4f, 2.4f, 2.2f, 2.2f, 2f, 2f, 1.8f, 1.8f, 1.8f, 1.8f };
+    public static float[] costPerRaceDataGET2 = new float[12] { 1.7f, 1.7f, 1.5f, 1.5f, 1.3f, 1.3f, 1.2f, 1.2f, 1.2f, 1.2f, 1.2f, 1.2f };
+
     public static long fundsLowerBound = -5000000;
     public static long liveryEditCost = 500000;
     public static long playerVotePrice = 1000000;

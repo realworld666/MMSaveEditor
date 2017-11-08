@@ -12,7 +12,6 @@ public class AIBehaviourStateManager
     private AICrashingBehaviour mCrashingBehaviour = new AICrashingBehaviour();
     private AICrashedBehaviour mCrashedBehaviour = new AICrashedBehaviour();
     private AILockUpBehaviour mLockUpBehaviour = new AILockUpBehaviour();
-    private AISpinBehaviour mSpinBehaviour = new AISpinBehaviour();
     private AIInOutLapBehaviour mInOutlapBehaviour = new AIInOutLapBehaviour();
     private AIBlueFlagBehaviour mBlueFlagBehaviour = new AIBlueFlagBehaviour();
     private AINoOvertakingBehaviour mNoOvertakingBehaviour = new AINoOvertakingBehaviour();
@@ -20,19 +19,22 @@ public class AIBehaviourStateManager
     private AISafetyFlagBehaviour mSafetyFlagBehaviour = new AISafetyFlagBehaviour();
     private AICriticalIssueBehaviour mCriticalIssueBehaviour = new AICriticalIssueBehaviour();
     private AITeamOrderBehaviour mTeamOrderBehaviour = new AITeamOrderBehaviour();
-    private AISafetyCarBehaviour mSafetyCarBehaviour = new AISafetyCarBehaviour();
-    private AISafetyCarIdleBehaviour mSafetyCarIdleBehaviour = new AISafetyCarIdleBehaviour();
     private AIRunningWideBehaviour mRunningWideBehaviour;
     private AICuttingCornersBehaviour mCuttingCornersBehaviour;
-    private List<AIBehaviour> mBehaviours = new List<AIBehaviour>();
-    private bool mCanAttackVehicle = true;
-    private bool mCanDefendVehicle = true;
-    public Action OnBehaviourChange;
+    private AISpinBehaviour mSpinBehaviour = new AISpinBehaviour();
+    private AIRollingStartBehaviour mRollingStartBehaviour;
+    private AISafetyCarBehaviour mSafetyCarBehaviour = new AISafetyCarBehaviour();
+    private AISafetyCarIdleBehaviour mSafetyCarIdleBehaviour = new AISafetyCarIdleBehaviour();
+    private AISafetyCarRolloutBehaviour mSafetyCarRolloutBehaviour;
     private RacingVehicle mRacingVehicle;
     private SafetyVehicle mSafetyVehicle;
     private Vehicle mVehicle;
+    private List<AIBehaviour> mBehaviours = new List<AIBehaviour>();
     private AIBehaviour mCurrentBehaviour;
     private AIBehaviour mPreviousBehaviour;
+    private bool mCanAttackVehicle = true;
+    private bool mCanDefendVehicle = true;
+    public Action OnBehaviourChange;
 
 
     public enum Behaviour

@@ -18,5 +18,9 @@ public class PathSpline
         public Vector3 forward;
         public Vector3 right;
         public float pathDistance;
+        //private PathData.Type mType;
+        //private CatmullRomSpline mSpline;
+        //private PathSpline.SplinePosition[] mSplinePositions;
+        private float mLength;
     }
 }

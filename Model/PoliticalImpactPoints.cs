@@ -6,8 +6,6 @@ public class PoliticalImpactPoints : PoliticalImpact
     private List<int> points = new List<int>();
     private PoliticalImpactPoints.ImpactType impactType;
     private bool remove;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactPoints(string inName, string inEffect)
     {

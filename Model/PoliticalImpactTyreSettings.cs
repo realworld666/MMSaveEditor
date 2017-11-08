@@ -11,8 +11,6 @@ public class PoliticalImpactTyreSettings : PoliticalImpact
     public float speedBonusModifier;
     public int tyreCompoundsAvailable;
     public int tyresAvailable;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactTyreSettings(string inName, string inEffect)
     {

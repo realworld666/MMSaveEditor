@@ -28,7 +28,13 @@ public class LapDetailsData
     private float mHighestTopSpeed;
     private int mSectorGates;
     private int mCurrentSector;
-
+    private float[] mForm;
+    private float[] mStamina;
+    private float[] mTimeDriven;
+    private int[] mOvertakesDelta;
+    private int[] mRunWides;
+    private int[] mCutCorners;
+    private int[] mLockUps;
 
     public enum LapEvents
     {

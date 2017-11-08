@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -194,12 +194,16 @@
     <Compile Include="Model\AILockUpBehaviour.cs" />
     <Compile Include="Model\AINoOvertakingBehaviour.cs" />
     <Compile Include="Model\AIOvertakingBehaviour.cs" />
+    <Compile Include="Model\AIPitCrew.cs" />
+    <Compile Include="Model\AIPitCrewTaskStat.cs" />
     <Compile Include="Model\AIRaceStartBehaviour.cs" />
     <Compile Include="Model\AIRacingBehaviour.cs" />
     <Compile Include="Model\AIRetiredBehaviour.cs" />
+    <Compile Include="Model\AIRollingStartBehaviour.cs" />
     <Compile Include="Model\AIRunningWideBehaviour.cs" />
     <Compile Include="Model\AISafetyCarBehaviour.cs" />
     <Compile Include="Model\AISafetyCarIdleBehaviour.cs" />
+    <Compile Include="Model\AISafetyCarRolloutBehaviour.cs" />
     <Compile Include="Model\AISafetyFlagBehaviour.cs" />
     <Compile Include="Model\AIScoutingManager.cs" />
     <Compile Include="Model\AISpinBehaviour.cs" />
@@ -215,17 +219,23 @@
     <Compile Include="Model\BlockingSteeringBehaviour.cs" />
     <Compile Include="Model\BlueFlagSpeedController.cs" />
     <Compile Include="Model\BonusAddRandomLevelComponent.cs" />
+    <Compile Include="Model\BonusChassisStats.cs" />
     <Compile Include="Model\BonusCreateTwoParts.cs" />
+    <Compile Include="Model\BonusDriverStatBoost.cs" />
     <Compile Include="Model\BonusesDesignData.cs" />
     <Compile Include="Model\BonusExtraReliabilityPerDayInProduction.cs" />
     <Compile Include="Model\BonusNoConditionLoss.cs" />
     <Compile Include="Model\BonusNoConditionLossFirstSession.cs" />
+    <Compile Include="Model\BonusNoPitFixMistake.cs" />
+    <Compile Include="Model\BonusPartPitFixTime.cs" />
     <Compile Include="Model\BonusPerformanceAutoImproved.cs" />
     <Compile Include="Model\BonusPerSpecificLevelComponentUsed.cs" />
     <Compile Include="Model\BonusSpecificLevelComponentAddNoDays.cs" />
     <Compile Include="Model\BonusSpecificLevelSlotAddNoDays.cs" />
     <Compile Include="Model\BonusTimeReductionPerMillionSpent.cs" />
     <Compile Include="Model\BonusUnlockExtraSlot.cs" />
+    <Compile Include="Model\BonusWeightStripping.cs" />
+    <Compile Include="Model\BrakesGETPart.cs" />
     <Compile Include="Model\BrakesGTPart.cs" />
     <Compile Include="Model\BrakesPart.cs" />
     <Compile Include="Model\Calendar.cs" />
@@ -323,6 +333,7 @@
     <Compile Include="Model\ContractManagerTeam.cs" />
     <Compile Include="Model\ContractNegotiationScreen.cs" />
     <Compile Include="Model\ContractPerson.cs" />
+    <Compile Include="Model\ContractPitCrew.cs" />
     <Compile Include="Model\ContractSponsor.cs" />
     <Compile Include="Model\ContractVariablesContainer.cs" />
     <Compile Include="Model\ContractVariablesData.cs" />
@@ -336,6 +347,7 @@
     <Compile Include="Model\DatabaseEntry.cs" />
     <Compile Include="Model\DatabaseReader.cs" />
     <Compile Include="Model\DesignData.cs" />
+    <Compile Include="Model\DesignDataManager.cs" />
     <Compile Include="Model\DialogCriteria.cs" />
     <Compile Include="Model\DialogQuery.cs" />
     <Compile Include="Model\DialogQueryCreator.cs" />
@@ -346,13 +358,17 @@
     <Compile Include="Model\Dlc.cs" />
     <Compile Include="Model\Driver.cs" />
     <Compile Include="Model\DriverCareerForm.cs" />
+    <Compile Include="Model\DriverForm.cs" />
     <Compile Include="Model\DriverFormDesignData.cs" />
+    <Compile Include="Model\DriverFormDirector.cs" />
     <Compile Include="Model\DriverManager.cs" />
     <Compile Include="Model\DriverMentalState.cs" />
     <Compile Include="Model\DriverPerformance.cs" />
     <Compile Include="Model\DriverPerformanceDesignData.cs" />
     <Compile Include="Model\DriverRivalries.cs" />
     <Compile Include="Model\DriverSessionForm.cs" />
+    <Compile Include="Model\DriverStamina.cs" />
+    <Compile Include="Model\DriverStaminaPerformance.cs" />
     <Compile Include="Model\DriverStats.cs" />
     <Compile Include="Model\DriverStatsProgression.cs" />
     <Compile Include="Model\DriverStatsProgressionManager.cs" />
@@ -360,11 +376,13 @@
     <Compile Include="Model\DrivingStyleDesignData.cs" />
     <Compile Include="Model\EasingUtility.cs" />
     <Compile Include="Model\EmployeeSlot.cs" />
+    <Compile Include="Model\EnduranceDriverSetupPreferences.cs" />
     <Compile Include="Model\Engineer.cs" />
     <Compile Include="Model\EngineerManager.cs" />
     <Compile Include="Model\EngineerStats.cs" />
     <Compile Include="Model\EngineerStatsProgression.cs" />
     <Compile Include="Model\EngineerStatsProgressionManager.cs" />
+    <Compile Include="Model\EngineGETPart.cs" />
     <Compile Include="Model\EngineGTPart.cs" />
     <Compile Include="Model\EnginePart.cs" />
     <Compile Include="Model\Entity.cs" />
@@ -378,9 +396,11 @@
     <Compile Include="Model\FinishScoutingDriverCommand.cs" />
     <Compile Include="Model\FinishScoutingEngineerAICommand.cs" />
     <Compile Include="Model\FinishScoutingMechanicAICommand.cs" />
+    <Compile Include="Model\FixingPartsTaskTimes.cs" />
     <Compile Include="Model\FrontendCar.cs" />
     <Compile Include="Model\FrontendCarData.cs" />
     <Compile Include="Model\FrontendCarManager.cs" />
+    <Compile Include="Model\FrontWingGETPart.cs" />
     <Compile Include="Model\FrontWingPart.cs" />
     <Compile Include="Model\Fuel.cs" />
     <Compile Include="Model\FuelDesignData.cs" />
@@ -396,6 +416,7 @@
     <Compile Include="Model\GarageExitPathState.cs" />
     <Compile Include="Model\GaragePathState.cs" />
     <Compile Include="Model\GateInfo.cs" />
+    <Compile Include="Model\GearboxGETPart.cs" />
     <Compile Include="Model\GearBoxGTPart.cs" />
     <Compile Include="Model\GearboxPart.cs" />
     <Compile Include="Model\GenericManager.cs" />
@@ -490,6 +511,7 @@
     <Compile Include="Model\PenaltyDirector.cs" />
     <Compile Include="Model\PenaltyPartRulesBroken.cs" />
     <Compile Include="Model\PenaltyPitlaneDriveThru.cs" />
+    <Compile Include="Model\PenaltyPoints.cs" />
     <Compile Include="Model\PenaltyTime.cs" />
     <Compile Include="Model\PerformanceDesignData.cs" />
     <Compile Include="Model\PerformanceImpact.cs" />
@@ -507,7 +529,26 @@
     <Compile Include="Model\PitboxEntryPathState.cs" />
     <Compile Include="Model\PitboxExitPathState.cs" />
     <Compile Include="Model\PitboxPathState.cs" />
+    <Compile Include="Model\PitCrewApplication.cs" />
+    <Compile Include="Model\PitCrewApplicationManager.cs" />
+    <Compile Include="Model\PitCrewAutomanaging.cs" />
+    <Compile Include="Model\PitCrewContractPerRaceCosts.cs" />
+    <Compile Include="Model\PitCrewController.cs" />
+    <Compile Include="Model\PitCrewDesignData.cs" />
+    <Compile Include="Model\PitCrewFundings.cs" />
+    <Compile Include="Model\PitCrewManager.cs" />
+    <Compile Include="Model\PitCrewMember.cs" />
+    <Compile Include="Model\PitCrewMemberMistakeLog.cs" />
+    <Compile Include="Model\PitCrewMemberStats.cs" />
+    <Compile Include="Model\PitCrewRegen.cs" />
     <Compile Include="Model\PitlanePathState.cs" />
+    <Compile Include="Model\PitstopDirector.cs" />
+    <Compile Include="Model\PitStopManager.cs" />
+    <Compile Include="Model\PitStopOutcomesHelper.cs" />
+    <Compile Include="Model\PitStopRaceLog.cs" />
+    <Compile Include="Model\PitstopSeasonDirector.cs" />
+    <Compile Include="Model\PitstopTasksManagingHelper.cs" />
+    <Compile Include="Model\PitstopTimesHelper.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\PlayerBackStory.cs" />
     <Compile Include="Model\PlayerDefaultData.cs" />
@@ -517,6 +558,7 @@
     <Compile Include="Model\PoliticalImpact.cs" />
     <Compile Include="Model\PoliticalImpactChangeTrack.cs" />
     <Compile Include="Model\PoliticalImpactDriverAids.cs" />
+    <Compile Include="Model\PoliticalImpactDrivingTime.cs" />
     <Compile Include="Model\PoliticalImpactEnergyRecoverySystem.cs" />
     <Compile Include="Model\PoliticalImpactFuelSettings.cs" />
     <Compile Include="Model\PoliticalImpactGridSettings.cs" />
@@ -526,11 +568,14 @@
     <Compile Include="Model\PoliticalImpactPoints.cs" />
     <Compile Include="Model\PoliticalImpactPrizePoolAdjustement.cs" />
     <Compile Include="Model\PoliticalImpactPromotionBonus.cs" />
+    <Compile Include="Model\PoliticalImpactRaceStart.cs" />
+    <Compile Include="Model\PoliticalImpactRaceType.cs" />
     <Compile Include="Model\PoliticalImpactSafetyCar.cs" />
     <Compile Include="Model\PoliticalImpactSessionLength.cs" />
     <Compile Include="Model\PoliticalImpactSpecPart.cs" />
     <Compile Include="Model\PoliticalImpactSprinklers.cs" />
     <Compile Include="Model\PoliticalImpactTyreSettings.cs" />
+    <Compile Include="Model\PoliticalImpactWeightStripping.cs" />
     <Compile Include="Model\PoliticalSystem.cs" />
     <Compile Include="Model\PoliticalVote.cs" />
     <Compile Include="Model\Popularity.cs" />
@@ -561,6 +606,7 @@
     <Compile Include="Model\RadioMessageCollision.cs" />
     <Compile Include="Model\RadioMessageCrash.cs" />
     <Compile Include="Model\RadioMessageCutCorner.cs" />
+    <Compile Include="Model\RadioMessageDriverStamina.cs" />
     <Compile Include="Model\RadioMessageEndSession.cs" />
     <Compile Include="Model\RadioMessageFuelStrategy.cs" />
     <Compile Include="Model\RadioMessageLockUp.cs" />
@@ -579,6 +625,7 @@
     <Compile Include="Model\RadioMessageWrongTyres.cs" />
     <Compile Include="Model\RandomUtility.cs" />
     <Compile Include="Model\Ray2.cs" />
+    <Compile Include="Model\RearWingGETPart.cs" />
     <Compile Include="Model\RearWingGTPart.cs" />
     <Compile Include="Model\RearWingPart.cs" />
     <Compile Include="Model\Relationships.cs" />
@@ -603,21 +650,27 @@
     <Compile Include="Model\SessionCarBonuses.cs" />
     <Compile Include="Model\SessionDetails.cs" />
     <Compile Include="Model\SessionEvents.cs" />
+    <Compile Include="Model\SessionFastestLapData.cs" />
     <Compile Include="Model\SessionManager.cs" />
     <Compile Include="Model\SessionObjective.cs" />
     <Compile Include="Model\SessionPartFailure.cs" />
     <Compile Include="Model\SessionPenalty.cs" />
     <Compile Include="Model\SessionPerformance.cs" />
+    <Compile Include="Model\SessionPitstop.cs" />
+    <Compile Include="Model\SessionPitstopMistake.cs" />
+    <Compile Include="Model\SessionPitstopTask.cs" />
     <Compile Include="Model\SessionSetup.cs" />
     <Compile Include="Model\SessionSetupChange.cs" />
     <Compile Include="Model\SessionSetupChangeEntry.cs" />
     <Compile Include="Model\SessionSetupRepairPart.cs" />
+    <Compile Include="Model\SessionSimSpeedDirector.cs" />
     <Compile Include="Model\SessionStats.cs" />
     <Compile Include="Model\SessionStints.cs" />
     <Compile Include="Model\SessionStrategy.cs" />
     <Compile Include="Model\SessionTimer.cs" />
     <Compile Include="Model\SessionWeatherDetails.cs" />
     <Compile Include="Model\SetupDesignData.cs" />
+    <Compile Include="Model\SetupDetails.cs" />
     <Compile Include="Model\SetupInput_v1.cs" />
     <Compile Include="Model\SetupPerformance.cs" />
     <Compile Include="Model\SetupStintData.cs" />
@@ -645,6 +698,7 @@
     <Compile Include="Model\SuperSoftTyreSet.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\SupplierManager.cs" />
+    <Compile Include="Model\SuspensionGETPart.cs" />
     <Compile Include="Model\SuspensionGTPart.cs" />
     <Compile Include="Model\SuspensionPart.cs" />
     <Compile Include="Model\TargetPointSteeringBehaviour.cs" />
@@ -670,6 +724,7 @@
     <Compile Include="Model\TemperatureOptimisation.cs" />
     <Compile Include="Model\TemperatureOptimisationDesignData.cs" />
     <Compile Include="Model\TextDynamicData.cs" />
+    <Compile Include="Model\TierPitCrewFunding.cs" />
     <Compile Include="Model\TopManagerChallenge.cs" />
     <Compile Include="Model\TrackExpertDesignData.cs" />
     <Compile Include="Model\TrackExpertPerformance.cs" />
@@ -719,7 +774,6 @@
     <Compile Include="ViewModel\ChampionshipViewModel.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\EngineerViewModel.cs" />
-    <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MechanicViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
@@ -1233,6 +1287,7 @@
     <Resource Include="Assets\Flags\Vietnam.png" />
     <Resource Include="Assets\Flags\Wallis and Futuna.png" />
     <Resource Include="Assets\RuleChanges.txt" />
+    <Resource Include="Assets\MechanicBonus.txt" />
     <Content Include="NBug.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -18,6 +18,21 @@ public class MechanicBonus
     public bool usefullForAnySession = true;
     public SessionDetails.SessionType usefullForSpecificSession;
 
+    public string LocalisedName
+    {
+        get
+        {
+            return Localisation.LocaliseID(nameLocalisationID);
+        }
+    }
+    public string LocalisedDesc
+    {
+        get
+        {
+            return Localisation.LocaliseID(textLocalisationID);
+        }
+    }
+
     public enum Trait
     {
         [LocalisationID("PSG_10004091")] EngineExpert = 0,

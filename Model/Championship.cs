@@ -60,6 +60,7 @@ public class Championship : Entity
     public bool readyForPromotions;
     public bool completedPromotions;
     public Championship.Series series;
+    public SeasonDirector seasonDirector;
     private string mName = string.Empty;
     private string mAcronymn = string.Empty;
     private int mEventNumber;
@@ -72,13 +73,14 @@ public class Championship : Entity
     private string mCustomTheChampionshipUppercase = string.Empty;
     private string mCustomDescription = string.Empty;
     private ChampionshipPromotions mChampionshipPromotions = new ChampionshipPromotions();
+    private ChampionshipPromotionData inPromotedTeamFromLowerTier;
+    private ChampionshipPromotionData inRelegatedTeamFromHigherTier;
     public const float teamPromotionAcceptChance = 0.85f;
     public const float teamChampionMarketabilityReward = 25f;
     public const int invalidChampionshipID = -1;
-    public SeasonDirector seasonDirector;
 
-    private ChampionshipPromotionData inPromotedTeamFromLowerTier;
-    private ChampionshipPromotionData inRelegatedTeamFromHigherTier;
+
+
 
     public string GetChampionshipName(bool getCachedVersion = false)
     {
@@ -167,6 +169,7 @@ public class Championship : Entity
     {
         [LocalisationID("PSG_10011514")] SingleSeaterSeries,
         [LocalisationID("PSG_10011515")] GTSeries,
+        [LocalisationID("PSG_10012728")] EnduranceSeries,
         Count,
     }
 

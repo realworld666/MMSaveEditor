@@ -2,8 +2,6 @@
 public class PoliticalImpactPitlaneSpeed : PoliticalImpact
 {
     private float pitlaneSpeed;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactPitlaneSpeed(string inName, string inEffect)
     {

@@ -31,6 +31,8 @@ public class TyreDesignData
     public float maxHeavyTreadSurfaceWaterRange = 1f;
     [XmlElement("MinMaxWeatherTemperatureRateChangeClamp")]
     public float minMaxWeatherTemperatureRateChangeClamp = 0.1f;
+    [XmlElement("WetsAndIntermediatesTyreCount")]
+    public int wetWeatherTyreCount = 5;
     [XmlElement("UltraSofts")]
     public TyreCompoundDesignData ultraSofts = new TyreCompoundDesignData();
     [XmlElement("SuperSofts")]
@@ -47,6 +49,16 @@ public class TyreDesignData
     public TyreCompoundDesignData wets = new TyreCompoundDesignData();
     [XmlElement("MinSlickTreadSurfaceWaterRange")]
     public float minSlickTreadSurfaceWaterRange;
+    [XmlElement("WrongTyreCompoundTimeCost")]
+    public float wrongTyreCompoundTimeCost;
+    [XmlElement("WrongTyreCompoundTyreWearCost")]
+    public float wrongTyreCompoundTyreWearCost;
+    [XmlElement("LostTyreTimeCost")]
+    public float lostTyreTimeCost;
+    [XmlElement("MinimumDetachTyreDelay")]
+    public float minDetachTyreTimer;
+    [XmlElement("MaximumDetachTyreDelay")]
+    public float maxDetachTyreTimer;
 
     public TyreCompoundDesignData GetCompoundData(TyreSet.Compound inCompound)
     {

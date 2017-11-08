@@ -21,6 +21,7 @@ public class CarPartStats
     private float mStat;
     public CarPartCondition partCondition = new CarPartCondition();
     private float[] mWeightStrippingReliabilityLost;
+    private float mWeightStrippingModifier;
 
 
     public float statWithPerformance

@@ -37,7 +37,7 @@
                                 <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>
                             </xcdg:DataGridControl.Columns>
                         </xcdg:DataGridControl>
-                        <Button x:Name="removeRule" Content="Remove Selected" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>
+                        <!--<Button x:Name="removeRule" Content="Remove Selected" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>-->
                         <Button x:Name="addRule" Content="Add New Rule" Click="addRule_Click" Height="30"/>
                         <Label Content="Next Years Rules"></Label>
                         <xcdg:DataGridControl x:Name="rulesListNextYear" AutoCreateColumns="False" ItemsSource="{Binding NextYearRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
@@ -46,7 +46,7 @@
                                 <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>
                             </xcdg:DataGridControl.Columns>
                         </xcdg:DataGridControl>
-                        <Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>
+                        <!--<Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>-->
                         <Button x:Name="addNextYearRule" Content="Add New Rule" Grid.Column="0" Click="addRuleNextYear_Click" Height="30"/>
                         <Label Content="Next Years Tracks"></Label>
                         <xcdg:DataGridControl x:Name="nextYearEvents" AutoCreateColumns="True" ItemsSource="{Binding RaceEvents}" IsDeleteCommandEnabled="True" MaxHeight="150">

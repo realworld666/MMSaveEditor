@@ -6,7 +6,6 @@ public class SessionWeatherDetails
 {
     public static float rainMinimum = 0.1f;
     public static int numberOfFrames = 50;
-    public static int dropdownNumberOfKeyFrames = 20;
 
     public float minAirTemp;
     public float maxAirTemp;
@@ -17,7 +16,7 @@ public class SessionWeatherDetails
     private float mCloudyChance;
     private float mOvercastChance;
     private float mStormyChance;
-    private float[] mTrackRubberHistory = new float[SessionWeatherDetails.dropdownNumberOfKeyFrames];
+    private float[] mTrackRubberHistory = new float[0];
     private float mTrackRubber;
     private int mMonthIndex;
     private float mNormalizedRain;

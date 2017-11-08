@@ -1,8 +1,6 @@
 ﻿public class PoliticalImpactLastPlaceBonus : PoliticalImpact
 {
     public bool active;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactLastPlaceBonus(string inName, string inEffect)
     {

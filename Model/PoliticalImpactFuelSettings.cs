@@ -3,8 +3,6 @@
     private PoliticalImpactFuelSettings.ImpactType impactType;
     private float fuelLimit;
     private bool refuelling;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactFuelSettings(string inName, string inEffect)
     {

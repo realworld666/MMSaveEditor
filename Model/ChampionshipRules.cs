@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ChampionshipRules : Entity
@@ -11,8 +12,8 @@ public class ChampionshipRules : Entity
     public string ruleSetName = string.Empty;
     private List<float> practiceDuration = new List<float>();
     private List<float> qualifyingDuration = new List<float>();
-    public List<SessionLength> raceLength = new List<ChampionshipRules.SessionLength>();
-    private List<float> prizePoolPercentage = new List<float>();
+    public List<ChampionshipRules.SessionLength> raceLength = new List<ChampionshipRules.SessionLength>();
+    public List<float> prizePoolPercentage = new List<float>();
     public DateTime carDevelopmenStartDate = new DateTime();
     private Dictionary<CarPart.PartType, int> partStatSeasonMinValue = new Dictionary<CarPart.PartType, int>();
     private Dictionary<CarPart.PartType, int> partStatSeasonMaxValue = new Dictionary<CarPart.PartType, int>();
@@ -36,7 +37,7 @@ public class ChampionshipRules : Entity
     private bool isRefuelingOn;
     private float fuelLimitForRaceDistanceNormalized;
     private ChampionshipRules.SafetyCarUsage safetyCarUsage = ChampionshipRules.SafetyCarUsage.Both;
-    private ChampionshipRules.GridSetup gridSetup;
+    public ChampionshipRules.GridSetup gridSetup;
     private ChampionshipRules.PitStopCrewSize pitCrewSize;
     private List<int> points = new List<int>();
     private bool finalRacePointsDouble;
@@ -59,6 +60,15 @@ public class ChampionshipRules : Entity
     private Championship mChampionship;
     public const float maxTyreSpeedBonus = 45f;
     private bool shouldChargeUsingStandingsPosition;
+    public List<int> coreRuleIDS;
+    public List<int> restrictedRuleIDS;
+    public float drivingTimeEndurance;
+    public bool isERSAdvancedModeActive;
+    public int raceLengthInHours;
+    public float weightStrippingRatio;
+    public bool isWeightStrippingEnabled;
+    public ChampionshipRules.RaceType raceType;
+    public ChampionshipRules.RaceStart raceStart;
 
     public List<float> PracticeDuration
     {
@@ -670,6 +680,18 @@ public class ChampionshipRules : Entity
         }
     }
 
+    public enum RaceType
+    {
+        Laps,
+        Time,
+    }
+
+    public enum RaceStart
+    {
+        StandingStart,
+        RollingStart,
+    }
+
     public enum MaxFinancialBudget
     {
         None,
@@ -719,12 +741,14 @@ public class ChampionshipRules : Entity
         QualifyingBased3Sessions,
         Random,
         InvertedDriverChampionship,
+        AverageLap,
     }
 
     public enum PitStopCrewSize
     {
         Small,
         Large,
+        SemiSequential,
     }
 
     public enum EnergySystemBattery

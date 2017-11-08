@@ -9,8 +9,6 @@ public class PoliticalImpactChangeTrack : PoliticalImpact
     public Circuit trackLayout;
     public int trackAffectedWeeknumber;
     private bool mReady;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactChangeTrack(string inName, string inEffect)
     {

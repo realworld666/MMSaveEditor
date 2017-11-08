@@ -5,8 +5,13 @@ using UnityEngine;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Vehicle
 {
+    public int id;
     public string name = string.Empty;
+    public float speed;
+    public bool enabled;
     public bool movementEnabled = true;
+    public float currentAcceleration;
+    public float currentBraking;
     protected PathStateManager mPathStateManager = new PathStateManager();
     protected AIBehaviourStateManager mBehaviourManager = new AIBehaviourStateManager();
     protected SpeedManager mSpeedManager = new SpeedManager();
@@ -16,20 +21,17 @@ public class Vehicle
     protected PathTransform mTransform = new PathTransform();
     protected CollisionBounds mCollisionBounds = new CollisionBounds();
     protected Vector3 mVelocity;
-    protected AnimatedFloat mThrottle = new AnimatedFloat();
-    protected float mAcceleration = float.MaxValue;
-    protected float mMaxSpeed = float.MaxValue;
-    protected Vector3 mPreviousPosition;
-    public Action OnLapEnd;
-    public int id;
-    public float speed;
-    public bool enabled;
-    public float currentAcceleration;
-    public float currentBraking;
     protected Vehicle.PedalState mPedalState;
+    protected AnimatedFloat mThrottle = new AnimatedFloat();
     protected float mPedalStateTimer;
     protected float mBraking;
+    protected float mAcceleration = float.MaxValue;
+    protected float mMaxSpeed = float.MaxValue;
     protected float mCollisionCooldown;
+    protected Vector3 mPreviousPosition;
+    private Championship mChampionship;
+
+    public Action OnLapEnd;
 
     public enum PedalState
     {

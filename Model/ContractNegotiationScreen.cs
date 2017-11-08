@@ -1,7 +1,6 @@
 ﻿public class ContractNegotiationScreen
 {
 
-
     public enum NegotatiationType
     {
         NewDriver,

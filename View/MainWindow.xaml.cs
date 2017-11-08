@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define USE_JSON_NET
+using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -20,6 +21,9 @@ using NBug.Core.Reporting.Info;
 using NBug.Core.Submission;
 using NBug.Core.Util;
 using NBug.Enums;
+#if USE_JSON_NET
+using Newtonsoft.Json;
+#endif
 
 namespace MMSaveEditor.View
 {
@@ -157,7 +161,7 @@ namespace MMSaveEditor.View
                 MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            try
+            /*try
             {
                 var gameVM = SimpleIoc.Default.GetInstance<GameViewModel>();
                 gameVM.SetModels(Game.instance.time);
@@ -166,7 +170,7 @@ namespace MMSaveEditor.View
             {
                 MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the game view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-            }
+            }*/
             try
             {
                 var principleVM = SimpleIoc.Default.GetInstance<TeamPrincipalViewModel>();
@@ -376,6 +380,14 @@ namespace MMSaveEditor.View
                     // Load main save data
                     // 
                     Game targetGame = null;
+#if USE_JSON_NET
+                    try
+                    {
+
+                        string json = Encoding.UTF8.GetString(LZ4Codec.Decode(binaryReader.ReadBytes(gameDataCount), 0, gameDataCount, gameDataOutputLength));
+                        targetGame = JsonConvert.DeserializeObject<Game>(json);
+                    }
+#else
                     fsData gameData;
                     try
                     {
@@ -410,6 +422,7 @@ namespace MMSaveEditor.View
                             return false;
                         }
                     }
+#endif
                     catch (Exception ex)
                     {
                         MessageBoxResult result = MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);

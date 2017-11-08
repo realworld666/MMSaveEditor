@@ -7,6 +7,7 @@ public class SetupInput_v1
 {
     private static readonly float minSetupInput = -1f;
     private static readonly float maxSetupInput = 1f;
+    private static readonly float differenceThreshold = 0.01f;
     private Championship.Series mSeries = Championship.Series.Count;
     private Dictionary<SetupInput_v1.SetupInputOptions, float> mSetupComponents;
 

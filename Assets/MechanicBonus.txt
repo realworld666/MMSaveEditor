@@ -1,0 +1,20 @@
+ID,Trait Name,Name ID,Flavour Text,Text ID,Icon,Level,Object Type,Bonus,Session
+1,Engine Expert,PSG_10004091,Higher engine modes no longer impact condition.,PSG_10004111,1,1,Engine,ConditionHighModes,Race
+2,Sweeter Spots,PSG_10004092,The Sweet Spot in qualifying is bigger.,PSG_10004112,2,1,SweetSpot,Size(2),Qualifying
+3,Pit Stop Guru: Tyre Changes,PSG_10004093,Tyre changes are 50% faster.,PSG_10004113,3,1,PitStop,TyreChangeSpeed(2),Race
+4,Pit Stop Guru: Refuelling,PSG_10004094,Refuelling is 50% faster.,PSG_10004114,4,1,PitStop,RefuellingSpeed(2),Race
+7,Lightfooted: Ultra Soft Tyres,PSG_10008695,Ultra Soft tyres wear more slowly.,PSG_10008696,7,1,UltraSoftTyres,TyreWear(-10),
+8,Lightfooted: Super Soft Tyres,PSG_10004097,Super Soft tyres wear more slowly.,PSG_10004120,8,1,SuperSoftTyres,TyreWear(-10),
+9,Lightfooted: Soft Tyres,PSG_10004098,"Soft tyres wear more slowly. ",PSG_10004117,9,1,SoftTyres,TyreWear(-10),
+10,Lightfooted: Medium Tyres,PSG_10004099,Medium tyres wear more slowly.,PSG_10004118,10,1,MediumTyres,TyreWear(-10),
+11,Lightfooted: Hard Tyres,PSG_10004100,Hard tyres wear more slowly.,PSG_10004119,11,1,HardTyres,TyreWear(-10),
+12,Lightfooted: Intermediate Tyres,PSG_10004101,Intermediate tyres wear more slowly.,PSG_10004121,12,1,IntermediateTyres,TyreWear(-10),
+13,Lightfooted: Wet Tyres,PSG_10004102,Wet tyres wear more slowly.,PSG_10004122,13,1,WetTyres,TyreWear(-10),
+14,Fuel Economy,PSG_10004103,"Fuel burns more slowly, allowing the driver to use a higher engine mode.",PSG_10004123,14,2,Fuel,Burn(-10),
+15,Super Overtake Mode,PSG_10004104,"An extra engine mode is unlocked - Super Overtake - allowing even more power, at the cost of a higher fuel burn and condition loss rate.",PSG_10004124,15,2,Engine,SuperOvertake,
+16,Pit Stop Legend,PSG_10004105,All pit stop times are -1 second faster.,PSG_10004125,16,2,PitStop,StopTime(-1),Race
+17,Quick Fixes,PSG_10004106,Part condition fix times are 2x faster.,PSG_10004126,17,2,PitStop,FixSpeed(2),Race
+18,Nurse,PSG_10004107,Car condition drops slightly slower.,PSG_10004127,18,2,AllParts,ConditionDrop(-0.01),Race
+19,Push It To The Limit,PSG_10004108,Removes the red zone from car condition.,PSG_10004128,19,2,AllParts,NoRedZone,Race
+20,The Sweetest Spots,PSG_10004109,The Sweet Spot in qualifying is much bigger.,PSG_10004129,20,2,SweetSpot,Size(3),Qualifying
+21,Risk Taker,PSG_10004110,Risky pit stops now only have a 10% mistake chance.,PSG_10004130,21,2,PitStop,Risky(10),Race

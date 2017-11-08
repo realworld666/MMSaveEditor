@@ -26,7 +26,7 @@ namespace MMSaveEditor.View.Components
             var vm = SimpleIoc.Default.GetInstance<DriverViewModel>();
             if (vm.PersonData != null)
             {
-                vm.PersonData.removeTrait(grid.SelectedItem as PersonalityTrait);
+                //FIXME: vm.PersonData.personalityTraitController.rem(grid.SelectedItem as PersonalityTrait);
                 // refresh view model
                 vm.SetModel(vm.PersonData);
             }

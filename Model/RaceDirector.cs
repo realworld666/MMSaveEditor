@@ -22,5 +22,7 @@ public class RaceDirector
     private SessionManager mSessionManager;
     private RunningWideDirector mRunningWideDirector;
     private CuttingCornersDirector mCutCornerDirector;
-
+    private SessionSimSpeedDirector mSessionSimSpeedDirector;
+    private DriverFormDirector mDriverFormDirector;
+    private PitstopDirector mPitstopDirector;
 }

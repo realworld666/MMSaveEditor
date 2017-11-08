@@ -21,6 +21,6 @@ public class ContractSponsor : Contract
     public CalendarEvent_v1 calendarEvent;
     private Team mSponsoredTeam;
     private Sponsor mSponsor;
-
+    public int bonusTarget;
 
 }

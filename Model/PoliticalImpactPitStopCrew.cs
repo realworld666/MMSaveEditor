@@ -1,13 +1,12 @@
 ﻿public class PoliticalImpactPitStopCrew : PoliticalImpact
 {
     public PoliticalImpactPitStopCrew.ImpactType impactType;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactPitStopCrew(string inName, string inEffect)
     {
-        this.inName = inName;
-        this.inEffect = inEffect;
+        string key = inEffect;
+        if (key == null)
+            return;
     }
 
     public override void SetImpact(ChampionshipRules inRules)
@@ -20,6 +19,9 @@
             case PoliticalImpactPitStopCrew.ImpactType.Large:
                 inRules.PitCrewSize = ChampionshipRules.PitStopCrewSize.Large;
                 break;
+            case PoliticalImpactPitStopCrew.ImpactType.SemiSequential:
+                inRules.PitCrewSize = ChampionshipRules.PitStopCrewSize.SemiSequential;
+                break;
         }
     }
 
@@ -27,5 +29,6 @@
     {
         Small,
         Large,
+        SemiSequential,
     }
 }

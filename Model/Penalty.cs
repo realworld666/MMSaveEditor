@@ -51,6 +51,7 @@ public class Penalty
         PartPenalty,
         TimePenalty,
         PitlaneDriveThru,
+        PointsPenalty,
         Count,
     }
 

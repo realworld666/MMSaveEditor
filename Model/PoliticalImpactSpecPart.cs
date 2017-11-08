@@ -5,8 +5,6 @@ public class PoliticalImpactSpecPart : PoliticalImpact
 {
     public PoliticalImpactSpecPart.ImpactType impactType;
     public List<CarPart.PartType> partTypes = new List<CarPart.PartType>();
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactSpecPart(string inName, string inEffects)
     {

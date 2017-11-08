@@ -29,6 +29,9 @@ public class SteeringManager
     private bool[] mMaskedDangerSlots = new bool[SteeringContextMap.slotCount];
     private float mDangerMaskLevel = 0.75f;
     private Vehicle mVehicle;
+    private int mMinSlotIndex;
+    private int mMaxSlotIndex;
+    private float mPathCenterPathSpace;
 
     public enum Behaviour
     {

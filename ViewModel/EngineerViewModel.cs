@@ -13,12 +13,38 @@ namespace MMSaveEditor.ViewModel
         {
             return Game.instance?.engineerManager?.GetEntityList().OfType<Person>().Where(e => e.Contract.GetTeam() == t).ToList();
         }
+        private static List<CarPartComponent> GetAllComponents(int level)
+        {
+            List<CarPartComponent> result = CarPartComponentsManager.Instance.GetComponentsOfLevel(level, CarPartComponent.ComponentType.Engineer);
+            result.Insert(0, null);
+            return result;
+        }
+        private CarPartComponent GetComponentLevel(int level)
+        {
+            if (PersonData != null)
+            {
+                CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == level);
+                if (myComponent != null)
+                {
+                    return GetAllComponents(level).FirstOrDefault(c => c != null && c.id == myComponent.id);
+                }
+            }
+            return null;
+        }
+        private void SetComponentLevel(CarPartComponent value, int level)
+        {
+            if (value != null)
+            {
+                PersonData.availableComponents.RemoveAll(c => c != null && c.level == level);
+                PersonData.availableComponents.Add(value);
+            }
+        }
 
         public List<CarPartComponent> AllComponentsLevel1
         {
             get
             {
-                return CarPartComponentsManager.Instance.GetComponentsOfLevel(1, CarPartComponent.ComponentType.Engineer);
+                return GetAllComponents(1);
             }
         }
 
@@ -26,20 +52,11 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                {
-                    CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == 1);
-                    if (myComponent != null)
-                    {
-                        return AllComponentsLevel1.FirstOrDefault(c => c.id == myComponent.id);
-                    }
-                }
-                return null;
+                return GetComponentLevel(1);
             }
             set
             {
-                PersonData.availableComponents.RemoveAll(c => c.level == 1);
-                PersonData.availableComponents.Add(value);
+                SetComponentLevel(value, 1);
             }
         }
 
@@ -47,7 +64,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return CarPartComponentsManager.Instance.GetComponentsOfLevel(2, CarPartComponent.ComponentType.Engineer);
+                return GetAllComponents(2);
             }
         }
 
@@ -55,20 +72,11 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                {
-                    CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == 2);
-                    if (myComponent != null)
-                    {
-                        return AllComponentsLevel2.FirstOrDefault(c => c.id == myComponent.id);
-                    }
-                }
-                return null;
+                return GetComponentLevel(2);
             }
             set
             {
-                PersonData.availableComponents.RemoveAll(c => c.level == 2);
-                PersonData.availableComponents.Add(value);
+                SetComponentLevel(value, 2);
             }
         }
 
@@ -76,7 +84,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return CarPartComponentsManager.Instance.GetComponentsOfLevel(3, CarPartComponent.ComponentType.Engineer);
+                return GetAllComponents(3);
             }
         }
 
@@ -84,20 +92,11 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                {
-                    CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == 3);
-                    if (myComponent != null)
-                    {
-                        return AllComponentsLevel3.FirstOrDefault(c => c.id == myComponent.id);
-                    }
-                }
-                return null;
+                return GetComponentLevel(3);
             }
             set
             {
-                PersonData.availableComponents.RemoveAll(c => c.level == 3);
-                PersonData.availableComponents.Add(value);
+                SetComponentLevel(value, 3);
             }
         }
 
@@ -105,7 +104,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return CarPartComponentsManager.Instance.GetComponentsOfLevel(4, CarPartComponent.ComponentType.Engineer);
+                return GetAllComponents(4);
             }
         }
 
@@ -113,20 +112,11 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                {
-                    CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == 4);
-                    if (myComponent != null)
-                    {
-                        return AllComponentsLevel4.FirstOrDefault(c => c.id == myComponent.id);
-                    }
-                }
-                return null;
+                return GetComponentLevel(4);
             }
             set
             {
-                PersonData.availableComponents.RemoveAll(c => c.level == 4);
-                PersonData.availableComponents.Add(value);
+                SetComponentLevel(value, 4);
             }
         }
 
@@ -134,7 +124,7 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                return CarPartComponentsManager.Instance.GetComponentsOfLevel(5, CarPartComponent.ComponentType.Engineer);
+                return GetAllComponents(5);
             }
         }
 
@@ -142,20 +132,11 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                {
-                    CarPartComponent myComponent = PersonData.availableComponents.FirstOrDefault(c => c.level == 5);
-                    if (myComponent != null)
-                    {
-                        return AllComponentsLevel5.FirstOrDefault(c => c.id == myComponent.id);
-                    }
-                }
-                return null;
+                return GetComponentLevel(5);
             }
             set
             {
-                PersonData.availableComponents.RemoveAll(c => c.level == 5);
-                PersonData.availableComponents.Add(value);
+                SetComponentLevel(value, 5);
             }
         }
     }

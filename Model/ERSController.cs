@@ -24,6 +24,9 @@ public class ERSController
     private int mFinishLineGateId;
     private bool[] mActiveERSInfluences = new bool[7];
     private bool isChargeBasedOnStandings;
+    private ERSController.Mode mQueuedMode;
+    private bool mIsAdvancedERSActive;
+    private float mInfluenceTargetCharge;
 
     public enum ERSState
     {

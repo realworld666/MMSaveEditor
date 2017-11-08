@@ -19,6 +19,10 @@ public class PathController
     private int mPreviousGateId;
     private int mNextGateId;
     public int pathID;
+    private float[] mDistanceToVehicle;
+    private bool[] mIsInComparablePath;
+    private float mDistanceAlongTrackPath01;
+    private SessionDetails.SessionType mCachedSessionType;
 
     public enum PathType
     {
@@ -44,7 +48,8 @@ public class PathController
         public PathController.PathType pathType;
         public Vehicle vehicle;
         public float pathSpace;
-
-
+        private int mPreviousGateId;
+        private int mNextGateId;
+        public int pathID;
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-[fsObject( MemberSerialization = fsMemberSerialization.OptOut )]
+[fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Player : TeamPrincipal
 {
     public static PlayerDefaultData defaultData = new PlayerDefaultData();
@@ -37,6 +37,14 @@ public class Player : TeamPrincipal
         set
         {
             this.mPlayerTeam = value;
+        }
+    }
+
+    public float driverFeedBackStatModifier
+    {
+        get
+        {
+            return this.mPlayerBackStory.driverFeedBackStatModifier;
         }
     }
 

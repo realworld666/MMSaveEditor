@@ -26,7 +26,11 @@ public class Supplier
     private List<int> mTeamsThatCannotBuy = new List<int>();
     private int mRandomEngineLevelModifier;
     private float mRandomHarvestEfficiencyModifier;
-
+    public string descriptionID;
+    public int hybridGates;
+    public int powerGates;
+    public int chargeSize;
+    public Supplier.AdvancedERSBatteryType advancedBatteryType;
 
     public enum SupplierType
     {
@@ -35,11 +39,20 @@ public class Supplier
         [LocalisationID("PSG_10004264")] Fuel,
         [LocalisationID("PSG_10004261")] Materials,
         [LocalisationID("PSG_10011517")] Battery,
+        [LocalisationID("PSG_10011517")] ERSAdvanced,
     }
 
     public enum CarAspect
     {
         [LocalisationID("PSG_10008693")] RearPackage,
         [LocalisationID("PSG_10008694")] NoseHeight,
+    }
+
+    public enum AdvancedERSBatteryType
+    {
+        None,
+        [LocalisationID("PSG_10013889")] Flywheel,
+        [LocalisationID("PSG_10013891")] Battery,
+        [LocalisationID("PSG_10013890")] SuperCapacitor,
     }
 }

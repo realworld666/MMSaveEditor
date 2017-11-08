@@ -23,6 +23,7 @@ public abstract class Challenge
     public ChallengeDuration duration;
     public ChallengeObjectives objectives;
     public ChallengeRewards rewards;
+    public Challenge.ChallengeType type;
 
     public enum Difficulty
     {
@@ -66,5 +67,11 @@ public abstract class Challenge
         TierTwo,
         TierThree,
         Count,
+    }
+
+    public enum ChallengeType
+    {
+        Career,
+        SingleRace,
     }
 }

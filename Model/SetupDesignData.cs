@@ -18,6 +18,8 @@ public class SetupDesignData : PerformanceDesignData
     public float setupChangeTimeCost = 5f;
     [XmlElement("TrimChangeTimeCost")]
     public float trimChangeTimeCost = 10f;
+    [XmlElement("DriverChangeTimeCost")]
+    public float driverChangeTimeCost = 40f;
     [XmlElement("FastPitstopStrategyTimeCost")]
     public float fastPitstopStrategyTimeCost;
 }

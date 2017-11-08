@@ -9,6 +9,8 @@ public class CarPart : Entity
     private static readonly CarPart.PartType[] singleSeaterSeriesStatOrdered = new CarPart.PartType[6] { CarPart.PartType.Engine, CarPart.PartType.Gearbox, CarPart.PartType.Brakes, CarPart.PartType.FrontWing, CarPart.PartType.Suspension, CarPart.PartType.RearWing };
     private static readonly CarPart.PartType[] gtSeries = new CarPart.PartType[5] { CarPart.PartType.BrakesGT, CarPart.PartType.EngineGT, CarPart.PartType.GearboxGT, CarPart.PartType.RearWingGT, CarPart.PartType.SuspensionGT };
     private static readonly CarPart.PartType[] gtSeriesStatOrdered = new CarPart.PartType[5] { CarPart.PartType.EngineGT, CarPart.PartType.GearboxGT, CarPart.PartType.BrakesGT, CarPart.PartType.SuspensionGT, CarPart.PartType.RearWingGT };
+    private static readonly CarPart.PartType[] enduranceSeries = new CarPart.PartType[6] { CarPart.PartType.BrakesGET, CarPart.PartType.EngineGET, CarPart.PartType.FrontWingGET, CarPart.PartType.GearboxGET, CarPart.PartType.RearWingGET, CarPart.PartType.SuspensionGET };
+    private static readonly CarPart.PartType[] enduranceSeriesStatOrdered = new CarPart.PartType[6] { CarPart.PartType.EngineGET, CarPart.PartType.GearboxGET, CarPart.PartType.BrakesGET, CarPart.PartType.FrontWingGET, CarPart.PartType.SuspensionGET, CarPart.PartType.RearWingGET };
     public static string[] PartNames = new string[12] { "Brakes", "Engine", "FrontWing", "Gearbox", "RearWing", "Suspension", "RearWingGT", "BrakesGT", "EngineGT", "GearboxGT", "SuspensionGT", "Count" };
     public Action OnStageChange;
     public DateTime buildDate;
@@ -100,7 +102,13 @@ public class CarPart : Entity
         [LocalisationID("PSG_10001653")] EngineGT = 8,
         [LocalisationID("PSG_10001654")] GearboxGT = 9,
         [LocalisationID("PSG_10001655")] SuspensionGT = 10,
-        Last = 11,
+        [LocalisationID("PSG_10001657")] BrakesGET = 11,
+        [LocalisationID("PSG_10001653")] EngineGET = 12,
+        [LocalisationID("PSG_10012673")] FrontWingGET = 13,
+        [LocalisationID("PSG_10001654")] GearboxGET = 14,
+        [LocalisationID("PSG_10001652")] RearWingGET = 15,
+        [LocalisationID("PSG_10001655")] SuspensionGET = 16,
+        Last = 17,
     }
 
     public enum PartTypePlural
@@ -116,6 +124,12 @@ public class CarPart : Entity
         [LocalisationID("PSG_10008532")] EngineGT,
         [LocalisationID("PSG_10008533")] GearboxGT,
         [LocalisationID("PSG_10008534")] SuspensionGT,
+        [LocalisationID("PSG_10008535")] BrakesGET,
+        [LocalisationID("PSG_10008532")] EngineGET,
+        [LocalisationID("PSG_10012673")] FrontWingGET,
+        [LocalisationID("PSG_10008533")] GearboxGET,
+        [LocalisationID("PSG_10008531")] RearWingGET,
+        [LocalisationID("PSG_10008534")] SuspensionGET,
         Count,
     }
 

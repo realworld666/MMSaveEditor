@@ -30,4 +30,23 @@ public class RaceEventDetails
         }
     }
 
+    public SessionDetails currentSession
+    {
+        get
+        {
+            if (this.mSessionPointer >= this.sessions.Count)
+                this.SetPointerToCorrectSession();
+            return this.sessions[this.mSessionPointer];
+        }
+    }
+
+    private void SetPointerToCorrectSession()
+    {
+        for (int index = 0; index < this.sessions.Count; ++index)
+        {
+            this.mSessionPointer = index;
+            if (!this.sessions[index].hasEnded)
+                break;
+        }
+    }
 }

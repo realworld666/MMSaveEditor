@@ -28,6 +28,7 @@ public class ContractPerson : Contract
     public ContractPerson.ContractLength length;
     public ContractPerson.BuyoutClauseSplit buyoutSplit = ContractPerson.BuyoutClauseSplit.PersonPaysAll;
     private Person mPerson;
+    protected Team mEmployeerTeam;
 
     public Person person
     {
@@ -319,6 +320,7 @@ public class ContractPerson : Contract
                 //newTeam.teamAIController.RemoveDriverFromScoutingJobs(inDriver);
                 //newTeam.teamAIController.EvaluateDriverLineUp();
             }
+
         }
 
         if (inNewPersonToHire is Mechanic)

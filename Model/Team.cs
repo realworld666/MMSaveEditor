@@ -35,6 +35,7 @@ public class Team : Entity
     public TeamAIWeightings aiWeightings;
     public TeamLogo customLogo = new TeamLogo();
     public Investor investor;
+    public PitCrewController pitCrewController;
     public int teamID;
     public string locationID = string.Empty;
     public int reputation;
@@ -60,20 +61,25 @@ public class Team : Entity
     public bool canReceiveFullChairmanPayments;
     private string startDescription = string.Empty;
     private string mCustomStartDescription = string.Empty;
+    private string mShortName;
     private ChampionshipEntry_v1 mChampionshipEntry;
     private Driver[] mSelectedDriver = new Driver[Team.mainDriverCount];
+    private Dictionary<int, List<Driver>> mSelectedSessionDrivers;
+    private Dictionary<int, Driver> mVehicleSessionDrivers;
     private int mCurrentExpectedChampionshipResult;
     private List<Mechanic> mMechanics = new List<Mechanic>();
     private List<Driver> mDrivers;
     private List<EmployeeSlot> mEmployeeSlots = new List<EmployeeSlot>();
-    private string mShortName;
+
+    public static int maxDriverCount;
+
 
     public List<Driver> Drivers
     {
         get
         {
-            if (mDriversCache.Count == 0)
-                this.contractManager.GetAllDrivers(ref this.mDriversCache);
+            this.mDriversCache.Clear();
+            this.contractManager.GetAllDrivers(ref this.mDriversCache);
             return mDriversCache;
         }
     }
@@ -151,9 +157,77 @@ public class Team : Entity
 
     public void SelectMainDriversForSession()
     {
-        List<EmployeeSlot> employeeSlotsForJob = this.contractManager.GetAllEmployeeSlotsForJob(Contract.Job.Driver);
-        for (int index = 0; index < Team.mainDriverCount; ++index)
-            this.mSelectedDriver[index] = employeeSlotsForJob[index].personHired as Driver;
+        bool flag = Game.instance.sessionManager.sessionType == SessionDetails.SessionType.Qualifying && this.championship.Rules.gridSetup == ChampionshipRules.GridSetup.AverageLap;
+        for (int inCarIndex = 0; inCarIndex < CarManager.carCount; ++inCarIndex)
+        {
+            Driver[] driversForCar = this.GetDriversForCar(inCarIndex);
+            this.mSelectedSessionDrivers[inCarIndex].Clear();
+            for (int index = 0; index < driversForCar.Length; ++index)
+            {
+                Driver inDriver = driversForCar[index];
+                if (this.contractManager.IsSittingOutEvent(inDriver))
+                    this.mSelectedSessionDrivers[inCarIndex].Add(this.GetReserveDriverToReplaceSitOut());
+                else if (!flag)
+                    this.mSelectedSessionDrivers[inCarIndex].Add(inDriver);
+                else if (this.mSelectedSessionDrivers[inCarIndex].Count < 2 && !this.IsWorstDriver(inDriver, driversForCar))
+                    this.mSelectedSessionDrivers[inCarIndex].Add(inDriver);
+            }
+        }
+        for (int index1 = 0; index1 < CarManager.carCount; ++index1)
+        {
+            int index2 = 0;
+            if (!this.IsPlayersTeam())
+                index2 = RandomUtility.GetRandom(0, this.mSelectedSessionDrivers[index1].Count);
+            this.mVehicleSessionDrivers[index1] = this.mSelectedSessionDrivers[index1][index2];
+        }
+    }
+
+    private bool IsWorstDriver(Driver inDriver, params Driver[] inDrivers)
+    {
+        float total = inDriver.GetDriverStats().GetTotal();
+        for (int index = 0; index < inDrivers.Length; ++index)
+        {
+            if ((double)inDrivers[index].GetDriverStats().GetTotal() <= (double)total)
+                return false;
+        }
+        return true;
+    }
+
+    public Driver GetReserveDriverToReplaceSitOut()
+    {
+        List<Driver> drivers = new List<Driver>();
+        Driver inDriver = (Driver)null;
+        this.contractManager.GetAllDrivers(ref drivers);
+        for (int index = 0; index < drivers.Count; ++index)
+        {
+            Driver driver = drivers[index];
+            if (driver.contract.currentStatus == ContractPerson.Status.Reserve)
+                inDriver = driver;
+        }
+        Game.instance.driverManager.AddDriverToChampionship(inDriver, true);
+        return inDriver;
+    }
+
+    public Driver[] GetDriversForCar(int inCarIndex)
+    {
+        this.mDriversCache.Clear();
+        if (this.championship.series == Championship.Series.EnduranceSeries)
+        {
+            this.contractManager.GetAllDriversForCar(ref this.mDriversCache, inCarIndex);
+        }
+        else
+        {
+            List<EmployeeSlot> employeeSlotsForJob = this.contractManager.GetAllEmployeeSlotsForJob(Contract.Job.Driver);
+            if (!employeeSlotsForJob[inCarIndex].IsAvailable())
+            {
+                Driver personHired = employeeSlotsForJob[inCarIndex].personHired as Driver;
+                if (this.contractManager.IsSittingOutEvent(personHired))
+                    this.mDriversCache.Add(this.GetReserveDriverToReplaceSitOut());
+                else
+                    this.mDriversCache.Add(personHired);
+            }
+        }
+        return this.mDriversCache.ToArray();
     }
 
     internal void RefreshMechanics()
@@ -178,14 +252,11 @@ public class Team : Entity
 
     public int GetDriverIndex(Driver inDriver)
     {
-        for (int index = 0; index < Team.mainDriverCount; ++index)
-        {
-            if (this.mSelectedDriver[index] != null && this.mSelectedDriver[index] == inDriver)
-                return index;
-        }
         this.mEmployeeSlots.Clear();
         this.contractManager.GetAllEmployeeSlotsForJob(Contract.Job.Driver, ref this.mEmployeeSlots);
-        for (int index = 0; index < Team.mainDriverCount; ++index)
+        if (inDriver != null && inDriver.IsReserveDriver())
+            return -1;
+        for (int index = 0; index < Team.maxDriverCount; ++index)
         {
             if (this.mEmployeeSlots[index].personHired != null && this.mEmployeeSlots[index].personHired == inDriver)
                 return index;

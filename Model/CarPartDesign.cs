@@ -18,7 +18,7 @@ public class CarPartDesign
     private float mComponentTimeDaysBonus;
     private Notification mNotification;
     private CalendarEvent_v1 mCalendarEvent;
-
+    private int mExtraCopies;
     private Team mTeam;
     private CarPartComponent mRandomComponent;
 
@@ -34,6 +34,12 @@ public class CarPartDesign
     private Dictionary<int, List<CarPartComponent>> brakeGTComponents = new Dictionary<int, List<CarPartComponent>>();
     private Dictionary<int, List<CarPartComponent>> suspensionGTComponents = new Dictionary<int, List<CarPartComponent>>();
     private Dictionary<int, List<CarPartComponent>> gearboxGTComponents = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> brakeComponentsGET = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> engineComponentsGET = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> frontWingComponentsGET = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> rearWingComponentsGET = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> suspensionComponentsGET = new Dictionary<int, List<CarPartComponent>>();
+    private Dictionary<int, List<CarPartComponent>> gearboxComponentsGET = new Dictionary<int, List<CarPartComponent>>();
     public Action OnDesignModified;
     public Action OnPartBuilt;
 

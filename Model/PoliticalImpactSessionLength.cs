@@ -4,8 +4,6 @@ public class PoliticalImpactSessionLength : PoliticalImpact
 {
     public ChampionshipRules.SessionLength sessionLength;
     public PoliticalImpactSessionLength.ImpactType impactType;
-    private string inName;
-    private string inEffect;
 
     public PoliticalImpactSessionLength(string inName, string inEffects)
     {

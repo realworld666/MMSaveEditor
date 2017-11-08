@@ -4,6 +4,7 @@
 public class ChampionshipWinnersEntry
 {
     public Driver driverChampion;
+    public Driver[] driverChampionsEndurance;
     public Team driversTeam;
     public Person driversTeamPrincipal;
     public int driverPoints;
@@ -19,4 +20,5 @@ public class ChampionshipWinnersEntry
     public int teamPoints;
     public long teamPrizeMoney;
     public int year;
+
 }

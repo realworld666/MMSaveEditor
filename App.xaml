@@ -26,8 +26,32 @@
                             <TextBlock TextWrapping="Wrap" Text="Special State" Width="200"/>
                             <ComboBox SelectedItem="{Binding SpecialState1}" ItemsSource="{Binding SpecialStateTypes}"/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Date Started" Width="200"/>
+                            <DatePicker DisplayDate="{Binding DateProgressStarted}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Date Ends" Width="200"/>
+                            <DatePicker DisplayDate="{Binding DateProgressEnd}" />
+                        </StackPanel>
                     </StackPanel>
                 </Expander>
+            </DataTemplate>
+            <DataTemplate x:Key="DriverRelationship">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock TextWrapping="Wrap" Text="Relationship Amount After Decay"  Width="200"/>
+                        <xctk:SingleUpDown Width="200" Value="{Binding RelationshipAmountAfterDecay}" Increment="1" Minimum="0" Maximum="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock TextWrapping="Wrap" Text="Relationship Amount" Width="200"/>
+                        <xctk:SingleUpDown Width="200" Value="{Binding RelationshipAmount}" Increment="1" Minimum="0" Maximum="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock TextWrapping="Wrap" Text="Number of Weeks" Width="200"/>
+                        <xctk:IntegerUpDown Width="200" Value="{Binding NumberOfWeeks}" Increment="1" Minimum="0"/>
+                    </StackPanel>
+                </StackPanel>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

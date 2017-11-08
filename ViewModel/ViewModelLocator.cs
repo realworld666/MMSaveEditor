@@ -47,7 +47,7 @@ namespace MMSaveEditor.ViewModel
             SimpleIoc.Default.Register<EngineerViewModel>();
             SimpleIoc.Default.Register<DriverViewModel>();
             SimpleIoc.Default.Register<PlayerViewModel>();
-            SimpleIoc.Default.Register<GameViewModel>();
+            //SimpleIoc.Default.Register<GameViewModel>();
             SimpleIoc.Default.Register<TeamViewModel>();
             SimpleIoc.Default.Register<MechanicViewModel>();
             SimpleIoc.Default.Register<ChairmanViewModel>();
@@ -94,13 +94,13 @@ namespace MMSaveEditor.ViewModel
             }
         }
 
-        public GameViewModel Game
+        /*public GameViewModel Game
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<GameViewModel>();
             }
-        }
+        }*/
 
         public TeamViewModel Team
         {
