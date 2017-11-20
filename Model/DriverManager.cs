@@ -36,4 +36,12 @@ public class DriverManager : PersonManager<Driver>
             return;
         championship.standings.AddEntry((Entity)inDriver, championship);
     }
+
+    public void RemoveDriverEntryFromChampionship(Driver inDriver)
+    {
+        ChampionshipEntry_v1 championshipEntry = inDriver.GetChampionshipEntry();
+        if (championshipEntry != null && championshipEntry.races <= 0)
+            championshipEntry.championship.standings.RemoveEntry((Entity)inDriver);
+        inDriver.ResetChampionshipEntry();
+    }
 }

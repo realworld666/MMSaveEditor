@@ -58,12 +58,12 @@ public class TeamColor
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class LiveryColour
     {
-        public Color primary;
-        public Color secondary;
-        public Color tertiary;
-        public Color trim;
-        public Color lightSponsor;
-        public Color darkSponsor;
+        public Color primary = Color.white;
+        public Color secondary = Color.white;
+        public Color tertiary = Color.white;
+        public Color trim = Color.white;
+        public Color lightSponsor = Color.white;
+        public Color darkSponsor = Color.white;
 
 
     }

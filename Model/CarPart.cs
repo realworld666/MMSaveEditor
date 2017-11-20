@@ -16,7 +16,7 @@ public class CarPart : Entity
     public DateTime buildDate;
     public Car fittedCar;
     public bool isFitted;
-    private bool isBanned;
+    public bool isBanned;
     public List<CarPartComponent> components = new List<CarPartComponent>();
     private CarPartStats mStats;
     private int mModelId;

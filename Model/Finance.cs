@@ -6,8 +6,8 @@ public class Finance
     public TransactionHistory transactionHistory = new TransactionHistory();
     public bool saveTransactionHistory;
     public Team team;
-    private long initialBudget;
-    private long currentBudget;
+    public long initialBudget;
+    public long currentBudget;
 
     public long InitialBudget
     {

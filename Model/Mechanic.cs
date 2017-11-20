@@ -11,10 +11,10 @@ using MMSaveEditor.View;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class Mechanic : Person
 {
-    private MechanicStats stats = new MechanicStats();
+    public MechanicStats stats = new MechanicStats();
     public MechanicStats lastAccumulatedStats = new MechanicStats();
     public int driver;
-    public float improvementRate;
+    public float improvementRate = RandomUtility.GetRandom(0.1f, 1f);
     public MechanicBonus bonusOne;
     public MechanicBonus bonusTwo;
     private Map<string, Mechanic.DriverRelationship> mDriversRelationships;
@@ -34,7 +34,7 @@ public class Mechanic : Person
     public const float minPitStopAddedError = 0.0f;
     public const float maxPitStopAddedError = 0.1f;
     public float driverRelationshipAmountBeforeEvent;
-    private List<Driver> mRelationshipDriversCache;
+    private List<Driver> mRelationshipDriversCache = new List<Driver>();
 
     public RelayCommand<Mechanic> ViewDriver { get; private set; }
 
@@ -170,5 +170,36 @@ public class Mechanic : Person
         if (!this.mDictDriversRelationships.ContainsKey(inDriver.name))
             return (Mechanic.DriverRelationship)null;
         return this.mDictDriversRelationships[inDriver.name];
+    }
+
+    public Driver[] GetDrivers()
+    {
+        if (this.IsFreeAgent())
+            return (Driver[])null;
+        this.mRelationshipDriversCache.Clear();
+        Team team = this.contract.GetTeam();
+        if (team.championship.series == Championship.Series.EnduranceSeries)
+            return team.GetDriversForCar(this.driver);
+        this.mRelationshipDriversCache.Add(team.GetDriver(this.driver));
+        return this.mRelationshipDriversCache.ToArray();
+    }
+
+    internal void SetDefaultDriverRelationship()
+    {
+        foreach (Entity driver in this.GetDrivers())
+            this.GenerateDriverRelationship(driver.name, 0, 0.0f);
+    }
+
+    private Mechanic.DriverRelationship GenerateDriverRelationship(string inDriverName, int inWeeksTogether, float inRelationshipAmount)
+    {
+        if (string.IsNullOrEmpty(inDriverName) || this.mDictDriversRelationships.ContainsKey(inDriverName))
+            return (Mechanic.DriverRelationship)null;
+        Mechanic.DriverRelationship driverRelationship = new Mechanic.DriverRelationship();
+        driverRelationship.numberOfWeeks = inWeeksTogether;
+        driverRelationship.relationshipAmount = inRelationshipAmount;
+        this.mDictDriversRelationships.Add(inDriverName, driverRelationship);
+        if (!this.mDictRelationshipModificationHistory.ContainsKey(inDriverName))
+            this.mDictRelationshipModificationHistory.Add(inDriverName, new StatModificationHistory());
+        return driverRelationship;
     }
 }

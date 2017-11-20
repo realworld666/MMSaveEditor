@@ -25,7 +25,7 @@ public class Championship : Entity
     public DateTime seasonEndDate = DateTime.Today;
     public DateTime preSeasonEndDate = DateTime.Today;
     public DateTime preSeasonStartDate = DateTime.Today;
-    public ObservableCollection<RaceEventCalendarData> calendarData = new ObservableCollection<RaceEventCalendarData>();
+    public List<RaceEventCalendarData> calendarData = new List<RaceEventCalendarData>();
     public List<RaceEventDetails> calendar = new List<RaceEventDetails>();
     public List<RaceEventDetails> nextYearsCalendar = new List<RaceEventDetails>();
     public int seasonStart;
@@ -35,8 +35,8 @@ public class Championship : Entity
     public ChampionshipStandingsHistory standingsHistory = new ChampionshipStandingsHistory();
     public PreSeasonTesting preSeasonTesting;
     public PoliticalSystem politicalSystem = new PoliticalSystem();
-    private ChampionshipRules rules = new ChampionshipRules();
-    private ChampionshipRules nextYearsRules = new ChampionshipRules();
+    public ChampionshipRules rules = new ChampionshipRules();
+    public ChampionshipRules nextYearsRules = new ChampionshipRules();
     public int prizeFund;
     public int tvAudience;
     public int historySeed;
@@ -60,7 +60,7 @@ public class Championship : Entity
     public bool readyForPromotions;
     public bool completedPromotions;
     public Championship.Series series;
-    public SeasonDirector seasonDirector;
+    public SeasonDirector seasonDirector = new SeasonDirector();
     private string mName = string.Empty;
     private string mAcronymn = string.Empty;
     private int mEventNumber;
@@ -75,6 +75,9 @@ public class Championship : Entity
     private ChampionshipPromotions mChampionshipPromotions = new ChampionshipPromotions();
     private ChampionshipPromotionData inPromotedTeamFromLowerTier;
     private ChampionshipPromotionData inRelegatedTeamFromHigherTier;
+    private List<Car> mBestCarsOfChampionship = new List<Car>();
+    private List<Car> mAllCarsCache = new List<Car>();
+    private long mPreviousUpdateTime;
     public const float teamPromotionAcceptChance = 0.85f;
     public const float teamChampionMarketabilityReward = 25f;
     public const int invalidChampionshipID = -1;
@@ -155,6 +158,9 @@ public class Championship : Entity
             mName = value;
         }
     }
+
+    public ObservableCollection<RaceEventCalendarData> CalendarData => new ObservableCollection<RaceEventCalendarData>(calendarData);
+
     public Championship()
     {
         this.politicalSystem.OnStart(this);

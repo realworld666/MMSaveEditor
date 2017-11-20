@@ -23,12 +23,6 @@ namespace MMSaveEditor.View.Components
         public PersonPage_DriverStats()
         {
             InitializeComponent();
-
-            /* var props = typeof( DriverStats ).GetProperties();
-             foreach( var prop in props )
-             {
-                 stats.AddColumn( new DataGridTextColumn { Header = prop.Name } );
-             }*/
         }
 
         private void stats_Initialized(object sender, EventArgs e)

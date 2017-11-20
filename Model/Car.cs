@@ -7,7 +7,7 @@ public class Car
 {
     public string name = string.Empty;
     public int identifier;
-    public CarChassisStats chassisStats = new CarChassisStats();
+    private CarChassisStats chassisStats = new CarChassisStats();
 
     private const float totalTimeToRepairCondition = 345600f;
     private const float workRatePerformance = 345600f;
@@ -17,7 +17,7 @@ public class Car
     private bool mRefreshDriverOpinion;
     private float mCarConditionAfterEvent;
     private CarManager mCarManager;
-    private CarPart[] mCurrentPart = new CarPart[11];
+    private CarPart[] mCurrentPart = new CarPart[17];
     private CarPart[] mPartsFittedToCar = new CarPart[0];
     private FrontendCar mFrontendCar;
     private CarStats mCachedStats = new CarStats();
@@ -45,6 +45,12 @@ public class Car
                 this.UpdatePartsFittedToCarArray();
             return this.mPartsFittedToCar;
         }
+    }
+
+    public CarChassisStats ChassisStats
+    {
+        get { return chassisStats; }
+        set { chassisStats = value; }
     }
 
     private void UpdatePartsFittedToCarArray()

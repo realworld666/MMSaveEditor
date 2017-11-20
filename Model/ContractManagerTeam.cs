@@ -144,4 +144,9 @@ public class ContractManagerTeam
             }
         }
     }
+
+    public Driver GetDriverSittingOut()
+    {
+        return this.mHealingDriver;
+    }
 }

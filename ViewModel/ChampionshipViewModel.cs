@@ -107,7 +107,7 @@ namespace MMSaveEditor.ViewModel
             {
                 if (championshipData != null)
                 {
-                    return championshipData.calendarData;
+                    return championshipData.CalendarData;
                 }
                 return null;
             }

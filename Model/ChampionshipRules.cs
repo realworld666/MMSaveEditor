@@ -10,59 +10,59 @@ using Newtonsoft.Json;
 public class ChampionshipRules : Entity
 {
     public string ruleSetName = string.Empty;
-    private List<float> practiceDuration = new List<float>();
-    private List<float> qualifyingDuration = new List<float>();
+    public List<float> practiceDuration = new List<float>();
+    public List<float> qualifyingDuration = new List<float>();
     public List<ChampionshipRules.SessionLength> raceLength = new List<ChampionshipRules.SessionLength>();
     public List<float> prizePoolPercentage = new List<float>();
     public DateTime carDevelopmenStartDate = new DateTime();
-    private Dictionary<CarPart.PartType, int> partStatSeasonMinValue = new Dictionary<CarPart.PartType, int>();
-    private Dictionary<CarPart.PartType, int> partStatSeasonMaxValue = new Dictionary<CarPart.PartType, int>();
+    public Dictionary<CarPart.PartType, int> partStatSeasonMinValue = new Dictionary<CarPart.PartType, int>();
+    public Dictionary<CarPart.PartType, int> partStatSeasonMaxValue = new Dictionary<CarPart.PartType, int>();
     public string tyreSupplier = string.Empty;
     public int tyreSupplierID;
-    public TyreType tyreType;
-    private int maxSlickTyresPerEvent = 15;
-    private ChampionshipRules.CompoundChoice compoundChoice;
-    private int wetWeatherTyreCount = 5;
-    private int compoundsAvailable = 3;
-    private float pitlaneSpeed;
-    private float tyreSpeedBonus;
-    private float tyreSupplierBonus;
-    private ChampionshipRules.TyreWearRate tyreWearRate;
-    private ChampionshipRules.EnergySystemBattery batterySize;
-    private bool isEnergySystemActive;
-    private bool isHybridModeActive;
-    private bool isSprinklingSystemOn;
-    private bool staffTransferWindowPreseason;
-    private bool driverAidsOn;
-    private bool isRefuelingOn;
-    private float fuelLimitForRaceDistanceNormalized;
-    private ChampionshipRules.SafetyCarUsage safetyCarUsage = ChampionshipRules.SafetyCarUsage.Both;
+    public ChampionshipRules.TyreType tyreType;
+    public int maxSlickTyresPerEvent = 15;
+    public ChampionshipRules.CompoundChoice compoundChoice;
+    public int wetWeatherTyreCount = 5;
+    public int compoundsAvailable = 3;
+    public float pitlaneSpeed;
+    public float tyreSpeedBonus;
+    public float tyreSupplierBonus;
+    public ChampionshipRules.TyreWearRate tyreWearRate;
+    public ChampionshipRules.EnergySystemBattery batterySize;
+    public bool isEnergySystemActive;
+    public bool isHybridModeActive;
+    public bool isSprinklingSystemOn;
+    public bool staffTransferWindowPreseason;
+    public bool driverAidsOn;
+    public bool isRefuelingOn;
+    public float fuelLimitForRaceDistanceNormalized;
+    public ChampionshipRules.SafetyCarUsage safetyCarUsage = ChampionshipRules.SafetyCarUsage.Both;
     public ChampionshipRules.GridSetup gridSetup;
-    private ChampionshipRules.PitStopCrewSize pitCrewSize;
-    private List<int> points = new List<int>();
-    private bool finalRacePointsDouble;
-    private int fastestLapPointBonus;
-    private int polePositionPointBonus;
-    private ChampionshipRules.MaxFinancialBudget maxFinancialBudget;
-    private int maxDriverBudget;
-    private int maxHQBudget;
-    private int maxCarPartsBudget;
-    private int maxNextYearCarBudget;
-    private int maxNextYearDrivers;
-    private int maxTravelBudget;
-    private bool promotionBonus;
-    private bool lastPlaceBonus;
+    public ChampionshipRules.PitStopCrewSize pitCrewSize;
+    public List<int> points = new List<int>();
+    public bool finalRacePointsDouble;
+    public int fastestLapPointBonus;
+    public int polePositionPointBonus;
+    public ChampionshipRules.MaxFinancialBudget maxFinancialBudget;
+    public int maxDriverBudget;
+    public int maxHQBudget;
+    public int maxCarPartsBudget;
+    public int maxNextYearCarBudget;
+    public int maxNextYearDrivers;
+    public int maxTravelBudget;
+    public bool promotionBonus;
+    public bool lastPlaceBonus;
     public SimulationSettings practiceSettings;
     public SimulationSettings qualifyingSettings;
     public SimulationSettings raceSettings;
-    private List<CarPart.PartType> specParts = new List<CarPart.PartType>();
-    private ObservableCollection<PoliticalVote> mRules = new ObservableCollection<PoliticalVote>();
+    public List<CarPart.PartType> specParts = new List<CarPart.PartType>();
+    private List<PoliticalVote> mRules = new List<PoliticalVote>();
     private Championship mChampionship;
     public const float maxTyreSpeedBonus = 45f;
-    private bool shouldChargeUsingStandingsPosition;
-    public List<int> coreRuleIDS;
-    public List<int> restrictedRuleIDS;
-    public float drivingTimeEndurance;
+    public bool shouldChargeUsingStandingsPosition;
+    public List<int> coreRuleIDS = new List<int>();
+    public List<int> restrictedRuleIDS = new List<int>();
+    public float drivingTimeEndurance = 0.4f;
     public bool isERSAdvancedModeActive;
     public int raceLengthInHours;
     public float weightStrippingRatio;
@@ -565,18 +565,9 @@ public class ChampionshipRules : Entity
         }
     }
 
-    public ObservableCollection<PoliticalVote> ActiveRules
-    {
-        get
-        {
-            return mRules;
-        }
+    public ObservableCollection<PoliticalVote> ActiveRules => Rules;
 
-        set
-        {
-            mRules = value;
-        }
-    }
+    public ObservableCollection<PoliticalVote> Rules => new ObservableCollection<PoliticalVote>(mRules);
 
     [Browsable(false)]
     public Championship championship

@@ -9,10 +9,10 @@ public class SessionTimer
     public float[] fastestSector = new float[SessionTimer.sectorCount];
     public List<SessionTimer.PitstopData> pitstopData = new List<SessionTimer.PitstopData>();
     public SessionTimer.PitstopData currentPitstop = new SessionTimer.PitstopData();
-    private Dictionary<Driver, float> mDriversTimeDriven;
+    private Dictionary<Driver, float> mDriversTimeDriven = new Dictionary<Driver, float>();
     private RacingVehicle mVehicle;
     public SessionTimer.LapData lastLap;
-    public int currentSector;
+    public int currentSector = -1;
     public int lapOfFastestTime;
     public TyreSet fastestLapTyre;
     public SessionTimer.LapData fastestLap;
@@ -29,18 +29,11 @@ public class SessionTimer
     private float mGapToAhead;
     private float mGapToBehind;
     public GateInfo lastGatePassed;
-    public float[] slowestSector;
-    private List<SessionTimer.LapData> mLapDataCache;
-    private int mNextGateID;
+    public float[] slowestSector = new float[SessionTimer.sectorCount];
+    private List<SessionTimer.LapData> mLapDataCache = new List<SessionTimer.LapData>();
+    private int mNextGateID = int.MinValue;
     private int mLapsOnAttackMode;
     private int mLapCurrentPointer;
-    public LapDetailsData lapDetailsData;
-    public SessionStrategy.PitStrategy strategy;
-    public List<SessionTimer.PitstopData.SetupChange> setupChanges;
-    public float timeWaitingForOtherDriver;
-    public float strategyTime;
-    public SessionSetupChangeEntry.Target target;
-    public bool hadMistake;
 
     public enum SectorStatus
     {
@@ -53,12 +46,12 @@ public class SessionTimer
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class LapData
     {
-        public float[] sector;
+        public float[] sector = new float[SessionTimer.sectorCount];
         public float time;
         public bool isOutLap;
         public bool isInLap;
         public bool isFormationLap;
-        public LapDetailsData lapDetailsData;
+        public LapDetailsData lapDetailsData = new LapDetailsData();
         public Driver driver;
     }
 
@@ -71,8 +64,8 @@ public class SessionTimer
         public float pitlaneTime;
         public float stopTime;
         public bool isChangingTyres;
-        public SessionStrategy.PitStrategy strategy;
-        public List<SessionTimer.PitstopData.SetupChange> setupChanges;
+        public SessionStrategy.PitStrategy strategy = SessionStrategy.PitStrategy.Balanced;
+        public List<SessionTimer.PitstopData.SetupChange> setupChanges = new List<SessionTimer.PitstopData.SetupChange>();
         public float timeWaitingForOtherDriver;
         public float mistakeTime;
         public float strategyTime;

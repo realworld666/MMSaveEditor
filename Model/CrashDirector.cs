@@ -9,8 +9,8 @@ public class CrashDirector
     private float mVirtualSafetyFlagDuration;
     private SafetyVehicle mSafetyCar;
     private SessionManager mSessionManager;
-    private List<RacingVehicle> mVehiclesCantCrash;
-    private CrashDirector.CrashRaceChunk[] mCrashChunks;
+    private List<RacingVehicle> mVehiclesCantCrash = new List<RacingVehicle>();
+    private CrashDirector.CrashRaceChunk[] mCrashChunks = new CrashDirector.CrashRaceChunk[0];
     private CrashDirector.CrashRaceChunk mActiveChunk;
 
 

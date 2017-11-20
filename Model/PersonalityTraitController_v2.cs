@@ -14,12 +14,11 @@ public class PersonalityTraitController_v2
     public List<PersonalityTrait> raceTraitsHistory;
     private List<int> mTraitHistory = new List<int>();
     private readonly int mMaxCooldownDaysRange = 180;
-    private int mMaxCooldownDaysRangeEndurance;
     private DateTime cooldownPeriodEnd = new DateTime();
     private int mLastRandomCooldownDayValue;
     private Driver mDriver;
     private DriverStats mDriverStats = new DriverStats();
-
+    private List<PersonalityTrait> mModifingStatTraitsCache = new List<PersonalityTrait>();
 
 
     public ObservableCollection<PersonalityTrait> PermanentPersonalityTraits

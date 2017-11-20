@@ -20,9 +20,9 @@ public class RaceDirector
     private DriverStats mLowestDriverStats;
     private float mYellowFlagDuration;
     private SessionManager mSessionManager;
-    private RunningWideDirector mRunningWideDirector;
-    private CuttingCornersDirector mCutCornerDirector;
-    private SessionSimSpeedDirector mSessionSimSpeedDirector;
-    private DriverFormDirector mDriverFormDirector;
-    private PitstopDirector mPitstopDirector;
+    private RunningWideDirector mRunningWideDirector = new RunningWideDirector();
+    private CuttingCornersDirector mCutCornerDirector = new CuttingCornersDirector();
+    private SessionSimSpeedDirector mSessionSimSpeedDirector = new SessionSimSpeedDirector();
+    private DriverFormDirector mDriverFormDirector = new DriverFormDirector();
+    private PitstopDirector mPitstopDirector = new PitstopDirector();
 }

@@ -5,24 +5,24 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarPartInventory
 {
-    public List<CarPart> brakesInventory = new List<CarPart>();
-    public List<CarPart> engineInventory = new List<CarPart>();
-    public List<CarPart> frontWingInventory = new List<CarPart>();
-    public List<CarPart> gearboxInventory = new List<CarPart>();
-    public List<CarPart> rearWingInventory = new List<CarPart>();
-    public List<CarPart> suspensionInventory = new List<CarPart>();
-    public List<CarPart> rearWingGTInventory = new List<CarPart>();
-    public List<CarPart> brakesGTInventory = new List<CarPart>();
-    public List<CarPart> engineGTInventory = new List<CarPart>();
-    public List<CarPart> gearboxGTInventory = new List<CarPart>();
-    public List<CarPart> suspensionGTInventory = new List<CarPart>();
+    private List<CarPart> brakesInventory = new List<CarPart>();
+    private List<CarPart> engineInventory = new List<CarPart>();
+    private List<CarPart> frontWingInventory = new List<CarPart>();
+    private List<CarPart> gearboxInventory = new List<CarPart>();
+    private List<CarPart> rearWingInventory = new List<CarPart>();
+    private List<CarPart> suspensionInventory = new List<CarPart>();
+    private List<CarPart> rearWingGTInventory = new List<CarPart>();
+    private List<CarPart> brakesGTInventory = new List<CarPart>();
+    private List<CarPart> engineGTInventory = new List<CarPart>();
+    private List<CarPart> gearboxGTInventory = new List<CarPart>();
+    private List<CarPart> suspensionGTInventory = new List<CarPart>();
     private List<CarPart> brakesGETInventory = new List<CarPart>();
     private List<CarPart> engineGETInventory = new List<CarPart>();
     private List<CarPart> frontWingGETInventory = new List<CarPart>();
     private List<CarPart> gearboxGETInventory = new List<CarPart>();
     private List<CarPart> rearWingGETInventory = new List<CarPart>();
     private List<CarPart> suspensionGETInventory = new List<CarPart>();
-    public List<List<CarPart>> inventories = new List<List<CarPart>>();
+    private List<List<CarPart>> inventories = new List<List<CarPart>>();
 
     public List<CarPart> GetPartInventory(CarPart.PartType inPartType)
     {
@@ -50,6 +50,18 @@ public class CarPartInventory
                 return this.gearboxGTInventory;
             case CarPart.PartType.SuspensionGT:
                 return this.suspensionGTInventory;
+            case CarPart.PartType.BrakesGET:
+                return this.brakesGETInventory;
+            case CarPart.PartType.EngineGET:
+                return this.engineGETInventory;
+            case CarPart.PartType.FrontWingGET:
+                return this.frontWingGETInventory;
+            case CarPart.PartType.GearboxGET:
+                return this.gearboxGETInventory;
+            case CarPart.PartType.RearWingGET:
+                return this.rearWingGETInventory;
+            case CarPart.PartType.SuspensionGET:
+                return this.suspensionGETInventory;
             default:
                 return (List<CarPart>)null;
         }

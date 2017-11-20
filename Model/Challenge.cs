@@ -10,7 +10,7 @@ public abstract class Challenge
     public Challenge.Difficulty difficulty;
     public Challenge.ChallengeStatus status;
     public ChallengeRestrictions_v1 restrictions;
-    public string titleID;
+    public string titleID = string.Empty;
     public int id;
     public int[] rulesDisplay;
     public int numberUI;

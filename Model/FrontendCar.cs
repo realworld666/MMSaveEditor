@@ -17,7 +17,7 @@ public class FrontendCar
     [fsProperty]
     private FrontendCarData mData = new FrontendCarData();
     private int[] blendShapeIndexMapping = new int[5] { -1, -1, -1, -1, -1 };
-    private CarPart[] mCurrentPart = new CarPart[11];
+    private CarPart[] mCurrentPart = new CarPart[17];
     private int mChampionshipID = -1;
     private int mTeamID = -1;
     private FrontendCarManager mManager;

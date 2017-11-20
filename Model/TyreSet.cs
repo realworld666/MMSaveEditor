@@ -19,14 +19,14 @@ public class TyreSet
     private RacingVehicle mVehicle;
     private TyreCompoundDesignData mCompoundDesignData;
     private TyreDesignData mTyreDesignData;
-    private TyreSet.Compound mWrongCompoundFitted;
-    private SessionSetupChangeEntry.TyreSlot mWrongCompoundTyreSlot;
+    private TyreSet.Compound mWrongCompoundFitted = TyreSet.Compound.UltraSoft;
+    private SessionSetupChangeEntry.TyreSlot mWrongCompoundTyreSlot = SessionSetupChangeEntry.TyreSlot.BackLeft;
     private bool mHasLooseWheel;
     private bool mHasRanWide;
-    private float mLooseWheelDetachedTimer;
+    private float mLooseWheelDetachedTimer = 15f;
     private float mCurrentLooseWheelDetachedTimer;
-    private SessionSetupChangeEntry.TyreSlot mTargetLooseTyreSlot;
-    private int mLapWhenLostWheel;
+    private SessionSetupChangeEntry.TyreSlot mTargetLooseTyreSlot = SessionSetupChangeEntry.TyreSlot.BackLeft;
+    private int mLapWhenLostWheel = -1;
     private bool mHasWrongCompoundFitted;
     private bool mWheelLost;
     private bool mSendLooseWheelReminder;
@@ -47,5 +47,6 @@ public class TyreSet
         Slick,
         LightTread,
         HeavyTread,
+        None,
     }
 }

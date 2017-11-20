@@ -12,7 +12,7 @@ public class CarChassisStats
     public Supplier supplierBattery = new Supplier();
     public Supplier supplierERSAdvanced = new Supplier();
 
-    private float mHarvestEfficiency;
+    private float mHarvestEfficiency = 1f;
     public const float maxSetupStatContribution = 0.5f;
     private float mTyreWear;
     private float mTyreHeating;

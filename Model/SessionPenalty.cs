@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SessionPenalty
 {
-    public List<Penalty> penalties;
+    public List<Penalty> penalties = new List<Penalty>();
     private Penalty mCurrentPenalty;
     private SessionPenalty.State mState;
     private float mTimer;

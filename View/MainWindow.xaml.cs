@@ -7,6 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -21,6 +22,7 @@ using NBug.Core.Reporting.Info;
 using NBug.Core.Submission;
 using NBug.Core.Util;
 using NBug.Enums;
+using MM2;
 #if USE_JSON_NET
 using Newtonsoft.Json;
 #endif
@@ -39,6 +41,14 @@ namespace MMSaveEditor.View
         private SaveFileInfo _currentSaveInfo;
 
         public static MainWindow Instance;
+
+        private static VersionNumber[] SupportedVersions =
+        {
+            new VersionNumber() { major=1, minor=5},
+            new VersionNumber() { major=1, minor=51},
+            new VersionNumber() { major=1, minor=52},
+            new VersionNumber() { major=1, minor=53},
+        };
 
         public string VersionString
         {
@@ -296,8 +306,28 @@ namespace MMSaveEditor.View
             }
         }
 
+        private class LoadFileResult
+        {
+            public bool success;
+            public SaveFileInfo saveFileInfo;
+        }
+
         public static bool LoadFile(string fileName, fsSerializer serializer, out SaveFileInfo saveFileInfo)
         {
+            LoadFileResult result = null;
+            Thread loadThread = new Thread(() => result = LoadFileAsync(fileName, serializer), 1024 * 1024 * 3);
+            loadThread.Start();
+            while (loadThread.IsAlive)
+            {
+
+            }
+            saveFileInfo = result.success ? result.saveFileInfo : null;
+            return result.success;
+        }
+
+        private static LoadFileResult LoadFileAsync(string fileName, fsSerializer serializer)
+        {
+            LoadFileResult loadResult = new LoadFileResult();
             using (FileStream fileStream = File.Open(fileName, FileMode.Open))
             {
                 using (BinaryReader binaryReader = new BinaryReader(fileStream))
@@ -305,21 +335,21 @@ namespace MMSaveEditor.View
                     if (binaryReader.ReadInt32() != 1932684653)
                     {
                         MessageBoxResult result = MessageBox.Show("Save file is not a valid save file for this game", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     int num1 = binaryReader.ReadInt32();
                     if (num1 < saveFileVersion)
                     {
                         MessageBoxResult result = MessageBox.Show("Save file is an old format, and no upgrade path exists - must be from an old unsupported development version", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     if (num1 > saveFileVersion)
                     {
                         MessageBoxResult result = MessageBox.Show("Save file version is newer than the editor expected. If the game has been updated recently you may need to wait for an update to the editor. Check the forums for updates.", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     int headerCount = binaryReader.ReadInt32();
                     int headerOutputLength = binaryReader.ReadInt32();
@@ -328,14 +358,14 @@ namespace MMSaveEditor.View
                     if (headerOutputLength > 268435456)
                     {
                         MessageBoxResult result = MessageBox.Show("Save file header size is apparently way too big - file has either been tampered with or become corrupt", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     if (gameDataOutputLength > 268435456)
                     {
                         MessageBoxResult result = MessageBox.Show("Save file game data size is apparently way too big - file has either been tampered with or become corrupt", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
 
                     //
@@ -350,44 +380,64 @@ namespace MMSaveEditor.View
                     if (fsHeaderResult1.Failed)
                     {
                         MessageBoxResult result = MessageBox.Show(string.Format("Error reported whilst parsing serialized SaveFileInfo string: {0}", fsHeaderResult1.FormattedMessages), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
 
-                    saveFileInfo = null;
-                    fsResult fsHeaderResult2 = serializer.TryDeserialize(headerData, ref saveFileInfo);
+                    loadResult.saveFileInfo = null;
+                    fsResult fsHeaderResult2 = serializer.TryDeserialize(headerData, ref loadResult.saveFileInfo);
                     if (fsHeaderResult2.Failed)
                     {
                         MessageBoxResult result = MessageBox.Show(string.Format("Error reported whilst deserializing SaveFileInfo: {0}", fsHeaderResult1.FormattedMessages), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     try
                     {
                         FileInfo fileInfo = new FileInfo(fileName);
-                        saveFileInfo.fileInfo = fileInfo;
+                        loadResult.saveFileInfo.fileInfo = fileInfo;
                     }
                     catch (Exception ex)
                     {
                         MessageBoxResult result = MessageBox.Show(string.Format("Could not create FileInfo for {0}. Check that the editor has permissions to access this file.", fileName), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                        saveFileInfo = null;
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
+
+
+                    // Verify save file is valid
+                    if (!IsValidSaveVersion(loadResult.saveFileInfo.saveInfo.version))
+                    {
+                        MessageBoxResult result = MessageBox.Show(string.Format("Save file is from version {0}.{1} but the editor only supports save files from version {2}.{3} of the game.", loadResult.saveFileInfo.saveInfo.version.major, loadResult.saveFileInfo.saveInfo.version.minor, SupportedVersions[0].major, SupportedVersions[0].minor), "Incorrect version", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        loadResult.success = false;
+                        return loadResult;
+                    }
+                    // Verify mods don't cause issues
+                    /*foreach (var mod in saveFileInfo.subscribedModsInfo)
+                    {
+                        if (mod.id == 1118440753)
+                        {
+                            // Fire mod special case
+                            MessageBoxResult result = MessageBox.Show(string.Format("We have detected {0} on this save file which is known to be incompatible with this editor.", mod.name), "Incompatible Mod", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                            saveFileInfo = null;
+                            return false;
+                        }
+                        else if (mod.isNewGameRequired)
+                        {
+                            // Any mod that requires a new game is probably going to cause problems. Warn but allow
+                            MessageBoxResult result = MessageBox.Show(string.Format("We have detected {0} on this save file which may be incompatible with this editor. You can continue but the save file may not load successfully.", mod.name), "Possibly Incompatible Mod", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }*/
 
 
                     //
                     // Load main save data
                     // 
                     Game targetGame = null;
-#if USE_JSON_NET
-                    try
-                    {
 
-                        string json = Encoding.UTF8.GetString(LZ4Codec.Decode(binaryReader.ReadBytes(gameDataCount), 0, gameDataCount, gameDataOutputLength));
-                        targetGame = JsonConvert.DeserializeObject<Game>(json);
-                    }
-#else
                     fsData gameData;
                     try
                     {
@@ -403,13 +453,15 @@ namespace MMSaveEditor.View
                         if (fsResult1.Failed)
                         {
                             MessageBoxResult result = MessageBox.Show(string.Format("Error reported whilst parsing serialized Game data string: {0}", fsResult1.FormattedMessages), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
+                            loadResult.success = false;
+                            return loadResult;
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBoxResult result = MessageBox.Show(string.Format("Exception thrown whilst parsing serialized Game data string: {0}", fileName), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
 
                     fsResult fsResult2 = new fsResult();
@@ -419,10 +471,11 @@ namespace MMSaveEditor.View
                         if (fsResult2.Failed)
                         {
                             MessageBoxResult result = MessageBox.Show(string.Format("Error reported whilst deserializing Game data: {0}", fsResult2.FormattedMessages), "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            return false;
+                            loadResult.success = false;
+                            return loadResult;
                         }
                     }
-#endif
+
                     catch (Exception ex)
                     {
                         MessageBoxResult result = MessageBox.Show(ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -437,14 +490,16 @@ namespace MMSaveEditor.View
                         //    Console.Write(rawMessage);
 
                         //Application.Current.Shutdown();
-                        return false;
+                        loadResult.success = false;
+                        return loadResult;
                     }
                     //foreach (object rawMessage in fsResult2.RawMessages)
                     //  Console.Write(rawMessage);
                 }
             }
 
-            return true;
+            loadResult.success = true;
+            return loadResult;
         }
 
         private void TeamPage_OnListBoxUpdated(object sender, Team e)
@@ -557,6 +612,18 @@ namespace MMSaveEditor.View
             {
                 tabControl.SelectedItem = chosenTab;
             }
+        }
+
+        private static bool IsValidSaveVersion(VersionNumber version)
+        {
+            foreach (var v in SupportedVersions)
+            {
+                if (v.major == version.major && v.minor == version.minor)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private string gameCrashLog = null;

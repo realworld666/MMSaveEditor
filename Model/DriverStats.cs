@@ -10,22 +10,22 @@ public class DriverStats : PersonStats
     public const int driverStatsTotalMax = 180;
     private const float driverStatImprovementRateMin = 0.75f;
     private const float driverStatImprovementRateMax = 1.15f;
-    private float braking;
-    private float cornering;
-    private float smoothness;
-    private float overtaking;
-    private float consistency;
-    private float adaptability;
-    private float fitness;
+    public float braking;
+    public float cornering;
+    public float smoothness;
+    public float overtaking;
+    public float consistency;
+    public float adaptability;
+    public float fitness;
     public float feedback;
     private float focus;
     public int totalStatsMax = 180;
     private float balance;
     private float experience;
     public float marketability;
-    private int favouriteBrakesSupplier;
-    private int fame = -1;
-    private int scoutingLevelRequired;
+    public int favouriteBrakesSupplier;
+    public int fame = -1;
+    public int scoutingLevelRequired;
     private int mLowRangeBraking;
     private int mHighRangeBraking;
     private int mLowRangeCornering;
@@ -44,15 +44,15 @@ public class DriverStats : PersonStats
     private int mHighRangeFeedback;
     private int mLowRangeFocus;
     private int mHighRangeFocus;
-    private float mBrakingImprovementRate = 1f;
-    private float mCorneringImprovementRate = 1f;
-    private float mSmoothnessImprovementRate = 1f;
-    private float mOvertakingImprovementRate = 1f;
-    private float mConsistencyImprovementRate = 1f;
-    private float mAdaptabilityImprovementRate = 1f;
-    private float mFitnessImprovementRate = 1f;
-    private float mFeedbackImprovementRate = 1f;
-    private float mFocusImprovementRate = 1f;
+    public float mBrakingImprovementRate = 1f;
+    public float mCorneringImprovementRate = 1f;
+    public float mSmoothnessImprovementRate = 1f;
+    public float mOvertakingImprovementRate = 1f;
+    public float mConsistencyImprovementRate = 1f;
+    public float mAdaptabilityImprovementRate = 1f;
+    public float mFitnessImprovementRate = 1f;
+    public float mFeedbackImprovementRate = 1f;
+    public float mFocusImprovementRate = 1f;
 
     public int Fame
     {

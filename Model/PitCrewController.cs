@@ -18,6 +18,13 @@ public class PitCrewController
     [NonSerialized]
     private List<PitCrewMember> mPitCrewListCache = new List<PitCrewMember>();
 
+    public AIPitCrew AIPitCrew
+    {
+        get
+        {
+            return this.mAIPitCrew;
+        }
+    }
 
     public enum PitCrewFunding
     {

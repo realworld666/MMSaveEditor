@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMSaveEditor.View.TabPages"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -14,7 +15,8 @@
     </UserControl.Resources>
     <StackPanel>
         <GroupBox Header="Part Contribution">
-            <xctk:PropertyGrid Name="stats" SelectedObject="{Binding PersonData.Stats.PartContributionStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSortOptions="False" ShowSummary="False" ShowTitle="False"></xctk:PropertyGrid>
+            <xctk:PropertyGrid x:Name="_default" SelectedObject="{Binding PersonData.Stats.PartContributionStats}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" ShowSearchBox="False" ShowSummary="False" ShowTitle="False" ShowSortOptions="False">
+          </xctk:PropertyGrid>
         </GroupBox>
         <GroupBox Header="Engineer Components">
             <StackPanel>

@@ -22,7 +22,7 @@ public class ERSController
     private List<int> mERSGates = new List<int>();
     private int mNumberOfTrackGates;
     private int mFinishLineGateId;
-    private bool[] mActiveERSInfluences = new bool[7];
+    private bool[] mActiveERSInfluences = new bool[10];
     private bool isChargeBasedOnStandings;
     private ERSController.Mode mQueuedMode;
     private bool mIsAdvancedERSActive;

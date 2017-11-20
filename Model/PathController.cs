@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class PathController
 {
     public List<Vehicle> nearbyObstacles = new List<Vehicle>(20);
-    private PathController.Path[] mPath = new PathController.Path[9];
+    private PathController.Path[] mPath = new PathController.Path[11];
     private List<int> mGateIDsPassedWhileOffTrack = new List<int>(32);
     private int mCurrentPathTypeInt = -1;
     private int mNextBrakingGateId = -1;
@@ -16,11 +16,8 @@ public class PathController
     private PathController.PathType mCurrentPathType;
     private float mDistanceSinceLastGate;
     //private static Plane3 mVehiclePathSpacePlane;
-    private int mPreviousGateId;
-    private int mNextGateId;
-    public int pathID;
-    private float[] mDistanceToVehicle;
-    private bool[] mIsInComparablePath;
+    private float[] mDistanceToVehicle = new float[0];
+    private bool[] mIsInComparablePath = new bool[25];
     private float mDistanceAlongTrackPath01;
     private SessionDetails.SessionType mCachedSessionType;
 
@@ -41,15 +38,15 @@ public class PathController
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class Path
     {
-        public int previousGateId = -1;
-        public int nextGateId = -1;
+        private int previousGateId = -1;
+        private int nextGateId = -1;
         public PathSpline.SplinePosition racingLinePosition = new PathSpline.SplinePosition();
         public PathSpline.SplinePosition centerLinePosition = new PathSpline.SplinePosition();
         public PathController.PathType pathType;
         public Vehicle vehicle;
         public float pathSpace;
-        private int mPreviousGateId;
-        private int mNextGateId;
+        private int mPreviousGateId = -1;
+        private int mNextGateId = -1;
         public int pathID;
     }
 }

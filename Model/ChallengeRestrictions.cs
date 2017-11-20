@@ -5,6 +5,6 @@ using System.Collections.Generic;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ChallengeRestrictions
 {
-  private List<Team> mAllowedTeams = new List<Team>();
-  private bool mCanLeaveTeam;
+    public List<Team> mAllowedTeams = new List<Team>();
+    public bool mCanLeaveTeam;
 }

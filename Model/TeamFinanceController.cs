@@ -4,15 +4,15 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class TeamFinanceController
 {
-    private Finance finance = new Finance();
+    public Finance finance = new Finance();
     public string financialHealth = string.Empty;
-    private long racePayment;
-    private long racePaymentOffset;
-    private long worth;
-    private long availableFunds;
-    private long fullChairmanFunds;
-    private int stockPrice;
-    private long moneyForCarDev;
+    public long racePayment;
+    public long racePaymentOffset;
+    public long worth;
+    public long availableFunds;
+    public long fullChairmanFunds;
+    public int stockPrice;
+    public long moneyForCarDev;
     public List<Transaction> unnallocatedTransactions = new List<Transaction>();
     private List<Transaction> mReturnTransactions = new List<Transaction>();
     private List<Transaction> mReturnBonusTransactions = new List<Transaction>();

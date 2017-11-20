@@ -18,7 +18,7 @@ public class HQsBuilding_v1 : Entity
     private int mStaffNumber;
     private DateTime mDateProgressStarted;
     private DateTime mDateProgressEnd;
-    private HQsBuilding_v1.SpecialState specialState;
+    public HQsBuilding_v1.SpecialState specialState;
 
     public HQsBuilding_v1()
     {

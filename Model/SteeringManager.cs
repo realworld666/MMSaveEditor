@@ -25,7 +25,7 @@ public class SteeringManager
     private SteeringContextMap mSteeringMap = new SteeringContextMap();
     private List<SteeringBehaviour> mBehaviours = new List<SteeringBehaviour>();
     private PIDController mPIDController = new PIDController();
-    private Vector3 mSteeringDirection;
+    private Vector3 mSteeringDirection = Vector3.zero;
     private bool[] mMaskedDangerSlots = new bool[SteeringContextMap.slotCount];
     private float mDangerMaskLevel = 0.75f;
     private Vehicle mVehicle;

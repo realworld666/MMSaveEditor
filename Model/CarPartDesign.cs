@@ -58,7 +58,7 @@ public class CarPartDesign
         inPart.stats = new CarPartStats(inPart);
         float inValue = (float)(this.seasonPartStartingStat[inPart.GetPartType()] + (int)Math.Floor(personOnJob.Stats.PartContributionStats.GetStat(inPart.stats.statType)));
         inPart.stats.level = this.GetLevelFromComponents(inPart);
-        inPart.stats.maxPerformance = this.mTeam.carManager.GetCar(0).chassisStats.improvability * 2f;
+        inPart.stats.maxPerformance = this.mTeam.carManager.GetCar(0).ChassisStats.improvability * 2f;
         inPart.stats.SetStat(CarPartStats.CarPartStat.Reliability, GameStatsConstants.initialReliabilityValue);
         inPart.stats.maxReliability = GameStatsConstants.initialMaxReliabilityValue;
         inPart.stats.partCondition.redZone = GameStatsConstants.initialRedZone;

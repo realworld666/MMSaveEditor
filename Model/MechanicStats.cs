@@ -9,13 +9,13 @@ public class MechanicStats : PersonStats
     public const int mechanicStatsMax = 20;
     public const int mechanicStatsNum = 6;
     public const int mechanicStatsTotalMax = 120;
-    private float reliability;
-    private float performance;
-    private float concentration;
-    private float speed;
-    private float pitStops;
-    private float leadership;
-    private int totalStatsMax = 120;
+    public float reliability;
+    public float performance;
+    public float concentration;
+    public float speed;
+    public float pitStops;
+    public float leadership;
+    public int totalStatsMax = 120;
 
     public float Reliability
     {

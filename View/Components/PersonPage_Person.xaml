@@ -35,7 +35,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Date of Birth" Width="200"/>
-            <DatePicker Text="{Binding DOB}" DisplayDate="{Binding DOB}" Width="200"/>
+            <DatePicker Text="{Binding DOB}" SelectedDate="{Binding DOB}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Gender" Width="200"/>
@@ -59,7 +59,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" >
             <TextBlock TextWrapping="Wrap" Text="Peak Age" Width="200"/>
-            <DatePicker Text="{Binding PeakAge}" DisplayDate="{Binding PeakAge}" Width="200"/>
+            <DatePicker Text="{Binding PeakAge}" SelectedDate="{Binding PeakAge}" Width="200"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Visibility="{Binding TeamName, Converter={StaticResource IsNullVisibilityConverter}, Mode=OneWay}" >
             <TextBlock TextWrapping="Wrap" Text="Team" Width="200"/>

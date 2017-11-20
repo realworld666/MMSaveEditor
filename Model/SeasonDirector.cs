@@ -4,7 +4,7 @@
 public class SeasonDirector
 {
     private CutCornerSeasonDirector mCutCornerSeasonDirector = new CutCornerSeasonDirector();
-    private PitstopSeasonDirector mPitstopSeasonDirector;
+    private PitstopSeasonDirector mPitstopSeasonDirector = new PitstopSeasonDirector();
     private bool mIsSetupForSeason;
 
 }

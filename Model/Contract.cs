@@ -6,8 +6,8 @@ using System;
 public class Contract
 {
     protected CalendarEvent_v1 mCalendarEvent;
-    private Contract.Job job = Contract.Job.Unemployed;
-    private DateTime startDate = new DateTime();
+    public Contract.Job job = Contract.Job.Unemployed;
+    public DateTime startDate = new DateTime();
     private DateTime mEndDate = new DateTime();
     private Contract.ContractStatus mContractStatus = Contract.ContractStatus.OnGoing;
     public Action OnOptionClauseEnd;
@@ -18,6 +18,21 @@ public class Contract
         get
         {
             return this.mContractStatus;
+        }
+    }
+
+    public DateTime endDate
+    {
+        get
+        {
+            return this.mEndDate;
+        }
+        set
+        {
+            this.mEndDate = value;
+            if (this.mCalendarEvent == null)
+                return;
+            Game.instance.calendar.ChangeEventTriggerDate(this.mCalendarEvent, this.mEndDate);
         }
     }
 
@@ -44,19 +59,6 @@ public class Contract
         set
         {
             startDate = value;
-        }
-    }
-
-    public DateTime EndDate
-    {
-        get
-        {
-            return mEndDate;
-        }
-
-        set
-        {
-            mEndDate = value;
         }
     }
 

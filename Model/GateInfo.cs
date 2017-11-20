@@ -6,9 +6,9 @@ using System.Collections.Generic;
 public class GateInfo
 {
     private List<GateInfo.LapData> mLapData = new List<GateInfo.LapData>();
-    private bool[] mVehicleTimeRecorded = new bool[20];
+    private bool[] mVehicleTimeRecorded = new bool[0];
     private int mHighestLap;
-    private float[] mVehicleSessionTimeArray;
+    private float[] mVehicleSessionTimeArray = new float[25];
     private int mPreviouslyTrimmedLaps;
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]

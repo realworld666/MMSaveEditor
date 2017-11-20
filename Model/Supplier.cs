@@ -26,7 +26,7 @@ public class Supplier
     private List<int> mTeamsThatCannotBuy = new List<int>();
     private int mRandomEngineLevelModifier;
     private float mRandomHarvestEfficiencyModifier;
-    public string descriptionID;
+    public string descriptionID = string.Empty;
     public int hybridGates;
     public int powerGates;
     public int chargeSize;

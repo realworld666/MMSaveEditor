@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tabPages="clr-namespace:MMSaveEditor.View.TabPages"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle, ElementName=window}" Height="495" Width="700"
+        Title="{Binding WindowTitle, ElementName=window}" Height="600" Width="800"
         DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
         >
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.RowSpan="1">
@@ -45,7 +46,7 @@
                     </MenuItem>
                     <MenuItem x:Name="request" Header="_Request Feature" Click="request_Click">
                     </MenuItem>
-                    <MenuItem x:Name="donate" Header="_Donate" Click="donate_Click">
+                    <MenuItem x:Name="donate" Header="_Donate to this project" Click="donate_Click">
                     </MenuItem>
 
                 </MenuItem>
@@ -72,9 +73,6 @@
                 <tabPages:PersonPage ListBoxUpdated="DriverPage_OnListBoxUpdated" DataContext="{Binding Driver, Mode=OneWay}"/>
 
             </TabItem>
-            <TabItem x:Name="GameTabItem" Header="Game">
-                <tabPages:GamePage/>
-            </TabItem>
             <TabItem x:Name="TeamTabItem" Header="Team">
                 <tabPages:TeamPage ListBoxUpdated="TeamPage_OnListBoxUpdated"/>
             </TabItem>
@@ -82,8 +80,8 @@
                 <tabPages:ChampionshipPage ListBoxUpdated="ChampionshipPage_OnListBoxUpdated"/>
             </TabItem>
         </TabControl>
-        <TextBlock Grid.Row="2" Text="{Binding VersionString, ElementName=window, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Left"   VerticalAlignment="Center" Orientation="Horizontal">
+        <TextBlock Grid.Row="3" Text="{Binding VersionString, ElementName=window, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Left"   VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock >
             <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/realworld666/MMSaveEditor">Contribute on GitHub</Hyperlink>
             </TextBlock>

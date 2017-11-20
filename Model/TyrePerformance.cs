@@ -9,5 +9,5 @@ public class TyrePerformance : PerformanceImpact
     private const float lapDistanceMultiplier = 0.6666667f;
     private SessionWeatherDetails mWeatherDetails;
     private TyreDesignData mTyreDesignData;
-    private TyreSet.Tread mCachedReccomendedThread;
+    private TyreSet.Tread mCachedReccomendedThread = TyreSet.Tread.None;
 }

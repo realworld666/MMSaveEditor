@@ -18,7 +18,7 @@ public class PersistentEventData
     private List<int> mERSStartGateIds = new List<int>();
     private List<MechanicBonus.Trait[]> mActiveBonuses = new List<MechanicBonus.Trait[]>();
     private List<PracticeReportSessionData.KnowledgeType[]> mActiveKnowledge = new List<PracticeReportSessionData.KnowledgeType[]>();
-    private List<EnduranceDriverSetupPreferences> mEnduranceDriverSetupPreferences;
+    private List<EnduranceDriverSetupPreferences> mEnduranceDriverSetupPreferences = new List<EnduranceDriverSetupPreferences>();
     private PracticeReportSessionData[] mPracticeReportData;
     private bool mOptimalSetupOutputSet;
     private PersistentEventData.EventTyreData[] mEventTyreData;

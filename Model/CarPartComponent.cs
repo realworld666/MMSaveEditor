@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using FullSerializer;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
@@ -52,7 +53,7 @@ public class CarPartComponent : fsISerializationCallbacks
     {
         get
         {
-            return Localisation.LocaliseID(nameID);
+            return Regex.Replace(Localisation.LocaliseID(nameID), "<.*?>", string.Empty);
         }
     }
 

@@ -136,9 +136,9 @@ namespace MMSaveEditor.ViewModel
 
         public float Morale
         {
-            get => PersonData == null ? 0 : PersonData.mMorale;
+            get => PersonData == null ? 0 : PersonData.Morale;
 
-            set => PersonData.mMorale = value;
+            set => PersonData.Morale = value;
         }
 
         public Team CurrentTeam

@@ -6,6 +6,8 @@ namespace UnityEngine
     public struct Vector3
     {
         internal static Vector3 zero = new Vector3(0, 0, 0);
+        internal static Vector3 forward = new Vector3(0, 0, 1);
+        internal static Vector3 right = new Vector3(1, 0, 0);
         public float x;
         public float y;
         public float z;

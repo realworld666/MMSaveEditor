@@ -42,6 +42,14 @@
                 <GroupBox x:Name="Team" Header="Team">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Team Name"  Width="200"/>
+                            <TextBox Width="200" Text="{Binding TeamData.Name}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Short Name"  Width="200"/>
+                            <TextBox Width="200" Text="{Binding TeamData.ShortName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
                             <TextBlock TextWrapping="Wrap" Text="Reputation"  Width="200"/>
                             <Slider Width="100" Value="{Binding Reputation}" Maximum="100" Minimum="0"/>
                             <TextBlock Width="100" Text="{Binding Reputation}"/>

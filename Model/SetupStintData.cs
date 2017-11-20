@@ -1,8 +1,8 @@
 ﻿public class SetupStintData
 {
-    private SetupInput_v1 mSetupInput;
-    private SessionSetup.SetupOutput mSetupOutput;
-    private TyreSet.Compound mTyreCompound;
+    private SetupInput_v1 mSetupInput = new SetupInput_v1();
+    private SessionSetup.SetupOutput mSetupOutput = new SessionSetup.SetupOutput();
+    private TyreSet.Compound mTyreCompound = TyreSet.Compound.Soft;
     private float mTyreCondition;
     private int mLapCount;
     private float mTotalTime;

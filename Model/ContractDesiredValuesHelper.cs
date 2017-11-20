@@ -30,6 +30,6 @@ public class ContractDesiredValuesHelper
     private ContractNegotiationScreen.NegotatiationType mNegotiationType;
     private int mDesiredChampionship;
     private readonly int mRandomChangeNegotiationWeight;
-    private float mSeriesModifier;
+    private float mSeriesModifier = 1f;
 
 }

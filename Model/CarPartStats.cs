@@ -9,7 +9,6 @@ public class CarPartStats
     public CarStats.StatType statType = CarStats.StatType.Acceleration;
     public int level;
 
-    public const float performanceGainedPerReliabilityPointWeightStripped = 3f;
     public const float weightStrippedReliabilityMin = 0.5f;
     public float maxReliability = 0.8f;
     public float maxPerformance = 20f;
@@ -20,8 +19,9 @@ public class CarPartStats
     private float mReliability;
     private float mStat;
     public CarPartCondition partCondition = new CarPartCondition();
-    private float[] mWeightStrippingReliabilityLost;
-    private float mWeightStrippingModifier;
+    private float performanceGainedPerReliabilityPointWeightStripped = 3f;
+    private float[] mWeightStrippingReliabilityLost = new float[SessionDetails.sessionTypeCount];
+    private float mWeightStrippingModifier = 1f;
 
 
     public float statWithPerformance

@@ -21,8 +21,8 @@ public class SessionPerformance
     private WeatherImpact mWeatherImpact = new WeatherImpact();
     private TyrePerformance mTyrePerformance = new TyrePerformance();
     private TrackExpertPerformance mTrackExpertPerformance = new TrackExpertPerformance();
-    private DriverStaminaPerformance mDriverStaminaPerformance;
-    private PerformanceImpact[] mPerformanceImpacts = new PerformanceImpact[13];
+    private DriverStaminaPerformance mDriverStaminaPerformance = new DriverStaminaPerformance();
+    private PerformanceImpact[] mPerformanceImpacts = new PerformanceImpact[14];
     private Vehicle mVehicle;
     private RacingVehicle mRacingVehicle;
     private SafetyVehicle mSafetyVehicle;

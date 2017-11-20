@@ -10,7 +10,7 @@ public class Engineer : Person
 {
     public EngineerStats stats = new EngineerStats();
     public EngineerStats lastAccumulatedStats = new EngineerStats();
-    public float improvementRate;
+    public float improvementRate = RandomUtility.GetRandom(0.1f, 1f);
     public List<CarPartComponent> availableComponents = new List<CarPartComponent>();
     private readonly float negativeImprovementHQScalar = 0.9f;
     private readonly float negativeImprovementHQOverallScalar = 0.03f;

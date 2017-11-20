@@ -58,8 +58,8 @@ public class RaceEventResults
         public bool lowReliabilityPartFixed;
         public bool lowReliabilityPartBroke;
         public bool racedWithWorstCar;
-        public float[] normalizedTimeDriven;
-        public bool[] hasStaminaRechedZero;
+        public float[] normalizedTimeDriven = new float[0];
+        public bool[] hasStaminaRechedZero = new bool[0];
 
         public int concurrentPosition;
         public float totalDistanceMiles;

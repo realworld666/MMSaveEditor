@@ -5,7 +5,7 @@ using FullSerializer;
 [fsObject("v1", new System.Type[] { }, MemberSerialization = fsMemberSerialization.OptOut)]
 public class PersonalityTrait
 {
-    private PersonalityTraitData data;
+    public PersonalityTraitData data;
     private Driver mDriver;
     private DateTime mTraitStartDate = DateTime.MaxValue;
     private DateTime mTraitEndTime = new DateTime();

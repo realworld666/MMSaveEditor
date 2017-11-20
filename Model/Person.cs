@@ -35,12 +35,12 @@ public class Person : Entity
     public float obedience;
     public int rewardID;
     public DateTime peakAge;
-    public int peakDuration;
+    public int peakDuration = RandomUtility.GetRandom(2, 6);
     public CareerHistory careerHistory = new CareerHistory();
 
-    public float mMorale;
+    private float mMorale;
     private StatModificationHistory mMoraleStatModificationHistory = new StatModificationHistory();
-    private float mImprovementRateDecay;
+    private float mImprovementRateDecay = RandomUtility.GetRandom(Person.improvementRateDecayMin, Person.improvementRateDecayMax);
 
     public string firstName
     {
@@ -93,6 +93,12 @@ public class Person : Entity
         {
             contract = value;
         }
+    }
+
+    public float Morale
+    {
+        get { return mMorale; }
+        set { mMorale = value; }
     }
 
     public bool IsFreeAgent()

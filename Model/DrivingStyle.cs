@@ -8,7 +8,7 @@ public class DrivingStyle : PerformanceImpact
     private float mTyreWearRate = 1f;
     private float mDriverStylePerformance;
     private float mTimerSinceLastTemperatureSwitch;
-    private float mFinalTyreWearRate;
+    private float mFinalTyreWearRate = 1f;
 
     public enum Mode
     {

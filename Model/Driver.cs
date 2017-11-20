@@ -16,16 +16,16 @@ public class Driver : Person
     public CarOpinion carOpinion = new CarOpinion();
     public DriverStamina driverStamina;
     public DriverForm driverForm;
-    private int driverNumber;
-    private int desiredChampionships;
-    private long desiredBudget;
-    private int mDesiredWins;
-    private long mDesiredEarnings;
-    private int startOfSeasonExpectedChampionshipPosition;
+    public int driverNumber;
+    public int desiredChampionships = RandomUtility.GetRandom(1, 4);
+    public long desiredBudget = (long)RandomUtility.GetRandom(100, 10000) * 1000L;
+    private int mDesiredWins = RandomUtility.GetRandom(1, 100);
+    private long mDesiredEarnings = (long)RandomUtility.GetRandom(100, 1000) * 1000L;
+    public int startOfSeasonExpectedChampionshipPosition;
 
-    private int expectedChampionshipPosition;
-    private int expectedRacePosition;
-    private PersonalityTraitController_v2 personalityTraitController;
+    public int expectedChampionshipPosition;
+    public int expectedRacePosition;
+    public PersonalityTraitController_v2 personalityTraitController;
     [NonSerialized]
     private ChampionshipEntry_v1 mChampionshipEntry;
     private DriverStats accumulatedStats = new DriverStats();
@@ -37,11 +37,14 @@ public class Driver : Person
     private bool mJoinsAnySeries = true;
     private Championship.Series mPreferedSeries;
 
-    private List<Championship.Series> mDriverPreferedSeries;
+    private List<Championship.Series> mDriverPreferedSeries = new List<Championship.Series>()
+  {
+    Championship.Series.SingleSeaterSeries
+  };
     private DriverStats mStats = new DriverStats();
     private DriverStats mModifiedStats = new DriverStats();
 
-    private float mImprovementRate;
+    private float mImprovementRate = RandomUtility.GetRandom(0.1f, 1f);
     private float mPotential;
     private float mModifiedPotential;
     private bool mHasBeenScouted;
@@ -50,11 +53,12 @@ public class Driver : Person
     private int mLastRaceExpectedRacePosition;
     private Person mCelebrity;
     private DriverRivalries mDriverRivalries = new DriverRivalries();
-    private int mDaysToScoutShort;
-    private int mDaysToScoutLong;
+    private int mDaysToScoutShort = RandomUtility.GetRandomInc(10, 20);
+
+    private int mDaysToScoutLong = RandomUtility.GetRandomInc(20, 45);
     private DateTime lowMoraleStartTime = new DateTime();
     private DateTime mLastMoraleBonusDate = new DateTime();
-    private int mCarID;
+    private int mCarID = -1;
     private readonly int moraleBonusCooldownDays = 30;
 
 
@@ -238,11 +242,21 @@ public class Driver : Person
         }
     }
 
+    public void ResetChampionshipEntry()
+    {
+        this.mChampionshipEntry = (ChampionshipEntry_v1)null;
+    }
+
     private int GetCarID()
     {
         if (this.IsReserveDriver())
             return -1;
         return this.contract.GetTeam().GetDriver(0) == this ? 0 : 1;
+    }
+
+    public void SetCarID(int inCarID)
+    {
+        this.mCarID = inCarID.Clamp(-1, 1);
     }
 
     public bool IsReserveDriver()

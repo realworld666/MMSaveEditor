@@ -5,7 +5,7 @@ using FullSerializer;
 public class RadioMessageOvertakes : RadioMessage
 {
     private float[] mCooldownTimer = new float[3];
-    private float mCantOvertakeCooldown;
+    private float mCantOvertakeCooldown = 20f;
     private int mLapWeGotStuckBehindVehicle;
     private RacingVehicle mCantOvertakeThisVehicle;
 

@@ -11,7 +11,7 @@ public class SessionManager
     public SessionWeatherDetails currentSessionWeather;
     public SimulationUtility simulationUtility = new SimulationUtility();
     public TeamRadioManager teamRadioManager = new TeamRadioManager();
-    private List<Championship> mChampionships;
+    private List<Championship> mChampionships = new List<Championship>();
     private Championship mChampionship;
     private RaceEventDetails mEventDetails;
     private RaceEventDetails mPlayerChampEventDetails;
@@ -25,16 +25,16 @@ public class SessionManager
     private float mDuration;
     private float mFastestPitStop;
     private List<RacingVehicle> mStandings = new List<RacingVehicle>();
-    private SessionFastestLapData mSessionFastestLapData;
-    private float[] mFastestSector;
+    private SessionFastestLapData mSessionFastestLapData = new SessionFastestLapData();
+    private float[] mFastestSector = new float[SessionTimer.sectorCount];
     private PrefGameRaceLength.Type mPrefSessionLength = PrefGameRaceLength.Type.Medium;
     public Action OnFastestLapChanged;
     public Action OnLeaderLapEnd;
     public Action FlagChanged;
     public Action OnSessionStart;
     public Action OnSessionEnd;
-    private int mLapsRemainingCached;
-    private float mEstimatedLapTime;
+    private int mLapsRemainingCached = -1;
+    private float mEstimatedLapTime = -1f;
     private float mPreviousTime;
     private bool mIsRollingOut;
 

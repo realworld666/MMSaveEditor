@@ -19,7 +19,7 @@ public class Sponsor : Entity
     public int upfrontValue;
     public int totalBonusAmount;
     public int perRacePayment;
-    public Color sponsorColor;
+    public Color sponsorColor = Color.white;
     public SponsorSlot.SlotType slotSponsoring = SponsorSlot.SlotType.AirIntake;
     public int offerTimer;
     public int offerCooldown;

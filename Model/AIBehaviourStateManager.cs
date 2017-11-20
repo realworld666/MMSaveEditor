@@ -19,13 +19,13 @@ public class AIBehaviourStateManager
     private AISafetyFlagBehaviour mSafetyFlagBehaviour = new AISafetyFlagBehaviour();
     private AICriticalIssueBehaviour mCriticalIssueBehaviour = new AICriticalIssueBehaviour();
     private AITeamOrderBehaviour mTeamOrderBehaviour = new AITeamOrderBehaviour();
-    private AIRunningWideBehaviour mRunningWideBehaviour;
-    private AICuttingCornersBehaviour mCuttingCornersBehaviour;
+    private AIRunningWideBehaviour mRunningWideBehaviour = new AIRunningWideBehaviour();
+    private AICuttingCornersBehaviour mCuttingCornersBehaviour = new AICuttingCornersBehaviour();
     private AISpinBehaviour mSpinBehaviour = new AISpinBehaviour();
-    private AIRollingStartBehaviour mRollingStartBehaviour;
+    private AIRollingStartBehaviour mRollingStartBehaviour = new AIRollingStartBehaviour();
     private AISafetyCarBehaviour mSafetyCarBehaviour = new AISafetyCarBehaviour();
     private AISafetyCarIdleBehaviour mSafetyCarIdleBehaviour = new AISafetyCarIdleBehaviour();
-    private AISafetyCarRolloutBehaviour mSafetyCarRolloutBehaviour;
+    private AISafetyCarRolloutBehaviour mSafetyCarRolloutBehaviour = new AISafetyCarRolloutBehaviour();
     private RacingVehicle mRacingVehicle;
     private SafetyVehicle mSafetyVehicle;
     private Vehicle mVehicle;

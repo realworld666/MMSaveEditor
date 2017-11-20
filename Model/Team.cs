@@ -9,14 +9,14 @@ using System.Diagnostics;
 public class Team : Entity
 {
     public static int mainDriverCount = 2;
-    public static int driverCount = 3;
     public static readonly float mMinMarketabilityChangePerEvent = -0.05f;
     public static readonly float mMaxMarketabilityChangePerEvent = 0.05f;
     public static readonly float mMarketabilityModifier = 1f;
+
     public static readonly float mMarketabilityModifierKeptSameCSPosition = 0.1f;
     public static readonly float mMarketabilityMaxPositionChange = 5f;
     public Nationality nationality = new Nationality();
-    private TeamFinanceController financeController = new TeamFinanceController();
+    public TeamFinanceController financeController = new TeamFinanceController();
     public YoungDriverProgramme youngDriverProgramme = new YoungDriverProgramme();
     public History history = new History();
     public CarManager carManager = new CarManager();
@@ -35,7 +35,7 @@ public class Team : Entity
     public TeamAIWeightings aiWeightings;
     public TeamLogo customLogo = new TeamLogo();
     public Investor investor;
-    public PitCrewController pitCrewController;
+    public PitCrewController pitCrewController = new PitCrewController();
     public int teamID;
     public string locationID = string.Empty;
     public int reputation;
@@ -48,7 +48,7 @@ public class Team : Entity
     public int liveryID;
     public int driversHatStyle;
     public int driversBodyStyle;
-    public int startOfSeasonExpectedChampionshipResult;
+    public int startOfSeasonExpectedChampionshipResult = RandomUtility.GetRandom(1, 18);
     public int rulesBrokenThisSeason;
     public bool isBlockedByChallenge;
     public bool isCreatedByPlayer;
@@ -61,12 +61,12 @@ public class Team : Entity
     public bool canReceiveFullChairmanPayments;
     private string startDescription = string.Empty;
     private string mCustomStartDescription = string.Empty;
-    private string mShortName;
+    private string mShortName = string.Empty;
     private ChampionshipEntry_v1 mChampionshipEntry;
-    private Driver[] mSelectedDriver = new Driver[Team.mainDriverCount];
-    private Dictionary<int, List<Driver>> mSelectedSessionDrivers;
-    private Dictionary<int, Driver> mVehicleSessionDrivers;
-    private int mCurrentExpectedChampionshipResult;
+    private Driver[] mSelectedDriver;
+    private Dictionary<int, List<Driver>> mSelectedSessionDrivers = new Dictionary<int, List<Driver>>();
+    private Dictionary<int, Driver> mVehicleSessionDrivers = new Dictionary<int, Driver>();
+    private int mCurrentExpectedChampionshipResult = RandomUtility.GetRandom(1, 18);
     private List<Mechanic> mMechanics = new List<Mechanic>();
     private List<Driver> mDrivers;
     private List<EmployeeSlot> mEmployeeSlots = new List<EmployeeSlot>();
@@ -116,6 +116,28 @@ public class Team : Entity
         {
             mMechanics = value;
         }
+    }
+
+    public string ShortName
+    {
+        get { return mShortName; }
+        set { mShortName = value; }
+    }
+
+    public bool HasAIPitcrew
+    {
+        get
+        {
+            return this.pitCrewController.AIPitCrew != null;
+        }
+    }
+
+    public Driver GetDriverForCar(int inCarIndex)
+    {
+        Driver[] driversForCar = this.GetDriversForCar(inCarIndex);
+        if (driversForCar.Length > 0)
+            return driversForCar[0];
+        return (Driver)null;
     }
 
     public Driver GetDriver(int inIndex)
@@ -238,14 +260,19 @@ public class Team : Entity
 
     public Mechanic GetMechanicOfDriver(Driver inDriver)
     {
-        int driverIndex = this.GetDriverIndex(inDriver);
+        if (inDriver.IsReserveDriver())
+            inDriver = this.contractManager.GetDriverSittingOut();
         this.mMechanics.Clear();
         this.contractManager.GetAllMechanics(ref this.mMechanics);
         int count = this.mMechanics.Count;
         for (int index = 0; index < count; ++index)
         {
-            if (this.mMechanics[index].driver == driverIndex)
-                return this.mMechanics[index];
+            Mechanic mMechanic = this.mMechanics[index];
+            foreach (Driver driver in mMechanic.GetDrivers())
+            {
+                if (driver == inDriver)
+                    return mMechanic;
+            }
         }
         return (Mechanic)null;
     }
@@ -262,5 +289,12 @@ public class Team : Entity
                 return index;
         }
         return -1;
+    }
+
+    public void AssignDriverToCar(Driver inDriver)
+    {
+        if (this.championship.series != Championship.Series.EnduranceSeries)
+            return;
+        inDriver.SetCarID(this.GetDriversForCar(0).Length >= 3 ? 1 : 0);
     }
 }

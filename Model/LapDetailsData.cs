@@ -28,13 +28,13 @@ public class LapDetailsData
     private float mHighestTopSpeed;
     private int mSectorGates;
     private int mCurrentSector;
-    private float[] mForm;
-    private float[] mStamina;
-    private float[] mTimeDriven;
-    private int[] mOvertakesDelta;
-    private int[] mRunWides;
-    private int[] mCutCorners;
-    private int[] mLockUps;
+    private float[] mForm = new float[SessionTimer.sectorCount];
+    private float[] mStamina = new float[SessionTimer.sectorCount];
+    private float[] mTimeDriven = new float[SessionTimer.sectorCount];
+    private int[] mOvertakesDelta = new int[SessionTimer.sectorCount];
+    private int[] mRunWides = new int[SessionTimer.sectorCount];
+    private int[] mCutCorners = new int[SessionTimer.sectorCount];
+    private int[] mLockUps = new int[SessionTimer.sectorCount];
 
     public enum LapEvents
     {

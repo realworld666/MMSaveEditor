@@ -4,12 +4,12 @@ using FullSerializer;
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class CarStats
 {
-    private float topSpeed;
-    private float acceleration;
-    private float braking;
-    private float lowSpeedCorners;
-    private float mediumSpeedCorners;
-    private float highSpeedCorners;
+    public float topSpeed;
+    public float acceleration;
+    public float braking;
+    public float lowSpeedCorners;
+    public float mediumSpeedCorners;
+    public float highSpeedCorners;
 
     public float TopSpeed
     {

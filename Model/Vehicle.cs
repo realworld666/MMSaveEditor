@@ -20,7 +20,7 @@ public class Vehicle
     protected SessionPerformance mPerformance = new SessionPerformance();
     protected PathTransform mTransform = new PathTransform();
     protected CollisionBounds mCollisionBounds = new CollisionBounds();
-    protected Vector3 mVelocity;
+    protected Vector3 mVelocity = Vector3.zero;
     protected Vehicle.PedalState mPedalState;
     protected AnimatedFloat mThrottle = new AnimatedFloat();
     protected float mPedalStateTimer;
@@ -28,7 +28,7 @@ public class Vehicle
     protected float mAcceleration = float.MaxValue;
     protected float mMaxSpeed = float.MaxValue;
     protected float mCollisionCooldown;
-    protected Vector3 mPreviousPosition;
+    protected Vector3 mPreviousPosition = Vector3.zero;
     private Championship mChampionship;
 
     public Action OnLapEnd;

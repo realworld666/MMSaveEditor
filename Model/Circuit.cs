@@ -32,7 +32,7 @@ public class Circuit
     public Climate climate;
     public DriverStatsProgression driverStats;
     private string mNationalityKey = string.Empty;
-    public float trackRubberModifier;
+    public float trackRubberModifier = 1f;
 
     public string CircuitName
     {

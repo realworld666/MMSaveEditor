@@ -35,7 +35,7 @@ public class SessionWeatherDetails
     private SessionWeatherDetails.CopyData mCopyData;
     private int mRandomSeed = -1;
     private System.Random mRandomGenerator;
-    private int mFixedTemperature;
+    private int mFixedTemperature = int.MinValue;
 
     [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
     public class SprinklerData

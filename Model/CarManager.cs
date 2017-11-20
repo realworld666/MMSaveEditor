@@ -5,6 +5,8 @@ using FullSerializer;
 public class CarManager
 {
     public static int carCount = 2;
+    private static List<Car> mResultCache = new List<Car>();
+    private static List<Car> mAllCarsCache = new List<Car>();
     public CarManagerAIController developmentAIController = new CarManagerAIController();
     public NextYearCarDesign nextYearCarDesign = new NextYearCarDesign();
     public CarPartDesign carPartDesign = new CarPartDesign();

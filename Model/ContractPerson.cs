@@ -10,13 +10,13 @@ public class ContractPerson : Contract
     private ContractPerson.Status mCurrentStatus = ContractPerson.Status.Reserve;
     private ContractPerson.Status mProposedStatus = ContractPerson.Status.Reserve;
     public DateTime optionClauseEndDate = new DateTime();
-    private int yearlyWages;
-    private int signOnFee;
-    private int qualifyingBonus;
-    private int qualifyingBonusTargetPosition;
-    private int raceBonus;
-    private int raceBonusTargetPosition;
-    private int championBonus;
+    public int yearlyWages;
+    public int signOnFee;
+    public int qualifyingBonus;
+    public int qualifyingBonusTargetPosition;
+    public int raceBonus;
+    public int raceBonusTargetPosition;
+    public int championBonus;
     public int payDriver;
     public int amountForContractorToPay;
     public int amountForTargetToPay;
@@ -153,6 +153,51 @@ public class ContractPerson : Contract
         set { buyoutSplit = value; }
     }
 
+    public ContractPerson.Status proposedStatus
+    {
+        get
+        {
+            return this.mProposedStatus;
+        }
+    }
+
+    public ContractPerson()
+    {
+    }
+
+    public ContractPerson(ContractPerson inContractPerson)
+    {
+        this.mCurrentStatus = inContractPerson.currentStatus;
+        this.mProposedStatus = inContractPerson.proposedStatus;
+        this.optionClauseEndDate = inContractPerson.optionClauseEndDate;
+        this.SetContractState(inContractPerson.contractStatus);
+        this.startDate = inContractPerson.startDate;
+        this.endDate = inContractPerson.endDate;
+        this.length = inContractPerson.length;
+        this.yearlyWages = inContractPerson.yearlyWages;
+        this.hasSignOnFee = inContractPerson.hasSignOnFee;
+        this.signOnFee = inContractPerson.signOnFee;
+        this.hasQualifyingBonus = inContractPerson.hasQualifyingBonus;
+        this.qualifyingBonus = inContractPerson.qualifyingBonus;
+        this.qualifyingBonusTargetPosition = inContractPerson.qualifyingBonusTargetPosition;
+        this.hasRaceBonus = inContractPerson.hasRaceBonus;
+        this.raceBonus = inContractPerson.raceBonus;
+        this.raceBonusTargetPosition = inContractPerson.raceBonusTargetPosition;
+        this.championBonus = inContractPerson.championBonus;
+        this.payDriver = inContractPerson.payDriver;
+        this.buyoutSplit = inContractPerson.buyoutSplit;
+        this.amountForContractorToPay = inContractPerson.amountForContractorToPay;
+        this.amountForTargetToPay = inContractPerson.amountForTargetToPay;
+        this.employeer = inContractPerson.employeer;
+        this.employeerName = inContractPerson.employeerName;
+        this.job = inContractPerson.job;
+        this.mPerson = inContractPerson.mPerson;
+        this.mCalendarEvent = inContractPerson.mCalendarEvent;
+        if (this.mPerson == null || this.mCalendarEvent == null)
+            return;
+        this.mCalendarEvent.showOnCalendar = !this.mPerson.IsReplacementPerson();
+    }
+
     public Team GetTeam()
     {
         if (this.employeer is Team)
@@ -163,6 +208,7 @@ public class ContractPerson : Contract
     public void SetTeam(Team t)
     {
         this.employeer = t;
+        this.mEmployeerTeam = t;
     }
 
     public void SetPerson(Person inPerson)
@@ -200,6 +246,9 @@ public class ContractPerson : Contract
 
         EmployeeSlot oldSlot = oldTeam.contractManager.GetSlotForPerson(inNewPersonToHire);
         EmployeeSlot newSlot = replacingTeam.contractManager.GetSlotForPerson(replacing);
+
+        ContractPerson myOriginalContract = new ContractPerson(this);
+        ContractPerson replacingOriginalContract = new ContractPerson(replacing.Contract);
 
         if (oldSlot == null || newSlot == null)
         {
@@ -239,11 +288,7 @@ public class ContractPerson : Contract
             inNewPersonToHire.Contract.SetPerson(inNewPersonToHire);
             inNewPersonToHire.Contract.SetContractState(Contract.ContractStatus.OnGoing);
             newTeam.contractManager.AddSignedContract(inNewPersonToHire.Contract);
-            if (inNewPersonToHire is Mechanic)
-            {
-                (inNewPersonToHire as Mechanic).SetDriverRelationship(0.0f, 0);
-                newTeam.carManager.partImprovement.AssignChiefMechanics();
-            }
+
             if (inNewPersonToHire is TeamPrincipal)
                 inNewPersonToHire.Contract.GetTeam().chairman.ResetHappiness();
             if (inNewPersonToHire is Chairman)
@@ -257,35 +302,73 @@ public class ContractPerson : Contract
             replacing.Contract.SetPerson(replacing);
             replacing.Contract.SetContractState(Contract.ContractStatus.OnGoing);
             oldTeam.contractManager.AddSignedContract(inNewPersonToHire.Contract);
-            Mechanic mechanic = replacing as Mechanic;
-            if (mechanic != null)
-            {
-                mechanic.SetDriverRelationship(0.0f, 0);
-                newTeam.carManager.partImprovement.AssignChiefMechanics();
-            }
+
             if (replacing is TeamPrincipal)
                 replacing.Contract.GetTeam().chairman.ResetHappiness();
             (replacing as Chairman)?.ResetHappiness();
         }
 
+        Mechanic newMechanic = inNewPersonToHire as Mechanic;
+        if (newMechanic != null)
+        {
+            Mechanic oldMechanic = replacing as Mechanic;
+            Debug.Assert(oldMechanic != null);
+
+            int oldDriver = oldMechanic.driver;
+            oldMechanic.driver = newMechanic.driver;
+            newMechanic.driver = oldDriver;
+
+            newMechanic.SetDefaultDriverRelationship();
+
+            newTeam.carManager.partImprovement.mechanicOnPerformance = null;
+            newTeam.carManager.partImprovement.mechanicOnReliability = null;
+
+            newTeam.carManager.partImprovement.AssignChiefMechanics();
+            if (newTeam.HasAIPitcrew)
+            {
+                newTeam.pitCrewController.AIPitCrew.RegenerateTaskStats();
+            }
+
+            oldMechanic.SetDefaultDriverRelationship();
+
+            oldTeam.carManager.partImprovement.mechanicOnPerformance = null;
+            oldTeam.carManager.partImprovement.mechanicOnReliability = null;
+
+            oldTeam.carManager.partImprovement.AssignChiefMechanics();
+            if (oldTeam.HasAIPitcrew)
+            {
+                oldTeam.pitCrewController.AIPitCrew.RegenerateTaskStats();
+            }
+        }
+
         if (inNewPersonToHire is Driver)
         {
             Driver newDriver = inNewPersonToHire as Driver;
-            /*if (!inDriver.IsReplacementPerson())
-            {
-                inDriver.moraleStatModificationHistory.ClearHistory();
-                inDriver.UpdateMoraleOnContractSigned();
-            }*/
             DriverManager driverManager = Game.instance.driverManager;
-            if (inNewPersonToHire.Contract.currentStatus != ContractPerson.Status.Reserve)
+
+            // Swap some of the contract details around
+            newDriver.contract.currentStatus = replacingOriginalContract.currentStatus;
+
+            // No longer a reserve driver after the swap
+            if (myOriginalContract.currentStatus == Status.Reserve && replacingOriginalContract.currentStatus != Status.Reserve)
             {
                 driverManager.AddDriverToChampionship(newDriver);
+                newTeam.AssignDriverToCar(newDriver);
                 newTeam.SelectMainDriversForSession();
                 newTeam.championship.standings.UpdateStandings();
-
-                Mechanic mechanicOfDriver = newTeam.GetMechanicOfDriver(newDriver);
-                mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
             }
+            else if (myOriginalContract.currentStatus != Status.Reserve && replacingOriginalContract.currentStatus == Status.Reserve)
+            {
+                // Switching from main driver to reserve
+                driverManager.RemoveDriverEntryFromChampionship(newDriver);
+                newDriver.SetCarID(-1);
+                newTeam.SelectMainDriversForSession();
+                newTeam.championship.standings.UpdateStandings();
+            }
+            Mechanic mechanicOfDriver = newTeam.GetMechanicOfDriver(newDriver);
+            mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
+
+
             if (newTeam.IsPlayersTeam())
             {
                 newDriver.SetBeenScouted();
@@ -298,19 +381,30 @@ public class ContractPerson : Contract
 
 
             Driver oldDriver = replacing as Driver;
-            /*if (!inDriver.IsReplacementPerson())
-            {
-                inDriver.moraleStatModificationHistory.ClearHistory();
-                inDriver.UpdateMoraleOnContractSigned();
-            }*/
-            if (oldDriver.Contract.currentStatus != ContractPerson.Status.Reserve)
+
+
+            // Swap some of the contract details around
+            oldDriver.contract.currentStatus = myOriginalContract.currentStatus;
+
+            // No longer a reserve driver after the swap
+            if (myOriginalContract.currentStatus != Status.Reserve && replacingOriginalContract.currentStatus == Status.Reserve)
             {
                 driverManager.AddDriverToChampionship(oldDriver);
+                oldTeam.AssignDriverToCar(oldDriver);
                 oldTeam.SelectMainDriversForSession();
                 oldTeam.championship.standings.UpdateStandings();
-                Mechanic mechanicOfDriver = oldTeam.GetMechanicOfDriver(oldDriver);
-                mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
             }
+            else if (myOriginalContract.currentStatus == Status.Reserve && replacingOriginalContract.currentStatus != Status.Reserve)
+            {
+                // Switching from main driver to reserve
+                driverManager.RemoveDriverEntryFromChampionship(oldDriver);
+                oldDriver.SetCarID(-1);
+                oldTeam.SelectMainDriversForSession();
+                oldTeam.championship.standings.UpdateStandings();
+            }
+            mechanicOfDriver = oldTeam.GetMechanicOfDriver(oldDriver);
+            mechanicOfDriver?.SetDriverRelationship(0.0f, 0);
+
             if (oldTeam.IsPlayersTeam())
             {
                 oldDriver.SetBeenScouted();

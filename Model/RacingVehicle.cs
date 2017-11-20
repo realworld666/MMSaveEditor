@@ -36,7 +36,7 @@ public class RacingVehicle : Vehicle
     private float mSpeedTrapSpeed;
     private RaceEventResults.ResultData mSessionData = new RaceEventResults.ResultData();
     private Driver[] mDriversForCar;
-    private string mDriverNameCache;
+    private string mDriverNameCache = string.Empty;
     public Action OnDriverChange;
     private int mConcurrentStandingsPosition;
     private int mOvertakes;

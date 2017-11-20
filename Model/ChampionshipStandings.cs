@@ -75,6 +75,26 @@ public class ChampionshipStandings : Entity
         }
     }
 
+    public void RemoveEntry(Entity inEntity)
+    {
+        if (inEntity is Driver)
+        {
+            for (int index = 0; index < this.mDrivers.Count; ++index)
+            {
+                if ((Driver)inEntity == this.mDrivers[index].GetEntity<Driver>())
+                    this.mDrivers.RemoveAt(index);
+            }
+        }
+        else
+        {
+            for (int index = 0; index < this.mTeams.Count; ++index)
+            {
+                if ((Team)inEntity == this.mTeams[index].GetEntity<Team>())
+                    this.mTeams.RemoveAt(index);
+            }
+        }
+    }
+
     public ChampionshipEntry_v1 GetInactiveEntry(Entity inEntity)
     {
         ChampionshipEntry_v1 championshipEntryV1 = (ChampionshipEntry_v1)null;
