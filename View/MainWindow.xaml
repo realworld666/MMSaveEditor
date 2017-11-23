@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:tabPages="clr-namespace:MMSaveEditor.View.TabPages"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle, ElementName=window}" Height="600" Width="800"
-        DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
+        Title="{Binding WindowTitle, ElementName=window}" Width="987"
+        DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}" SizeChanged="window_SizeChanged" Height="600" StateChanged="window_StateChanged"
         >
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
         <Grid.RowDefinitions>
@@ -80,6 +80,9 @@
                 <tabPages:ChampionshipPage ListBoxUpdated="ChampionshipPage_OnListBoxUpdated"/>
             </TabItem>
         </TabControl>
+        <StackPanel Grid.Row="2">
+            <Image x:Name="DonateBanner" Source="/MMSaveEditor;component/Assets/donate.png" TouchUp="Image_TouchUp" MouseLeftButtonUp="Image_MouseLeftButtonUp" HorizontalAlignment="Center" MaxWidth="700" />
+        </StackPanel>
         <TextBlock Grid.Row="3" Text="{Binding VersionString, ElementName=window, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="3" HorizontalAlignment="Left"   VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock >

@@ -36,5 +36,11 @@ namespace MMSaveEditor.Utils
             else if (val.CompareTo(max) > 0) return max;
             else return val;
         }
+
+        public static bool Contains(this string source, string toCheck, StringComparison comp)
+        {
+            return source != null && toCheck != null && source.IndexOf(toCheck, comp) >= 0;
+        }
+
     }
 }

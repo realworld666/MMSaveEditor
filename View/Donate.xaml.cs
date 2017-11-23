@@ -28,18 +28,24 @@ namespace MMSaveEditor.View
         {
             System.Diagnostics.Process.Start("http://paypal.me/realworld666/2");
             Close();
+            MMSaveEditor.Properties.Settings.Default.HasDonated = true;
+            MMSaveEditor.Properties.Settings.Default.Save();
         }
 
         private void donate5_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://paypal.me/realworld666/5");
             Close();
+            MMSaveEditor.Properties.Settings.Default.HasDonated = true;
+            MMSaveEditor.Properties.Settings.Default.Save();
         }
 
         private void donateCustom_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("http://paypal.me/realworld666");
             Close();
+            MMSaveEditor.Properties.Settings.Default.HasDonated = true;
+            MMSaveEditor.Properties.Settings.Default.Save();
         }
     }
 }

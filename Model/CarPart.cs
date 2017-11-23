@@ -236,6 +236,24 @@ public class CarPart : Entity
             case CarPart.PartType.SuspensionGT:
                 carPart = (CarPart)Game.instance.entityManager.CreateEntity<SuspensionGTPart>();
                 break;
+            case CarPart.PartType.BrakesGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<BrakesGETPart>();
+                break;
+            case CarPart.PartType.EngineGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<EngineGETPart>();
+                break;
+            case CarPart.PartType.FrontWingGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<FrontWingGETPart>();
+                break;
+            case CarPart.PartType.GearboxGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<GearboxGETPart>();
+                break;
+            case CarPart.PartType.RearWingGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<RearWingGETPart>();
+                break;
+            case CarPart.PartType.SuspensionGET:
+                carPart = (CarPart)Game.instance.entityManager.CreateEntity<SuspensionGETPart>();
+                break;
         }
         carPart.Setup(inChampionship);
         return carPart;

@@ -349,6 +349,8 @@ public class ContractPerson : Contract
             // Swap some of the contract details around
             newDriver.contract.currentStatus = replacingOriginalContract.currentStatus;
 
+            newDriver.joinsAnySeries = true;
+
             // No longer a reserve driver after the swap
             if (myOriginalContract.currentStatus == Status.Reserve && replacingOriginalContract.currentStatus != Status.Reserve)
             {
@@ -381,7 +383,7 @@ public class ContractPerson : Contract
 
 
             Driver oldDriver = replacing as Driver;
-
+            oldDriver.joinsAnySeries = true;
 
             // Swap some of the contract details around
             oldDriver.contract.currentStatus = myOriginalContract.currentStatus;

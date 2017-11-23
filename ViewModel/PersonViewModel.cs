@@ -84,11 +84,15 @@ namespace MMSaveEditor.ViewModel
         {
             get
             {
-                if (PersonData != null)
-                    return PersonData.dateOfBirth;
-                return DateTime.Now;
+                return PersonData?.dateOfBirth ?? DateTime.Now;
             }
-            set { if (PersonData != null) PersonData.dateOfBirth = value; }
+            set
+            {
+                if (PersonData != null)
+                {
+                    PersonData.dateOfBirth = value;
+                }
+            }
         }
 
         public Person.Gender Gender

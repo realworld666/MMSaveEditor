@@ -119,6 +119,25 @@ namespace MMSaveEditor.View
 
             tabControl.Visibility = Visibility.Hidden;
             noSaveLoaded.Visibility = Visibility.Visible;
+
+            Width = MMSaveEditor.Properties.Settings.Default.Width;
+            Height = MMSaveEditor.Properties.Settings.Default.Height;
+            WindowState = MMSaveEditor.Properties.Settings.Default.IsMaximized ? WindowState.Maximized : WindowState.Normal;
+
+            MMSaveEditor.Properties.Settings.Default.RunCount++;
+            MMSaveEditor.Properties.Settings.Default.Save();
+
+            DonateBanner.Visibility = (MMSaveEditor.Properties.Settings.Default.RunCount >= 5 && !MMSaveEditor.Properties.Settings.Default.HasDonated) ? Visibility.Visible : Visibility.Collapsed;
+
+            if (ReportGameCrashDialog.HasThereBeenAGameCrash())
+            {
+                MessageBoxResult result = MessageBox.Show("We have detected that Motorsport Manager crashed on the last run. Could you submit this log to us if it was a result of a change you made to your save file? We will then investigate the cause and fix in an update. Thanks!", "Did you just haz a crash", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                if (result == MessageBoxResult.Yes)
+                {
+                    report_Click(null, null);
+                }
+                return;
+            }
         }
 
         private static fsSerializer CreateAndConfigureSerializer()
@@ -681,6 +700,30 @@ namespace MMSaveEditor.View
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        private void Image_TouchUp(object sender, System.Windows.Input.TouchEventArgs e)
+        {
+            Donate donateMenu = new Donate();
+            donateMenu.ShowDialog();
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Donate donateMenu = new Donate();
+            donateMenu.ShowDialog();
+        }
+
+        private void window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            MMSaveEditor.Properties.Settings.Default.Width = e.NewSize.Width;
+            MMSaveEditor.Properties.Settings.Default.Height = e.NewSize.Height;
+            MMSaveEditor.Properties.Settings.Default.Save();
+        }
+
+        private void window_StateChanged(object sender, EventArgs e)
+        {
+            MMSaveEditor.Properties.Settings.Default.IsMaximized = WindowState == WindowState.Maximized;
         }
     }
 }

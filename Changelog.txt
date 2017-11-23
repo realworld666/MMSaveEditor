@@ -1,4 +1,13 @@
-﻿v1.2.1
+﻿v1.4
+- Editor remembers its size and whether or not it is maximized
+- Added Endurance series parts
+
+v1.3
+- Further stability fixes for 1.5 version of MM
+- Added ability to change team name
+- Where possible, the editor will prompt you on boot to submit a bug if it detects the game crashed the last time it was run
+
+v1.2.1
 - Fixed crash when transferring drivers
 
 v1.2
@@ -7,7 +16,7 @@ v1.2
 
 v1.1
 - Added ability to add and remove tracks from next years calender
-- Added current save file to window title
+- Added current save file to window titlecont
 - Added improvement rate stat to driver tab
 - Added ability to modify existing mechanic relationships
 
