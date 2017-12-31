@@ -161,6 +161,19 @@ public class Championship : Entity
 
     public ObservableCollection<RaceEventCalendarData> CalendarData => new ObservableCollection<RaceEventCalendarData>(calendarData);
 
+    public bool AllowPromotions
+    {
+        get
+        {
+            return allowPromotions;
+        }
+
+        set
+        {
+            allowPromotions = value;
+        }
+    }
+
     public Championship()
     {
         this.politicalSystem.OnStart(this);

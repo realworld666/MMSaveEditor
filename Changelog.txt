@@ -1,6 +1,7 @@
 ﻿v1.4
 - Editor remembers its size and whether or not it is maximized
 - Added Endurance series parts
+- BUGFIX: Game Crash when swapping drivers from different racing series
 
 v1.3
 - Further stability fixes for 1.5 version of MM

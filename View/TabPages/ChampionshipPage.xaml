@@ -30,6 +30,14 @@
             <StackPanel>
                 <GroupBox x:Name="Rules" Header="Rules">
                     <StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Name" Width="200"/>
+                            <TextBox Width="200" Text="{Binding ChampionshipData.ChampionshipName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock TextWrapping="Wrap" Text="Allow Promotions" Width="200"/>
+                            <CheckBox IsChecked="{Binding ChampionshipData.AllowPromotions}"/>
+                        </StackPanel>
                         <Label Content="Active Rules"></Label>
                         <xcdg:DataGridControl x:Name="rulesList" AutoCreateColumns="False" ItemsSource="{Binding ActiveRules}" IsDeleteCommandEnabled="True" MaxHeight="150">
                             <xcdg:DataGridControl.Columns>

@@ -98,38 +98,68 @@
                 </GroupBox>
                 <GroupBox Header="Car Inventory">
                     <StackPanel>
-                        <Expander Header="Brakes">
-                            <local:TeamPage_CarPart DataContext="{Binding Brakes}" />
+                        <Expander Header="Single Seater Series Parts">
+                            <StackPanel>
+                                <Expander Header="Brakes">
+                                    <local:TeamPage_CarPart DataContext="{Binding Brakes}" />
+                                </Expander>
+                                <Expander Header="Engine">
+                                    <local:TeamPage_CarPart DataContext="{Binding Engine}" />
+                                </Expander>
+                                <Expander Header="Front Wing">
+                                    <local:TeamPage_CarPart DataContext="{Binding FrontWing}" />
+                                </Expander>
+                                <Expander Header="Gearbox">
+                                    <local:TeamPage_CarPart DataContext="{Binding Gearbox}" />
+                                </Expander>
+                                <Expander Header="Rear Wing">
+                                    <local:TeamPage_CarPart DataContext="{Binding RearWing}" />
+                                </Expander>
+                                <Expander Header="Suspension">
+                                    <local:TeamPage_CarPart DataContext="{Binding Suspension}" />
+                                </Expander>
+                            </StackPanel>
                         </Expander>
-                        <Expander Header="Brakes (GT)">
-                            <local:TeamPage_CarPart DataContext="{Binding BrakesGT}" />
+                        <Expander Header="GT Series Parts">
+                            <StackPanel>
+                                <Expander Header="Brakes">
+                                    <local:TeamPage_CarPart DataContext="{Binding BrakesGT}" />
+                                </Expander>
+                                <Expander Header="Engine">
+                                    <local:TeamPage_CarPart DataContext="{Binding EngineGT}" />
+                                </Expander>
+                                <Expander Header="Gearbox">
+                                    <local:TeamPage_CarPart DataContext="{Binding GearboxGT}" />
+                                </Expander>
+                                <Expander Header="Rear Wing">
+                                    <local:TeamPage_CarPart DataContext="{Binding RearWingGT}" />
+                                </Expander>
+                                <Expander Header="Suspension">
+                                    <local:TeamPage_CarPart DataContext="{Binding SuspensionGT}" />
+                                </Expander>
+                            </StackPanel>
                         </Expander>
-                        <Expander Header="Engine">
-                            <local:TeamPage_CarPart DataContext="{Binding Engine}" />
-                        </Expander>
-                        <Expander Header="Engine (GT)">
-                            <local:TeamPage_CarPart DataContext="{Binding EngineGT}" />
-                        </Expander>
-                        <Expander Header="Front Wing">
-                            <local:TeamPage_CarPart DataContext="{Binding FrontWing}" />
-                        </Expander>
-                        <Expander Header="Gearbox">
-                            <local:TeamPage_CarPart DataContext="{Binding Gearbox}" />
-                        </Expander>
-                        <Expander Header="Gearbox (GT)">
-                            <local:TeamPage_CarPart DataContext="{Binding GearboxGT}" />
-                        </Expander>
-                        <Expander Header="Rear Wing">
-                            <local:TeamPage_CarPart DataContext="{Binding RearWing}" />
-                        </Expander>
-                        <Expander Header="Rear Wing (GT)">
-                            <local:TeamPage_CarPart DataContext="{Binding RearWingGT}" />
-                        </Expander>
-                        <Expander Header="Suspension">
-                            <local:TeamPage_CarPart DataContext="{Binding Suspension}" />
-                        </Expander>
-                        <Expander Header="Suspension (GT)">
-                            <local:TeamPage_CarPart DataContext="{Binding SuspensionGT}" />
+                        <Expander Header="Endurance Series Parts">
+                            <StackPanel>
+                                <Expander Header="Brakes">
+                                    <local:TeamPage_CarPart DataContext="{Binding BrakesGET}" />
+                                </Expander>
+                                <Expander Header="Engine">
+                                    <local:TeamPage_CarPart DataContext="{Binding EngineGET}" />
+                                </Expander>
+                                <Expander Header="Front Wing">
+                                    <local:TeamPage_CarPart DataContext="{Binding FrontWingGET}" />
+                                </Expander>
+                                <Expander Header="Gearbox">
+                                    <local:TeamPage_CarPart DataContext="{Binding GearboxGET}" />
+                                </Expander>
+                                <Expander Header="Rear Wing">
+                                    <local:TeamPage_CarPart DataContext="{Binding RearWingGET}" />
+                                </Expander>
+                                <Expander Header="Suspension">
+                                    <local:TeamPage_CarPart DataContext="{Binding SuspensionGET}" />
+                                </Expander>
+                            </StackPanel>
                         </Expander>
                     </StackPanel>
                 </GroupBox>

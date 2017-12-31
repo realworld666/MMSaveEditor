@@ -351,10 +351,11 @@ public class ContractPerson : Contract
 
             newDriver.joinsAnySeries = true;
 
+            driverManager.AddDriverToChampionship(newDriver);
+
             // No longer a reserve driver after the swap
             if (myOriginalContract.currentStatus == Status.Reserve && replacingOriginalContract.currentStatus != Status.Reserve)
             {
-                driverManager.AddDriverToChampionship(newDriver);
                 newTeam.AssignDriverToCar(newDriver);
                 newTeam.SelectMainDriversForSession();
                 newTeam.championship.standings.UpdateStandings();
@@ -388,10 +389,11 @@ public class ContractPerson : Contract
             // Swap some of the contract details around
             oldDriver.contract.currentStatus = myOriginalContract.currentStatus;
 
+            driverManager.AddDriverToChampionship(oldDriver);
+
             // No longer a reserve driver after the swap
             if (myOriginalContract.currentStatus != Status.Reserve && replacingOriginalContract.currentStatus == Status.Reserve)
             {
-                driverManager.AddDriverToChampionship(oldDriver);
                 oldTeam.AssignDriverToCar(oldDriver);
                 oldTeam.SelectMainDriversForSession();
                 oldTeam.championship.standings.UpdateStandings();

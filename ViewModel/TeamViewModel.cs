@@ -14,15 +14,21 @@ namespace MMSaveEditor.ViewModel
         public ObservableCollection<Team> Teams => Game.instance == null ? null : new ObservableCollection<Team>(Game.instance?.teamManager?.GetEntityList());
         public ObservableCollection<CarPart> BrakesGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.BrakesGT));
         public ObservableCollection<CarPart> Brakes => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.Brakes));
+        public ObservableCollection<CarPart> BrakesGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.BrakesGET));
         public ObservableCollection<CarPart> EngineGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.EngineGT));
         public ObservableCollection<CarPart> Engine => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.Engine));
+        public ObservableCollection<CarPart> EngineGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.EngineGET));
         public ObservableCollection<CarPart> FrontWing => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.FrontWing));
+        public ObservableCollection<CarPart> FrontWingGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.FrontWingGET));
         public ObservableCollection<CarPart> GearboxGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.GearboxGT));
         public ObservableCollection<CarPart> Gearbox => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.Gearbox));
+        public ObservableCollection<CarPart> GearboxGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.GearboxGET));
         public ObservableCollection<CarPart> RearWingGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.RearWingGT));
         public ObservableCollection<CarPart> RearWing => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.RearWing));
+        public ObservableCollection<CarPart> RearWingGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.RearWingGET));
         public ObservableCollection<CarPart> SuspensionGT => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.SuspensionGT));
         public ObservableCollection<CarPart> Suspension => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.Suspension));
+        public ObservableCollection<CarPart> SuspensionGET => TeamData == null ? null : new ObservableCollection<CarPart>(TeamData?.carManager?.partInventory?.GetPartInventory(CarPart.PartType.SuspensionGET));
 
         public List<Engineer> Engineers
         {
