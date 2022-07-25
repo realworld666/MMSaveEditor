@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MMSaveEditor</RootNamespace>
     <AssemblyName>MMSaveEditor</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -187,6 +187,7 @@
     <Compile Include="FullSerializer\Reflection\fsMetaType.cs" />
     <Compile Include="FullSerializer\Reflection\fsReflectionUtility.cs" />
     <Compile Include="FullSerializer\Reflection\fsTypeCache.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Model\AIBehaviour.cs" />
     <Compile Include="Model\AIBehaviourStateManager.cs" />
     <Compile Include="Model\AIBlueFlagBehaviour.cs" />

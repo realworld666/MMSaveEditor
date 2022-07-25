@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 [fsObject(MemberSerialization = fsMemberSerialization.OptOut)]
 public class ChampionshipRules : Entity
