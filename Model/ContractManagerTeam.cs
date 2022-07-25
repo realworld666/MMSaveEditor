@@ -149,4 +149,14 @@ public class ContractManagerTeam
     {
         return this.mHealingDriver;
     }
+
+    public List<EmployeeSlot> GetAllEmployeeSlots()
+    {
+        this.mCachedEmployedSlots.Clear();
+        for (int index = 0; index < this.mEmployeeSlots.Count; ++index)
+        {
+            this.mCachedEmployedSlots.Add(this.mEmployeeSlots[index]);
+        }
+        return this.mCachedEmployedSlots;
+    }
 }

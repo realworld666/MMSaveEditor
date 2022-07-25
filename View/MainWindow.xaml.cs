@@ -1,6 +1,7 @@
 ﻿//#define USE_JSON_NET
 using System;
 using System.Collections.Specialized;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -34,7 +35,7 @@ namespace MMSaveEditor.View
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private fsSerializer serializer;
+        private readonly fsSerializer serializer;
 
         private string _openFilePath;
         private static readonly int saveFileVersion = 4;
@@ -42,7 +43,7 @@ namespace MMSaveEditor.View
 
         public static MainWindow Instance;
 
-        private static VersionNumber[] SupportedVersions =
+        private static readonly VersionNumber[] SupportedVersions =
         {
             new VersionNumber() { major=1, minor=5},
             new VersionNumber() { major=1, minor=51},
@@ -129,6 +130,7 @@ namespace MMSaveEditor.View
 
             DonateBanner.Visibility = (MMSaveEditor.Properties.Settings.Default.RunCount >= 5 && !MMSaveEditor.Properties.Settings.Default.HasDonated) ? Visibility.Visible : Visibility.Collapsed;
 
+            
             if (ReportGameCrashDialog.HasThereBeenAGameCrash())
             {
                 MessageBoxResult result = MessageBox.Show("We have detected that Motorsport Manager crashed on the last run. Could you submit this log to us if it was a result of a change you made to your save file? We will then investigate the cause and fix in an update. Thanks!", "Did you just haz a crash", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
@@ -138,6 +140,7 @@ namespace MMSaveEditor.View
                 }
                 return;
             }
+            
         }
 
         private static fsSerializer CreateAndConfigureSerializer()
@@ -147,9 +150,11 @@ namespace MMSaveEditor.View
 
         private void open_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Save games (*.sav)|*.*";
-            openFileDialog.InitialDirectory = Path.Combine(App.Instance.LocalLowFolderPath, "Playsport Games\\Motorsport Manager\\Cloud\\Saves");
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Save games (*.sav)|*.*",
+                InitialDirectory = Path.Combine(App.Instance.LocalLowFolderPath, "Playsport Games\\Motorsport Manager\\Cloud\\Saves")
+            };
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -177,7 +182,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -187,7 +192,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the player view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             /*try
@@ -207,7 +212,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the team principal view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the team principal view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -217,7 +222,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the driver view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the driver view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -227,7 +232,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the engineer view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the engineer view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -237,7 +242,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the mechanic view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the mechanic view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -247,7 +252,7 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the chairman view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the chairman view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             try
@@ -257,11 +262,175 @@ namespace MMSaveEditor.View
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show(string.Format("There was a problem setting the championship view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format("There was a problem setting the championship view {0}", ex.Message), "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
 
+
+        private void import_Click(object Sender, RoutedEventArgs e)
+        {
+            string folder = @".\import\";
+            if(!Directory.Exists(folder) || Directory.GetFiles(folder).Length == 0)
+            {
+                MessageBox.Show("import folder is empty, please place csv's there from the export folder once edited.", "Load Error", MessageBoxButton.OK);
+                return;
+            }
+            if (Game.instance == null)
+            {
+                MessageBox.Show("Load a save file first before importing", "Load Error", MessageBoxButton.OK);
+                return;
+            }
+
+            string[] files = Directory.GetFiles(folder);
+
+            //data[Championship][Team][FullName][NewFirstName, NewLastName]
+            Dictionary<string, Dictionary<string, Dictionary<string, (string, string)>>> data = new Dictionary<string, Dictionary<string, Dictionary<string, (string, string)>>>();
+
+            foreach(string file in files)
+            {
+                string championship = "";
+                string teamName = "";
+
+                Dictionary<string, Dictionary<string, (string, string)>> Teams = new Dictionary<string, Dictionary<string, (string, string)>>();
+                Dictionary<string, (string, string)> People = new Dictionary<string, (string, string)>();
+
+                foreach (string line in File.ReadLines(file))
+                {
+                    if (String.IsNullOrEmpty(line))
+                    {
+                        if(!teamName.Equals(""))
+                        {
+                            if(People.Count > 0)
+                                Teams.Add(teamName, People);
+                            People = new Dictionary<string, (string, string)>();
+                        }
+                    }
+                    if (line.StartsWith("Job"))
+                        continue;
+                        
+
+                    string[] elements = line.Split(',');
+
+                    if (elements[0].Equals("Championship"))
+                        championship = elements[1];
+                    else if (elements[0].Equals("Team"))
+                        teamName = elements[1];
+                    else
+                    {
+                        if(elements.Length > 2)
+                            People.Add(elements[1], (elements[2], elements[3]));
+                    }
+
+                }
+                if (People.Count > 0)
+                    Teams.Add(teamName, People);
+                if(Teams.Count > 0)
+                    data.Add(championship, Teams);
+            }
+
+            int changed = 0;
+            List<Championship> championships = Game.instance.championshipManager.GetEntityList();
+
+            foreach (Championship championship in championships)
+            {
+                string championshipName = championship.ChampionshipName;
+                if (!data.ContainsKey(championshipName))
+                    continue;
+
+                for (int i = 0; i < championship.standings.teamEntryCount; i++)
+                {
+
+                    Team team = championship.standings.GetTeamEntry(i).GetEntity<Team>();
+                    string teamName = team.name;
+
+                    if (!data[championshipName].ContainsKey(teamName))
+                        continue;
+
+                    List<EmployeeSlot> employees = team.contractManager.GetAllEmployeeSlots();
+
+                    foreach (EmployeeSlot employee in employees)
+                    {
+                        if (employee.personHired == null)
+                            continue;
+
+                        if (data[championshipName][teamName].ContainsKey(employee.personHired.name)){
+                            var (firstName, lastName) = data[championshipName][teamName][employee.personHired.name];
+                            employee.personHired.SetName(firstName, lastName);
+                            changed++;
+                        }
+                    }
+                }
+            }
+            MessageBox.Show("Finished importing names. Changed "+ changed + " names.", "OK", MessageBoxButton.OK);
+        }
+
+        private void export_Click(object sender, RoutedEventArgs e)
+        {
+            if (Game.instance == null)
+            {
+                MessageBox.Show("Load a save file first before exporting", "Load Error", MessageBoxButton.OK);
+                return;
+            }
+            try
+            {
+
+                if (!Directory.Exists(@".\export"))
+                    Directory.CreateDirectory(@".\export");
+                
+
+                List<Championship> championships = Game.instance.championshipManager.GetEntityList();
+
+                foreach (Championship championship in championships)
+                {
+                    List<string> lines = new List<string>();
+
+                    Console.WriteLine(championship.ChampionshipName);
+
+                    lines.Add("Championship," + championship.ChampionshipName);
+
+
+                    for (int i = 0; i < championship.standings.teamEntryCount; i++)
+                    {
+
+                        Team team = championship.standings.GetTeamEntry(i).GetEntity<Team>();
+
+                        Console.WriteLine(team.name);
+                        lines.Add("\nTeam," + team.name);
+                        lines.Add("Job,Old name,New first name,New last name");
+
+                        List<EmployeeSlot> employees = team.contractManager.GetAllEmployeeSlots();
+
+                        foreach (EmployeeSlot employee in employees)
+                        {
+                            if (employee.personHired == null)
+                                continue;
+
+                            //string name = employee.personHired != null ? employee.personHired.name : "empty";
+                            //Console.WriteLine(employee.jobType.ToString() + ": " + name);
+                            lines.Add(employee.jobType.ToString() + "," + employee.personHired.name);
+
+
+                            //if(employee.personHired != null)
+                            //    employee.personHired.SetName("Test", employee.personHired.lastName);
+                        }
+                    }
+                    File.WriteAllLines(@".\export\" + championship.ChampionshipName + ".csv", lines);
+                }
+
+                MessageBox.Show("Finished exporting to the export folder", "Ok");
+
+            } catch (Exception exception)
+            {
+                String errorMessage;
+                errorMessage = "Error: ";
+                errorMessage = String.Concat(errorMessage, exception.Message);
+                errorMessage = String.Concat(errorMessage, " Line: ");
+                errorMessage = String.Concat(errorMessage, exception.Source);
+
+                MessageBox.Show(errorMessage, "Error");
+            } 
+        }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(_openFilePath))
@@ -287,13 +456,11 @@ namespace MMSaveEditor.View
         {
             try
             {
-                fsData data1;
-                fsResult fsResult1 = serializer.TrySerialize(saveFileInfo, out data1);
+                fsResult fsResult1 = serializer.TrySerialize(saveFileInfo, out fsData data1);
                 if (fsResult1.Failed)
                     throw new Exception(string.Format("Failed to serialise SaveFileInfo: {0}", fsResult1.FormattedMessages));
                 string s1 = fsJsonPrinter.CompressedJson(data1);
-                fsData data2;
-                fsResult fsResult2 = serializer.TrySerialize(Game.instance, out data2);
+                fsResult fsResult2 = serializer.TrySerialize(Game.instance, out fsData data2);
                 if (fsResult2.Failed)
                     throw new Exception(string.Format("Failed to serialise Game: {0}",
                         fsResult2.FormattedMessages));
@@ -725,5 +892,6 @@ namespace MMSaveEditor.View
         {
             MMSaveEditor.Properties.Settings.Default.IsMaximized = WindowState == WindowState.Maximized;
         }
+
     }
 }

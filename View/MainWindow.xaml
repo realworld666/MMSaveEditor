@@ -50,6 +50,10 @@
                     </MenuItem>
 
                 </MenuItem>
+                <MenuItem Header="_Extra">
+                    <MenuItem x:Name="export" Header="_Export Names" Click="export_Click"></MenuItem>
+                    <MenuItem x:Name="import" Header="_Import Name" Click="import_Click"></MenuItem>
+                </MenuItem>
             </Menu>
         </DockPanel>
         <TabControl x:Name="tabControl" Grid.Row="1">
