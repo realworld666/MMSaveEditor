@@ -1,6 +1,5 @@
 ﻿//#define USE_JSON_NET
 using System;
-using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -20,10 +19,9 @@ using MMSaveEditor.Annotations;
 using MMSaveEditor.ViewModel;
 using NBug.Core.Reporting;
 using NBug.Core.Reporting.Info;
-using NBug.Core.Submission;
 using NBug.Core.Util;
-using NBug.Enums;
 using MM2;
+using UnityEngine;
 #if USE_JSON_NET
 using Newtonsoft.Json;
 #endif
@@ -284,41 +282,57 @@ namespace MMSaveEditor.View
             string[] files = Directory.GetFiles(folder);
 
             //data[Championship][Team][FullName][NewFirstName, NewLastName]
-            Dictionary<string, Dictionary<string, Dictionary<string, (string, string)>>> data = new Dictionary<string, Dictionary<string, Dictionary<string, (string, string)>>>();
+            Dictionary<string, Dictionary<string, Dictionary<string, (string, string, string, string)>>> data = new Dictionary<string, Dictionary<string, Dictionary<string, (string, string, string, string)>>>();
 
             foreach(string file in files)
             {
+                
                 string championship = "";
                 string teamName = "";
 
-                Dictionary<string, Dictionary<string, (string, string)>> Teams = new Dictionary<string, Dictionary<string, (string, string)>>();
-                Dictionary<string, (string, string)> People = new Dictionary<string, (string, string)>();
+                Dictionary<string, Dictionary<string, (string, string, string, string)>> Teams = new Dictionary<string, Dictionary<string, (string, string, string, string)>>();
+                Dictionary<string, (string, string, string, string)> People = new Dictionary<string, (string, string, string, string)>();
 
                 foreach (string line in File.ReadLines(file))
                 {
-                    if (String.IsNullOrEmpty(line))
-                    {
-                        if(!teamName.Equals(""))
-                        {
-                            if(People.Count > 0)
-                                Teams.Add(teamName, People);
-                            People = new Dictionary<string, (string, string)>();
-                        }
-                    }
-                    if (line.StartsWith("Job"))
-                        continue;
-                        
+                    if (String.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("Job")) continue;             
 
                     string[] elements = line.Split(',');
 
                     if (elements[0].Equals("Championship"))
+                    {
                         championship = elements[1];
+                    }
                     else if (elements[0].Equals("Team"))
+                    {
+                        if (!teamName.Equals(""))
+                        {
+                            if (People.Count > 0)
+                                Teams.Add(teamName, People);
+                            People = new Dictionary<string, (string, string, string, string)>();
+                        }
                         teamName = elements[1];
+                        if (elements.Length > 2)
+                            People.Add(elements[1], (elements[2], elements[3], "", ""));
+                    }
+                    else if (elements[0].Equals("Unemployed"))
+                    {
+                        if (championship.Equals(""))
+                        {
+                            championship = "unemployed";
+                            teamName = "unemployed";
+                        }
+                        if(elements.Length > 2)
+                        {
+                            // Oldname, first name, last name, nationality, gender
+                            People.Add(elements[1], (elements[2], elements[3], elements[4], elements[5]));
+                        }
+                    }
                     else
                     {
-                        if(elements.Length > 2)
-                            People.Add(elements[1], (elements[2], elements[3]));
+                        // Oldname, first name, last name, nationality, gender
+                        if (elements.Length > 2)
+                            People.Add(elements[1], (elements[2], elements[3], elements[4], elements[5]));
                     }
 
                 }
@@ -343,8 +357,30 @@ namespace MMSaveEditor.View
                     Team team = championship.standings.GetTeamEntry(i).GetEntity<Team>();
                     string teamName = team.name;
 
+                    /*
+                    if (team.carManager.GetCar(0).GetFrontendCar() != null) {
+                        TeamColor.LiveryColour carColour = team.carManager.GetCar(0).GetDataForCar(0).colourData;
+                        carColour.primary = new Color(0, 0, 0, 1);
+                        Console.WriteLine("Changed livery for " + team.name);
+                    } else
+                    {
+                        Console.WriteLine("Failed to set livery for " + team.name);
+                    }
+                    */
+
+
                     if (!data[championshipName].ContainsKey(teamName))
                         continue;
+
+                    if (data[championshipName][teamName].ContainsKey(teamName)) { 
+                        var (newTeamName, newShortTeamName, nationality, _) = data[championshipName][teamName][teamName];
+
+                        team.name = newTeamName;
+                        team.ShortName = newShortTeamName;
+                        if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
+                            team.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
+                    }
+
 
                     List<EmployeeSlot> employees = team.contractManager.GetAllEmployeeSlots();
 
@@ -354,14 +390,58 @@ namespace MMSaveEditor.View
                             continue;
 
                         if (data[championshipName][teamName].ContainsKey(employee.personHired.name)){
-                            var (firstName, lastName) = data[championshipName][teamName][employee.personHired.name];
+                            var (firstName, lastName, nationality, gender) = data[championshipName][teamName][employee.personHired.name];
+
                             employee.personHired.SetName(firstName, lastName);
+
+                            if(gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
+                                employee.personHired.gender = Person.Gender.Male;
+                            else
+                                employee.personHired.gender = Person.Gender.Female;
+
+
+
+                            if(NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
+                                employee.personHired.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
+
                             changed++;
                         }
                     }
                 }
             }
-            MessageBox.Show("Finished importing names. Changed "+ changed + " names.", "OK", MessageBoxButton.OK);
+
+            List<Person> unemployed = new List<Person>();
+
+            unemployed.AddRange(Converter<Driver>.Convert(Game.instance.driverManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<Chairman>.Convert(Game.instance.chairmanManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<Engineer>.Convert(Game.instance.engineerManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<Assistant>.Convert(Game.instance.assistantManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<Celebrity>.Convert(Game.instance.celebrityManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<PitCrewMember>.Convert(Game.instance.pitCrewManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<Scout>.Convert(Game.instance.scoutManager.GetReplacementPeople()));
+            unemployed.AddRange(Converter<TeamPrincipal>.Convert(Game.instance.teamPrincipalManager.GetReplacementPeople()));
+
+            foreach (Person person in unemployed)
+            {
+
+                if (data["unemployed"]["unemployed"].ContainsKey(person.name))
+                {
+                    changed++;
+                    var (firstName, lastName, nationality, gender) = data["unemployed"]["unemployed"][person.name];
+
+                    person.SetName(firstName, lastName);
+
+                    if (gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
+                        person.gender = Person.Gender.Male;
+                    else
+                        person.gender = Person.Gender.Female;
+
+                    if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
+                        person.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
+                }
+            }
+
+                MessageBox.Show("Finished importing data. Changed "+ changed + " names.", "OK", MessageBoxButton.OK);
         }
 
         private void export_Click(object sender, RoutedEventArgs e)
@@ -376,7 +456,7 @@ namespace MMSaveEditor.View
 
                 if (!Directory.Exists(@".\export"))
                     Directory.CreateDirectory(@".\export");
-                
+
 
                 List<Championship> championships = Game.instance.championshipManager.GetEntityList();
 
@@ -396,7 +476,7 @@ namespace MMSaveEditor.View
 
                         Console.WriteLine(team.name);
                         lines.Add("\nTeam," + team.name);
-                        lines.Add("Job,Old name,New first name,New last name");
+                        lines.Add("Job,Old name,New first name,New last name,Nationality,Gender");
 
                         List<EmployeeSlot> employees = team.contractManager.GetAllEmployeeSlots();
 
@@ -412,6 +492,31 @@ namespace MMSaveEditor.View
                     File.WriteAllLines(@".\export\" + championship.ChampionshipName + ".csv", lines);
                 }
 
+
+
+                List<(string, Person)> unemployed = new List<(string, Person)>();
+
+                unemployed.AddRange(PersonZip(Converter<Driver>.Convert(Game.instance.driverManager.GetReplacementPeople()), "Driver"));
+                unemployed.AddRange(PersonZip(Converter<Chairman>.Convert(Game.instance.chairmanManager.GetReplacementPeople()), "Chairman"));
+                unemployed.AddRange(PersonZip(Converter<Engineer>.Convert(Game.instance.engineerManager.GetReplacementPeople()), "Engineer"));
+                unemployed.AddRange(PersonZip(Converter<Assistant>.Convert(Game.instance.assistantManager.GetReplacementPeople()), "Assistant"));
+                unemployed.AddRange(PersonZip(Converter<Celebrity>.Convert(Game.instance.celebrityManager.GetEntityList()), "Celebrity"));
+                unemployed.AddRange(PersonZip(Converter<PitCrewMember>.Convert(Game.instance.pitCrewManager.GetReplacementPeople()), "PitCrewMember"));
+                unemployed.AddRange(PersonZip(Converter<Scout>.Convert(Game.instance.scoutManager.GetReplacementPeople()), "Scout"));
+                unemployed.AddRange(PersonZip(Converter<TeamPrincipal>.Convert(Game.instance.teamPrincipalManager.GetReplacementPeople()), "TeamPrincipal"));
+
+                
+
+                List<string> data = new List<string>();
+
+                data.Add("Unemployed,Old name,New first name,New last name,Nationality,Gender");
+
+                foreach (var (job, person) in unemployed)
+                    data.Add(job + "," + person.name);
+
+
+                File.WriteAllLines(@".\export\unemployed.csv", data);
+
                 MessageBox.Show("Finished exporting to the export folder", "OK", MessageBoxButton.OK);
 
             } catch (Exception exception)
@@ -424,6 +529,14 @@ namespace MMSaveEditor.View
 
                 MessageBox.Show(errorMessage, "Error");
             } 
+        }
+
+        public List<(string, Person)> PersonZip(List<Person> people, string Job)
+        {
+            List<(string, Person)> zippedPeople = new List<(string, Person)>();
+            foreach(Person person in people) 
+                zippedPeople.Add((Job, person));
+            return zippedPeople;
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {

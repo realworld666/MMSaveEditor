@@ -323,6 +323,7 @@
     <Compile Include="Model\ChangeScreenCommand.cs" />
     <Compile Include="Model\Circuit.cs" />
     <Compile Include="Model\CircuitManager.cs" />
+    <Compile Include="Model\Converter.cs" />
     <Compile Include="Model\Climate.cs" />
     <Compile Include="Model\ClimateManager.cs" />
     <Compile Include="Model\CollisionBounds.cs" />
