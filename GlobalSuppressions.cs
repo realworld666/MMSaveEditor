@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~M:MMSaveEditor.View.MainWindow.report_Click(System.Object,System.Windows.RoutedEventArgs)")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~M:MMSaveEditor.View.MainWindow.import_Click(System.Object,System.Windows.RoutedEventArgs)")]

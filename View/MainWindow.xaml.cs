@@ -267,7 +267,6 @@ namespace MMSaveEditor.View
             }
         }
 
-
         private void import_Click(object Sender, RoutedEventArgs e)
         {
             string folder = @".\import\";
@@ -323,7 +322,7 @@ namespace MMSaveEditor.View
                     }
 
                 }
-                if (People.Count > 0)
+                if(People.Count > 0)
                     Teams.Add(teamName, People);
                 if(Teams.Count > 0)
                     data.Add(championship, Teams);
@@ -406,19 +405,14 @@ namespace MMSaveEditor.View
                             if (employee.personHired == null)
                                 continue;
 
-                            //string name = employee.personHired != null ? employee.personHired.name : "empty";
-                            //Console.WriteLine(employee.jobType.ToString() + ": " + name);
                             lines.Add(employee.jobType.ToString() + "," + employee.personHired.name);
 
-
-                            //if(employee.personHired != null)
-                            //    employee.personHired.SetName("Test", employee.personHired.lastName);
                         }
                     }
                     File.WriteAllLines(@".\export\" + championship.ChampionshipName + ".csv", lines);
                 }
 
-                MessageBox.Show("Finished exporting to the export folder", "Ok");
+                MessageBox.Show("Finished exporting to the export folder", "OK", MessageBoxButton.OK);
 
             } catch (Exception exception)
             {
