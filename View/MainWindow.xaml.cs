@@ -410,34 +410,38 @@ namespace MMSaveEditor.View
                 }
             }
 
-            List<Person> unemployed = new List<Person>();
-
-            unemployed.AddRange(Converter<Driver>.Convert(Game.instance.driverManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<Chairman>.Convert(Game.instance.chairmanManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<Engineer>.Convert(Game.instance.engineerManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<Assistant>.Convert(Game.instance.assistantManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<Celebrity>.Convert(Game.instance.celebrityManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<PitCrewMember>.Convert(Game.instance.pitCrewManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<Scout>.Convert(Game.instance.scoutManager.GetReplacementPeople()));
-            unemployed.AddRange(Converter<TeamPrincipal>.Convert(Game.instance.teamPrincipalManager.GetReplacementPeople()));
-
-            foreach (Person person in unemployed)
+            if (data.ContainsKey("unemployed"))
             {
 
-                if (data["unemployed"]["unemployed"].ContainsKey(person.name))
+                List<Person> unemployed = new List<Person>();
+
+                unemployed.AddRange(Converter<Driver>.Convert(Game.instance.driverManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<Chairman>.Convert(Game.instance.chairmanManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<Engineer>.Convert(Game.instance.engineerManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<Assistant>.Convert(Game.instance.assistantManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<Celebrity>.Convert(Game.instance.celebrityManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<PitCrewMember>.Convert(Game.instance.pitCrewManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<Scout>.Convert(Game.instance.scoutManager.GetReplacementPeople()));
+                unemployed.AddRange(Converter<TeamPrincipal>.Convert(Game.instance.teamPrincipalManager.GetReplacementPeople()));
+
+                foreach (Person person in unemployed)
                 {
-                    changed++;
-                    var (firstName, lastName, nationality, gender) = data["unemployed"]["unemployed"][person.name];
 
-                    person.SetName(firstName, lastName);
+                    if (data["unemployed"]["unemployed"].ContainsKey(person.name))
+                    {
+                        changed++;
+                        var (firstName, lastName, nationality, gender) = data["unemployed"]["unemployed"][person.name];
 
-                    if (gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
-                        person.gender = Person.Gender.Male;
-                    else
-                        person.gender = Person.Gender.Female;
+                        person.SetName(firstName, lastName);
 
-                    if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
-                        person.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
+                        if (gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
+                            person.gender = Person.Gender.Male;
+                        else
+                            person.gender = Person.Gender.Female;
+
+                        if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
+                            person.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
+                    }
                 }
             }
 
