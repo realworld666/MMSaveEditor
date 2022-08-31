@@ -313,7 +313,7 @@ namespace MMSaveEditor.View
                         }
                         teamName = elements[1];
                         if (elements.Length > 2)
-                            People.Add(elements[1], (elements[2], elements[3], "", ""));
+                            People.Add(elements[1], (elements[2], elements[3], elements[4], ""));
                     }
                     else if (elements[0].Equals("Unemployed"))
                     {
@@ -374,9 +374,13 @@ namespace MMSaveEditor.View
 
                     if (data[championshipName][teamName].ContainsKey(teamName)) { 
                         var (newTeamName, newShortTeamName, nationality, _) = data[championshipName][teamName][teamName];
-
-                        team.name = newTeamName;
-                        team.ShortName = newShortTeamName;
+                        Console.WriteLine(newTeamName + ", " + newShortTeamName + ", " + nationality);
+                        if(newTeamName != "")
+                        {
+                            team.name = newTeamName;
+                            team.ShortName = newShortTeamName;
+                        }
+                        
                         if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
                             team.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
                     }
@@ -392,7 +396,8 @@ namespace MMSaveEditor.View
                         if (data[championshipName][teamName].ContainsKey(employee.personHired.name)){
                             var (firstName, lastName, nationality, gender) = data[championshipName][teamName][employee.personHired.name];
 
-                            employee.personHired.SetName(firstName, lastName);
+                            if(firstName!= "") 
+                                employee.personHired.SetName(firstName, lastName);
 
                             if(gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
                                 employee.personHired.gender = Person.Gender.Male;
@@ -479,7 +484,8 @@ namespace MMSaveEditor.View
                         Team team = championship.standings.GetTeamEntry(i).GetEntity<Team>();
 
                         Console.WriteLine(team.name);
-                        lines.Add("\nTeam," + team.name);
+                        lines.Add("\nTeam,Old name,New Name,New short Name,New Nationality");
+                        lines.Add("Team," + team.name + ",,," + team.nationality.countryKey);
                         lines.Add("Job,Old name,New first name,New last name,Nationality,Gender");
 
                         List<EmployeeSlot> employees = team.contractManager.GetAllEmployeeSlots();
