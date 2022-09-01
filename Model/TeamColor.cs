@@ -6,13 +6,13 @@ using UnityEngine;
 public class TeamColor
 {
     public static TeamColor defaultColour = new TeamColor();
-    public TeamColor.UIColour primaryUIColour = new TeamColor.UIColour();
-    public TeamColor.UIColour secondaryUIColour = new TeamColor.UIColour();
-    public TeamColor.StaffColour staffColor = new TeamColor.StaffColour();
-    public TeamColor.StaffColour customLogoColor = new TeamColor.StaffColour();
-    public TeamColor.HelmetColour helmetColor = new TeamColor.HelmetColour();
+    public UIColour primaryUIColour = new UIColour();
+    public UIColour secondaryUIColour = new UIColour();
+    public StaffColour staffColor = new StaffColour();
+    public StaffColour customLogoColor = new StaffColour();
+    public HelmetColour helmetColor = new HelmetColour();
     public Color carColor = Color.white;
-    public TeamColor.LiveryColour livery = new TeamColor.LiveryColour();
+    public LiveryColour livery = new LiveryColour();
     public Color primaryLiveryOption = new Color();
     public Color secondaryLiveryOption = new Color();
     public Color tertiaryLiveryOption = new Color();
@@ -26,11 +26,11 @@ public class TeamColor
     {
         get
         {
-            return this.mColorID;
+            return mColorID;
         }
         set
         {
-            this.mColorID = value;
+            mColorID = value;
         }
     }
 

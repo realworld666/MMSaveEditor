@@ -11,4 +11,9 @@ public abstract class PersonManager<T> : GenericManager<T> where T : Person
     {
         return this.mReplacementPeople.Contains(inPerson);
     }
+
+    public List<T> GetReplacementPeople()
+    {
+        return this.mReplacementPeople;
+    }
 }

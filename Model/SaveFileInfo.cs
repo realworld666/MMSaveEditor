@@ -15,8 +15,8 @@ public class SaveFileInfo
     public static Regex autosavePathLastBracketsRegex = new Regex(" \\(\\d+\\)$");
     public static Regex filenameToDisplayNameRegex = new Regex("^Save(.+?)\\s*\\((\\d+)\\).sav$|Save(.+?).sav$");
     private static Regex autosavePathLastBracketsAndExtensionRegex = new Regex("( \\(\\d+\\))\\.sav$");
-    public SaveFileInfo.SaveInfo saveInfo;
-    public SaveFileInfo.GameInfo_v2 gameInfo = new SaveFileInfo.GameInfo_v2();
+    public SaveInfo saveInfo;
+    public GameInfo_v2 gameInfo = new GameInfo_v2();
     public List<SavedSubscribedModInfo> subscribedModsInfo = new List<SavedSubscribedModInfo>();
     public List<Dlc> ownedDLCInfo = new List<Dlc>();
     [NonSerialized]
@@ -186,7 +186,7 @@ public class SaveFileInfo
         }
     }
 
-    [fsObject("v2", new System.Type[] { typeof(SaveFileInfo.GameInfo_v1) }, MemberSerialization = fsMemberSerialization.OptOut)]
+    [fsObject("v2", new Type[] { typeof(GameInfo_v1) }, MemberSerialization = fsMemberSerialization.OptOut)]
     public class GameInfo_v2
     {
         public bool isChallenge;
@@ -222,7 +222,7 @@ public class SaveFileInfo
             this.playerTeamCarData = new FrontendCarData[CarManager.carCount];
         }
 
-        public GameInfo_v2(SaveFileInfo.GameInfo_v1 v1)
+        public GameInfo_v2(GameInfo_v1 v1)
         {
             this.isChallenge = v1.isChallenge;
             this.gameTime = v1.gameTime;
@@ -244,7 +244,7 @@ public class SaveFileInfo
         }
     }
 
-    [fsObject("v0", new System.Type[] { }, MemberSerialization = fsMemberSerialization.OptOut)]
+    [fsObject("v0", new Type[] { }, MemberSerialization = fsMemberSerialization.OptOut)]
     public class GameInfo
     {
         public string teamName = string.Empty;
@@ -263,7 +263,7 @@ public class SaveFileInfo
         public int racesInSeason;
     }
 
-    [fsObject("v1", new System.Type[] { typeof(SaveFileInfo.GameInfo) }, MemberSerialization = fsMemberSerialization.OptOut)]
+    [fsObject("v1", new Type[] { typeof(GameInfo) }, MemberSerialization = fsMemberSerialization.OptOut)]
     public class GameInfo_v1
     {
         public bool isChallenge;
@@ -283,7 +283,7 @@ public class SaveFileInfo
         public int racesInSeason;
         public TeamLogo teamLogo;
 
-        public GameInfo_v1(SaveFileInfo.GameInfo v0)
+        public GameInfo_v1(GameInfo v0)
         {
             this.isChallenge = v0.isChallenge;
             this.gameTime = v0.gameTime;

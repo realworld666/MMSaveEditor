@@ -22,6 +22,10 @@ public class Car
     private FrontendCar mFrontendCar;
     private CarStats mCachedStats = new CarStats();
 
+    public FrontendCar GetFrontendCar()
+    {
+        return this.mFrontendCar;
+    }
     public FrontendCarData GetDataForCar(int index)
     {
         if (index == 0)
