@@ -295,9 +295,11 @@ namespace MMSaveEditor.View
 
                 foreach (string line in File.ReadLines(file))
                 {
-                    if (String.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("Job")) continue;             
+                    if (String.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("Job") || line.StartsWith("Type") continue;             
 
                     string[] elements = line.Split(',');
+
+                    if (elements[1].Equals("Old name")) continue;
 
                     if (elements[0].Equals("Championship"))
                     {
@@ -374,7 +376,7 @@ namespace MMSaveEditor.View
 
                     if (data[championshipName][teamName].ContainsKey(teamName)) { 
                         var (newTeamName, newShortTeamName, nationality, _) = data[championshipName][teamName][teamName];
-                        Console.WriteLine(newTeamName + ", " + newShortTeamName + ", " + nationality);
+                        //Console.WriteLine(newTeamName + ", " + newShortTeamName + ", " + nationality);
                         if(newTeamName != "")
                         {
                             team.name = newTeamName;
@@ -484,7 +486,7 @@ namespace MMSaveEditor.View
                         Team team = championship.standings.GetTeamEntry(i).GetEntity<Team>();
 
                         Console.WriteLine(team.name);
-                        lines.Add("\nTeam,Old name,New Name,New short Name,New Nationality");
+                        lines.Add("\nType,Old name,New Name,New short Name,New Nationality");
                         lines.Add("Team," + team.name + ",,," + team.nationality.countryKey);
                         lines.Add("Job,Old name,New first name,New last name,Nationality,Gender");
 
