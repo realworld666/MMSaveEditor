@@ -8,12 +8,9 @@
     <StackPanel>
         <DataGrid x:Name="traitList" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding TraitStartDate, StringFormat=\{0:dd.MM.yy\}}" />
-                <DataGridTextColumn Binding="{Binding TraitEndTime, StringFormat=\{0:dd.MM.yy\}}" />
-                <DataGridTextColumn Binding="{Binding TraitName}" />
-                <!--<Column FieldName="TraitStartDate" Title="Start Date" IsMainColumn="True"/>
-                <Column FieldName="TraitEndTime" Title="End Date" IsMainColumn="True"/>
-                <Column FieldName="TraitName" Title="Name" IsMainColumn="True"/>-->
+                <DataGridTextColumn Binding="{Binding TraitStartDate, StringFormat=\{0:dd.MM.yy\}}" Header="Start Date"/>
+                <DataGridTextColumn Binding="{Binding TraitEndTime, StringFormat=\{0:dd.MM.yy\}}" Header="End Date" />
+                <DataGridTextColumn Binding="{Binding TraitName}" Header="Name"/>
                 <DataGridTextColumn/>
             </DataGrid.Columns>
         </DataGrid>

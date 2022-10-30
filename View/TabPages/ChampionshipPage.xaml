@@ -39,8 +39,6 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding LocalisedName, Mode=OneWay}" Header="Name" Width="200"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding LocalisedDescription, Mode=OneWay}" Header="Description" Width="200"></DataGridTextColumn>
-                                <!--<Column FieldName="LocalisedName" Title="Name" IsMainColumn="True" Width="200"/>
-                                <Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>-->
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--<Button x:Name="removeRule" Content="Remove Selected" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>-->
@@ -50,8 +48,6 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding LocalisedName, Mode=OneWay}" Header="Name" Width="200"></DataGridTextColumn>
                                 <DataGridTextColumn Binding="{Binding LocalisedDescription, Mode=OneWay}" Header="Description" Width="200"></DataGridTextColumn>
-                                <!--<xcdg:Column FieldName="LocalisedName" Title="Name" IsMainColumn="True" Width="200"/>
-                                <xcdg:Column FieldName="LocalisedDescription" Title="Description" IsMainColumn="True" Width="200"/>-->
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--<Button x:Name="removeNextYearRule" Content="Remove Selected" Grid.Column="0" Click="removeRule_Click" Height="30" Visibility="Collapsed"/>-->

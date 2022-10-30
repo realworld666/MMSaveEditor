@@ -21,11 +21,10 @@
         <GroupBox Header="Relationships">
             <DataGrid x:Name="Relationships" ItemsSource="{Binding Relationships}" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Key}" IsReadOnly="True" />
-                    <!--<Column FieldName="Key" Title="Driver" IsMainColumn="True" AllowGroup="False" ReadOnly="True"/>
-                    <Column FieldName="Value.RelationshipAmount" Title="Relationship Amount" AllowGroup="False"/>
-                    <Column FieldName="Value.RelationshipAmountAfterDecay" Title="Relationship Amount After Decay" IsMainColumn="True" AllowGroup="False"/>
-                    <Column FieldName="Value.NumberOfWeeks" Title="Number Of Weeks" AllowGroup="False"/>-->
+                    <DataGridTextColumn Binding="{Binding Key}" IsReadOnly="True" Header="Driver"/>
+                    <DataGridTextColumn Binding="{Binding Value.RelationshipAmount}" Header="Relationship Amount"/>
+                    <DataGridTextColumn Binding="{Binding Value.RelationshipAmountAfterDecay}" Header="Relationship Amount After Decay"/>
+                    <DataGridTextColumn Binding="{Binding Value.NumberOfWeeks}" Header="Number Of Weeks" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
