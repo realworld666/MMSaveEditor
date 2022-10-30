@@ -40,11 +40,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="_Help">
-                    <MenuItem x:Name="report" Header="_Report Game Crash" Click="report_Click">
-                    </MenuItem>
                     <MenuItem x:Name="forum" Header="_Support Forum" Click="support_Click">
-                    </MenuItem>
-                    <MenuItem x:Name="request" Header="_Request Feature" Click="request_Click">
                     </MenuItem>
                     <MenuItem x:Name="donate" Header="_Donate to this project" Click="donate_Click">
                     </MenuItem>

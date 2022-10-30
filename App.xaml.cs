@@ -19,27 +19,11 @@ namespace MMSaveEditor
 
             Guid localLowId = new Guid("A520A1A4-1780-4FF6-BD18-167343C5AF16");
             LocalLowFolderPath = GetKnownFolderPath(localLowId);
-#if !DEBUG
-            // Uncomment the following after testing to see that NBug is working as configured
-            NBug.Settings.ReleaseMode = true;
-            NBug.Settings.WriteLogToDisk = false;
-#else
-            NBug.Settings.WriteLogToDisk = false;
-#endif
-            NBug.Settings.ProcessingException += Settings_ProcessingException;
-            AppDomain.CurrentDomain.UnhandledException += NBug.Handler.UnhandledException;
-            Current.DispatcherUnhandledException += NBug.Handler.DispatcherUnhandledException;
 
             Localisation.LoadData();
         }
 
-        private void Settings_ProcessingException(Exception exception, NBug.Core.Reporting.Info.Report report)
-        {
-            if (View.MainWindow.Instance?.OpenFilePath != null)
-            {
-                NBug.Settings.AdditionalReportFiles.Add(View.MainWindow.Instance.OpenFilePath);
-            }
-        }
+
 
         string GetKnownFolderPath(Guid knownFolderId)
         {

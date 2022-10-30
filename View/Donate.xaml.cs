@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMSaveEditor.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace MMSaveEditor.View
 
         private void donate2_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://paypal.me/realworld666/2");
+            ExtensionMethods.OpenBrowser("http://paypal.me/realworld666/2");
             Close();
             MMSaveEditor.Properties.Settings.Default.HasDonated = true;
             MMSaveEditor.Properties.Settings.Default.Save();
@@ -34,7 +35,7 @@ namespace MMSaveEditor.View
 
         private void donate5_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://paypal.me/realworld666/5");
+            ExtensionMethods.OpenBrowser("http://paypal.me/realworld666/5");
             Close();
             MMSaveEditor.Properties.Settings.Default.HasDonated = true;
             MMSaveEditor.Properties.Settings.Default.Save();
@@ -42,7 +43,7 @@ namespace MMSaveEditor.View
 
         private void donateCustom_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://paypal.me/realworld666");
+            ExtensionMethods.OpenBrowser("http://paypal.me/realworld666");
             Close();
             MMSaveEditor.Properties.Settings.Default.HasDonated = true;
             MMSaveEditor.Properties.Settings.Default.Save();

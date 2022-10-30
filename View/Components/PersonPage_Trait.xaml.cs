@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Ioc;
 using MMSaveEditor.ViewModel;
-using Xceed.Wpf.DataGrid;
 
 namespace MMSaveEditor.View.Components
 {
@@ -18,7 +17,7 @@ namespace MMSaveEditor.View.Components
 
         private void removeTrait_Click(object sender, RoutedEventArgs e)
         {
-            DataGridControl grid = traitList;
+            DataGrid grid = traitList;
             //ObservableCollection<PersonalityTrait> traits = (ObservableCollection<PersonalityTrait>)grid.ItemsSource;
             //traits.Remove(grid.SelectedItem as PersonalityTrait);
 

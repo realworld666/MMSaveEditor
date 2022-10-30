@@ -17,10 +17,8 @@ using LZ4;
 using Microsoft.Win32;
 using MMSaveEditor.Annotations;
 using MMSaveEditor.ViewModel;
-using NBug.Core.Reporting;
-using NBug.Core.Reporting.Info;
-using NBug.Core.Util;
 using MM2;
+using MMSaveEditor.Utils;
 using UnityEngine;
 #if USE_JSON_NET
 using Newtonsoft.Json;
@@ -943,7 +941,6 @@ namespace MMSaveEditor.View
             if (dialog.LogPath != null)
             {
                 gameCrashLog = dialog.LogPath;
-                NBug.Settings.ProcessingException += Settings_ProcessingException;
                 try
                 {
                     throw new Exception("Game is crashing report");
@@ -955,15 +952,9 @@ namespace MMSaveEditor.View
             }
         }
 
-        private void Settings_ProcessingException(Exception arg1, Report arg2)
-        {
-            NBug.Settings.AdditionalReportFiles.Add(gameCrashLog);
-            NBug.Settings.ProcessingException -= Settings_ProcessingException;
-        }
-
         private void support_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488/");
+            ExtensionMethods.OpenBrowser("http://www.racedepartment.com/threads/motorsport-manager-save-game-editor.138488/");
 
         }
 
@@ -975,7 +966,7 @@ namespace MMSaveEditor.View
 
         private void request_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://rwscripts.com/tracker/bug_report_page.php");
+            ExtensionMethods.OpenBrowser("http://rwscripts.com/tracker/bug_report_page.php");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
