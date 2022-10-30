@@ -128,8 +128,8 @@ namespace MMSaveEditor.View
 
             DonateBanner.Visibility = (MMSaveEditor.Properties.Settings.Default.RunCount >= 5 && !MMSaveEditor.Properties.Settings.Default.HasDonated) ? Visibility.Visible : Visibility.Collapsed;
 
-            
-            if (ReportGameCrashDialog.HasThereBeenAGameCrash())
+
+            /*if (ReportGameCrashDialog.HasThereBeenAGameCrash())
             {
                 MessageBoxResult result = MessageBox.Show("We have detected that Motorsport Manager crashed on the last run. Could you submit this log to us if it was a result of a change you made to your save file? We will then investigate the cause and fix in an update. Thanks!", "Did you just haz a crash", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
                 if (result == MessageBoxResult.Yes)
@@ -137,8 +137,8 @@ namespace MMSaveEditor.View
                     report_Click(null, null);
                 }
                 return;
-            }
-            
+            }*/
+
         }
 
         private static fsSerializer CreateAndConfigureSerializer()
@@ -268,7 +268,7 @@ namespace MMSaveEditor.View
         private void import_Click(object Sender, RoutedEventArgs e)
         {
             string folder = @".\import\";
-            if(!Directory.Exists(folder) || Directory.GetFiles(folder).Length == 0)
+            if (!Directory.Exists(folder) || Directory.GetFiles(folder).Length == 0)
             {
                 MessageBox.Show("import folder is empty, please place csv's there from the export folder once edited.", "Load Error", MessageBoxButton.OK);
                 return;
@@ -284,9 +284,9 @@ namespace MMSaveEditor.View
             //data[Championship][Team][FullName][NewFirstName, NewLastName]
             Dictionary<string, Dictionary<string, Dictionary<string, (string, string, string, string)>>> data = new Dictionary<string, Dictionary<string, Dictionary<string, (string, string, string, string)>>>();
 
-            foreach(string file in files)
+            foreach (string file in files)
             {
-                
+
                 string championship = "";
                 string teamName = "";
 
@@ -295,7 +295,8 @@ namespace MMSaveEditor.View
 
                 foreach (string line in File.ReadLines(file))
                 {
-                    if (String.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("Job") || line.StartsWith("Type") continue;             
+                    if (String.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("Job") || line.StartsWith("Type"))
+                        continue;
 
                     string[] elements = line.Split(',');
 
@@ -324,7 +325,7 @@ namespace MMSaveEditor.View
                             championship = "unemployed";
                             teamName = "unemployed";
                         }
-                        if(elements.Length > 2)
+                        if (elements.Length > 2)
                         {
                             // Oldname, first name, last name, nationality, gender
                             People.Add(elements[1], (elements[2], elements[3], elements[4], elements[5]));
@@ -338,9 +339,9 @@ namespace MMSaveEditor.View
                     }
 
                 }
-                if(People.Count > 0)
+                if (People.Count > 0)
                     Teams.Add(teamName, People);
-                if(Teams.Count > 0)
+                if (Teams.Count > 0)
                     data.Add(championship, Teams);
             }
 
@@ -374,15 +375,16 @@ namespace MMSaveEditor.View
                     if (!data[championshipName].ContainsKey(teamName))
                         continue;
 
-                    if (data[championshipName][teamName].ContainsKey(teamName)) { 
+                    if (data[championshipName][teamName].ContainsKey(teamName))
+                    {
                         var (newTeamName, newShortTeamName, nationality, _) = data[championshipName][teamName][teamName];
                         //Console.WriteLine(newTeamName + ", " + newShortTeamName + ", " + nationality);
-                        if(newTeamName != "")
+                        if (newTeamName != "")
                         {
                             team.name = newTeamName;
                             team.ShortName = newShortTeamName;
                         }
-                        
+
                         if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
                             team.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
                     }
@@ -395,20 +397,21 @@ namespace MMSaveEditor.View
                         if (employee.personHired == null)
                             continue;
 
-                        if (data[championshipName][teamName].ContainsKey(employee.personHired.name)){
+                        if (data[championshipName][teamName].ContainsKey(employee.personHired.name))
+                        {
                             var (firstName, lastName, nationality, gender) = data[championshipName][teamName][employee.personHired.name];
 
-                            if(firstName!= "") 
+                            if (firstName != "")
                                 employee.personHired.SetName(firstName, lastName);
 
-                            if(gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
+                            if (gender.Equals("Male") || gender.Equals("male") || gender.Equals("M"))
                                 employee.personHired.gender = Person.Gender.Male;
                             else
                                 employee.personHired.gender = Person.Gender.Female;
 
 
 
-                            if(NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
+                            if (NationalityManager.Instance.nationalitiesDict.ContainsKey(nationality))
                                 employee.personHired.nationality = NationalityManager.Instance.nationalitiesDict[nationality];
 
                             changed++;
@@ -452,7 +455,7 @@ namespace MMSaveEditor.View
                 }
             }
 
-                MessageBox.Show("Finished importing data. Changed "+ changed + " names.", "OK", MessageBoxButton.OK);
+            MessageBox.Show("Finished importing data. Changed " + changed + " names.", "OK", MessageBoxButton.OK);
         }
 
         private void export_Click(object sender, RoutedEventArgs e)
@@ -517,7 +520,7 @@ namespace MMSaveEditor.View
                 unemployed.AddRange(PersonZip(Converter<Scout>.Convert(Game.instance.scoutManager.GetReplacementPeople()), "Scout"));
                 unemployed.AddRange(PersonZip(Converter<TeamPrincipal>.Convert(Game.instance.teamPrincipalManager.GetReplacementPeople()), "TeamPrincipal"));
 
-                
+
 
                 List<string> data = new List<string>();
 
@@ -531,7 +534,8 @@ namespace MMSaveEditor.View
 
                 MessageBox.Show("Finished exporting to the export folder", "OK", MessageBoxButton.OK);
 
-            } catch (Exception exception)
+            }
+            catch (Exception exception)
             {
                 String errorMessage;
                 errorMessage = "Error: ";
@@ -540,13 +544,13 @@ namespace MMSaveEditor.View
                 errorMessage = String.Concat(errorMessage, exception.Source);
 
                 MessageBox.Show(errorMessage, "Error");
-            } 
+            }
         }
 
         public List<(string, Person)> PersonZip(List<Person> people, string Job)
         {
             List<(string, Person)> zippedPeople = new List<(string, Person)>();
-            foreach(Person person in people) 
+            foreach (Person person in people)
                 zippedPeople.Add((Job, person));
             return zippedPeople;
         }
@@ -788,7 +792,7 @@ namespace MMSaveEditor.View
                         binaryReader.Close();
                         fileStream.Close();
 
-                        var executionFlow = new BugReport().Report(ex, ExceptionThread.Main);
+                        //var executionFlow = new BugReport().Report(ex, ExceptionThread.Main);
 
 
                         //foreach (object rawMessage in fsResult2.RawMessages)
@@ -946,7 +950,7 @@ namespace MMSaveEditor.View
                 }
                 catch (Exception ex)
                 {
-                    new BugReport().Report(ex, ExceptionThread.Main);
+                    //new BugReport().Report(ex, ExceptionThread.Main);
                 }
             }
         }
