@@ -16,8 +16,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies MMSaveEditor.sln
-        run: dotnet restore
+      - name: Install dependencies
+        run: dotnet restore MMSaveEditor.sln
       - name: Build
         run: dotnet build MMSaveEditor.sln --configuration Release --no-restore
       - name: Test
