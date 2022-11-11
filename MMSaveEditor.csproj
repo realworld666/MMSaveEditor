@@ -21,17 +21,24 @@
     <UseWPF>true</UseWPF>
     <Deterministic>false</Deterministic>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DefineConstants>DEBUG;TRACE;NO_UNITY, DEBUG</DefineConstants>
+    <DefineConstants>TRACER;NO_UNITY</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
-    <DefineConstants>TRACE;NO_UNITY</DefineConstants>
+    <DefineConstants>TRACER;NO_UNITY</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="MMSaveEditorInstaller\**" />
+    <EmbeddedResource Remove="MMSaveEditorInstaller\**" />
+    <None Remove="MMSaveEditorInstaller\**" />
+    <Page Remove="MMSaveEditorInstaller\**" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -45,9 +52,7 @@
     <Resource Include="Assets\Part Components.txt" />
     <None Include="FullSerializer\Aot.meta" />
     <None Include="FullSerializer\Aot\Editor.meta" />
-    <None Include="FullSerializer\Aot\Editor\fsAotConfigurationEditor.cs.meta" />
     <None Include="FullSerializer\Aot\fsAotCompilationManager.cs.meta" />
-    <None Include="FullSerializer\Aot\fsAotConfiguration.cs.meta" />
     <None Include="FullSerializer\Aot\fsAotVersionInfo.cs.meta" />
     <None Include="FullSerializer\Aot\fsIAotConverter.cs.meta" />
     <None Include="FullSerializer\Converters.meta" />
@@ -65,16 +70,6 @@
     <None Include="FullSerializer\Converters\fsTypeConverter.cs.meta" />
     <None Include="FullSerializer\Converters\fsWeakReferenceConverter.cs.meta" />
     <None Include="FullSerializer\Converters\Unity.meta" />
-    <None Include="FullSerializer\Converters\Unity\AnimationCurve_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\Bounds_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\Gradient_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\GUIStyleState_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\GUIStyle_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\Keyframe_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\LayerMask_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\RectOffset_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\Rect_DirectConverter.cs.meta" />
-    <None Include="FullSerializer\Converters\Unity\UnityEvent_Converter.cs.meta" />
     <None Include="FullSerializer\fsBaseConverter.cs.meta" />
     <None Include="FullSerializer\fsConfig.cs.meta" />
     <None Include="FullSerializer\fsContext.cs.meta" />
@@ -448,6 +443,9 @@
     <Compile Remove="ViewModel\GameViewModel.cs" />
     <Compile Remove="View\TabPages\GamePage.xaml.cs" />
     <Page Remove="View\TabPages\GamePage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FullSerializer\Aot\Editor\" />
   </ItemGroup>
   <PropertyGroup />
 </Project>

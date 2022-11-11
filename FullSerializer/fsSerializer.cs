@@ -376,10 +376,6 @@ namespace FullSerializer
                 new fsSerializationCallbackProcessor()
             };
 
-#if !NO_UNITY
-            _processors.Add(new fsSerializationCallbackReceiverProcessor());
-#endif
-
             _abstractTypeRemap = new Dictionary<Type, Type>();
             SetDefaultStorageType(typeof(ICollection<>), typeof(List<>));
             SetDefaultStorageType(typeof(IList<>), typeof(List<>));
