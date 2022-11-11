@@ -21,6 +21,7 @@
     <UseWPF>true</UseWPF>
     <Deterministic>false</Deterministic>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>TRACER;NO_UNITY</DefineConstants>
