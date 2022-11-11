@@ -7,9 +7,9 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="ba6afa2d-7851-4cf0-a5c7-1986acb5bebf"
-    Publisher="CN=RW::Software"
-    Version="1.0.7.0" />
+    Name="ede642b3-8f49-4949-836c-d237e66227ad"
+    Publisher="CN=davec"
+    Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>MMSaveEditorInstaller</DisplayName>
