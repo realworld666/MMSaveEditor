@@ -40,7 +40,7 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "installer-test" ]
   pull_request:
     branches: [ "master" ]
 
