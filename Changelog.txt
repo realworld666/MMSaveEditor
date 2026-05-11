@@ -1,4 +1,7 @@
-﻿v1.4
+﻿v1.4.1
+- Added 1.60 as a supported application version
+
+v1.4
 - Editor remembers its size and whether or not it is maximized
 - Added Endurance series parts
 - BUGFIX: Game Crash when swapping drivers from different racing series
